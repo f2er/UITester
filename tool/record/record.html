@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="gbk">
+<title>UI Tester </title>
+
+
+<link rel="stylesheet" type="text/css" href="../../lib/jasmine.css">
+<script src="../../lib/kissy-aio.js"></script>
+<script type="text/javascript" src="./editol/editol.js"></script>
+<link rel="stylesheet" type="text/css" href="./editol/editol.css">
+
+<script src="./postmsg.js"></script>
+<style>
+ul{
+    padding:0;
+    margin:0;
+}
+html{
+    height:100%;
+    overflow:hidden;;
+}
+body{
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;;
+    font-size:12px;
+    background-color:#EEE;
+}
+#page{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    height:100%;
+}
+#nav{
+    border-bottom:solid 1px #cccccc;
+    padding:5px;
+    overflow:hidden;;
+    list-style:none;
+    box-shadow:0px 2px 2px #ccc;
+    position:relative;
+    z-index:100;
+}
+#nav ul{
+    margin:0;
+    padding:0;
+}
+#nav li{
+    list-style:none;
+    float:left;
+    margin-right:20px;
+    line-height:24px;
+}
+#content{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    display:box;
+    box-orient:horizontal;
+}
+
+#content{
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    display:box;
+    box-orient:horizontal;
+}
+#content .sub{
+    width:50px;
+    border:solid 1px #ccc;
+    margin-right:2px;
+    width:0px;
+    overflow:hidden;;
+    display:none;;
+}
+#content .sub a{
+    display:block;;
+    width:30px;
+    height:30px;
+    text-indent:-500px;
+    border:solid 1px red;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#content .main{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    border:solid 1px #ccc;
+    font-size:12px;
+}
+#content .aside{
+    width:200px;
+    border:solid 1px #ccc;
+    margin-left:3px;
+    overflow:auto;
+}
+#content .aside .cfg-item{
+}
+#content .aside .attr{
+    height:20px;
+}
+#content .main .page{
+    height:300px;
+    overflow:hidden;
+}
+#content .main .page iframe{
+    border:none;
+    height:100%;
+    width:100%;
+}
+#content .main  .code{
+    overflow:auto;
+    background:#fff;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    position:relative;
+}
+.code .code-cmd{
+    position:absolute;;
+    top:3px;
+    right:20px;
+}
+.code .code-cmd li{
+    display:inline-block;;
+}
+.code .code-cmd li a{
+    display:inline-block;
+    height:20px;
+    padding:1px 5px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:12px;
+    line-height:16px;
+    text-shadow:0 1px 0 white;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+#save-test{
+    display:inline-block;
+    padding:2px 5px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:12px;
+    line-height:20px;
+    text-shadow:0 1px 0 white;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+    position:absolute; top:5px; right:20px
+}
+.code .code-cmd li a.create-test{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442));;
+}
+.code .code-cmd li.red{
+    color:red;
+}
+
+.code .code-cmd li a{
+    text-decoration:none;
+}
+.tabs{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+}
+.tabs ul{
+    border-bottom:solid 1px #ccc;
+    background-color:#eeeeee;
+}
+.tabs ul li{
+    margin:2px 0px 2px 10px;;
+    border:solid 1px #ccc;
+    padding:2px 5px;
+    display:inline-block;
+    position:relative;
+    overflow:hidden;;
+    padding:0 10px 0 10px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    line-height:20px;
+    text-shadow:0 1px 0 white;
+    font-weight:normal;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+.tabs ul li.ks-active{
+    position:relative;;
+    outline:none;
+    z-index:111;
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442));
+}
+.tabs ul li a{
+    color:#4a4a4a;
+    text-decoration:none;
+}
+
+.tabs .ks-switchable-content{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    display:-moz-box;
+    -moz-box-orient:vertical;
+    display:box;
+    box-orient:vertical;
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+}
+.tabs .test-case, .tabs #test-result{
+    -webkit-box-flex:1;
+    -moz-box-flex:1;
+    box-flex:1;
+}
+.tabs #test-result{
+    display:none;
+}
+
+#content .main  .code-tools a{
+    color:#4A4A4A;
+}
+.configs{
+}
+.configs .hide ul{
+    display:none;
+}
+.configs h3{
+    display:block;
+    margin:0;
+    position:relative;
+    overflow:hidden;;
+    padding:0 10px 0 10px;
+    color:#333;
+    font-family:Helvetica, arial, freesans, clean, sans-serif;
+    font-size:13px;
+    font-weight:bold;
+    line-height:24px;
+    text-shadow:0 1px 0 white;
+    white-space:nowrap;
+    border:1px solid #D4D4D4;
+    border-bottom-color:#BCBCBC;
+    border-radius:3px;
+    background:#FAFAFA;
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    cursor:pointer;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+.configs h3 a.status{
+    position:absolute;
+    top:9px;
+    right:10px;;
+    text-indent:-500px;
+    display:block;
+    width:0px;
+    height:0px;
+    line-height:0;
+    border-width:5px 5px 0 5px;
+    border-style:solid dashed dashed dashed;
+    border-color:#666 transparent transparent transparent;
+    -webkit-transition:-webkit-transform .2s ease-in;
+    cursor:pointer;
+}
+.configs h3 a.start{
+    background-color:#DD4B39;
+}
+.configs h3 a.stop{
+    background-color:#000;
+}
+.configs  ul{
+    margin-left:10px;
+}
+.configs   li{
+    list-style:none;
+}
+.configs h3.active{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442))
+}
+
+.tab1{
+    width:20px;
+    display:inline-block;
+}
+.tab2{
+    width:40px;
+    display:inline-block;
+}
+.tab3{
+    width:60px;
+    display:inline-block;
+}
+#page .text-editor{
+    font-size:12px;
+    top:0px;
+    border:none;
+}
+#page .text-editor .inner-container:focus{
+    outline:none;
+}
+.text-editor-lines{
+    background-color:#F8F8F8;
+}
+.ks-resizable-handler-b{
+    position:absolute;;
+    bottom:0;
+    left:0;
+    background-color:#EEE;
+    height:5px;
+    width:100%;
+    z-index:1000000;
+    cursor:n-resize;
+    border-top:solid 1px #cccccc;
+    border-bottom:solid 1px #ccc;
+}
+
+
+</style>
+</head>
+<body>
+<!-- 测试用例生成器
+ 分为下面几种类型：
+ 1. 效互事件类型
+ 2. 静态布局类型
+ 3. 页面大小
+ 4. 位置
+ 5. 样式
+ 6.可选择自动生成常规测试用例
+ 9.遍历事件自动生成交运
+  。。。。
+-->
+<div id="page">
+    <div id="nav">
+        <form id="save-form" method="post" action="../handle.php">
+            <ul>
+                <li><span class="name">用例名称：<input name="task_name" id="task_name" type="text"></span></li>
+                <li><span>测试页面地址:</span>
+                    <input name="task_target_uri" id="task_target_uri" type="text" value="./testiframe.html"/>
+                    <a id="reload" style="vertical-align:middle;" href="#"><img width="16" src="./img/reload.png"></a>
+                </li>
+                <li>
+                    <span class="show-login">登录信息? </span>
+                   <span class="login-info" style="display:none;">: <span>用户名：</span><input id="username" type="text"/>
+                   <span>密码:</span><input id="password" type="text"></span>
+                </li>
+                <li><input type="hidden" name="task_id"/><textarea style="display:none;" id="task_script"
+                                                                   name="task_script"></textarea></li>
+
+                <li><a href="#" style="" id="save-test">保存</a></li>
+            </ul>
+        </form>
+
+    </div>
+    <div id="content">
+        <div class="sub">
+
+
+        </div>
+        <div class="main">
+            <div class="page">
+                <div id="test-page">
+                    <iframe id="iframe-target" src="./testiframe.html" width="100%"></iframe>
+                </div>
+
+
+            </div>
+            <div class="code">
+                <div class="tabs">
+                    <ul class="ks-switchable-nav">
+                        <li><a href="#">测试用例</a></li>
+                        <li><a href="#">测试结果</a></li>
+                    </ul>
+                    <div class="ks-switchable-content">
+                        <div class="test-case" style="position:relative;">
+
+                            <div id="test-case"></div>
+
+                        </div>
+                        <div id="test-result"></div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="code-cmd">
+                    <ul>
+                        <li>
+                            <span class="has-test-case" style="display:none;"> <a class="create-test">动作完成</a><a
+                                    class="cancel-test" style="">取消</a></span>
+                        </li>
+
+                        <li>
+                            <a href="#" class="run-test">测试</a>
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="aside">
+            <ul class="configs">
+
+
+            </ul>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- 编辑器--->
+
+
+<script src="./core.js" charset="utf-8"></script>
+<script>
+    uitest.outter.init();
+
+</script>
+
+
+</body>
+</html>
