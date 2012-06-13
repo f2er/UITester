@@ -812,7 +812,8 @@
             window.setTimeout(function () {
                 KISSY.Event.on(document, "mouseover", function (e) {
                     var target = e.target;
-                    if(uitest.configs.type !=="null"){
+                    console.log(uitest.configs.type)
+                    if(uitest.configs.caseType&&(uitest.configs.caseType !=="null")){
                         host.outterCall("showMouseoverPanel", [
                             host.elToSelector(target),
                             D.width(target),
