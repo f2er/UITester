@@ -382,9 +382,9 @@
                 nameEl.value = result.task_name;
                 task_target_url_el.value = result.task_target_uri;
 
-                iframe.src = task_target_url_el.value;
-                S.io.get(result.task_inject_uri, function (result) {
-                    host.textEditor.textModel.setText(null, result.responseText)
+                iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
+                S.io.get(result.task_inject_uri, function (xhr) {
+                    host.textEditor.textModel.setText(null, xhr.responseText)
                 })
 
             })
