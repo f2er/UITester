@@ -812,15 +812,19 @@
             window.setTimeout(function () {
                 KISSY.Event.on(document, "mouseover", function (e) {
                     var target = e.target;
+                    if(uitest.configs.type !=="null"){
+                        host.outterCall("showMouseoverPanel", [
+                            host.elToSelector(target),
+                            D.width(target),
+                            D.height(target),
+                            D.offset(target).left- D.scrollLeft(document.body),
+                            D.offset(target).top - D.scrollTop(document.body)
+                        ]
+                        )
 
-                    host.outterCall("showMouseoverPanel", [
-                        host.elToSelector(target),
-                        D.width(target),
-                        D.height(target),
-                        D.offset(target).left- D.scrollLeft(document.body),
-                        D.offset(target).top - D.scrollTop(document.body)
-                    ]
-                    )
+                    }
+
+
 
                 })
             }, 10)
