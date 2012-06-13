@@ -372,27 +372,30 @@
             var task_target_url_el = D.get("#task_target_uri");
             var iframe = D.get("#iframe-target");
 
+            if (location.hash && location.hash.substring(1)) {
 
-            S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php",
-                {task_id:location.hash.substring(1)},
-                function (result) {
-                    idEl.value = result.id;
-                    nameEl.value = result.task_name;
-                    task_target_url_el.value = result.task_target_uri;
+                S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php",
+                    {task_id:location.hash.substring(1)},
+                    function (result) {
+                        idEl.value = result.id;
+                        nameEl.value = result.task_name;
+                        task_target_url_el.value = result.task_target_uri;
 
-                    iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
-                    console.log(iframe.src)
-                    S.io({
-                        url     :result.task_inject_uri,
-                        dataType:"text",
-                        success :function (txt) {
-                            console.log(txt);
-                            host.textEditor.textModel.setText(null, txt)
-                        }
+                        iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
+                        console.log(iframe.src)
+                        S.io({
+                            url     :result.task_inject_uri,
+                            dataType:"text",
+                            success :function (txt) {
+                                console.log(txt);
+                                host.textEditor.textModel.setText(null, txt)
+                            }
+                        })
+
+
                     })
 
-
-                })
+            }
 
 
             /*
