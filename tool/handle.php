@@ -1,3 +1,4 @@
+
 <?php
     // include databse connector
     include_once('conn_db.php');
@@ -6,12 +7,17 @@
     $task_id = $_REQUEST['task_id'];
     $task_name = trim($_REQUEST['task_name']);
     $task_target_uri = trim($_REQUEST['task_target_uri']);
-    $task_inject_uri = trim($_REQUEST['task_inject_uri']);
+    $task_inject_uri = 'case/'.$task_id.'.js';
+    $task_inject_script = $_REQUEST['task_script'];
+    file_put_contents('../'.$task_inject_uri, $task_inject_script);
+
+    //最终保存的位置
+    $task_inject_uri = 'http://uitest.taobao.net/UITester/'.$task_inject_uri;
 
     // modify current record
     if ($modify_tag === 'modify'){
         $sql = '
-            UPDATE list SET 
+            UPDATE list SET
             task_name= "' . $task_name . '",
             task_target_uri= "' . $task_target_uri . '",
             task_inject_uri= "' . $task_inject_uri. '"
