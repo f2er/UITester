@@ -382,11 +382,13 @@
             var nameEl = D.get("#task_name");
             var task_target_url_el = D.get("#task_target_uri");
             var iframe = D.get("#iframe-target");
+            
+            var id = KISSY.unparam(location.search.slice(1)).id;
 
-            if (location.hash && location.hash.substring(1)) {
+            if (id) {
 
                 S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php?t=" + new Date().getTime(),
-                    {task_id:location.hash.substring(1)},
+                    {task_id:id},
 
                     function (result) {
                         idEl.value = result.id;
