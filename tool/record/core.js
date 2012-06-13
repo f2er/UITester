@@ -353,17 +353,13 @@
             //this.styleConfigsView();
             this.innerHTMLConfigsView();
             //   this.subTreeConfigsView();
-
             this.attrConfigsView();
             this.eventConfigsView();
             this.runTestCaseEvent()
             this.createEventTest();
             // this.initForm();
-
-
         },
         initForm:function () {
-
 
         },
         initPage:function () {
