@@ -338,7 +338,7 @@
     }
 
     uitest.outter = {
-        init    :function () {
+        init              :function () {
             var host = this;
             this.codeEditor();
             this.initPage();
@@ -359,9 +359,20 @@
             this.createEventTest();
             // this.initForm();
         },
-        initForm:function () {
+        showMouseoverPanel:function (selector, width, height, left, top) {
+            console.log("123")
+            if (!this.mouseoverPanel) {
+                this.mouseoverPanel = D.get("#test-page").appendChild(D.create('<div class="mouseover-panel"></div>'))
+            }
+            this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div>';
+            this.mouseoverPanel.style.position = "absolute";
+            this.mouseoverPanel.style.width = width + "px";
+            this.mouseoverPanel.style.height = height + "px";
+            this.mouseoverPanel.style.left = left + "px";
+            this.mouseoverPanel.style.top = top + "px";
 
         },
+
         initPage:function () {
             var host = this;
 
@@ -374,7 +385,7 @@
 
             if (location.hash && location.hash.substring(1)) {
 
-                S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php",
+                S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php?t=" + new Date().getTime(),
                     {task_id:location.hash.substring(1)},
 
                     function (result) {
@@ -385,7 +396,7 @@
                         iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
                         console.log(iframe.src)
                         S.io({
-                            url     :result.task_inject_uri,
+                            url     :buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
                             dataType:"text",
                             success :function (txt) {
                                 console.log(txt);
@@ -397,20 +408,6 @@
                     })
 
             }
-
-
-            /*
-             var result = { "id":"7", "task_name":"道璘添加", "task_target_uri":"http://www.taobao.com/", "task_inject_uri":"http://uitest.taobao.net/UITester/case/7.js" }
-
-             idEl.value = result.id;
-             nameEl.value = result.task_name;
-             task_target_url_el.value = result.task_target_uri;
-
-             iframe.src = task_target_url_el.value;
-             host.textEditor.textModel.setText(null, "1231231213132")
-
-
-             */
 
 
             var host = this;
@@ -767,23 +764,23 @@
     }
 
     uitest.inner = {
-        init     :function () {
+        init              :function () {
 
             var host = this;
             this.initProxy();
             this.observeCall();
             this.selectorChangeEvent();
             var warning = true;
-            /*window.onbeforeunload = function () {
-             if (warning) {
-             return '';
-             }
-             }
-             */
+            window.onbeforeunload = function () {
+                if (warning) {
+                    return '';
+                }
+            }
+            this.initMouseoverPanel();
 
 
         },
-        initProxy:function () {
+        initProxy         :function () {
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
                 if (arguments[3]) {
@@ -809,6 +806,24 @@
             })
 
 
+        },
+        initMouseoverPanel:function () {
+            var host = this;
+            window.setTimeout(function () {
+                KISSY.Event.on(document, "mouseover", function (e) {
+                    var target = e.target;
+
+                    host.outterCall("showMouseoverPanel", [
+                        host.elToSelector(target),
+                        D.width(target),
+                        D.height(target),
+                        D.offset(target).left- D.scrollLeft(document.body),
+                        D.offset(target).top - D.scrollTop(document.body)
+                    ]
+                    )
+
+                })
+            }, 10)
         },
 
         createEventTestCase:function () {

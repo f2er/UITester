@@ -63,6 +63,7 @@
 
         var observer = new MutationObserver(function (mutations) {
             if (uitest.configs.caseType != "event")return;
+            if (allEventRecord.length ==0)return;
             allMutationRecords = allMutationRecords.concat(mutations);
             uitest.inner.outterCall("showCreateBtn");
         });
