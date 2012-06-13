@@ -376,6 +376,7 @@
 
                 S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php",
                     {task_id:location.hash.substring(1)},
+
                     function (result) {
                         idEl.value = result.id;
                         nameEl.value = result.task_name;
@@ -794,7 +795,20 @@
                     realAdd.apply(this, arguments)
                 }
 
-            }
+            };
+
+
+            //附上跳转
+
+            KISSY.ready(function () {
+                window.setTimeout(function () {
+                    KISSY.Event.on("a", "click", function (e) {
+                        e.preventDefault();
+                    })
+                }, 10)
+            })
+
+
         },
 
         createEventTestCase:function () {
