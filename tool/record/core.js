@@ -765,7 +765,7 @@
         observeCall   :function () {
             var host = this;
             postmsg.bind(function (data) {
-                console.log("outter obsevecall", data)
+
                 if (data.funName && data.args) {
                     host[data.funName] && host[data.funName].apply(host, data.args)
 
@@ -1070,7 +1070,7 @@
             var host = this;
 
             postmsg.bind(function (data) {
-                console.log("innercall obsevecall", data)
+
 
                 if (data.funName && data.args) {
                     host[data.funName] && host[data.funName].apply(host, data.args)
@@ -1079,7 +1079,7 @@
             })
         },
         outterCall       :function (funName, args) {
-            console.log("outtercall")
+
             args = args || [];
             postmsg.send({
                 target:parent,

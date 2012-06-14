@@ -100,7 +100,7 @@
              *
              */
             var testCase = [];
-
+           console.log(mutations)
 
             uitest.inner.hasSelectorChange(mutations);
 
