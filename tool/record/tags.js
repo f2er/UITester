@@ -5,7 +5,7 @@
     S.ready(function(){
 
         var createTestCase = function (target) {
-            var testCase = 'describe("属性测试用例",function(){\n';
+            var testCase = 'describe("标签存在测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
             testCase += '  it("' + selector + ' to be exist"' + ', function(){\n';
             testCase += '    expect("' + selector + '").toExist();\n';

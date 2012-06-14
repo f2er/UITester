@@ -6,12 +6,12 @@
 
         var createTestCase = function (target) {
 
-            var testCase = 'describe("位置测试用例",function(){\n';
+            var testCase = 'describe("标签位置测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
             var offset = D.offset(target);
 
 
-            testCase += '  it("' + selector + ' has position"' + ', function(){\n';
+            testCase += '  it("' + selector + ' at  position"' + ', function(){\n';
             testCase += '    expect("' + selector + '" ).atPosition(' + offset.left + ',' + offset.top + ', 0.1);\n';
 
             //showMsg(123);
