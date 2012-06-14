@@ -394,6 +394,7 @@
                         idEl.value = result.id;
                         nameEl.value = result.task_name;
                         task_target_url_el.value = result.task_target_uri;
+                        host.innerCall("setBeforeunloadWarning")
 
                         iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
                         console.log(iframe.src)
@@ -450,15 +451,12 @@
             this.codeTabs.switchTo(1);
             var div = this.codeTabs.panels[1];
 
-            var jsonReporter =new jasmine.JsonReporter;
+            var jsonReporter = new jasmine.JsonReporter;
 
-            KISSY.use("template",function(S,Template){
-                div.innerHTML = "<div class='result-report'>"+jsonReporter.renderHTML (result);+"</div>"
+            KISSY.use("template", function (S, Template) {
+                div.innerHTML = "<div class='result-report'>" + jsonReporter.renderHTML(result);
+                +"</div>"
             });
-
-
-
-
 
 
         },
@@ -819,14 +817,22 @@
 
 
             //附上跳转
+            S.ready(function () {
                 E.on(document, "click", function (e) {
                     var target = e.target;
-                    if (target.tagName.toLowerCase() == "a"||D.parent(target, "a")) {
-                        e.preventDefault();
+                    if(uitest.configs.caseType && (uitest.configs.caseType !== "null")){
+                        if (target.tagName.toLowerCase() == "a" || D.parent(target, "a")) {
+                            console.log("preventDefault")
+                            e.preventDefault();
+                        }
+
                     }
+
+
                     // e.halt();
 
                 })
+            })
 
 
         },
