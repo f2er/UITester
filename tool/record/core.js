@@ -819,14 +819,14 @@
 
 
             //附上跳转
-            E.on(document.body, "click", function (e) {
-                var target = e.target;
-                if (target.tagName.toLowerCase() == "a") {
-                    e.preventDefault();
-                }
-                // e.halt();
+                E.on(document, "click", function (e) {
+                    var target = e.target;
+                    if (target.tagName.toLowerCase() == "a"||D.parent(target, "a")) {
+                        e.preventDefault();
+                    }
+                    // e.halt();
 
-            })
+                })
 
 
         },
