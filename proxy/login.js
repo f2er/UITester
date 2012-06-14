@@ -1,11 +1,13 @@
+<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<script src="http://uitest.taobao.net/UITester/proxy/login.js"></script>[daolin@v035023.sqa.cm4 proxy]$ cat login.js 
 //** ***/
 //window.open('https://login.taobao.com/member/login.jhtml?&redirectURL=' + encodeURIComponent(url), '_top')
 document.write('auto login ....')
 
 //
 var redirect_url = location.href;
-var TPL_username = '@username';
-var TPL_password = '@password';
+var TPL_username = task.username;
+var TPL_password = task.password;
 
 var obj = {
 //      "ua":"Mx0xMjczHTo7NR0xMjczHTEzMjsdMTI3Mx01NTukpA==|rTcdEBCk|rTUdEBCk|rTExHa0QnbOzu7g2Hh6VlpKflByzm5aYm5YcmpaXHpeTl5iTuh6VlpKflBycnbOXlTy6k5GfupOas6CrhD2ds7O7GzCKGzKBGzKBnxyzm5aYm5YcmpaXGzKBl72ls5uWmJuWHJ2zlxAdEBCkpA==|rTEyHRCVlpKflBCk|rTEzHRCtOTE6ODEdphAxMDA4OTg1ODs3MzM7tzMcMTA3NzsyODcxOTszMzM6O6YQHTGkEKQ=|rTEwHa0QoZ+UkZawuBGuqhAdEKGOhRExMR0yHTIzMh0yMDkQpKQ=|rTodrRAQHTEyMB0zHTAxNzikpA==|rTsdrRCNpaOfuJ+zlrqin7u4pTEQHTgyMh07MzAdMTo5MDWkpA==|rTkdrRCiqoSlu5u4uLCWupGlMRAdrTczMh0yMjOkHTIdEBAdMTgwMDGkpA==|rTgdrRCiqoSlu5u4uLCWupGlMRAdMR0xODAwMKSk|rTgdrRCiqoSlu5u4uLCWupGlMRAdMR0xODA7OKSk|rTgdrRCiqoSlu5u4uLCWupGlMRAdMR0xODA7N6Sk|rTgdrRCiqoSlu5u4uLCWupGlMRAdMx0xNzIwOKSk|rTgdrRCiqoSlu5u4uLCWupGlMRAdMx0xNzIwN6Sk",
