@@ -382,7 +382,7 @@
             var nameEl = D.get("#task_name");
             var task_target_url_el = D.get("#task_target_uri");
             var iframe = D.get("#iframe-target");
-            
+
             var id = KISSY.unparam(location.search.slice(1)).id;
 
             if (id) {
@@ -425,11 +425,13 @@
             })
 
             E.on("#save-test", "click", function () {
+                host.innerCall("setBeforeunloadWarning")
                 D.get("#task_script").value = host.textEditor.textModel.text;
                 D.get('#save-form').submit();
             })
 
             E.on("#reload", "click", function () {
+                host.innerCall("setBeforeunloadWarning")
                 E.detach(iframe, "load");
                 iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
             })
@@ -447,11 +449,23 @@
         showResult         :function (result) {
             this.codeTabs.switchTo(1);
             var div = this.codeTabs.panels[1];
-            div.innerHTML = JSON.stringify(result)
+
+            var jsonReporter =new jasmine.JsonReporter;
+
+            KISSY.use("template",function(S,Template){
+                div.innerHTML = "<div class='result-report'>"+jsonReporter.renderHTML (result);+"</div>"
+            });
+
+
+
+
+
+
         },
         runTestCaseEvent   :function () {
             var host = this;
             E.on(".run-test", "click", function (e) {
+                host.innerCall("setBeforeunloadWarning")
                 var iframe = D.get("#iframe-target");
                 E.detach(iframe, "load");
                 E.on(iframe, "load", function () {
@@ -735,6 +749,7 @@
 
         },
         appendCaseCode:function (src) {
+            this.codeTabs.switchTo(0);
 
             this.textEditor.textModel.appendText(src)
             var lines = D.query(".webkit-line-content");
@@ -766,23 +781,29 @@
     }
 
     uitest.inner = {
-        init              :function () {
+        init                  :function () {
 
             var host = this;
             this.initProxy();
             this.observeCall();
             this.selectorChangeEvent();
-            var warning = true;
+            this.beforeunloadWarning = true;
             window.onbeforeunload = function () {
-                if (warning) {
+                if (host.beforeunloadWarning) {
                     return '';
+                }
+                else {
+                    host.beforeunloadWarning = true;
                 }
             }
             this.initMouseoverPanel();
 
 
         },
-        initProxy         :function () {
+        setBeforeunloadWarning:function () {
+            this.beforeunloadWarning = false;
+        },
+        initProxy             :function () {
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
                 if (arguments[3]) {
@@ -798,35 +819,49 @@
 
 
             //附上跳转
+            E.on(document.body, "click", function (e) {
+                var target = e.target;
+                if (target.tagName.toLowerCase() == "a") {
+                    e.preventDefault();
+                }
+                // e.halt();
 
-            KISSY.ready(function () {
-                window.setTimeout(function () {
-                    KISSY.Event.on("a", "click", function (e) {
-                        e.preventDefault();
-                    })
-                }, 10)
             })
 
 
         },
-        initMouseoverPanel:function () {
+        initMouseoverPanel    :function () {
             var host = this;
             window.setTimeout(function () {
                 KISSY.Event.on(document, "mouseover", function (e) {
                     var target = e.target;
                     console.log(uitest.configs.type)
-                    if(uitest.configs.caseType&&(uitest.configs.caseType !=="null")){
+                    if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         host.outterCall("showMouseoverPanel", [
                             host.elToSelector(target),
                             D.width(target),
                             D.height(target),
-                            D.offset(target).left- D.scrollLeft(document.body),
+                            D.offset(target).left - D.scrollLeft(document.body),
                             D.offset(target).top - D.scrollTop(document.body)
                         ]
                         )
 
                     }
 
+
+                })
+
+                KISSY.Event.on(document, "mouseleave", function (e) {
+                    console.log(345)
+
+                    host.outterCall("showMouseoverPanel", [
+                        "",
+                        0,
+                        0,
+                        -999,
+                        -999
+                    ]
+                    )
 
 
                 })
@@ -1041,5 +1076,4 @@
     }
 
 
-})
-    ();
+})();
