@@ -34,15 +34,11 @@
             (function (type) {
 
                 document.body.addEventListener(type, function (e) {
-
                     start = true;
-
-
                     if (uitest.configs.caseType != "event")return;
-
                     if (!uitest.configs.events[type])return;
-
-
+                    //每次只记录一次有效动作，其它动作忽略
+                   // if (allMutationRecords.length > 0)return;
                     if (validEvent(e.target, e.type)) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
@@ -63,9 +59,11 @@
 
         var observer = new MutationObserver(function (mutations) {
             if (uitest.configs.caseType != "event")return;
-            if (allEventRecord.length ==0)return;
-            allMutationRecords = allMutationRecords.concat(mutations);
-            uitest.inner.outterCall("showCreateBtn");
+            if (allEventRecord.length == 0)return;
+            window.setTimeout(function () {
+                allMutationRecords = allMutationRecords.concat(mutations);
+                uitest.inner.outterCall("showCreateBtn");
+            }, 0)
         });
 
         observer.observe(document, {
@@ -99,7 +97,6 @@
              * 多次修改同一个属性
              * 添加多个相同的标签
              * 添加之后立即删除
-             *
              *
              */
             var testCase = [];

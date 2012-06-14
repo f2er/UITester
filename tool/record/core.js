@@ -362,7 +362,8 @@
         showMouseoverPanel:function (selector, width, height, left, top) {
             console.log("123")
             if (!this.mouseoverPanel) {
-                this.mouseoverPanel = D.get("#test-page").appendChild(D.create('<div class="mouseover-panel"></div>'))
+                this.mouseoverPanel = D.create('<div class="mouseover-panel"></div>');
+                D.get("#test-page").appendChild(this.mouseoverPanel);
             }
             this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div>';
             this.mouseoverPanel.style.position = "absolute";
@@ -479,10 +480,16 @@
             })
         },
         showCreateBtn      :function () {
+            if (!this.actionMask) {
+                this.actionMask = D.create('<div class="action-mask"></div>');
+                D.get("#test-page").appendChild(this.actionMask)
+            }
+            this.actionMask.style.display = "block";
             D.get(".has-test-case").style.display = "inline-block"
         },
         hideCreateBtn      :function () {
             D.get(".has-test-case").style.display = "none"
+            this.actionMask.style.display = "none";
         },
         createEventTest    :function () {
             var host = this;
@@ -820,7 +827,7 @@
             S.ready(function () {
                 E.on(document, "click", function (e) {
                     var target = e.target;
-                    if(uitest.configs.caseType && (uitest.configs.caseType !== "null")){
+                    if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         if (target.tagName.toLowerCase() == "a" || D.parent(target, "a")) {
                             console.log("preventDefault")
                             e.preventDefault();
