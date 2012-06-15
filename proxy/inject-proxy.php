@@ -25,13 +25,14 @@
         if (!isset($type)) {
                 $type = 'run';
         }
-        if(strpos($ret, '/apps/login/static/logo.png') != false) {
+        $taskid = $_GET['inject-taskid'];
+        if (isset($taskid)) {
+                $task = queryTask($taskid);
+        }
+        if(strpos($ret, '¼ì²âµ½ÄúÒÑ¾­µÇÂ¼µÄÌÔ±¦ÕËºÅ') != false) {
+                echo "<script>var username='".$task['username']."'; var password = '".$task['password']."';</script>";
                 $type = 'login';
         }
-        $taskid = $_GET['inject-taskid'];
-		if (isset($taskid)) {
-	        $task = queryTask($taskid);
-		}
         $placeholder = $ret;
 
         //äÖÈ¾Ä£°å
