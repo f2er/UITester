@@ -1,9 +1,9 @@
 (function () {
     //重置setTimeout,setInterval
     // ajax等异步方法
-    var S = KISSY, D = S.DOM, E = S.Event;
 
-    S.ready(function () {
+
+    $(document).ready(function () {
 
         var allMutationRecords = [];
 
@@ -44,7 +44,7 @@
             testCase += '  it("' + selector + ' has attribute"' + ', function(){\n';
 
 
-            testCase += '    var target = KISSY.DOM.get("' + selector + '");\n';
+            testCase += '    var target = $("' + selector + '").get(0);\n';
             for (var i = 0; i < attrs.length; i++) {
 
 
@@ -97,7 +97,7 @@
 
 
         //事件类型
-        E.on(document.body, "click", function (e) {
+        $(document.body).on("click", function (e) {
 
             if (uitest.configs.caseType == "attr") {
                 var target = e.target;

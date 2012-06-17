@@ -2,8 +2,7 @@
 
 
 
-<script src="http://a.tbcdn.cn/s/kissy/1.2.0//kissy-aio.js"></script>
-<script src="http://a.tbcdn.cn/s/kissy/1.1.6/sizzle/sizzle-pkg.js"></script>
+<script src="http://uitest.taobao.net/UITester/lib/jquery-1.7.2.min.js"></script>
 <script src="http://uitest.taobao.net/UITester/lib/jasmine.js"></script>
 <script src="http://uitest.taobao.net/UITester/lib/jasmine-html.js"></script>
 <script src="http://uitest.taobao.net/UITester/lib/event-simulate.js"></script>

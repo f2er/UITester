@@ -1,9 +1,9 @@
 ﻿(function () {
     //重置setTimeout,setInterval
     // ajax等异步方法
-    KISSY.ready(function(){
+    $(document).ready(function () {
 
-        var S = KISSY, D = S.DOM, E = S.Event;
+
 
 
         var createTestCase = function (target) {
@@ -37,7 +37,7 @@
 
 
         //事件类型
-        E.on(document.body, "click", function (e) {
+        $(document.body).on("click", function (e) {
             if (uitest.configs.caseType == "innerhtml") {
                 var target = e.target;
                 window.setTimeout(function () {

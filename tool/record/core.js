@@ -1,7 +1,8 @@
 (function () {
     //重置setTimeout,setInterval
     // ajax等异步方法
-    var S = KISSY, D = S.DOM, E = S.Event;
+
+
     var buildUrl = function () {
 
         var args = Array.prototype.slice.call(arguments);
@@ -17,6 +18,35 @@
         return uri + args.join('&').replace(/&+/g, '&');
 
     }
+
+    var unparam = function (str) {
+        if (typeof str !== 'string'
+            || (str = str.trim()).length === 0) {
+            return {};
+        }
+        var sep = "&";
+        var eq = "=";
+        var ret = {},
+            pairs = str.split(sep),
+            pair, key, val,
+            i = 0, len = pairs.length;
+
+        for (; i < len; ++i) {
+            pair = pairs[i].split(eq);
+            key = decodeURIComponent(pair[0]);
+            try {
+                val = decodeURIComponent(pair[1] || "");
+            } catch (e) {
+
+                val = pair[1] || "";
+            }
+
+
+            ret[key] = val;
+
+        }
+        return ret;
+    };
 
     window.uitest = {};
     uitest.jsonPath = function (obj, expr, arg) {
@@ -121,6 +151,7 @@
     }
 
     uitest.configs = {
+        showSelectMark:false,
         caseType:"null",
         events  :{
             // mouse events supported
@@ -148,7 +179,15 @@
 
         },
         tags    :{
-
+            all:{value:1, label:"所有标签"},
+            a:{value:1, label:"a"}
+        },
+        position:{
+          offset:{
+              value:0,
+              select:[0,0.1,0.2,0.5]
+          },
+          relatedNode:"html"
         },
         attrs   :{
             "globalAttributes":{
@@ -336,6 +375,10 @@
 
         }
     }
+     uitest.synConfigs = function(){
+         uitest.outter.innerCall("setAllConfigs",[uitest.configs])
+
+     }
 
     uitest.outter = {
         init              :function () {
@@ -343,27 +386,43 @@
             this.codeEditor();
             this.initPage();
             this.observeCall();
-
             this.layout();
             this.initTabs();
             this.caseTypeEvent();
             this.tagsConfigsView();
             this.positionConfigsView();
-            // this.centerConfigsView();
+            //this.centerConfigsView();
             //this.styleConfigsView();
             this.innerHTMLConfigsView();
-            //   this.subTreeConfigsView();
+            //this.subTreeConfigsView();
             this.attrConfigsView();
             this.eventConfigsView();
             this.runTestCaseEvent()
             this.createEventTest();
+            this.showSelectMarkEvent();
             // this.initForm();
+        },
+        showSelectMarkEvent:function(){
+            $("#show-select-mark").click(function(){
+               if(!uitest.configs.showSelectMark){
+                   $("#show-select-mark").css("color","red")
+                   uitest.configs.showSelectMark=true;
+                   
+               }
+                else{
+                   $("#show-select-mark").css("color","")
+                   uitest.configs.showSelectMark=false;
+               }
+                
+                uitest.synConfigs();
+            })
+
         },
         showMouseoverPanel:function (selector, width, height, left, top) {
             console.log("123")
             if (!this.mouseoverPanel) {
-                this.mouseoverPanel = D.create('<div class="mouseover-panel"></div>');
-                D.get("#test-page").appendChild(this.mouseoverPanel);
+                this.mouseoverPanel = $('<div class="mouseover-panel"></div>').get(0);
+                $("#test-page").get(0).appendChild(this.mouseoverPanel);
             }
             this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div>';
             this.mouseoverPanel.style.position = "absolute";
@@ -379,16 +438,16 @@
 
             // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
 
-            var idEl = D.get("#task_id");
-            var nameEl = D.get("#task_name");
-            var task_target_url_el = D.get("#task_target_uri");
-            var iframe = D.get("#iframe-target");
+            var idEl = $("#task_id")[0];
+            var nameEl = $("#task_name")[0];
+            var task_target_url_el = $("#task_target_uri")[0];
+            var iframe = $("#iframe-target")[0];
 
-            var id = KISSY.unparam(location.search.slice(1)).id;
+            var id = unparam(location.search.slice(1)).id;
 
             if (id) {
 
-                S.io.getJSON("http://uitest.taobao.net/UITester/tool/query.php?t=" + new Date().getTime(),
+                $.getJSON("http://uitest.taobao.net/UITester/tool/query.php?t=" + new Date().getTime(),
                     {task_id:id},
 
                     function (result) {
@@ -399,7 +458,7 @@
 
                         iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
                         console.log(iframe.src)
-                        S.io({
+                        $.ajax({
                             url     :buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
                             dataType:"text",
                             success :function (txt) {
@@ -415,8 +474,8 @@
 
 
             var host = this;
-            E.on(".show-login", "click", function () {
-                var t = D.get(".login-info");
+            $(".show-login").click(function () {
+                var t = $(".login-info")[0];
 
                 if (t.style.display === "none") {
                     t.style.display = "inline"
@@ -426,15 +485,15 @@
                 }
             })
 
-            E.on("#save-test", "click", function () {
+            $("#save-test").on("click", function () {
                 host.innerCall("setBeforeunloadWarning")
-                D.get("#task_script").value = host.textEditor.textModel.text;
-                D.get('#save-form').submit();
+                $("#task_script")[0].value = host.textEditor.textModel.text;
+                $('#save-form')[0].submit();
             })
 
-            E.on("#reload", "click", function () {
+            $("#reload").on("click", function () {
                 host.innerCall("setBeforeunloadWarning")
-                E.detach(iframe, "load");
+                $(iframe).unbind("load");
                 iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
             })
 
@@ -442,7 +501,7 @@
         },
 
         initTabs           :function () {
-            this.codeTabs = new S.Tabs('.tabs', {
+            this.codeTabs = new KISSY.Tabs('.tabs', {
                 // aria:false 默认 true，支持 aria
                 switchTo   :0,
                 triggerType:"click"
@@ -463,50 +522,43 @@
         },
         runTestCaseEvent   :function () {
             var host = this;
-            E.on(".run-test", "click", function (e) {
+            $(".run-test").on("click", function (e) {
                 host.innerCall("setBeforeunloadWarning")
-                var iframe = D.get("#iframe-target");
-                E.detach(iframe, "load");
-                E.on(iframe, "load", function () {
+                var iframe = $("#iframe-target")[0];
+                $(iframe).unbind("load");
+                $(iframe).on("load", function () {
                     console.log(e)
                     window.setTimeout(function () {
                         host.innerCall("runTestCase", [host.textEditor.textModel.text])
                     }, 2000)
                 })
-
                 iframe.src = iframe.src;
-
-
             })
         },
         showCreateBtn      :function () {
             if (!this.actionMask) {
-                this.actionMask = D.create('<div class="action-mask"></div>');
-                D.get("#test-page").appendChild(this.actionMask)
+                this.actionMask = $('<div class="action-mask"></div>')[0];
+                $("#test-page")[0].appendChild(this.actionMask)
             }
             this.actionMask.style.display = "block";
-            D.get(".has-test-case").style.display = "inline-block"
+            $(".has-test-case")[0].style.display = "inline-block"
         },
         hideCreateBtn      :function () {
-            D.get(".has-test-case").style.display = "none"
+            $(".has-test-case")[0].style.display = "none"
             this.actionMask.style.display = "none";
         },
         createEventTest    :function () {
             var host = this;
-            E.on(".create-test", "click", function () {
+            $(".create-test").on("click", function () {
                 host.innerCall("createEventTypeTestCase")
-
             })
-            E.on(".cancel-test", "click", function () {
+            $(".cancel-test").on("click", function () {
                 host.innerCall("removeEventTypeTestCase")
-
             })
-
-
         },
         eventConfigsView   :function () {
             var host = this;
-            var configs = D.get(".configs");
+            var configs = $(".configs")[0];
             var html = '<li class="cfg-item hide"><h3 class="tag" title="交互动作测试用例" data-type="event">事件<a class="status">记录</a></h3><ul>';
 
             for (var p in uitest.configs.events) {
@@ -518,12 +570,12 @@
                 html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
             }
             html += '</ul></li>';
-            var e = D.create(html);
+            var e = $(html)[0];
 
             configs.appendChild(e);
-            var inputs = D.query("input", e);
+            var inputs = $("input", e);
             inputs.each(function (input) {
-                E.on(input, "change", function (e) {
+                $(input).on("change", function (e) {
                         var t = e.target;
                         if (t.checked) {
                             uitest.configs.events[t.value] = 1
@@ -544,129 +596,113 @@
         },
         tagsConfigsView    :function () {
             var host = this;
-            var configs = D.get(".configs");
-            var html = '<li class="cfg-item hide"><h3 class="event" title="标签存在测试用例" data-type="tags">标签<a class="status">记录</a></h3><ul>';
+            var configs = document.querySelector(".configs");
+            var tools = document.querySelector(".change-tools");
+            var html = '<li class="cfg-item hide"><h3 class="event" title="标签存在测试用例" data-type="tags">标签<a class="status">记录</a></h3></li>';
 
-            for (var p in uitest.configs.tags) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
 
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
-            }
-            html += '</ul></li>';
-            var e = D.create(html);
-
+            var e = $(html)[0];
             configs.appendChild(e);
+/*
+            var configHtml = '<li id="configs-tags" style="display:none"><label>标签：<select>'
+          //  configHtml += '<optgroup label="242">'
+            for (var p in uitest.configs.tags) {
+                configHtml += '<option value="'+p+'">'+uitest.configs.tags[p].label+'</option>'
+            }
+           // configHtml += '</optgroup>'
+            configHtml += '</select></label></li>';
+
+            tools.appendChild($(configHtml)[0])
+
+
+*/
 
 
         },
         positionConfigsView:function () {
             var host = this;
-            var configs = D.get(".configs");
-            var html = '<li class="cfg-item hide"><h3 class="" title="坐标位置测试用例" data-type="position">位置<a class="status">记录</a></h3><ul>';
+            var configs = $(".configs")[0];
+            var tools = document.querySelector(".change-tools");
+            var html = '<li class="cfg-item hide"><h3 class="" title="坐标位置测试用例" data-type="position">位置<a class="status">记录</a></h3></li>';
 
-            for (var p in uitest.configs.tags) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
-
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
-            }
-            html += '</ul></li>';
-            var e = D.create(html);
+            var e = $(html)[0];
 
             configs.appendChild(e);
+            //offset
 
+            var offsetHTML = '<li style="display:none" id="configs-position">' +
+                '<label>偏移量：<select>' +
+                '{{#each offset.select as value index}}' +
+                '<option value="{{value}}">{{value}}</option>' +
+                '{{/each}}' +
+                '</select></label>' +
+                '<laber>相对于：<input id="related-node" type="text"  value="{{relatedNode}}"/><a href="#" id="select-related-node">选择</a></laber>' +
+                '' +
+                '</li>'
+
+
+            offsetHTML  = KISSY.Template(offsetHTML).render(uitest.configs.position);
+
+            console.log(offsetHTML)
+
+
+             var tag = $(offsetHTML)[0];
+
+            tools.appendChild(tag);
+            $("select",tag).change(function(e){
+               uitest.configs.position.offset.value = $("select",tag).val();
+
+                host.innerCall("setAllConfigs",[uitest.configs])
+
+            })
+
+
+        $("#select-related-node").click(function(){
+             uitest.configs.caseType = "select-related-node";
+            $("#select-related-node").css("color","red");
+
+             uitest.synConfigs()
+
+
+        })
+
+
+
+        },
+        setSelectRelatedNode :function(selector){
+            uitest.configs.position.relatedNode = selector;
+            $("#related-node").val(selector);
+            $("#select-related-node").css("color","");
+
+          //  uitest.synConfigs()
 
         },
 
         centerConfigsView   :function () {
-            var host = this;
-            var configs = D.get(".configs");
-            var html = '<li class="cfg-item hide"><h3 class="" title="位置居中测试用例" data-type="center">居中<a class="status">记录</a></h3><ul>';
 
-            for (var p in uitest.configs.tags) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
-
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
-            }
-            html += '</ul></li>';
-            var e = D.create(html);
-
-            configs.appendChild(e);
 
         },
         styleConfigsView    :function () {
-            var host = this;
-            var configs = D.get(".configs");
-            var html = '<li class="cfg-item hide"><h3 class="" title="样式测试用例" data-type="style">样式<a class="status">记录</a></h3><ul>';
-
-            for (var p in uitest.configs.tags) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
-
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
-            }
-            html += '</ul></li>';
-            var e = D.create(html);
-
-            configs.appendChild(e);
 
 
         },
         innerHTMLConfigsView:function () {
             var host = this;
-            var configs = D.get(".configs");
-            var html = '<li class="cfg-item hide"><h3 class="" title="innerHTML测试用例" data-type="innerhtml">内容<a class="status">记录</a></h3><ul>';
+            var configs = $(".configs")[0];
+            var tools = document.querySelector(".change-tools");
+            var html = '<li class="cfg-item hide"><h3 class="" title="标签测试用例" data-type="innerhtml">内容<a class="status">记录</a></h3></li>';
 
-            for (var p in uitest.configs.tags) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
-
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
-            }
-            html += '</ul></li>';
-            var e = D.create(html);
+            var e = $(html)[0];
 
             configs.appendChild(e);
-
 
         },
         subTreeConfigsView  :function () {
-            var host = this;
-            var configs = D.get(".configs");
-            var html = '<li class="cfg-item hide"><h3 class="" title="dom树结构测试用例" data-type="subtree">结构<a class="status">记录</a></h3><ul>';
-
-            for (var p in uitest.configs.tags) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
-
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
-            }
-            html += '</ul></li>';
-            var e = D.create(html);
-
-            configs.appendChild(e);
-
 
         },
         attrConfigsView     :function () {
             var host = this;
-            var configs = D.get(".configs");
-
-
+            var configs = $(".configs")[0];
             var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试用例" data-type="attr">属性<a class="status">记录</a></h3><ul>' +
                 '{{#each attrs as bValue bKey}}' +
                 '<li class="{{bKey}}"><label><input   type="checkbox" checked /> {{bKey}}</label><ul>' +
@@ -679,7 +715,7 @@
 
             KISSY.use("template", function (S, Template) {
                 html = Template(html).render(uitest.configs);
-                var e = D.create(html);
+                var e = $(html)[0];
 
                 configs.appendChild(e);
 
@@ -689,41 +725,52 @@
         },
         caseTypeEvent       :function () {
             var host = this;
-            E.delegate(".configs", "click", "h3", function (e) {
+            $(".configs").on("click", function (e) {
+
                 var target = e.target;
                 if (e.target.tagName.toLowerCase() !== "h3")   return;
 
 
-                if (D.hasClass(target, "active")) {
+                if ($(target).hasClass("active")) {
 
                     host.innerCall("setConfig", ["caseType", "null"])
-                    D.removeClass(target, "active");
+                    $(target).removeClass("active");
                     return;
                 }
                 else {
-                    var all = D.query("h3", ".configs");
+                    var all = $("h3", ".configs");
                     for (var i = 0; i < all.length; i++) {
-                        D.removeClass(all[i], "active");
+                        $(all[i]).removeClass("active");
                     }
 
-                    D.addClass(target, 'active');
-                    caseTest = D.attr(target, "data-type");
+                    $(target).addClass('active');
+                    caseTest = $(target).attr("data-type");
 
-                    host.innerCall("setConfig", ["caseType", caseTest])
+
+
+
+                    uitest.configs.caseType = caseTest;
+                    host.showConfigs(caseTest);
+                    host.innerCall("setAllConfigs", [ uitest.configs])
 
                 }
 
             })
 
-            E.delegate(".configs", "click", ".status", function (e) {
+            $(".configs").delegate("click", ".status", function (e) {
                 e.halt();
-
-                var target = D.parent(e.target, "li")
-                console.log(target)
-                D.toggleClass(target, "hide")
+                var target = $(e.target).parent("li")
+                $(target).toggleClass("hide")
 
 
             })
+
+        },
+        showConfigs:function(type){
+            var changeConfig = $(".change-tools li");
+            changeConfig.hide();
+            $("#configs-"+type).show();
+
 
         },
 
@@ -733,6 +780,13 @@
                     node    :".page",
                     // 指定可拖动的位置
                     handlers:["b"]
+
+
+                });
+                var r = new Resizable({
+                    node    :".sub",
+                    // 指定可拖动的位置
+                    handlers:["r"]
 
 
                 });
@@ -757,9 +811,12 @@
             this.codeTabs.switchTo(0);
 
             this.textEditor.textModel.appendText(src)
-            var lines = D.query(".webkit-line-content");
+            var lines = $(".webkit-line-content");
             var lastLines = lines[lines.length - 1];
             lastLines.scrollIntoView()
+
+        },
+        synConfigs:function(){
 
         },
         observeCall   :function () {
@@ -776,9 +833,13 @@
             args = args || [];
             console.log("innerCall", funName, args)
             postmsg.send({
-                target:D.get("#iframe-target").contentWindow,
+                target:$("#iframe-target")[0].contentWindow,
                 data  :{funName:funName, args:args}
             })
+        },
+        setAllConfigs:function(configs){
+            uitest.configs  = configs;
+
         }
 
 
@@ -805,6 +866,7 @@
 
 
         },
+
         setBeforeunloadWarning:function () {
             this.beforeunloadWarning = false;
         },
@@ -824,11 +886,11 @@
 
 
             //附上跳转
-            S.ready(function () {
-                E.on(document, "click", function (e) {
+            $(document).ready(function () {
+                $(document).on("click", function (e) {
                     var target = e.target;
                     if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
-                        if (target.tagName.toLowerCase() == "a" || D.parent(target, "a")) {
+                        if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
                             console.log("preventDefault")
                             e.preventDefault();
                         }
@@ -848,14 +910,15 @@
             window.setTimeout(function () {
                 KISSY.Event.on(document, "mouseover", function (e) {
                     var target = e.target;
-                    console.log(uitest.configs.type)
-                    if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
+
+                    if (uitest.configs.showSelectMark) {
+
                         host.outterCall("showMouseoverPanel", [
                             host.elToSelector(target),
-                            D.width(target),
-                            D.height(target),
-                            D.offset(target).left - D.scrollLeft(document.body),
-                            D.offset(target).top - D.scrollTop(document.body)
+                            $(target).width(),
+                            $(target).height(),
+                            $(target).offset().left - $(document.body).scrollLeft(),
+                            $(target).offset().top - $(document.body).scrollTop()
                         ]
                         )
 
@@ -922,6 +985,10 @@
             uitest.configs[name][key] = value;
             console.log(uitest.configs[name][key])
         },
+        setAllConfigs:function(configs){
+            uitest.configs  = configs;
+            console.log(uitest.configs )
+        },
         _getHasClassParent :function (node) {
             var parent = el.parentNode;
 
@@ -954,15 +1021,15 @@
             }
 
             //可能已经被删除
-            if (!D.parent(el))return selector;
+            if (!el.parentNode)return selector;
 
 
             var old;
             var p = el;
 
             while (true) {
-                p = D.parent(p);
-                var l = D.query(selector, p).length;
+                p = p.parentNode;
+                var l = $(selector, p).length;
                 if (l == 1) {
                     old = p;
                 } else {
@@ -976,8 +1043,8 @@
 
 
             if (!old) {
-                old = D.parent(el);
-                var c = D.query(selector, old);
+                old = el.parentNode;
+                var c = $(selector, old);
                 for (var i = 0; i < c.length; i++) {
                     if (c[i] == el) {
                         break;
@@ -1065,6 +1132,9 @@
                 }
             }
 
+        },
+        synOutterConfigs:function(){
+           this.outterCall("setAllConfigs",[uitest.configs])
         },
         observeCall      :function () {
             var host = this;

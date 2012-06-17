@@ -4,8 +4,9 @@
 
     //重置setTimeout,setInterval
     // ajax等异步方法
-    var S = KISSY, D = S.DOM, E = S.Event;
-    S.ready(function () {
+    
+
+    $(document).ready(function () {
         var start = false;
 
 
@@ -43,7 +44,7 @@
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-                        allEventRecord.push(S.merge({}, e));
+                        allEventRecord.push($.extend({}, e));
                     }
 
                 }, true, true)
@@ -148,7 +149,7 @@
 
                     if (!oldValue && newValue && !/\d+/.test(newValue)) {
 
-                        if (D.attr(mutation.target, mutation.attributeName) === newValue) {
+                        if ($(mutation.target).attr(mutation.attributeName) === newValue) {
 
                             var expect = 'expect("' + selector + '").willAddAttr("' + mutation.attributeName + '","' + newValue + '");\n'
                             if (!hasRecords(expect)) {
@@ -162,7 +163,7 @@
                     }
 
                     if (oldValue && !newValue && !/\d+/.test(oldValue)) {
-                        if (!D.hasAttr(mutation.target, mutation.attributeName)) {
+                        if (!$(mutation.target).hasAttr( mutation.attributeName)) {
 
                             var expect = 'expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '","' + oldValue + '");\n'
                             if (!hasRecords(expect)) {
@@ -175,7 +176,7 @@
                     }
 
                     if (oldValue && newValue && !/\d+/.test(newValue)) {
-                        if (D.attr(mutation.target, mutation.attributeName) === newValue) {
+                        if ($(mutation.target).attr( mutation.attributeName) === newValue) {
 
 
                             var expect = 'expect("' + selector + '").willModifyAttr("' + mutation.attributeName + '","' + newValue + '");\n'
@@ -318,7 +319,7 @@
                     keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';
                 }
                 if (allEventRecord[i].type === "change") {
-                    testCase += '    KISSY.DOM.get("' + selector + '").value = ' + allEventRecord[i].changeValue + '\n';
+                    testCase += '    $("' + selector + '")[0].value = ' + allEventRecord[i].changeValue + '\n';
                 }
                 testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
             }
