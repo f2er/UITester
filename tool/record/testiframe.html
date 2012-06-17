@@ -5,8 +5,6 @@
     <title>UI Tester </title>
 
 
-
-
     <script src="./postmsg.js"></script>
     <script src="../../lib/jquery-1.7.2.min.js"></script>
     <script src="../../lib/kissy-aio.js"></script>
@@ -53,6 +51,7 @@
     <ul>
         <li><a href="#" onclick="addAttr(this)">addAttr</a></li>
         <li><a href="#" onclick="clickRemove(this)">clickRemove</a></li>
+        <li><a href="#" id="stop-event">stop-event</a></li>
         <li><a href="#" onclick="removeAttr(this)" class="13 red">removeAttr</a></li>
         <li><a href="#" onclick="changeAttr(this)" class="blue">changeAttr</a></li>
         <li><a href="#" onclick="changeStyle(this)" class="blue">changeStyle</a></li>
@@ -84,8 +83,13 @@
         var addAttr = function (el) {
             D.addClass(el, "name")
         }
+        document.getElementById("stop-event").addEventListener("click", function (e) {
+            e.stopPropagation();
+            e.target.className = "qwwe"
+        })
 
         var clickRemove = function (el) {
+
             D.remove(el);
         }
         var removeAttr = function (el) {
@@ -185,7 +189,6 @@
 
 </script>
 -->
-
 
 
 </body>

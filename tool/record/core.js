@@ -924,6 +924,14 @@
                 el._elToSelector = host.elToSelector(el);
                return  removeChild.apply(this,arguments)
             }
+                
+            var stopPropagation =window.Event.prototype.stopPropagation;
+
+            window.Event.prototype.stopPropagation = function(){
+                window.stopPropagationProxy&&window.stopPropagationProxy(this);
+                stopPropagation.apply(this,arguments);
+            }
+
 
 
             //附上跳转

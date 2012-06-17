@@ -34,6 +34,8 @@
 
             (function (type) {
 
+
+
                 document.body.addEventListener(type, function (e) {
                     start = true;
                     if (uitest.configs.caseType != "event")return;
@@ -47,6 +49,20 @@
                     }
 
                 }, true, true)
+                window.stopPropagationProxy = function(e){
+                    console.log("stopPropagationProxy")
+                    if (uitest.configs.caseType != "event")return;
+                    if (!uitest.configs.events[type])return;
+                    if(actionLock)return;
+                    if (validEvent(e.target, e.type)) {
+                        if (e.type == "change") {
+                            e.changeValue = e.target.value;
+                        }
+                        allEventRecord.push($.extend({}, e));
+                    }
+                }
+                    
+                    
             })(p);
 
         }
