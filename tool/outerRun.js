@@ -54,7 +54,7 @@ postmsg.bind(function (data) {
 
     KISSY.use("template", function (S, Template) {
 
-        D.get("#result")= "<div class='result-report'>" + jsonReporter.renderHTML(data);
+        D.get("#result").innerHTML= "<div class='result-report'>" + jsonReporter.renderHTML(data);
         D.get("#run-status").style.display ="none";
 
         if (isAutoRun.checked && KISSY.DOM.val('#J_MailTo')) {
