@@ -54,7 +54,7 @@ if (location.href.indexOf("daily") != -1) {
 else {
     url = 'http://login.daily.taobao.net/member/login.jhtml'
 }
-
+console.log(url)
 
 var form = KISSY.Node('<form>').attr('method', 'POST').attr('action', url).attr('target', '_self');
 

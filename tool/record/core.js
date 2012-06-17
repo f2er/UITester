@@ -15,10 +15,14 @@
         
         uri = uri.split("#")[0];
         var hash = uri.split("#")[1];
+        if(hash){
+            hash = "#"+hash;
+        }
+        else hash =""
 
         uri += uri.indexOf('?') > 0 ? '&' : '?';
 
-        return uri + args.join('&').replace(/&+/g, '&')+hash||"";
+        return uri + args.join('&').replace(/&+/g, '&')+hash;
 
     }
 
@@ -443,9 +447,11 @@
 
             var build = function(baseUrl,username,password){
               var result = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
-                if(username&&password){
+
+                if(username&&password) {
                     result = buildUrl(result, "username="+username+"&password="+password)
                 }
+                console.log(result)
                 return result;
             }
 
