@@ -47,7 +47,7 @@ var obj = {
     "from_encoding"        :""
 };
 
-if (location.href.indexOf("daily") != -1) {
+if (location.href.indexOf("daily") === -1) {
     var url = 'http://login.taobao.com/member/login.jhtml';
 
 }
