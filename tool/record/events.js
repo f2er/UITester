@@ -38,8 +38,7 @@
                     start = true;
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
-                    //每次只记录一次有效动作，其它动作忽略
-                   // if (allMutationRecords.length > 0)return;
+                    if(actionLock)return;
                     if (validEvent(e.target, e.type)) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
@@ -60,10 +59,13 @@
 
         var observer = new MutationObserver(function (mutations) {
             if (uitest.configs.caseType != "event")return;
-            if (allEventRecord.length == 0)return;
+            if(actionLock)return;
+
             window.setTimeout(function () {
+                if (allEventRecord.length == 0)return;
                 allMutationRecords = allMutationRecords.concat(mutations);
                 uitest.inner.outterCall("showCreateBtn");
+              
             }, 0)
         });
 
@@ -79,6 +81,7 @@
         uitest.inner.removeEventTypeTestCase = function () {
             allEventRecord = [];
             allMutationRecords = [];
+
             uitest.inner.outterCall("hideCreateBtn");
 
         }

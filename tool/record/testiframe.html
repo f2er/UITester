@@ -52,6 +52,7 @@
 
     <ul>
         <li><a href="#" onclick="addAttr(this)">addAttr</a></li>
+        <li><a href="#" onclick="clickRemove(this)">clickRemove</a></li>
         <li><a href="#" onclick="removeAttr(this)" class="13 red">removeAttr</a></li>
         <li><a href="#" onclick="changeAttr(this)" class="blue">changeAttr</a></li>
         <li><a href="#" onclick="changeStyle(this)" class="blue">changeStyle</a></li>
@@ -82,6 +83,10 @@
         E = KISSY.Event;
         var addAttr = function (el) {
             D.addClass(el, "name")
+        }
+
+        var clickRemove = function (el) {
+            D.remove(el);
         }
         var removeAttr = function (el) {
             D.removeClass(el, "red")

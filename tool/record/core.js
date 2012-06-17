@@ -903,6 +903,7 @@
             this.beforeunloadWarning = false;
         },
         initProxy             :function () {
+            var host = this;
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
                 if (arguments[3]) {
@@ -911,10 +912,18 @@
                 else {
                     this._bindEventType = this._bindEventType || {};
                     this._bindEventType[arguments[0]] = 1;
+
+                    console.log(this,this._elToSelector)
                     realAdd.apply(this, arguments)
                 }
 
             };
+            var removeChild = window.Node.prototype.removeChild;
+            window.Node.prototype.removeChild = function(el){
+                console.log("remove",el)
+                el._elToSelector = host.elToSelector(el);
+               return  removeChild.apply(this,arguments)
+            }
 
 
             //附上跳转
@@ -1029,6 +1038,9 @@
         elToSelector              :function (el) {
             if (!el)return;
             var selector = "";
+            if(el == document){
+                return "html"
+            }
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }
@@ -1053,7 +1065,10 @@
             }
 
             //可能已经被删除
-            if (!el.parentNode)return selector;
+            if (!el.parentNode){
+                
+                return el._elToSelector||selector;
+            }
 
 
             var old;
