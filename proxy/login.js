@@ -1,5 +1,5 @@
-<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
-<script src="http://uitest.taobao.net/UITester/proxy/login.js"></script>[daolin@v035023.sqa.cm4 proxy]$ cat login.js 
+//<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+//<script src="http://uitest.taobao.net/UITester/proxy/login.js"></script>[daolin@v035023.sqa.cm4 proxy]$ cat login.js
 //** ***/
 //window.open('https://login.taobao.com/member/login.jhtml?&redirectURL=' + encodeURIComponent(url), '_top')
 document.write('auto login ....')
