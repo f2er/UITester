@@ -1,5 +1,27 @@
+var S  = KISSY, D = S.DOM, E = S.Event;
+var isAutoRun = D.get("#is-auto-run");
+var showRunConfig = D.get("#show-run-config");
+var isShowPage = D.get("#is-show-page");
+var iframe = D.get("#run-iframe");
+E.on(isAutoRun,"click",function(){
+  if(isAutoRun.checked){
+      showRunConfig.style.display="block";
+  }
+   else{
+      showRunConfig.style.display="none";
+  }
+})
+E.on(isShowPage,"click",function(){
+    if(D.hasClass(iframe, "hide")){
+        D.removeClass(iframe, "hide")
+    }
+    else{
+        D.addClass(iframe, "hide")
+    }
+})
+
 postmsg.bind(function(data) {
-	console.log('outer output: ', data);
+
     var jsonReporter = new jasmine.JsonReporter;
       
 	KISSY.use("template", function (S, Template) {
@@ -8,7 +30,7 @@ postmsg.bind(function(data) {
 			div.innerHTML = "<div class='result-report'>" + jsonReporter.renderHTML(data);
 			if (KISSY.DOM.val('#J_MailTo')) {
 				KISSY.io.setupConfig({
-					contentType: "application/x-www-form-urlencoded; charset=GBK",
+					contentType: "application/x-www-form-urlencoded; charset=GBK"
 				});
 				KISSY.io.post('/mail/send.php', {
 					to: KISSY.DOM.val('#J_MailTo'),
