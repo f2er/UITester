@@ -17,6 +17,7 @@ E.on(isAutoRun, "click", function () {
         }
         timer = window.setInterval(function () {
             iframe.reload();
+            D.get("#run-status").style.display ="block";
         }, longtime)
     }
     else {
@@ -35,6 +36,7 @@ E.on(longtimeEl, "change", function () {
     }
     timer = window.setInterval(function () {
         iframe.reload();
+        D.get("#run-status").style.display ="block";
     }, longtime)
 })
 E.on(isShowPage, "click", function () {
@@ -54,6 +56,7 @@ postmsg.bind(function (data) {
         var div = document.createElement('div');
         document.body.appendChild(div);
         div.innerHTML = "<div class='result-report'>" + jsonReporter.renderHTML(data);
+        D.get("#run-status").style.display ="none";
 
         if (isAutoRun.checked && KISSY.DOM.val('#J_MailTo')) {
 
