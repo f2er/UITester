@@ -85,7 +85,7 @@ $iframe_uri .= '&__TEST__';
 <div id="result"></div>
 
 <iframe class="hide" id="run-iframe" src="<?php echo $iframe_uri ?>" frameborder="0" style="border: 1px solid #000" width="100%"
-        height="200"></iframe>
+        height="600px"></iframe>
 
 
 <script src="../lib/kissy-aio.js"></script>
