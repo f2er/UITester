@@ -598,7 +598,7 @@
             var host = this;
             var configs = document.querySelector(".configs");
             var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="event" title="标签存在测试用例" data-type="tags">标签<a class="status">记录</a></h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="event" title="测试标签是否存在" data-type="tags">标签</h3></li>';
 
 
             var e = $(html)[0];
@@ -908,7 +908,7 @@
         initMouseoverPanel    :function () {
             var host = this;
             window.setTimeout(function () {
-                KISSY.Event.on(document, "mouseover", function (e) {
+               $(document).on("mouseover", function (e) {
                     var target = e.target;
 
                     if (uitest.configs.showSelectMark) {
@@ -927,7 +927,7 @@
 
                 })
 
-                KISSY.Event.on(document, "mouseleave", function (e) {
+                $(document).on("mouseleave", function (e) {
                     console.log(345)
 
                     host.outterCall("showMouseoverPanel", [
