@@ -53,9 +53,8 @@ postmsg.bind(function (data) {
     var jsonReporter = new jasmine.JsonReporter;
 
     KISSY.use("template", function (S, Template) {
-        var div = document.createElement('div');
-        document.body.appendChild(div);
-        div.innerHTML = "<div class='result-report'>" + jsonReporter.renderHTML(data);
+
+        D.get("#result")= "<div class='result-report'>" + jsonReporter.renderHTML(data);
         D.get("#run-status").style.display ="none";
 
         if (isAutoRun.checked && KISSY.DOM.val('#J_MailTo')) {
