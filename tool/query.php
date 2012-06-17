@@ -9,6 +9,8 @@
 {
         "id" : "' . $task["id"] . '",
         "task_name" : "'. $task["task_name"] . '",
+        "username" : "'. $task["username"] . '",
+        "password" : "'. $task["password"] . '",
         "task_target_uri" : "'. $task["task_target_uri"] . '",
         "task_inject_uri" : "'. $task["task_inject_uri"] . '"
 }

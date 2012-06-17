@@ -441,10 +441,20 @@
 
             // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
 
+            var build = function(baseUrl,username,password){
+              var result = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
+                if(username&&password){
+                    result = buildUrl(result, "username="+username+"&password="+password)
+                }
+                return result;
+            }
+
             var idEl = $("#task_id")[0];
             var nameEl = $("#task_name")[0];
             var task_target_url_el = $("#task_target_uri")[0];
             var iframe = $("#iframe-target")[0];
+            var usernameEl = $("#username")[0];
+            var passwordEl = $("#password")[0];
 
             var id = unparam(location.search.slice(1)).id;
 
@@ -455,11 +465,13 @@
 
                     function (result) {
                         idEl.value = result.id;
+                        usernameEl.value = result.username;
+                        passwordEl.value = result.password
                         nameEl.value = result.task_name;
                         task_target_url_el.value = result.task_target_uri;
                         host.innerCall("setBeforeunloadWarning")
 
-                        iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
+                        iframe.src = build(task_target_url_el.value, usernameEl.value,passwordEl.value);
                         console.log(iframe.src)
                         $.ajax({
                             url     :buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
@@ -497,7 +509,12 @@
             $("#reload").on("click", function () {
                 host.innerCall("setBeforeunloadWarning")
                 $(iframe).unbind("load");
-                iframe.src = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
+                iframe.src = build(task_target_url_el.value, usernameEl.value,passwordEl.value);
+            })
+
+
+            $(iframe).on("load", function () {
+               uitest.synConfigs();
             })
 
 
@@ -525,15 +542,21 @@
         },
         runTestCaseEvent   :function () {
             var host = this;
+            var run = false;
+            
             $(".run-test").on("click", function (e) {
+                run =true;
                 host.innerCall("setBeforeunloadWarning")
                 var iframe = $("#iframe-target")[0];
-                $(iframe).unbind("load");
+              
                 $(iframe).on("load", function () {
-                    console.log(e)
-                    window.setTimeout(function () {
-                        host.innerCall("runTestCase", [host.textEditor.textModel.text])
-                    }, 2000)
+                    if(run){
+                        run=false;
+                        window.setTimeout(function () {
+                            host.innerCall("runTestCase", [host.textEditor.textModel.text])
+                        }, 2000)
+                    }
+
                 })
                 iframe.src = iframe.src;
             })
