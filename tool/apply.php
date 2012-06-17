@@ -65,7 +65,7 @@ $iframe_uri .= '&__TEST__';
 <ul class="configs">
     <li><label><input type="checkbox" id="is-auto-run"/>定时执行</label><span>(当前窗口不能关闭)</span>
         <ul id="show-run-config" style="display:none;">
-    <li><label>间隔时间：<select>
+    <li><label>间隔时间：<select id="long-time">
         <option value="1">1小时</option>
         <option value="6">6小时</option>
         <option value="12">12小时</option>
@@ -86,6 +86,7 @@ $iframe_uri .= '&__TEST__';
 
 
 <script src="../lib/kissy-aio.js"></script>
+<script src="../lib/jquery-1.7.2.min.js"></script>
 <script src="http://uitest.taobao.net/UITester/lib/jasmine.js"></script>
 <script src="http://uitest.taobao.net/UITester/lib/jasmine-html.js" charset="UTF-8"></script>
 <script src="http://uitest.taobao.net/UITester/lib/event-simulate.js"></script>
