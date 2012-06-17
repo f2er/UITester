@@ -28,9 +28,15 @@
         $taskid = $_GET['inject-taskid'];
         if (isset($taskid)) {
                 $task = queryTask($taskid);
+                $usename = $task['username'];
+                $password = $task['password'];
+        }
+        else{
+            $usename = $_GET['username'];
+            $password = $_GET['password'];
         }
         if(strpos($ret, '¼ì²âµ½ÄúÒÑ¾­µÇÂ¼µÄÌÔ±¦ÕËºÅ') != false) {
-                echo "<script>var username='".$task['username']."'; var password = '".$task['password']."';</script>";
+                echo "<script>var username='".$usename."'; var password = '".$password."';</script>";
                 $type = 'login';
         }
         $placeholder = $ret;
