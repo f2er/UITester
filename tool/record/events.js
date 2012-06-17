@@ -163,7 +163,7 @@
                     }
 
                     if (oldValue && !newValue && !/\d+/.test(oldValue)) {
-                        if (!$(mutation.target).hasAttr( mutation.attributeName)) {
+                        if (!$(mutation.target).attr(mutation.attributeName)) {
 
                             var expect = 'expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '","' + oldValue + '");\n'
                             if (!hasRecords(expect)) {

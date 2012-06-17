@@ -12,10 +12,13 @@
         }
 
         var uri = args.shift();
+        
+        uri = uri.split("#")[0];
+        var hash = uri.split("#")[1];
 
         uri += uri.indexOf('?') > 0 ? '&' : '?';
 
-        return uri + args.join('&').replace(/&+/g, '&');
+        return uri + args.join('&').replace(/&+/g, '&')+hash||"";
 
     }
 
