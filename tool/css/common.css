@@ -277,7 +277,6 @@ right:10px;
 }
 .case-list li .bottom-action a{
 margin:0 5px;
-
 }
 .minibtn{
 position:relative;
@@ -307,5 +306,33 @@ user-select:none;
 }
 .sub-nav{
 margin-top:20px;
+}
+
+.run-case-nav{
+margin-top:20px;
+margin:10px 0 0 0;
+font-size:12px;
+font-weight:bold;
+background:#FAFAFA;
+background:-moz-linear-gradient(#FAFAFA, #EAEAEA);
+background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+border:1px solid #EAEAEA;
+border-bottom-color:#CACACA;
+border-radius:3px;
+padding:5px 10px;
+}
+.run-case-nav .configs{
+margin:0;
+padding:0;
+
+}
+.run-case-nav .configs input{
+
+margin:0;
+padding:0;
+}
+.run-case-nav .configs li{
+display:inline-block;
 }
 
