@@ -3,7 +3,7 @@
 <head>
     <meta charset="gbk">
     <title>测试用例列表</title>
-    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="./common/common.css" />
     <style>
 
 

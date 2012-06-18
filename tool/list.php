@@ -1,7 +1,7 @@
 <?php include_once('./common/header.php'); ?>
 
 <div class="sub-nav">
-    <a href="http://uitest.taobao.net/UITester/tool/record/record.html" class="new-record minibtn"">录制新用例<a>
+    <a href="http://uitest.taobao.net/UITester/tool/record/record.html" class="new-record minibtn"">录制新用例</a>
 </div>
 
 <div class="case-list">
