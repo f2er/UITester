@@ -56,7 +56,7 @@
     $result = mysql_query($sql);
 
 
-header('Location: /UITester/tool/list.php?result='.$result);
+header('Location: /tool/list.php?result='.$result);
     //$output = '<p>操作' . ($result === true ? '成功' : '失败') . '，<a href="list.php">返回</a> 列表页</p>';
 
     //print_r('已执行 sql: ' . $sql);
