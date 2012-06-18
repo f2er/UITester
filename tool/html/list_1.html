@@ -5,93 +5,7 @@
     <title>测试用例列表</title>
     <link rel="stylesheet" href="../css/common.css"/>
     <style>
-        body{
-            margin:0;
-            padding:0;
-        }
 
-        ul{
-            list-style:none;
-        }
-        #page{
-            text-align:center;
-        }
-
-        #header{
-            background:#FAFAFA;
-            background:-moz-linear-gradient(#FAFAFA, #EAEAEA);
-            background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
-            -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
-            position:relative;
-            z-index:10;
-            border-bottom:1px solid #CACACA;
-            box-shadow:0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
-            height:40px;
-            line-height:40px;
-            text-align:center;
-        }
-        .header-wrap{
-            width:950px;
-            position:relative;
-            margin:auto;
-            text-align:left;
-        }
-        #header .logo{
-            font:62.5% "Droid Sans", Arial, sans-serif;
-            font-size:25px;
-            font-weight:bold;
-            height:40px;
-            line-height:40px;
-        }
-        #content{
-            width:950px;
-            text-align:left;
-            margin:auto;
-        }
-        .case-list{
-            margin-top:20px;
-
-        }
-        .case-list li{
-            border:1px solid #CCC;
-            border-radius:4px;
-            margin-bottom:10px;
-            font-size:12px;
-            overflow:hidden;
-        }
-
-        .case-list li .name{
-            margin:0px 0;
-            padding:5px 8px;
-            background:#eee;
-        }
-        .case-list li .name h3{
-            color:#4a4a4a;
-            font-weight:normal;
-            font-size:12px;
-
-        }
-        .case-list li.passed{
-            border:1px solid #C5D5DD;
-        }
-        .case-list li.failed{
-            border:1px solid #fc735b;
-        }
-        .case-list .passed .name{
-            margin:0px 0;
-            padding:5px 8px;
-            background:#E6F1F6;
-        }
-        .case-list .failed .name{
-            background-color:#ffcfc7;
-        }
-        .case-list li .url{
-            padding:8px;
-            background:white;
-            border-top:1px solid #D8E6EC;
-            border-bottom-right-radius:4px;
-            border-bottom-left-radius:4px;
-        }
     </style>
 </head>
 <body>
@@ -105,16 +19,29 @@
         </div>
     </div>
     <div id="content">
+        <div class="new-record minibtn">录制新用例</div>
 
         <div class="case-list">
             <ul>
                 <li class="failed">
-                    <div class="name"><h3>我的淘宝测试用例</h3></div>
-                    <div class="url">
-                        <a href="http://www.taobao.com">http://www.taobao.com</a>
-                        <a href="#">修改</a>
+                    <div class="name"><p><span>我的淘宝测试用例</span></p>
+
+                        <div class="top-action">
+                            <a class="case" href="">测试用例</a>
+                            <a class="url" href="">测试页面</a>
+
+                        </div>
                     </div>
-                    <div class="result"><span class="table">123</span><span class="">123</span></div>
+
+                    <div class="result">用例总数：<span class="total-specs"><em>123</em></span> <em>|</em> 失败用例总数：<span
+                            class="failed-specs"><em>123</em></span>
+
+                        <div class="bottom-action">
+
+                            <a class="url minibtn" href="">测试</a>
+                            <a class="record minibtn" href="#">录制</a>
+                        </div>
+                    </div>
 
                 </li>
                 <li>
