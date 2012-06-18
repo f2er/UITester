@@ -30,6 +30,7 @@ $iframe_uri .= (strpos($iframe_uri, '?') !== false) ? '&' : '?';
 
 $iframe_uri .= 'inject-taskid=' . $result_item['id'];
 $iframe_uri .= '&__TEST__';
+ echo '<scrip>var taskInfo = {id:'.$result_item['id'].'}</scrip>'
 
 ?>
 <style>
