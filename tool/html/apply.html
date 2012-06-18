@@ -19,6 +19,25 @@
         </div>
     </div>
     <div id="content">
+        <div class="run-case-nav">
+            <ul class="configs">
+                <li><label><input type="checkbox" id="is-auto-run"/>定时执行</label><span>(当前窗口不能关闭)</span>
+                    <ul id="show-run-config" style="display:none;">
+                        <li><label>间隔时间：<select id="long-time">
+                            <option value="1">1小时</option>
+                            <option value="6">6小时</option>
+                            <option value="12">12小时</option>
+                            <option value="24">24小时</option>
+                        </select></label></li>
+
+                        <li><label>邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"></label></li>
+                    </ul>
+                </li>
+                <li><label><input type="checkbox" id="is-show-page">显示页面</label></li>
+
+            </ul>
+
+        </div>
         <div class="run-case">
             <style>
                 body{
@@ -51,22 +70,7 @@
             </style>
 
             <div id="run-status">正在测试......</div>
-            <ul class="configs">
-                <li><label><input type="checkbox" id="is-auto-run"/>定时执行</label><span>(当前窗口不能关闭)</span>
-                    <ul id="show-run-config" style="display:none;">
-                        <li><label>间隔时间：<select id="long-time">
-                            <option value="1">1小时</option>
-                            <option value="6">6小时</option>
-                            <option value="12">12小时</option>
-                            <option value="24">24小时</option>
-                        </select></label></li>
 
-                        <li><label>邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"></label></li>
-                    </ul>
-                </li>
-                <li><label><input type="checkbox" id="is-show-page">显示页面</label></li>
-
-            </ul>
 
             <div id="result"></div>
 
