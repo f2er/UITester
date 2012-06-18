@@ -17,6 +17,8 @@ $result = mysql_query($sql);
 $resultString  = $result === true ? "200" : "404";
 echo ('{"code" : ' . $resultString . '}');
 
-exit;
+
+
+
 
 ?>
