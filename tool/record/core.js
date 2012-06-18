@@ -953,7 +953,7 @@ if (!JSON) {
 
             if (id) {
 
-                $.getJSON("http://uitest.taobao.net/UITester/tool/query.php?t=" + new Date().getTime(),
+                $.getJSON("http://uitest.taobao.net/tool/query.php?t=" + new Date().getTime(),
                     {task_id:id},
 
                     function (result) {
