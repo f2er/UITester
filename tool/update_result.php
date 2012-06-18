@@ -2,7 +2,7 @@
 // include databse connector
 include_once('conn_db.php');
 
-$modify_tag = $_REQUEST['modify_tag'];
+
 $task_id = $_REQUEST['id'];
 
 $failed_specs = trim($_REQUEST['failed_specs']);
@@ -14,7 +14,8 @@ $sql = "UPDATE `list` SET `failed_specs`=".$failed_specs.",`total_specs`="+$tota
 
 
 $result = mysql_query($sql);
-echo ('{"code" : ' . $result === true ? "200" : "404" . '}');
+$resultString  = $result === true ? "200" : "404";
+echo ('{"code" : ' . $resultString . '}');
 
 exit;
 

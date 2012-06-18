@@ -1,14 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="gbk">
-    <title>UI Tester</title>
-
-    <link href="http://uitest.taobao.net/UITester/lib/jasmine.css" rel="stylesheet">
-    <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy.js"></script>
-    <!-- <script src="task.js"></script> -->
-</head>
-<body>
+<?php include_once('./common/header.php'); ?>
 
 <?php
 $task_id = trim($_REQUEST['task_id']);
@@ -30,71 +20,47 @@ $iframe_uri .= (strpos($iframe_uri, '?') !== false) ? '&' : '?';
 
 $iframe_uri .= 'inject-taskid=' . $result_item['id'];
 $iframe_uri .= '&__TEST__';
- echo '<script>var taskInfo = {id:'.$result_item['id'].'}</script>'
+echo '<script>var taskInfo = {id:' . $result_item['id'] . '}</script>'
 
 ?>
-<style>
-    body{
-        font-size:12px;
-    }
-    ul{
-        list-style:none;
-    }
-    .configs{
-        margin:0;
-        padding:0;
-        margin-bottom:10px;
-        margin-left:10px;
-    }
-    #run-status{
-        margin-bottom:10px;
-    }
-    #run-iframe.show{
-
-    }
-    #run-iframe.hide{
-        position:absolute;;
-        top:-1000px;
-
-        left:-1000px;
-        visibility:hidden;
-    }
-    #result{
-        margin-bottom:5px;
-    }
-
-</style>
-
-<div id="run-status">正在测试......</div>
-<ul class="configs">
-    <li><label><input type="checkbox" id="is-auto-run"/>定时执行</label><span>(当前窗口不能关闭)</span>
-        <ul id="show-run-config" style="display:none;">
-    <li><label>间隔时间：<select id="long-time">
-        <option value="1">1小时</option>
-        <option value="6">6小时</option>
-        <option value="12">12小时</option>
-        <option value="24">24小时</option>
-    </select></label></li>
-
-    <li><label>邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"></label></li>
-</ul>
-</li>
-<li><label><input type="checkbox" id="is-show-page">显示页面</label></li>
-
-</ul>
-
-<div id="result"></div>
-
-<iframe class="hide" id="run-iframe" src="<?php echo $iframe_uri ?>" frameborder="0" style="border: 1px solid #000" width="100%"
-        height="600px"></iframe>
 
 
-<script src="../lib/kissy-aio.js"></script>
-<script src="../lib/jquery-1.7.2.min.js"></script>
-<script src="http://uitest.taobao.net/UITester/lib/jasmine.js"></script>
-<script src="http://uitest.taobao.net/UITester/lib/jasmine-html.js" charset="UTF-8"></script>
-<script src="http://uitest.taobao.net/UITester/lib/event-simulate.js"></script>
-<script src="record/postmsg.js"></script>
-<script src="outerRun.js"></script>
-</body>
-</html>
+<div class="run-case-nav">
+
+    <input type="checkbox" id="run-auto"/><a class="run-auto">定时执行</a><span class="gray">(当前窗口不能关闭)</span>
+
+           <span class="run-auto-set" style="display:none;">
+
+               间隔时间：<select id="long-time">
+               <option value="1">1小时</option>
+               <option value="6">6小时</option>
+               <option value="12">12小时</option>
+               <option value="24">24小时</option>
+           </select>
+
+            邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"/>
+               <span class="gray">(当用例不通过时，会即时通过邮件通知您)</span>
+</span>
+
+</div>
+<div class="run-case">
+
+
+    <div id="run-result">正在测试......</div>
+
+    <iframe id="run-iframe" src="<?php echo $iframe_uri ?>" frameborder="0" width="100%"
+        ></iframe>
+
+
+    <script src="http://uitest.taobao.net/UITester/lib/kissy-aio.js"></script>
+    <script src="http://uitest.taobao.net/UITester/lib/jquery-1.7.2.min.js"></script>
+    <script src="http://uitest.taobao.net/UITester/lib/jasmine.js"></script>
+    <script src="http://uitest.taobao.net/UITester/lib/jasmine-html.js" charset="UTF-8"></script>
+    <script src="http://uitest.taobao.net/UITester/lib/event-simulate.js"></script>
+    <script src="http://uitest.taobao.net/UITester/tool/record/postmsg.js"></script>
+    <script src="http://uitest.taobao.net/UITester/tool/js/outerRun.js"></script>
+
+</div>
+
+
+<?php include_once('./common/footer.php'); ?>
