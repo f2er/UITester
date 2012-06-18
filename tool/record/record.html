@@ -44,6 +44,8 @@ body{
     height:100%;
 }
 #nav{
+    position:relative;
+
     border-bottom:solid 1px #cccccc;
     padding:5px;
     overflow:hidden;;
@@ -51,6 +53,41 @@ body{
     box-shadow:0px 2px 2px #ccc;
     position:relative;
     z-index:100;
+
+    background:
+        #FAFAFA;
+    background: -moz-linear-gradient(
+        #FAFAFA,
+        #EAEAEA);
+    background: -webkit-linear-gradient(
+        #FAFAFA,
+        #EAEAEA);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid
+    #CACACA;
+    box-shadow: 0 1px 0
+    rgba(255, 255, 255, 0.4), 0 0 10px
+    rgba(0, 0, 0, 0.1);
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+#nav .nav-tools{
+    margin:0 0 0 150px;
+}
+#nav .logo {
+    font: 62.5% "Droid Sans", Arial, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    position:absolute;
+    top:0px;
+    left:10px;
+    text-decoration:none;
+    color:#404040;
 }
 #nav ul{
     margin:0;
@@ -498,6 +535,8 @@ body{
 
 
     <div id="nav">
+        <a href="/" class="logo">UITester</a>
+        <div class="nav-tools">
         <form id="save-form" method="post" action="../handle.php">
             <ul>
                 <li><span class="name">ÓÃÀýÃû³Æ£º<input name="task_name" id="task_name" type="text"></span></li>
@@ -517,6 +556,7 @@ body{
                 <li><a href="#" style="" id="save-test">±£´æ</a></li>
             </ul>
         </form>
+        </div>
 
     </div>
     <div id="content">
