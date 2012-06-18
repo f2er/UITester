@@ -64,7 +64,7 @@ postmsg.bind(function (data) {
         }
 
         KISSY.io.post('./update_result.php', {
-            id:taskInfo.id,
+            task_id:taskInfo.id,
             failed_specs:data.failedSpecs,
             total_specs :data.totalSpecs
         });

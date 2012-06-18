@@ -59,6 +59,8 @@ echo '<script>var taskInfo = {id:' . $result_item['id'] . '}</script>'
     <script src="http://uitest.taobao.net/UITester/lib/event-simulate.js"></script>
     <script src="http://uitest.taobao.net/UITester/tool/record/postmsg.js"></script>
     <script src="http://uitest.taobao.net/UITester/tool/js/outerRun.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://uitest.taobao.net/UITester/lib/jasmine.css">
+
 
 </div>
 
