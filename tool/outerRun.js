@@ -17,7 +17,7 @@ E.on(isAutoRun, "click", function () {
         }
         timer = window.setInterval(function () {
             iframe.reload();
-            D.get("#run-status").style.display ="block";
+            D.get("#run-status").style.display = "block";
         }, longtime)
     }
     else {
@@ -25,18 +25,18 @@ E.on(isAutoRun, "click", function () {
     }
 })
 E.on(longtimeEl, "change", function () {
-    
+
     console.log("change")
 
     longtime = 1000 * 60 * 60 * $(longtimeEl).val();
-    console.log("change",longtime)
+    console.log("change", longtime)
     if (timer) {
         window.clearInterval(timer);
         timer = null;
     }
     timer = window.setInterval(function () {
         iframe.reload();
-        D.get("#run-status").style.display ="block";
+        D.get("#run-status").style.display = "block";
     }, longtime)
 })
 E.on(isShowPage, "click", function () {
@@ -54,8 +54,8 @@ postmsg.bind(function (data) {
 
     KISSY.use("template", function (S, Template) {
 
-        D.get("#result").innerHTML= "<div class='result-report'>" + jsonReporter.renderHTML(data);
-        D.get("#run-status").style.display ="none";
+        D.get("#result").innerHTML = "<div class='result-report'>" + jsonReporter.renderHTML(data);
+        D.get("#run-status").style.display = "none";
 
         if (isAutoRun.checked && KISSY.DOM.val('#J_MailTo')) {
 
@@ -69,6 +69,11 @@ postmsg.bind(function (data) {
             });
 
         }
+
+        KISSY.io.post('./update_result.php', {
+            failed_specs:data.failedSpecs,
+            total_specs :data.totalSpecs
+        });
 
     });
 });

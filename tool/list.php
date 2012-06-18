@@ -38,6 +38,8 @@
                                 <tr>
                                     <td>' . $result_item['task_name'] . '</td>
                                     <td>
+                                     <span>' . $result_item['totalSpecs'] . '</span>
+                                     <span>' . $result_item['failedSpecs'] . '</span>
                                         <a href="http://uitest.taobao.net/UITester/tool/record/record.html?id=' . $result_item['id'] . '" class="J_Edit">ÐÞ¸Ä</a>
                                         <a href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '" class="J_Remove">É¾³ý</a>
                                         <a href="apply.php?task_id=' . $result_item['id'] . '" class="J_Run" target="_blank">Æô¶¯²âÊÔ</a>
