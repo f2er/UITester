@@ -3,7 +3,7 @@
 include_once('conn_db.php');
 
 $modify_tag = $_REQUEST['modify_tag'];
-$task_id = $_REQUEST['task_id'];
+$task_id = $_REQUEST['id'];
 
 $failed_specs = trim($_REQUEST['failed_specs']);
 $total_specs = trim($_REQUEST['total_specs']);
