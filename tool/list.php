@@ -1,7 +1,7 @@
 <?php include_once('./common/header.php'); ?>
 
 <div class="sub-nav">
-    <a href="http://uitest.taobao.net/UITester/tool/record/record.html" class="new-record minibtn"">录制新用例</a>
+    <a target="_blank" href="http://uitest.taobao.net/tool/record/record.html" class="new-record minibtn"">录制新用例</a>
 </div>
 
 <div class="case-list">
@@ -33,8 +33,8 @@
             <div class="name"><p><span>' . $result_item['task_name'] . '</span></p>
 
                 <div class="top-action">
-                    <a class="case" href="' . $result_item['task_inject_uri'] . '">测试用例</a>
-                    <a class="url" href="' . $result_item['task_target_uri'] . '">测试页面</a>
+                    <a target="_blank" class="case" href="' . $result_item['task_inject_uri'] . '">测试用例</a>
+                    <a target="_blank" class="url" href="' . $result_item['task_target_uri'] . '">测试页面</a>
 
                 </div>
             </div>
@@ -43,9 +43,9 @@
                 class="failed-specs"><em>' . $result_item['failed_specs'] . '</em></span>
 
                 <div class="bottom-action">
-                    <a class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
-                    <a class="url minibtn" href="apply.php?task_id=' . $result_item['id'] . '">测试</a>
-                    <a class="record minibtn" href="http://uitest.taobao.net/UITester/tool/record/record.html?id=' . $result_item['id'] . '">录制</a>
+                    <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
+                    <a target="_blank" class="url minibtn" href="apply.php?task_id=' . $result_item['id'] . '">测试</a>
+                    <a target="_blank" class="record minibtn" href="http://uitest.taobao.net/UITester/tool/record/record.html?id=' . $result_item['id'] . '">录制</a>
                 </div>
             </div>
 

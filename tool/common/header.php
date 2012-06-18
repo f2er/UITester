@@ -3,7 +3,7 @@
 <head>
     <meta charset="gbk">
     <title>测试用例列表</title>
-    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="http://uitest.taobao.net/tool/css/common.css" />
     <style>
 
 
