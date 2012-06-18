@@ -39,7 +39,9 @@ abbr, acronym{ border:none; font-variant:normal; }
 sup{ vertical-align:text-top; }
 sub{ vertical-align:text-bottom; }
 
-
+a{
+text-decoration:none;
+}
 
 #header{
 background:#FAFAFA;
@@ -158,6 +160,7 @@ right:10px;
 }
 .case-list li .bottom-action a{
 margin:0 5px;
+font-weight:normal;
 }
 .minibtn{
 position:relative;
@@ -221,6 +224,7 @@ color:red;
 }
 #run-result{
 margin-top:20px;
+border:solid 1px #ccc;
 }
 #run-iframe{
 margin-top:20px;
