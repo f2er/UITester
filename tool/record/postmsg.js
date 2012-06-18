@@ -17,7 +17,7 @@
                 queueTimer = window.setInterval(function () {
                     if (sendQueue.length > 0) {
                         var sendObject = sendQueue.shift()
-                        sendObject.target.name = KISSY.JSON.stringify(sendObject.msg);
+                        sendObject.target.name = JSON.stringify(sendObject.msg);
                     }
 
                 }, 210)
@@ -34,7 +34,7 @@
                         lastMsg = msg;
 
                         for (var i = 0; i < funs.length; i++) {
-                            funs[i](KISSY.JSON.parse(msg));
+                            funs[i](JSON.parse(msg));
                         }
 
 
@@ -59,7 +59,7 @@
 
             if (("postMessage" in target)) {
 
-                target.postMessage(KISSY.JSON.stringify(msg), options.origin || '*');
+                target.postMessage(JSON.stringify(msg), options.origin || '*');
             }
             else {
 
@@ -71,11 +71,11 @@
             if (win.postMessage) {
                 if (win.addEventListener) {
                     win.addEventListener("message", function (e) {
-                        fun.apply(win, [KISSY.JSON.parse(e.data), e]);
+                        fun.apply(win, [JSON.parse(e.data), e]);
                     }, false);
                 } else if (win.attachEvent) {
                     win.attachEvent("onmessage", function (e) {
-                        fun.apply(win, [KISSY.JSON.parse(e.data), e]);
+                        fun.apply(win, [JSON.parse(e.data), e]);
                     });
                 }
             }

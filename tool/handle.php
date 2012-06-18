@@ -14,7 +14,7 @@
     file_put_contents('../'.$task_inject_uri, $task_inject_script);
 
     //最终保存的位置
-    $task_inject_uri = 'http://uitest.taobao.net/UITester/'.$task_inject_uri;
+    $task_inject_uri = 'http://uitest.taobao.net/'.$task_inject_uri;
 
     // modify current record
     if ($modify_tag === 'remove'){
