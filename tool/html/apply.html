@@ -21,58 +21,29 @@
     <div id="content">
         <div class="run-case-nav">
 
-            <ul class="configs">
-                <li><input type="checkbox" id="is-show-page"><label>显示页面</label></li>
-                <li><label><input type="checkbox" id="is-auto-run"/>定时执行</label><span>(当前窗口不能关闭)</span>
-                    <ul id="show-run-config" style="display:none;">
-                        <li><label>间隔时间：<select id="long-time">
-                            <option value="1">1小时</option>
-                            <option value="6">6小时</option>
-                            <option value="12">12小时</option>
-                            <option value="24">24小时</option>
-                        </select></label></li>
+            <a class="run-auto">定时执行</a><span>(当前窗口不能关闭)</span>
 
-                        <li><label>邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"></label></li>
-                    </ul>
-                </li>
+           <span class="run-auto-set"> 间隔时间：<select id="long-time">
+               <option value="1">1小时</option>
+               <option value="6">6小时</option>
+               <option value="12">12小时</option>
+               <option value="24">24小时</option>
+           </select>
 
+            邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"/>
+               </span>
 
-            </ul>
 
         </div>
         <div class="run-case">
-            <style>
-                body{
-                    font-size:12px;
-                }
-                ul{
-                    list-style:none;
-                }
 
-                #run-status{
-                    margin-bottom:10px;
-                }
-                #run-iframe.show{
-                }
-                #run-iframe.hide{
-                    position:absolute;;
-                    top:-1000px;
-                    left:-1000px;
-                    visibility:hidden;
-                }
-                #result{
-                    margin-bottom:5px;
-                }
-
-            </style>
 
             <div id="run-status">正在测试......</div>
 
 
-            <div id="result"></div>
+            <div id="run-result"></div>
 
-            <iframe class="hide" id="run-iframe" src="<?php echo $iframe_uri ?>" frameborder="0"
-                    style="border: 1px solid #000" width="100%"
+            <iframe id="run-iframe" src="<?php echo $iframe_uri ?>" frameborder="0" width="100%"
                     height="600px"></iframe>
 
 

@@ -309,10 +309,9 @@ margin-top:20px;
 }
 
 .run-case-nav{
-margin-top:20px;
+
 margin:10px 0 0 0;
-font-size:12px;
-font-weight:bold;
+margin-top:20px;
 background:#FAFAFA;
 background:-moz-linear-gradient(#FAFAFA, #EAEAEA);
 background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
@@ -325,14 +324,26 @@ padding:5px 10px;
 .run-case-nav .configs{
 margin:0;
 padding:0;
-
 }
 .run-case-nav .configs input{
-
 margin:0;
 padding:0;
 }
 .run-case-nav .configs li{
 display:inline-block;
 }
-
+#run-status{
+margin-top:20px;
+}
+#run-status.checked{
+color:red;
+}
+#run-result{
+margin-top:20px;
+}
+#run-iframe{
+margin-top:20px;
+}
+.run-auto-set{
+margin-left:30px;
+}

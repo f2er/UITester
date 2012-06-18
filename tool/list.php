@@ -17,7 +17,7 @@
         for ($idx = 0; $idx < $result_num; $idx++) {
             $result_item = mysql_fetch_assoc($query_list_result);
             $className = "";
-            if ($result_item['totalSpecs'] == 0) {
+            if ($result_item['total_specs'] == 0) {
                 $className = "";
             }
             else if ($result_item['total_specs'] != 0 && $result_item['failed_specs'] == 0) {

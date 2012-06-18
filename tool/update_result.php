@@ -14,7 +14,7 @@ $sql = "UPDATE `list` SET `failed_specs`=".$failed_specs.",`total_specs`="+$tota
 
 
 $result = mysql_query($sql);
-echo ('{"code" : "' . $result === true ? 200 : 404 . '"}');
+echo ('{"code" : ' . $result === true ? "200" : "404" . '}');
 
 exit;
 
