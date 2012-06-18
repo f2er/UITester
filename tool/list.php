@@ -20,7 +20,7 @@
             if ($result_item['totalSpecs'] == 0) {
                 $className = "";
             }
-            else if ($result_item['totalSpecs'] != 0 && $result_item['failedSpecs'] == 0) {
+            else if ($result_item['total_specs'] != 0 && $result_item['failed_specs'] == 0) {
                 $className = "passed";
             }
             else {
@@ -39,13 +39,13 @@
                 </div>
             </div>
 
-            <div class="result">用例总数：<span class="total-specs"><em>' . $result_item['totalSpecs'] . '</em></span> <em>|</em> 失败用例总数：<span
-                class="failed-specs"><em>' . $result_item['failedSpecs'] . '</em></span>
+            <div class="result">用例总数：<span class="total-specs"><em>' . $result_item['total_specs'] . '</em></span> <em>|</em> 失败用例总数：<span
+                class="failed-specs"><em>' . $result_item['failed_specs'] . '</em></span>
 
                 <div class="bottom-action">
                     <a class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
                     <a class="url minibtn" href="apply.php?task_id=' . $result_item['id'] . '">测试</a>
-                    <a class="record minibtn" href=href="http://uitest.taobao.net/UITester/tool/record/record.html?id=' . $result_item['id'] . '">录制</a>
+                    <a class="record minibtn" href="http://uitest.taobao.net/UITester/tool/record/record.html?id=' . $result_item['id'] . '">录制</a>
                 </div>
             </div>
 
