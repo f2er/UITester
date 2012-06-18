@@ -1,4 +1,4 @@
-<?php include_once('./common/header.php'); ?>
+<?php include_once('./tool/common/header.php'); ?>
     <style>
         .nav{
             text-align:center;
@@ -96,4 +96,4 @@
     </div>
 
 </div>
-<?php include_once('./common/footer.php'); ?>
+<?php include_once('./tool/common/footer.php'); ?>
