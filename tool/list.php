@@ -45,7 +45,7 @@
                 <div class="bottom-action">
                     <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">É¾³ý</a>
                     <a target="_blank" class="url minibtn" href="apply.php?task_id=' . $result_item['id'] . '">²âÊÔ</a>
-                    <a target="_blank" class="record minibtn" href="http://uitest.taobao.net/UITester/tool/record/record.html?id=' . $result_item['id'] . '">Â¼ÖÆ</a>
+                    <a target="_blank" class="record minibtn" href="http://uitest.taobao.net/tool/record/record.html?id=' . $result_item['id'] . '">Â¼ÖÆ</a>
                 </div>
             </div>
 

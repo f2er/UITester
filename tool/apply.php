@@ -52,14 +52,14 @@ echo '<script>var taskInfo = {id:' . $result_item['id'] . '}</script>'
         ></iframe>
 
 
-    <script src="http://uitest.taobao.net/UITester/lib/kissy-aio.js"></script>
-    <script src="http://uitest.taobao.net/UITester/lib/jquery-1.7.2.min.js"></script>
-    <script src="http://uitest.taobao.net/UITester/lib/jasmine.js"></script>
-    <script src="http://uitest.taobao.net/UITester/lib/jasmine-html.js" charset="UTF-8"></script>
-    <script src="http://uitest.taobao.net/UITester/lib/event-simulate.js"></script>
-    <script src="http://uitest.taobao.net/UITester/tool/record/postmsg.js"></script>
-    <script src="http://uitest.taobao.net/UITester/tool/js/outerRun.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://uitest.taobao.net/UITester/lib/jasmine.css">
+    <script src="http://uitest.taobao.net/lib/kissy-aio.js"></script>
+    <script src="http://uitest.taobao.net/lib/jquery-1.7.2.min.js"></script>
+    <script src="http://uitest.taobao.net/lib/jasmine.js"></script>
+    <script src="http://uitest.taobao.net/lib/jasmine-html.js" charset="UTF-8"></script>
+    <script src="http://uitest.taobao.net/lib/event-simulate.js"></script>
+    <script src="http://uitest.taobao.net/tool/record/postmsg.js"></script>
+    <script src="http://uitest.taobao.net/tool/js/outerRun.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://uitest.taobao.net/lib/jasmine.css">
 
 
 </div>
