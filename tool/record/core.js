@@ -1424,7 +1424,10 @@ if (!JSON) {
                     if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
                             console.log("preventDefault")
-                            e.preventDefault();
+                            if (!/^#/.test(target.href)) {
+                                e.preventDefault()
+                            }
+                            ;
                         }
 
                     }
