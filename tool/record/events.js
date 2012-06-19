@@ -4,6 +4,41 @@
 
     //重置setTimeout,setInterval
     // ajax等异步方法
+
+    var testCases = [];
+
+    //[{events:[],mutations:[]}]
+
+    var addEvent = function(e){
+        var l = testCases.length ==0?testCases.length:testCases.length-1
+        var last = testCases[l];
+        if(!last){
+
+            testCases.push({events:[e]});
+        }
+        else if(last.mutations){
+            testCases.push({events:[e]})
+        }
+        else{
+          last.events.push(e)
+        }
+    }
+    var addMutations = function(m){
+        var l = testCases.length ==0?testCases.length:testCases.length-1
+        var last = testCases[l];
+        if(!last){
+
+            testCases.push({mutations:m});
+        }
+
+        else {
+            last.mutations = (last.mutations||[]).concat(m)
+        }
+
+    }
+    var clearRecord = function(){
+
+    }
     
 
     $(document).ready(function () {
@@ -45,7 +80,12 @@
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-                        allEventRecord.push($.extend({}, e));
+
+                        else {
+                            addEvent($.extend({}, e));
+                        }
+
+
                     }
 
                 }, true, true)
@@ -58,7 +98,7 @@
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-                        allEventRecord.push($.extend({}, e));
+                        addEvent($.extend({}, e));
                     }
                 }
                     
@@ -78,8 +118,9 @@
             if(actionLock)return;
 
             window.setTimeout(function () {
-                if (allEventRecord.length == 0)return;
-                allMutationRecords = allMutationRecords.concat(mutations);
+                if (testCases.length  ==  0)return;
+                addMutations(mutations);
+
                 uitest.inner.outterCall("showCreateBtn");
               
             }, 0)
@@ -95,17 +136,29 @@
         });
 
         uitest.inner.removeEventTypeTestCase = function () {
-            allEventRecord = [];
-            allMutationRecords = [];
+           testCases = [];
 
             uitest.inner.outterCall("hideCreateBtn");
 
         }
 
 
-        uitest.inner.createEventTypeTestCase = function () {
 
-            var mutations = allMutationRecords;
+        uitest.inner.createEventTypeTestCase =function(){
+           console.log(testCases);
+            for(var i =0; i<testCases.length; i++){
+               if(testCases[i].events&&testCases[i].mutations){
+                   createTestCase(testCases[i].mutations,testCases[i].events)
+
+               }
+            }
+            testCases = [];
+
+        }
+
+        function createTestCase(mutations,allEventRecord) {
+
+
             uitest.inner.outterCall("hideCreateBtn");
 
             //分析最终状态

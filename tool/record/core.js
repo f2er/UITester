@@ -896,6 +896,9 @@ if (!JSON) {
             this.showSelectMarkEvent();
             // this.initForm();
         },
+        uatest:function(){
+
+        },
         showSelectMarkEvent:function () {
             $("#show-select-mark").click(function () {
                 if (!uitest.configs.showSelectMark) {
@@ -1423,8 +1426,9 @@ if (!JSON) {
                     var target = e.target;
                     if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
-                            console.log("preventDefault")
+
                             if (!/^#/.test(target.href)) {
+                                console.log("preventDefault")
                                 e.preventDefault()
                             }
                             ;
