@@ -1,7 +1,7 @@
 var S = KISSY, D = S.DOM, E = S.Event;
 var longtimeEl = D.get("#long-time");
 var lastTime = new Date().getTime();
-var longtime = 1000 * 60 * 60 * $(longtimeEl).val();
+var longtime = 1000 * 60 * parseInt($(longtimeEl).val()) ;
 var timer = null;
 var isAutoRun = D.get("#run-auto");
 var showRunConfig = D.get(".run-auto-set");
@@ -28,7 +28,7 @@ E.on(longtimeEl, "change", function () {
 
     console.log("change")
 
-    longtime = 1000 * 60 * 60 * $(longtimeEl).val();
+    longtime = 1000 * 60 * parseInt($(longtimeEl).val());
     console.log("change", longtime)
     if (timer) {
         window.clearInterval(timer);
@@ -60,6 +60,11 @@ postmsg.bind(function (data) {
                 subject:'uitest report',
                 msg    :'<link href="http://uitest.taobao.net/UITester/lib/jasmine.css" rel="stylesheet">' + div.innerHTML
             });
+
+            if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+            }
 
         }
 

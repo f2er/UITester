@@ -1078,7 +1078,7 @@ if (!JSON) {
         eventConfigsView    :function () {
             var host = this;
             var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="tag" title="交互动作测试用例" data-type="event">事件<a class="status">记录</a></h3><ul>';
+            var html = '<li class="cfg-item hide"><h3 class="tag" title="通过监听事件引起的ui变化，来测试交互响应是不否正常" data-type="event">事件<a class="status">记录</a></h3><ul>';
 
             for (var p in uitest.configs.events) {
                 var checked = "checked";
@@ -1117,7 +1117,7 @@ if (!JSON) {
             var host = this;
             var configs = document.querySelector(".configs");
             var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="event" title="测试标签是否存在" data-type="tags">标签</h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="event" title="通过测试标签是否存在，来测试页面布局是否完整" data-type="tags">标签</h3></li>';
 
 
             var e = $(html)[0];
@@ -1142,7 +1142,7 @@ if (!JSON) {
             var host = this;
             var configs = $(".configs")[0];
             var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="" title="坐标位置测试用例" data-type="position">位置<a class="status">记录</a></h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="" title="通过测试标签位置，来测试页面布局位置是否正常" data-type="position">位置<a class="status">记录</a></h3></li>';
 
             var e = $(html)[0];
 
@@ -1208,7 +1208,7 @@ if (!JSON) {
             var host = this;
             var configs = $(".configs")[0];
             var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="" title="标签测试用例" data-type="innerhtml">内容<a class="status">记录</a></h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="" title="能过测试标签的innerHTML或者value属性，来测试页面内容是否正确" data-type="innerhtml">内容<a class="status">记录</a></h3></li>';
 
             var e = $(html)[0];
 
@@ -1221,7 +1221,7 @@ if (!JSON) {
         attrConfigsView     :function () {
             var host = this;
             var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试用例" data-type="attr">属性<a class="status">记录</a></h3><ul>' +
+            var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试" data-type="attr">属性<a class="status">记录</a></h3><ul>' +
                 '{{#each attrs as bValue bKey}}' +
                 '<li class="{{bKey}}"><label><input   type="checkbox" checked /> {{bKey}}</label><ul>' +
                 '{{#each bValue as value key}}' +

@@ -27,19 +27,26 @@ echo '<script>var taskInfo = {id:' . $result_item['id'] . '}</script>'
 
 <div class="run-case-nav">
 
-    <input type="checkbox" id="run-auto"/><a class="run-auto">定时执行</a><span class="gray">(当前窗口不能关闭)</span>
+    <input type="checkbox" id="run-auto"/><a class="run-auto">定时执行</a>
 
            <span class="run-auto-set" style="display:none;">
 
                间隔时间：<select id="long-time">
-               <option value="1">1小时</option>
-               <option value="6">6小时</option>
-               <option value="12">12小时</option>
-               <option value="24">24小时</option>
+               <option value="1">1分钟</option>
+               <option value="2">2分钟</option>
+               <option value="5">5分钟</option>
+               <option value="10">10分钟</option>
+               <option value="30">30分钟</option>
+
+               <option value="60">1小时</option>
+               <option value="120">2小时</option>
+               <option value="3600">6小时</option>
+               <option value="72000">12小时</option>
+               <option value="144000">24小时</option>
            </select>
 
             邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"/>
-               <span class="gray">(当用例不通过时，会即时通过邮件通知您)</span>
+               <span class="gray">(定时测试时，请不要关闭些页面，当用例不通过时，会即时通过邮件通知您)</span>
 </span>
 
 </div>
