@@ -9,37 +9,37 @@
 
     //[{events:[],mutations:[]}]
 
-    var addEvent = function(e){
-        var l = testCases.length ==0?testCases.length:testCases.length-1
+    var addEvent = function (e) {
+        var l = testCases.length == 0 ? testCases.length : testCases.length - 1
         var last = testCases[l];
-        if(!last){
+        if (!last) {
 
             testCases.push({events:[e]});
         }
-        else if(last.mutations){
+        else if (last.mutations) {
             testCases.push({events:[e]})
         }
-        else{
-          last.events.push(e)
+        else {
+            last.events.push(e)
         }
     }
-    var addMutations = function(m){
-        var l = testCases.length ==0?testCases.length:testCases.length-1
+    var addMutations = function (m) {
+        var l = testCases.length == 0 ? testCases.length : testCases.length - 1
         var last = testCases[l];
-        if(!last){
+        if (!last) {
 
             testCases.push({mutations:m});
         }
 
         else {
-            last.mutations = (last.mutations||[]).concat(m)
+            last.mutations = (last.mutations || []).concat(m)
         }
 
     }
-    var clearRecord = function(){
+    var clearRecord = function () {
 
     }
-    
+
 
     $(document).ready(function () {
         var start = false;
@@ -64,26 +64,48 @@
 
             return result;
         }
+
+        var getValidEventTarget = function (target, type) {
+
+            while (true) {
+
+                if (validEvent(target, type)) {
+                    return parent;
+                }
+                else {
+                    target = target.parentNode;
+                    
+                }
+                if(!target||target.tagName.toLowerCase()==="html"){
+                    break;
+                }
+                
+            }
+
+
+        }
+
         var timer;
         for (var p in uitest.configs.events) {
 
             (function (type) {
 
 
-
                 document.body.addEventListener(type, function (e) {
-                    console.log("fire event",e)
+
                     start = true;
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
-                    if(actionLock)return;
-                    if (validEvent(e.target, e.type)) {
+
+                    var target =getValidEventTarget(e.target, e.type);
+
+                    if (target) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
 
                         else {
-                            console.log("add event",e);
+                            console.log("add event", e);
                             addEvent($.extend({}, e));
                         }
 
@@ -91,23 +113,24 @@
                     }
 
                 }, true, true)
-                window.stopPropagationProxy = function(e){
+                window.stopPropagationProxy = function (e) {
 
-                    console.log("stopPropagationProxy")
-                    console.log("fire event",e)
+                 
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
-                    if(actionLock)return;
-                    if (validEvent(e.target, e.type)) {
+
+                    var target = getValidEventTarget(e.target, e.type);
+
+                    if (target) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-                        console.log("add event",e);
+                        console.log("add event", e);
                         addEvent($.extend({}, e));
                     }
                 }
-                    
-                    
+
+
             })(p);
 
         }
@@ -120,14 +143,14 @@
 
         var observer = new MutationObserver(function (mutations) {
             if (uitest.configs.caseType != "event")return;
-            if(actionLock)return;
+            if (actionLock)return;
 
             window.setTimeout(function () {
-                if (testCases.length  ==  0)return;
+                if (testCases.length == 0)return;
                 addMutations(mutations);
 
                 uitest.inner.outterCall("showCreateBtn");
-              
+
             }, 0)
         });
 
@@ -141,27 +164,26 @@
         });
 
         uitest.inner.removeEventTypeTestCase = function () {
-           testCases = [];
+            testCases = [];
 
             uitest.inner.outterCall("hideCreateBtn");
 
         }
 
 
+        uitest.inner.createEventTypeTestCase = function () {
+            console.log(testCases);
+            for (var i = 0; i < testCases.length; i++) {
+                if (testCases[i].events && testCases[i].mutations) {
+                    createTestCase(testCases[i].mutations, testCases[i].events)
 
-        uitest.inner.createEventTypeTestCase =function(){
-           console.log(testCases);
-            for(var i =0; i<testCases.length; i++){
-               if(testCases[i].events&&testCases[i].mutations){
-                   createTestCase(testCases[i].mutations,testCases[i].events)
-
-               }
+                }
             }
             testCases = [];
 
         }
 
-        function createTestCase(mutations,allEventRecord) {
+        function createTestCase(mutations, allEventRecord) {
 
 
             uitest.inner.outterCall("hideCreateBtn");
@@ -178,7 +200,7 @@
              *
              */
             var testCase = [];
-           console.log(mutations)
+            console.log(mutations)
 
             uitest.inner.hasSelectorChange(mutations);
 
@@ -253,7 +275,7 @@
                     }
 
                     if (oldValue && newValue && !/\d+/.test(newValue)) {
-                        if ($(mutation.target).attr( mutation.attributeName) === newValue) {
+                        if ($(mutation.target).attr(mutation.attributeName) === newValue) {
 
 
                             var expect = 'expect("' + selector + '").willModifyAttr("' + mutation.attributeName + '","' + newValue + '");\n'
