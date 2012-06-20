@@ -14,14 +14,15 @@
             var selector = uitest.inner.elToSelector(target);
             var attrs = target.attributes;
             if (attrs.length == 0)return;
+            target._addAttr = {};
+            target._removeAttr = {};
+            target._modifiyAttr = {}
 
             allMutationRecords.forEach(function (mutation) {
                 console.log(mutation)
 
                 if (mutation.type == "attributes" && mutation.target == target) {
-                    target._addAttr = {};
-                    target._removeAttr = {};
-                    target._modifiyAttr = {}
+
 
 
                     var oldValue = mutation.oldValue;
