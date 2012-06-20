@@ -76,7 +76,7 @@
                     target = target.parentNode;
                     
                 }
-                if(!target||target.tagName.toLowerCase()==="html"){
+                if(!target||(target==window)||(target.tagName.toLowerCase()==="html")){
                     break;
                 }
                 
@@ -115,7 +115,7 @@
                 }, true, true)
                 window.stopPropagationProxy = function (e) {
 
-                 
+
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
 
