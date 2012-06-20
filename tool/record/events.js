@@ -362,7 +362,7 @@
                     if (removedNodes.length > 0) {
                         for (var i = 0; i < removedNodes.length; i++) {
 
-
+                             conosl.log("removedNodes",removedNodes[i])
                             var se = toSP(removedNodes[i]);
                             var expect = 'expect("' + selector + '").willRemoveChildren("' + se + '", 1);\n';
 

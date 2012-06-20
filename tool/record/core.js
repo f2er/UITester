@@ -1391,6 +1391,7 @@ if (!JSON) {
         },
         initProxy             :function () {
             var host = this;
+            var fireEventCallback;
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
                 if (arguments[3]) {
@@ -1400,24 +1401,24 @@ if (!JSON) {
                     this._bindEventType = this._bindEventType || {};
                     this._bindEventType[arguments[0]] = 1;
 
-                    console.log(this, this._elToSelector)
                     realAdd.apply(this, arguments)
                 }
 
             };
             var removeChild = window.Node.prototype.removeChild;
             window.Node.prototype.removeChild = function (el) {
-                console.log("remove", el)
+
                 el._elToSelector = host.elToSelector(el);
                 return  removeChild.apply(this, arguments)
             }
 
-            var stopPropagation = window.Event.prototype.stopPropagation;
+           /* var stopPropagation = window.Event.prototype.stopPropagation;
 
             window.Event.prototype.stopPropagation = function () {
                 window.stopPropagationProxy && window.stopPropagationProxy(this);
                 stopPropagation.apply(this, arguments);
             }
+            */
 
 
             //附上跳转
@@ -1539,6 +1540,7 @@ if (!JSON) {
             if (el == document) {
                 return "html"
             }
+            if(!el.tagName)return;
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }
@@ -1618,6 +1620,7 @@ if (!JSON) {
         elToSelectorRelativeParent:function (el) {
             if (!el)return;
             var selector = "";
+            if(!el.tagName)return;
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }
