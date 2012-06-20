@@ -72,6 +72,7 @@
 
 
                 document.body.addEventListener(type, function (e) {
+                    console.log("fire event",e)
                     start = true;
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
@@ -82,6 +83,7 @@
                         }
 
                         else {
+                            console.log("add event",e);
                             addEvent($.extend({}, e));
                         }
 
@@ -90,7 +92,9 @@
 
                 }, true, true)
                 window.stopPropagationProxy = function(e){
+
                     console.log("stopPropagationProxy")
+                    console.log("fire event",e)
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
                     if(actionLock)return;
@@ -98,6 +102,7 @@
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
+                        console.log("add event",e);
                         addEvent($.extend({}, e));
                     }
                 }
