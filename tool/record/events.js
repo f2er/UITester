@@ -70,7 +70,7 @@
             while (true) {
 
                 if (validEvent(target, type)) {
-                    return parent;
+                    return target;
                 }
                 else {
                     target = target.parentNode;
