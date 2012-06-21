@@ -74,7 +74,6 @@
                 }
                 else {
                     target = target.parentNode;
-                    
                 }
                 if(!target||(target==window)||(target.tagName.toLowerCase()==="html")){
                     break;
@@ -89,33 +88,23 @@
         for (var p in uitest.configs.events) {
 
             (function (type) {
-
-
                 document.body.addEventListener(type, function (e) {
-
                     start = true;
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
-
                     var target =getValidEventTarget(e.target, e.type);
-
                     if (target) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-
                         else {
                             console.log("add event", e);
                             addEvent($.extend({}, e));
                         }
-
-
                     }
 
                 }, true, true)
                 window.stopPropagationProxy = function (e) {
-
-
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
 
@@ -143,7 +132,7 @@
 
         var observer = new MutationObserver(function (mutations) {
             if (uitest.configs.caseType != "event")return;
-            if (actionLock)return;
+            if (window._setIntervalRun)return;
 
             window.setTimeout(function () {
                 if (testCases.length == 0)return;
@@ -362,7 +351,7 @@
                     if (removedNodes.length > 0) {
                         for (var i = 0; i < removedNodes.length; i++) {
 
-                             conosl.log("removedNodes",removedNodes[i])
+                             console.log("removedNodes",removedNodes[i])
                             var se = toSP(removedNodes[i]);
                             var expect = 'expect("' + selector + '").willRemoveChildren("' + se + '", 1);\n';
 

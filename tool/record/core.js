@@ -896,7 +896,7 @@ if (!JSON) {
             this.showSelectMarkEvent();
             // this.initForm();
         },
-        uatest:function(){
+        uatest             :function () {
 
         },
         showSelectMarkEvent:function () {
@@ -1392,6 +1392,25 @@ if (!JSON) {
         initProxy             :function () {
             var host = this;
             var fireEventCallback;
+            var setInterval = window.setInterval
+
+            window.setInterval = function () {
+                var args = arguments;
+                var arrays = []
+                for (var i = 0; i < args.length; i++) {
+                    arrays.push(args[i]);
+                }
+
+
+                var fun = function () {
+                    window._setIntervalRun = true;
+                    args[0].apply(window, arguments);
+                    window._setIntervalRun = false;
+                }
+                arrays[0] = fun;
+                setInterval.apply(window, arrays);
+            }
+
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
                 if (arguments[3]) {
@@ -1400,7 +1419,6 @@ if (!JSON) {
                 else {
                     this._bindEventType = this._bindEventType || {};
                     this._bindEventType[arguments[0]] = 1;
-
                     realAdd.apply(this, arguments)
                 }
 
@@ -1412,13 +1430,13 @@ if (!JSON) {
                 return  removeChild.apply(this, arguments)
             }
 
-           /* var stopPropagation = window.Event.prototype.stopPropagation;
+            /* var stopPropagation = window.Event.prototype.stopPropagation;
 
-            window.Event.prototype.stopPropagation = function () {
-                window.stopPropagationProxy && window.stopPropagationProxy(this);
-                stopPropagation.apply(this, arguments);
-            }
-            */
+             window.Event.prototype.stopPropagation = function () {
+             window.stopPropagationProxy && window.stopPropagationProxy(this);
+             stopPropagation.apply(this, arguments);
+             }
+             */
 
 
             //附上跳转
@@ -1540,7 +1558,7 @@ if (!JSON) {
             if (el == document) {
                 return "html"
             }
-            if(!el.tagName)return;
+            if (!el.tagName)return;
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }
@@ -1620,7 +1638,7 @@ if (!JSON) {
         elToSelectorRelativeParent:function (el) {
             if (!el)return;
             var selector = "";
-            if(!el.tagName)return;
+            if (!el.tagName)return;
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }

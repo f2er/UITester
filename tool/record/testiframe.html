@@ -77,10 +77,17 @@
         </select></li>
     </ul>
     <div class="sns-widget" data-sharebtn="{}"></div>
- <a name="1123123"></a>
+    <a name="1123123" id="set"></a>
     <script>
         var S = KISSY, D = KISSY.DOM;
         E = KISSY.Event;
+
+        setInterval(function () {
+
+                    D.get("#set").innerHTML = "123"
+                }
+
+                , 10)
         var addAttr = function (el) {
             D.addClass(el, "name")
         }
