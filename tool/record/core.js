@@ -651,24 +651,24 @@ if (!JSON) {
             // mouse events supported
             click     :1,
             dblclick  :1,
-            mouseover :1,
-            mouseout  :1,
-            mouseenter:1,
-            mouseleave:1,
-            mousedown :1,
-            mouseup   :1,
-            mousemove :1,
+            mouseover :0,
+            mouseout  :0,
+            mouseenter:0,
+            mouseleave:0,
+            mousedown :0,
+            mouseup   :0,
+            mousemove :0,
             //key events supported
-            keydown   :1,
-            keyup     :1,
-            keypress  :1,
+            keydown   :0,
+            keyup     :0,
+            keypress  :0,
             /// HTML events supported
-            blur      :1,
-            change    :1,
-            focus     :1,
-            resize    :1,
-            scroll    :1,
-            select    :1
+            blur      :0,
+            change    :0,
+            focus     :0,
+            resize    :0,
+            scroll    :0,
+            select    :0
 
 
         },
@@ -877,6 +877,7 @@ if (!JSON) {
     uitest.outter = {
         init               :function () {
             var host = this;
+            this.uatest();
             this.codeEditor();
             this.initPage();
             this.observeCall();
@@ -897,6 +898,12 @@ if (!JSON) {
             // this.initForm();
         },
         uatest             :function () {
+            if (!KISSY.UA.chrome) {
+                alert("非chrome浏览器部分功能可能无法使用,请下载最新版本的chrome浏览器")
+            }
+            if (KISSY.UA.chrome && KISSY.UA.chrome < 19) {
+                alert("chthrome浏览器版本过低，部分功能可能无法使用,请下载最新版本的chrome浏览器")
+            }
 
         },
         showSelectMarkEvent:function () {
@@ -916,7 +923,7 @@ if (!JSON) {
 
         },
         showMouseoverPanel :function (selector, width, height, left, top) {
-            console.log("123")
+
             if (!this.mouseoverPanel) {
                 this.mouseoverPanel = $('<div class="mouseover-panel"></div>').get(0);
                 $("#test-page").get(0).appendChild(this.mouseoverPanel);
@@ -1081,7 +1088,15 @@ if (!JSON) {
         eventConfigsView    :function () {
             var host = this;
             var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="tag" title="通过监听事件引起的ui变化，来测试交互响应是不否正常" data-type="event">事件<a class="status">记录</a></h3><ul>';
+            var html = '<li class="cfg-item hide"><h3 class="tag" title="通过监听事件引起的ui变化，来测试交互响应是不否正常" data-type="event">事件<a class="status">记录</a></h3></li>';
+            var tools = document.querySelector(".change-tools");
+            html += '</ul></li>';
+            var e = $(html)[0];
+            configs.appendChild(e);
+
+
+            var configsHTML = '<li id="configs-event" class="hide" style="display:none">选择事件类型：<span class="jiao"></span><div class="item">';
+
 
             for (var p in uitest.configs.events) {
                 var checked = "checked";
@@ -1089,29 +1104,46 @@ if (!JSON) {
                     checked = ""
                 }
 
-                html += ' <li><label><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</label></li>'
+                configsHTML += '<div><span><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</span></div>'
             }
-            html += '</ul></li>';
-            var e = $(html)[0];
-
-            configs.appendChild(e);
-            var inputs = $("input", e);
-            inputs.each(function (input) {
-                $(input).on("change", function (e) {
-                        var t = e.target;
-                        if (t.checked) {
-                            uitest.configs.events[t.value] = 1
-                            host.innerCall("supportConfig", ["events", t.value, 1])
-                        }
-                        else {
-                            uitest.configs.events[t.value] = 0
-                            host.innerCall("supportConfig", ["events", t.value, 0]);
-                        }
 
 
+            configsHTML += "</div></li>";
+            var e = $(configsHTML)[0];
+            tools.appendChild(e);
+
+
+            $("input", e).on("change", function (e) {
+
+                    var t = e.target;
+                    if (t.checked) {
+                        uitest.configs.events[t.value] = 1
+                        console.log(uitest.configs.events[t.value])
+                        host.innerCall("supportConfig", ["events", t.value, 1])
+                       // uitest.synConfigs();
                     }
-                )
+                    else {
+                        uitest.configs.events[t.value] = 0;
+                        console.log(uitest.configs.events[t.value])
+                        uitest.synConfigs();
+                      //  host.innerCall("supportConfig", ["events", t.value, 0]);
+                    }
 
+
+                }
+            )
+
+
+            $(document).click(function (e) {
+                var target = e.target;
+                if (!$(target).closest("#configs-event")[0]) {
+                    $("#configs-event").addClass("hide")
+                }
+
+            })
+
+            $("#configs-event .jiao").click(function () {
+                $("#configs-event").toggleClass("hide")
             })
 
 
@@ -1413,16 +1445,55 @@ if (!JSON) {
 
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
-                if (arguments[3]) {
-                    realAdd.apply(this, arguments)
+                var host = this;
+                var arrays = [];
+                for (var i = 0; i < arguments.length; i++) {
+                    arrays.push(arguments[i]);
+                }
+                var oldFun = arrays[1];
+                if (oldFun) {
+                    var newFun = function () {
+                        if (uitest.configs.events[arrays[0]]) {
+                            oldFun.apply(host, arguments)
+                        }
+                    }
+                    arrays[1] = newFun;
+
+                }
+
+                if (arrays[3]) {
+                    realAdd.apply(this, arrays)
                 }
                 else {
                     this._bindEventType = this._bindEventType || {};
-                    this._bindEventType[arguments[0]] = 1;
-                    realAdd.apply(this, arguments)
+                    this._bindEventType[arrays[0]] = 1;
+                    realAdd.apply(this, arrays)
                 }
 
             };
+            $(document).ready(function () {
+                var all = document.querySelectorAll("*");
+                for (var i = 0; i < all.length; i++) {
+                    for (var p in uitest.configs.events) {
+                        (function (type, target) {
+                            var oldFun = target["on" + type]
+                            if (oldFun) {
+                                var newFun = function () {
+                                    console.log("run", type, target, uitest.configs.events[type])
+
+                                    if (uitest.configs.events[type]) {
+                                        oldFun.apply(target, arguments)
+                                    }
+                                }
+                                target["on" + type] = newFun;
+                            }
+                        })(p, all[i]);
+
+                    }
+                }
+
+
+            })
             var removeChild = window.Node.prototype.removeChild;
             window.Node.prototype.removeChild = function (el) {
 

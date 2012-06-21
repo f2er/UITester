@@ -45,7 +45,6 @@ body{
 }
 #nav{
     position:relative;
-
     border-bottom:solid 1px #cccccc;
     padding:5px;
     overflow:hidden;;
@@ -53,36 +52,27 @@ body{
     box-shadow:0px 2px 2px #ccc;
     position:relative;
     z-index:100;
-
-    background:
-        #FAFAFA;
-    background: -moz-linear-gradient(
-        #FAFAFA,
-        #EAEAEA);
-    background: -webkit-linear-gradient(
-        #FAFAFA,
-        #EAEAEA);
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
-    position: relative;
-    z-index: 10;
-    border-bottom: 1px solid
-    #CACACA;
-    box-shadow: 0 1px 0
-    rgba(255, 255, 255, 0.4), 0 0 10px
-    rgba(0, 0, 0, 0.1);
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
+    background:#FAFAFA;
+    background:-moz-linear-gradient(#FAFAFA, #EAEAEA);
+    background:-webkit-linear-gradient(#FAFAFA, #EAEAEA);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa',endColorstr='#eaeaea')";
+    position:relative;
+    z-index:10;
+    border-bottom:1px solid #CACACA;
+    box-shadow:0 1px 0 rgba(255, 255, 255, 0.4), 0 0 10px rgba(0, 0, 0, 0.1);
+    height:40px;
+    line-height:40px;
+    text-align:center;
 }
 #nav .nav-tools{
     margin:0 0 0 150px;
 }
-#nav .logo {
-    font: 62.5% "Droid Sans", Arial, sans-serif;
-    font-size: 25px;
-    font-weight: bold;
-    height: 40px;
-    line-height: 40px;
+#nav .logo{
+    font:62.5% "Droid Sans", Arial, sans-serif;
+    font-size:25px;
+    font-weight:bold;
+    height:40px;
+    line-height:40px;
     position:absolute;
     top:0px;
     left:10px;
@@ -121,10 +111,7 @@ body{
 }
 #content .sub{
     width:50px;
-
     margin-right:3px;
-
-
 }
 
 #content .main{
@@ -183,7 +170,7 @@ body{
     height:100%;
     width:100%;
     position:absolute;
-    top:0;left:0;
+    top:0; left:0;
 }
 #content .main  .code{
     overflow:auto;
@@ -303,7 +290,7 @@ body{
 .tabs ul li.ks-active{
     position:relative;;
     outline:none;
-    z-index:111;
+    z-index:98;
     background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442));
 }
 .tabs ul li a{
@@ -362,9 +349,19 @@ body{
     -webkit-user-select:none;
     user-select:none;
 }
-
+.jiao{
+    text-indent:-500px;
+    display:inline-block;
+    width:0px;
+    height:0px;
+    line-height:0;
+    border-width:5px 5px 0 5px;
+    border-style:solid dashed dashed dashed;
+    border-color:#666 transparent transparent transparent;
+    -webkit-transition:-webkit-transform .2s ease-in;
+    cursor:pointer;
+}
 .configs h3 a.status{
-
     position:absolute;
     top:9px;
     right:10px;;
@@ -426,7 +423,7 @@ body{
     background-color:#EEE;
     height:5px;
     width:100%;
-    z-index:1000000;
+    z-index:98;
     cursor:n-resize;
     border-top:solid 1px #cccccc;
     border-bottom:solid 1px #ccc;
@@ -440,13 +437,10 @@ body{
     width:5px;
     z-index:1000000;
     cursor:e-resize;
-
-
-    border-left: solid 1px #CCC;
-    border-right: solid 1px #CCC;
+    border-left:solid 1px #CCC;
+    border-right:solid 1px #CCC;
 }
 #test-page{
-
 }
 .mouseover-panel{
     background-color:rgba(0, 0, 250, 0.4);
@@ -489,10 +483,8 @@ body{
     position:absolute;;
     top:0;
     right:20px;
-
 }
 .fix-tools li a{
-
     display:inline-block;
     height:20px;
     padding:1px 5px;
@@ -515,6 +507,26 @@ body{
 }
 .change-tools{
     display:inline-block;;
+    position:relative;
+    z-index:99;
+}
+#configs-event{
+    position:relative;
+}
+#configs-event .item{
+    position:absolute;
+    top:20px;
+    left:0px;
+    background-color:#fff;
+    border:solid 1px #ccc;
+    padding:5px;
+    width:150px;
+    height:200px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+#configs-event.hide .item{
+    display:none;
 }
 </style>
 </head>
@@ -533,29 +545,31 @@ body{
 <div id="page">
 
 
-
     <div id="nav">
         <a href="/" class="logo">UITester</a>
+
         <div class="nav-tools">
-        <form id="save-form" method="post" action="../handle.php">
-            <ul>
-                <li><span class="name">用例名称：<input name="task_name" id="task_name" type="text"></span></li>
-                <li><span>测试页面地址:</span>
-                    <input name="task_target_uri" id="task_target_uri" type="url" value="./testiframe.html"/>
-                    <a id="reload" style="vertical-align:middle;" href="#"><img width="16" src="./img/reload.png"></a>
-                </li>
-                <li>
-                    <span class="show-login">登录信息? </span>
+            <form id="save-form" method="post" action="../handle.php">
+                <ul>
+                    <li><span class="name">用例名称：<input name="task_name" id="task_name" type="text"></span></li>
+                    <li><span>测试页面地址:</span>
+                        <input name="task_target_uri" id="task_target_uri" type="url" value="./testiframe.html"/>
+                        <a id="reload" style="vertical-align:middle;" href="#"><img width="16"
+                                                                                    src="./img/reload.png"></a>
+                    </li>
+                    <li>
+                        <span class="show-login">登录信息? </span>
                    <span class="login-info" style="display:none;">: <span>用户名：</span><input name="username"
                                                                                             id="username" type="text"/>
                    <span>密码:</span><input id="password" name="password" type="text"></span>
-                </li>
-                <li><input type="hidden" id="task_id" name="task_id"/><textarea style="display:none;" id="task_script"
-                                                                                name="task_script"></textarea></li>
+                    </li>
+                    <li><input type="hidden" id="task_id" name="task_id"/><textarea style="display:none;"
+                                                                                    id="task_script"
+                                                                                    name="task_script"></textarea></li>
 
-                <li><a href="#" style="" id="save-test">保存</a></li>
-            </ul>
-        </form>
+                    <li><a href="#" style="" id="save-test">保存</a></li>
+                </ul>
+            </form>
         </div>
 
     </div>
@@ -579,7 +593,6 @@ body{
 
 
                     <ul class="change-tools">
-
 
 
                     </ul>
