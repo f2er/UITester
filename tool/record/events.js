@@ -85,7 +85,7 @@
         }
 
         var timer;
-        for (var p in uitest.configs.events) {
+       /* for (var p in uitest.configs.events) {
 
             (function (type) {
                 document.body.addEventListener(type, function (e) {
@@ -121,6 +121,12 @@
 
 
             })(p);
+
+        }
+        */
+        window.eventObserver = function(target,type){
+
+                addEvent({target:target, type:type});
 
         }
 
@@ -396,12 +402,16 @@
                 verifys.push(v + ".verify();")
 
             }
-
+            var allEventRecordString ={};
 
             for (var i = 0; i < allEventRecord.length; i++) {
 
 
                 var selector = uitest.inner.elToSelector(allEventRecord[i].target);
+                if(allEventRecordString[selector+":"+allEventRecord[i].type])continue;
+
+                allEventRecordString[selector+":"+allEventRecord[i].type] = 1;
+                
                 var keyCode = '';
                 if (/^key/.test(allEventRecord[i].type)) {
                     keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';

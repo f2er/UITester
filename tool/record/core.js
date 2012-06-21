@@ -1450,10 +1450,12 @@ if (!JSON) {
                 for (var i = 0; i < arguments.length; i++) {
                     arrays.push(arguments[i]);
                 }
+                var type  = arrays[0]
                 var oldFun = arrays[1];
                 if (oldFun) {
                     var newFun = function () {
                         if (uitest.configs.events[arrays[0]]) {
+                            window.eventObserver&&window.eventObserver(host, type)
                             oldFun.apply(host, arguments)
                         }
                     }
@@ -1482,6 +1484,7 @@ if (!JSON) {
                                     console.log("run", type, target, uitest.configs.events[type])
 
                                     if (uitest.configs.events[type]) {
+                                        window.eventObserver&&window.eventObserver(target, type)
                                         oldFun.apply(target, arguments)
                                     }
                                 }
