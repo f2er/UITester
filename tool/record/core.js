@@ -684,188 +684,154 @@ if (!JSON) {
             relatedNode:"html"
         },
         attrs         :{
-            "globalAttributes":{
-                accesskey       :1,
-                class           :1,
-                contenteditable :1,
-                contextmenu     :1,
-                dir             :1,
-                draggable       :1,
-                dropzone        :1,
-                hidden          :1,
-                id              :1,
-                inert           :1,
-                itemid          :1,
-                itemprop        :1,
-                itemref         :1,
-                itemscope       :1,
-                itemtype        :1,
-                lang            :1,
-                spellcheck      :1,
-                style           :1,
-                tabindex        :1,
-                title           :1,
-                translate       :1,
-                customAttributes:1
+
+            accesskey       :1,
+            class           :1,
+            contenteditable :1,
+            contextmenu     :1,
+            dir             :1,
+            draggable       :1,
+            dropzone        :1,
+            hidden          :1,
+            id              :1,
+            inert           :1,
+            itemid          :1,
+            itemprop        :1,
+            itemref         :1,
+            itemscope       :1,
+            itemtype        :1,
+            lang            :1,
+            spellcheck      :1,
+            style           :1,
+            tabindex        :1,
+            title           :1,
+            translate       :1,
+            customAttributes:1,
 
 
-            },
-            "eventAttributes" :{
-                onabort         :1,
-                onblur          :1,
-                oncancel        :1,
-                oncanplay       :1,
-                oncanplaythrough:1,
-                onchange        :1,
-                onclick         :1,
-                onclose         :1,
-                oncontextmenu   :1,
-                oncuechange     :1,
-                ondblclick      :1,
-                ondrag          :1,
-                ondragend       :1,
-                ondragenter     :1,
-                ondragleave     :1,
-                ondragover      :1,
-                ondragstart     :1,
-                ondrop          :1,
-                ondurationchange:1,
-                onemptied       :1,
-                onended         :1,
-                onerror         :1,
-                onfocus         :1,
-                oninput         :1,
-                oninvalid       :1,
-                onkeydown       :1,
-                onkeypress      :1,
-                onkeyup         :1,
-                onload          :1,
-                onloadeddata    :1,
-                onloadedmetadata:1,
-                onloadstart     :1,
-                onmousedown     :1,
-                onmousemove     :1,
-                onmouseout      :1,
-                onmouseover     :1,
-                onmouseup       :1,
-                onmousewheel    :1,
-                onpause         :1,
-                onplay          :1,
-                onplaying       :1,
-                onprogress      :1,
-                onratechange    :1,
-                onreset         :1,
-                onscroll        :1,
-                onseeked        :1,
-                onseeking       :1,
-                onselect        :1,
-                onshow          :1,
-                onstalled       :1,
-                onsubmit        :1,
-                onsuspend       :1,
-                ontimeupdate    :1,
-                onvolumechange  :1,
-                onwaiting       :1
+            onabort         :1,
+            onblur          :1,
+            oncancel        :1,
+            oncanplay       :1,
+            oncanplaythrough:1,
+            onchange        :1,
+            onclick         :1,
+            onclose         :1,
+            oncontextmenu   :1,
+            oncuechange     :1,
+            ondblclick      :1,
+            ondrag          :1,
+            ondragend       :1,
+            ondragenter     :1,
+            ondragleave     :1,
+            ondragover      :1,
+            ondragstart     :1,
+            ondrop          :1,
+            ondurationchange:1,
+            onemptied       :1,
+            onended         :1,
+            onerror         :1,
+            onfocus         :1,
+            oninput         :1,
+            oninvalid       :1,
+            onkeydown       :1,
+            onkeypress      :1,
+            onkeyup         :1,
+            onload          :1,
+            onloadeddata    :1,
+            onloadedmetadata:1,
+            onloadstart     :1,
+            onmousedown     :1,
+            onmousemove     :1,
+            onmouseout      :1,
+            onmouseover     :1,
+            onmouseup       :1,
+            onmousewheel    :1,
+            onpause         :1,
+            onplay          :1,
+            onplaying       :1,
+            onprogress      :1,
+            onratechange    :1,
+            onreset         :1,
+            onscroll        :1,
+            onseeked        :1,
+            onseeking       :1,
+            onselect        :1,
+            onshow          :1,
+            onstalled       :1,
+            onsubmit        :1,
+            onsuspend       :1,
+            ontimeupdate    :1,
+            onvolumechange  :1,
+            onwaiting       :1,
 
-            },
 
-            a       :{
-                href    :1,
-                target  :1,
-                download:1,
-                ping    :1,
-                rel     :1,
-                media   :1,
-                hreflang:1,
-                type    :1
-            },
-            link    :{
-                href    :1,
-                rel     :1,
-                media   :1,
-                hreflang:1,
-                type    :1,
-                sizes   :1
-            },
-            img     :{
-                alt        :1,
-                src        :1,
-                srcset     :1,
-                crossorigin:1,
-                usemap     :1,
-                ismap      :1,
-                width      :1,
-                height     :1
-            },
-            script  :{
-                src    :1,
-                async  :1,
-                defer  :1,
-                type   :1,
-                charset:1
-            },
-            input   :{
-                accept        :1,
-                alt           :1,
-                autocomplete  :1,
-                autofocus     :1,
-                checked       :1,
-                dirname       :1,
-                disabled      :1,
-                form          :1,
-                formaction    :1,
-                formenctype   :1,
-                formmethod    :1,
-                formnovalidate:1,
-                formtarget    :1,
-                height        :1,
-                list          :1,
-                max           :1,
-                maxlength     :1,
-                min           :1,
-                multiple      :1,
-                name          :1,
-                pattern       :1,
-                placeholder   :1,
-                readonly      :1,
-                required      :1,
-                size          :1,
-                src           :1,
-                step          :1,
-                type          :1,
-                value         :1,
-                width         :1
-            },
-            textarea:{
-                autofocus  :1,
-                cols       :1,
-                dirname    :1,
-                disabled   :1,
-                form       :1,
-                maxlength  :1,
-                name       :1,
-                placeholder:1,
-                readonly   :1,
-                required   :1,
-                rows       :1,
-                wrap       :1
-            },
-            select  :{
-                autofocus:1,
-                disabled :1,
-                form     :1,
-                multiple :1,
-                name     :1,
-                required :1,
-                size     :1
-            },
-            options :{
-                disabled:1,
-                label   :1,
-                selected:1,
-                value   :1
+            href    :1,
+            target  :1,
+            download:1,
+            ping    :1,
+            rel     :1,
+            media   :1,
+            hreflang:1,
+            type    :1,
+            sizes   :1,
 
-            }
+            alt        :1,
+            src        :1,
+            srcset     :1,
+            crossorigin:1,
+            usemap     :1,
+            ismap      :1,
+            width      :1,
+            height     :1,
+
+            async  :1,
+            defer  :1,
+            charset:1,
+
+            accept        :1,
+            autocomplete  :1,
+            autofocus     :1,
+            checked       :1,
+            dirname       :1,
+            disabled      :1,
+            form          :1,
+            formaction    :1,
+            formenctype   :1,
+            formmethod    :1,
+            formnovalidate:1,
+            formtarget    :1,
+            list          :1,
+            max           :1,
+            maxlength     :1,
+            min           :1,
+            multiple      :1,
+            name          :1,
+            pattern       :1,
+            placeholder   :1,
+            readonly      :1,
+            required      :1,
+            size          :1,
+
+            step          :1,
+            value         :1,
+
+            autofocus  :1,
+            cols       :1,
+            dirname    :1,
+            disabled   :1,
+            form       :1,
+            maxlength  :1,
+            placeholder:1,
+            readonly   :1,
+            required   :1,
+            rows       :1,
+
+            label   :1,
+            selected:1
+
+
+
 
         }
     }
@@ -1085,6 +1051,69 @@ if (!JSON) {
                 host.innerCall("removeEventTypeTestCase")
             })
         },
+        attrConfigsView    :function () {
+            var host = this;
+            var configs = $(".configs")[0];
+            var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试" data-type="attr">属性<a class="status">记录</a></h3></li>';
+            var tools = document.querySelector(".change-tools");
+            html += '</ul></li>';
+            var e = $(html)[0];
+            configs.appendChild(e);
+
+
+            var configsHTML = '<li id="configs-attr" class="hide" style="display:none">选择属性类型：<span class="jiao"></span><div class="item">';
+
+
+            for (var p in uitest.configs.attrs) {
+                var checked = "checked";
+                if (!uitest.configs.attrs[p]) {
+                    checked = ""
+                }
+
+                configsHTML += '<div><span><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</span></div>'
+            }
+
+
+            configsHTML += "</div></li>";
+            var e = $(configsHTML)[0];
+            tools.appendChild(e);
+
+
+            $("input", e).on("change", function (e) {
+
+                    var t = e.target;
+                    if (t.checked) {
+                        uitest.configs.attrs[t.value] = 1
+                        console.log(uitest.configs.events[t.value])
+                        host.innerCall("supportConfig", ["events", t.value, 1])
+                        // uitest.synConfigs();
+                    }
+                    else {
+                        uitest.configs.attrs[t.value] = 0;
+                        console.log(uitest.configs.events[t.value])
+                        uitest.synConfigs();
+                        //  host.innerCall("supportConfig", ["events", t.value, 0]);
+                    }
+
+
+                }
+            )
+
+
+            $(document).click(function (e) {
+                var target = e.target;
+                if (!$(target).closest("#configs-attr")[0]) {
+                    $("#configs-attr").addClass("hide")
+                }
+
+            })
+
+            $("#configs-attr .jiao").click(function () {
+                $("#configs-attr").toggleClass("hide")
+            })
+
+
+        },
         eventConfigsView    :function () {
             var host = this;
             var configs = $(".configs")[0];
@@ -1120,13 +1149,13 @@ if (!JSON) {
                         uitest.configs.events[t.value] = 1
                         console.log(uitest.configs.events[t.value])
                         host.innerCall("supportConfig", ["events", t.value, 1])
-                       // uitest.synConfigs();
+                        // uitest.synConfigs();
                     }
                     else {
                         uitest.configs.events[t.value] = 0;
                         console.log(uitest.configs.events[t.value])
                         uitest.synConfigs();
-                      //  host.innerCall("supportConfig", ["events", t.value, 0]);
+                        //  host.innerCall("supportConfig", ["events", t.value, 0]);
                     }
 
 
@@ -1253,29 +1282,7 @@ if (!JSON) {
         subTreeConfigsView  :function () {
 
         },
-        attrConfigsView     :function () {
-            var host = this;
-            var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试" data-type="attr">属性<a class="status">记录</a></h3><ul>' +
-                '{{#each attrs as bValue bKey}}' +
-                '<li class="{{bKey}}"><label><input   type="checkbox" checked /> {{bKey}}</label><ul>' +
-                '{{#each bValue as value key}}' +
-                '<li class="attr {{key}}"><label><input value="{{value}}" name="uitest.configs.{{bKey}}.{{key}}" type="checkbox" checked/>{{key}}</label></li>' +
-                '{{/each}}' +
-                '</ul>' +
-                '{{/each}}' +
-                '</ul></li>';
 
-            KISSY.use("template", function (S, Template) {
-                html = Template(html).render(uitest.configs);
-                var e = $(html)[0];
-
-                configs.appendChild(e);
-
-            });
-
-
-        },
         caseTypeEvent       :function () {
             var host = this;
             $(".configs").on("click", function (e) {
@@ -1450,12 +1457,12 @@ if (!JSON) {
                 for (var i = 0; i < arguments.length; i++) {
                     arrays.push(arguments[i]);
                 }
-                var type  = arrays[0]
+                var type = arrays[0]
                 var oldFun = arrays[1];
                 if (oldFun) {
                     var newFun = function () {
                         if (uitest.configs.events[arrays[0]]) {
-                            window.eventObserver&&window.eventObserver(host, type)
+                            window.eventObserver && window.eventObserver(host, type)
                             oldFun.apply(host, arguments)
                         }
                     }
@@ -1484,7 +1491,7 @@ if (!JSON) {
                                     console.log("run", type, target, uitest.configs.events[type])
 
                                     if (uitest.configs.events[type]) {
-                                        window.eventObserver&&window.eventObserver(target, type)
+                                        window.eventObserver && window.eventObserver(target, type)
                                         oldFun.apply(target, arguments)
                                     }
                                 }
