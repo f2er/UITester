@@ -813,8 +813,8 @@ if (!JSON) {
             required      :1,
             size          :1,
 
-            step          :1,
-            value         :1,
+            step :1,
+            value:1,
 
             autofocus  :1,
             cols       :1,
@@ -1051,7 +1051,7 @@ if (!JSON) {
                 host.innerCall("removeEventTypeTestCase")
             })
         },
-        attrConfigsView    :function () {
+        attrConfigsView     :function () {
             var host = this;
             var configs = $(".configs")[0];
             var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试" data-type="attr">属性<a class="status">记录</a></h3></li>';
@@ -1283,7 +1283,7 @@ if (!JSON) {
 
         },
 
-        caseTypeEvent       :function () {
+        caseTypeEvent:function () {
             var host = this;
             $(".configs").on("click", function (e) {
 
@@ -1324,7 +1324,7 @@ if (!JSON) {
             })
 
         },
-        showConfigs         :function (type) {
+        showConfigs  :function (type) {
             var changeConfig = $(".change-tools li");
             changeConfig.hide();
             $("#configs-" + type).show();
@@ -1457,25 +1457,30 @@ if (!JSON) {
                 for (var i = 0; i < arguments.length; i++) {
                     arrays.push(arguments[i]);
                 }
-                var type = arrays[0]
-                var oldFun = arrays[1];
-                if (oldFun) {
-                    var newFun = function () {
-                        if (uitest.configs.events[arrays[0]]) {
-                            window.eventObserver && window.eventObserver(host, type)
-                            oldFun.apply(host, arguments)
-                        }
-                    }
-                    arrays[1] = newFun;
 
-                }
+                host["_bindEventType"] = host["_bindEventType"] || {}
+
+
+                host["_bindEventType"][arrays[0]] = 1;
+
 
                 if (arrays[3]) {
                     realAdd.apply(this, arrays)
                 }
                 else {
-                    this._bindEventType = this._bindEventType || {};
-                    this._bindEventType[arrays[0]] = 1;
+                    var type = arrays[0]
+                    var oldFun = arrays[1];
+                    if (oldFun) {
+                        var newFun = function () {
+                            if (uitest.configs.events[arrays[0]]) {
+                                console.log(oldFun)
+                                window.eventObserver && window.eventObserver(host, type)
+                                oldFun.apply(host, arguments)
+                            }
+                        }
+                        arrays[1] = newFun;
+
+                    }
                     realAdd.apply(this, arrays)
                 }
 
@@ -1511,18 +1516,18 @@ if (!JSON) {
                 return  removeChild.apply(this, arguments)
             }
 
-            /* var stopPropagation = window.Event.prototype.stopPropagation;
+            var stopPropagation = window.Event.prototype.stopPropagation;
 
-             window.Event.prototype.stopPropagation = function () {
-             window.stopPropagationProxy && window.stopPropagationProxy(this);
-             stopPropagation.apply(this, arguments);
-             }
-             */
+            window.Event.prototype.stopPropagation = function () {
+                console.log("123");
+                window.stopPropagationProxy && window.stopPropagationProxy(this);
+                stopPropagation.apply(this, arguments);
+            }
 
 
             //附上跳转
             $(document).ready(function () {
-                $(document).on("click", function (e) {
+                document.body.addEventListener("click", function (e) {
                     var target = e.target;
                     if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
@@ -1539,7 +1544,7 @@ if (!JSON) {
 
                     // e.halt();
 
-                })
+                }, true, true)
             })
 
 

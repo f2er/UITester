@@ -61,38 +61,38 @@
             else if (type == "change") {
                 result = true
             }
-
+           console.log(target,type,target["_bindEventType"])
             return result;
         }
 
         var getValidEventTarget = function (target, type) {
 
             while (true) {
-
+              
                 if (validEvent(target, type)) {
                     return target;
                 }
                 else {
                     target = target.parentNode;
                 }
-                if(!target||(target==window)||(target.tagName.toLowerCase()==="html")){
+                if (!target || (target == window) || (target.tagName.toLowerCase() === "html")) {
                     break;
                 }
-                
+
             }
 
 
         }
 
         var timer;
-       /* for (var p in uitest.configs.events) {
+        for (var p in uitest.configs.events) {
 
             (function (type) {
                 document.body.addEventListener(type, function (e) {
                     start = true;
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
-                    var target =getValidEventTarget(e.target, e.type);
+                    var target = getValidEventTarget(e.target, e.type);
                     if (target) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
@@ -105,16 +105,20 @@
 
                 }, true, true)
                 window.stopPropagationProxy = function (e) {
+                    console.log(e);
                     if (uitest.configs.caseType != "event")return;
-                    if (!uitest.configs.events[type])return;
+                    if (!uitest.configs.events[e.type])return;
+                    
+                    console.log(1234);
 
                     var target = getValidEventTarget(e.target, e.type);
+                    console.log("stopPropagationProxy getValidEventTarget",target)
 
                     if (target) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-                        console.log("add event", e);
+                        console.log("add stopPropagationProxy event", e);
                         addEvent($.extend({}, e));
                     }
                 }
@@ -123,12 +127,14 @@
             })(p);
 
         }
-        */
-        window.eventObserver = function(target,type){
 
-                addEvent({target:target, type:type});
+        /*
+         window.eventObserver = function(target,type){
 
-        }
+         addEvent({target:target, type:type});
+
+         }
+         */
 
 
 //记录变化
@@ -357,7 +363,7 @@
                     if (removedNodes.length > 0) {
                         for (var i = 0; i < removedNodes.length; i++) {
 
-                             console.log("removedNodes",removedNodes[i])
+                            console.log("removedNodes", removedNodes[i])
                             var se = toSP(removedNodes[i]);
                             var expect = 'expect("' + selector + '").willRemoveChildren("' + se + '", 1);\n';
 
@@ -402,16 +408,16 @@
                 verifys.push(v + ".verify();")
 
             }
-            var allEventRecordString ={};
+            var allEventRecordString = {};
 
             for (var i = 0; i < allEventRecord.length; i++) {
 
 
                 var selector = uitest.inner.elToSelector(allEventRecord[i].target);
-                if(allEventRecordString[selector+":"+allEventRecord[i].type])continue;
+                if (allEventRecordString[selector + ":" + allEventRecord[i].type])continue;
 
-                allEventRecordString[selector+":"+allEventRecord[i].type] = 1;
-                
+                allEventRecordString[selector + ":" + allEventRecord[i].type] = 1;
+
                 var keyCode = '';
                 if (/^key/.test(allEventRecord[i].type)) {
                     keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';

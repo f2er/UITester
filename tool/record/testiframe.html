@@ -92,6 +92,8 @@
             D.addClass(el, "name")
         }
         document.getElementById("stop-event").addEventListener("click", function (e) {
+            console.log(' document.getElementById("stop-event")',e.target["_bindEventType"])
+            
             e.stopPropagation();
             e.target.className = "qwwe"
         })

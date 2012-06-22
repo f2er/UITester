@@ -98,7 +98,7 @@
 
 
         //事件类型
-        $(document.body).on("click", function (e) {
+        document.body.addEventListener("click", function (e) {
 
             if (uitest.configs.caseType == "attr") {
                 var target = e.target;
@@ -111,7 +111,7 @@
             }
 
 
-        })
+        },true,true)
 
 
     })

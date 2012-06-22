@@ -37,14 +37,14 @@
 
 
         //事件类型
-        $(document.body).on("click", function (e) {
+        document.body.addEventListener( function (e) {
             if (uitest.configs.caseType == "innerhtml") {
                 var target = e.target;
                 window.setTimeout(function () {
                     createTestCase(target);
                 }, 0)
             }
-        })
+        },true,true)
 
 
     })
