@@ -645,6 +645,7 @@ if (!JSON) {
     }
 
     uitest.configs = {
+        setInterval   :false,
         showSelectMark:false,
         caseType      :"null",
         events        :{
@@ -1440,47 +1441,58 @@ if (!JSON) {
                     arrays.push(args[i]);
                 }
 
-
+                var old = args[0];
                 var fun = function () {
                     window._setIntervalRun = true;
-                    args[0].apply(window, arguments);
-                    window._setIntervalRun = false;
+
+                    console.log("start setInterval")
+                    if (uitest.configs.caseType == "event" && !uitest.configs.setInterval) {
+
+                    }
+                    else {
+                        old.apply(window, arguments);
+                    }
+                    console.log("end setInterval")
+
                 }
                 arrays[0] = fun;
                 setInterval.apply(window, arrays);
             }
 
+
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
+
                 var host = this;
                 var arrays = [];
                 for (var i = 0; i < arguments.length; i++) {
                     arrays.push(arguments[i]);
                 }
 
-                host["_bindEventType"] = host["_bindEventType"] || {}
-
-
-                host["_bindEventType"][arrays[0]] = 1;
-
 
                 if (arrays[3]) {
                     realAdd.apply(this, arrays)
                 }
                 else {
-                    var type = arrays[0]
-                    var oldFun = arrays[1];
-                    if (oldFun) {
-                        var newFun = function () {
-                            if (uitest.configs.events[arrays[0]]) {
-                                console.log(oldFun)
-                                window.eventObserver && window.eventObserver(host, type)
-                                oldFun.apply(host, arguments)
-                            }
-                        }
-                        arrays[1] = newFun;
 
-                    }
+                    host["_bindEventType"] = host["_bindEventType"] || {}
+
+
+                    host["_bindEventType"][arrays[0]] = 1;
+                    /*   var type = arrays[0]
+                     var oldFun = arrays[1];
+                     if (oldFun) {
+                     var newFun = function () {
+                     if (uitest.configs.events[arrays[0]]) {
+                     console.log(oldFun)
+                     window.eventObserver && window.eventObserver(host, type)
+                     oldFun.apply(host, arguments)
+                     }
+                     }
+                     arrays[1] = newFun;
+
+                     }
+                     */
                     realAdd.apply(this, arrays)
                 }
 
@@ -1681,6 +1693,7 @@ if (!JSON) {
             while (true) {
                 p = p.parentNode;
                 var l = $(selector, p).length;
+
                 if (l == 1) {
                     old = p;
                 } else {
@@ -1695,14 +1708,14 @@ if (!JSON) {
 
             if (!old) {
                 old = el.parentNode;
-                var c = $(selector, old);
+                var c = $(el.tagName.toLowerCase(), old);
                 for (var i = 0; i < c.length; i++) {
                     if (c[i] == el) {
                         break;
                     }
                 }
 
-                selector = this.elToSelector(old) + " " + selector + ":nth-of-type(" + (i + 1) + ")";
+                selector = this.elToSelector(old) + " " + el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
 
             }
 
@@ -1758,8 +1771,9 @@ if (!JSON) {
 
             var observer = new MutationObserver(function (mutations) {
 
-
-                uitest.inner.hasSelectorChange(mutations);
+                if (uitest.configs.caseType == "null") {
+                    uitest.inner.hasSelectorChange(mutations);
+                }
 
 
             });
@@ -1777,7 +1791,7 @@ if (!JSON) {
         hasSelectorChange:function (mutations) {
             for (var i = 0; i < mutations.length; i++) {
 
-                if (mutations[i].type == "attributes" || mutations[i].attributeName === "id" || mutations[i].attributeName === "class") {
+                if (mutations[i].type == "attributes" && (mutations[i].attributeName === "id" || mutations[i].attributeName === "class")) {
 
 
                     mutations[i].target._break = mutations[i].attributeName;

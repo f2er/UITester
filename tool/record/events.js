@@ -144,7 +144,7 @@
 
         var observer = new MutationObserver(function (mutations) {
             if (uitest.configs.caseType != "event")return;
-            if (window._setIntervalRun)return;
+
 
             window.setTimeout(function () {
                 if (testCases.length == 0)return;
@@ -249,7 +249,7 @@
 
                     if (!oldValue && newValue && !/\d+/.test(newValue)) {
 
-                        if ($(mutation.target).attr(mutation.attributeName) === newValue) {
+                        if ($(selector).attr(mutation.attributeName) === newValue) {
 
                             var expect = 'expect("' + selector + '").willAddAttr("' + mutation.attributeName + '","' + newValue + '");\n'
                             if (!hasRecords(expect)) {
@@ -263,7 +263,7 @@
                     }
 
                     if (oldValue && !newValue && !/\d+/.test(oldValue)) {
-                        if (!$(mutation.target).attr(mutation.attributeName)) {
+                        if (!$(selector).attr(mutation.attributeName)) {
 
                             var expect = 'expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '","' + oldValue + '");\n'
                             if (!hasRecords(expect)) {
@@ -276,7 +276,7 @@
                     }
 
                     if (oldValue && newValue && !/\d+/.test(newValue)) {
-                        if ($(mutation.target).attr(mutation.attributeName) === newValue) {
+                        if ($(selector).attr(mutation.attributeName) === newValue) {
 
 
                             var expect = 'expect("' + selector + '").willModifyAttr("' + mutation.attributeName + '","' + newValue + '");\n'
