@@ -43,6 +43,12 @@
 
     $(document).ready(function () {
         var start = false;
+        var all = document.querySelectorAll("*");
+        for (var i = 0; i < all.length; i++) {
+
+            all[i]._parentNode = all[i].parentNode
+
+        }
 
 
         var actionLock = false;
@@ -61,14 +67,14 @@
             else if (type == "change") {
                 result = true
             }
-           console.log(target,type,target["_bindEventType"])
+
             return result;
         }
 
         var getValidEventTarget = function (target, type) {
 
             while (true) {
-              
+
                 if (validEvent(target, type)) {
                     return target;
                 }
@@ -98,27 +104,26 @@
                             e.changeValue = e.target.value;
                         }
                         else {
-                            console.log("add event", e);
+
                             addEvent($.extend({}, e));
                         }
                     }
 
                 }, true, true)
                 window.stopPropagationProxy = function (e) {
-                    console.log(e);
+
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[e.type])return;
-                    
-                    console.log(1234);
+
 
                     var target = getValidEventTarget(e.target, e.type);
-                    console.log("stopPropagationProxy getValidEventTarget",target)
+
 
                     if (target) {
                         if (e.type == "change") {
                             e.changeValue = e.target.value;
                         }
-                        console.log("add stopPropagationProxy event", e);
+
                         addEvent($.extend({}, e));
                     }
                 }
@@ -173,7 +178,7 @@
 
 
         uitest.inner.createEventTypeTestCase = function () {
-            console.log(testCases);
+
             for (var i = 0; i < testCases.length; i++) {
                 if (testCases[i].events && testCases[i].mutations) {
                     createTestCase(testCases[i].mutations, testCases[i].events)
@@ -201,7 +206,7 @@
              *
              */
             var testCase = [];
-            console.log(mutations)
+
 
             uitest.inner.hasSelectorChange(mutations);
 
@@ -212,9 +217,14 @@
             var records = [];
 
             var hasRecords = function (rec) {
+                var result = false;
                 for (var i = 0; i < records.length; i++) {
-                    if (records[i] === rec)return i;
+                    if (records[i] === rec){
+                        result = true;
+                        break;
+                    };
                 }
+                return result;
             }
             var hasChildListRecords = function (rec) {
 
@@ -228,6 +238,7 @@
 
             var toS = uitest.inner.elToSelector;
             var toSP = uitest.inner.elToSelectorRelativeParent;
+            
 
 
             var testCase = 'describe("交互动作测试用例",function(){\n';
@@ -242,51 +253,32 @@
                 if (mutation.type == "attributes") {
 
                     var oldValue = mutation.oldValue;
-                    var newValue = mutation.target.getAttribute(mutation.attributeName)
 
 
                     var selector = uitest.inner.elToSelector(mutation.target)
-
-                    if (!oldValue && newValue && !/\d+/.test(newValue)) {
-
-                        if ($(selector).attr(mutation.attributeName) === newValue) {
-
-                            var expect = 'expect("' + selector + '").willAddAttr("' + mutation.attributeName + '","' + newValue + '");\n'
-                            if (!hasRecords(expect)) {
-                                records.push(expect);
-
-                            }
-
-                        }
-
-
-                    }
+                    var newValue = $(selector).attr(mutation.attributeName)
 
                     if (oldValue && !newValue && !/\d+/.test(oldValue)) {
-                        if (!$(selector).attr(mutation.attributeName)) {
 
-                            var expect = 'expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '","' + oldValue + '");\n'
-                            if (!hasRecords(expect)) {
-                                records.push(expect);
 
-                            }
-
+                        var expect = 'expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '");\n'
+                        if (!hasRecords(expect)) {
+                            records.push(expect);
 
                         }
+
                     }
 
                     if (oldValue && newValue && !/\d+/.test(newValue)) {
-                        if ($(selector).attr(mutation.attributeName) === newValue) {
 
 
-                            var expect = 'expect("' + selector + '").willModifyAttr("' + mutation.attributeName + '","' + newValue + '");\n'
-                            if (!hasRecords(expect)) {
-                                records.push(expect);
+                        var expect = 'expect("' + selector + '").willHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n'
+                        if (!hasRecords(expect)) {
+                            records.push(expect);
 
-
-                            }
 
                         }
+
                     }
                     ;
                 }
@@ -294,6 +286,7 @@
 
                     var target = mutation.target.parentNode;
                     var newValue = target.innerHTML;
+
 
                     var selector = uitest.inner.elToSelector(target)
 
@@ -308,6 +301,9 @@
                 }
 
                 if (mutation.type == "childList") {
+                    var tag = mutation.target.tagName.toLowerCase();
+                    //难以预测，暂时不支持
+                    if(tag =="head"||tag=="body")return;
 
 
                     var addedNodes = mutation.addedNodes;
@@ -317,39 +313,24 @@
 
                     var selector = uitest.inner.elToSelector(mutation.target)
 
+
                     if (addedNodes.length > 0) {
                         for (var i = 0; i < addedNodes.length; i++) {
                             addedNodes[i]._isJsAdd = true;
 
                             if (addedNodes[i].ownerDocument) {
+
                                 var se = toSP(addedNodes[i]);
-                                var expect = 'expect("' + selector + '").willAddChildren("' + se + '", 1);\n';
-                                var removeExpect = 'expect("' + selector + '").willRemoveChildren("' + se + '", 1);\n';
+                                if (!se)continue;
+                                console.log("willAddChildren", mutation.target, selector, addedNodes[i], se)
+                                var expect = 'expect("' + selector + '").willAddChild("' + se + '");\n';
+                                var removeExpect = 'expect("' + selector + '").willRemoveChild("' + se + '");\n';
 
                                 var index = hasChildListRecords(removeExpect);
-                                var addIndex = hasChildListRecords(expect);
-                                if (index !== undefined) {
-                                    var num = /\d+/.exec(records[index])[0];
-                                    if (num == "1")records[index] = null;
-                                    else {
-                                        num = parseInt(num) - 1;
-                                        records[index] = 'expect("' + selector + '").willRemoveChildren("' + se + '", ' + num + ');\n';
-                                    }
 
-                                }
-                                else if (addIndex !== undefined) {
+                                if (index === undefined) {
 
-                                    var num = /\d+/.exec(records[addIndex])[0];
-
-
-                                    num = parseInt(num) + 1;
-
-                                    records[addIndex] = 'expect("' + selector + '").willAddChildren("' + se + '", ' + num + ');\n';
-                                    console.log("add chilcd," + records[addIndex])
-                                }
-                                else {
                                     records.push(expect);
-                                    console.log("add chilcd," + expect)
 
                                 }
 
@@ -363,27 +344,16 @@
                     if (removedNodes.length > 0) {
                         for (var i = 0; i < removedNodes.length; i++) {
 
-                            console.log("removedNodes", removedNodes[i])
+
                             var se = toSP(removedNodes[i]);
-                            var expect = 'expect("' + selector + '").willRemoveChildren("' + se + '", 1);\n';
+                            console.log("willAddChildren", mutation.target, selector, removedNodes[i], se)
+                            var expect = 'expect("' + selector + '").willRemoveChild("' + se + '");\n';
 
-                            var addExpect = 'expect("' + selector + '").willAddChildren("' + se + '", 1);\n';
+                            var addExpect = 'expect("' + selector + '").willAddChild("' + se + '");\n';
                             var index = hasChildListRecords(addExpect);
-                            var removeIndex = hasChildListRecords(expect);
-                            if (index !== undefined) {
-                                var num = /\d+/.exec(records[index])[0];
-                                if (num == "1")records[index] = null;
-                                else {
-                                    num = parseInt(num) - 1;
-                                    records[index] = 'expect("' + selector + '").willAddChildren("' + se + '", ' + num + ');\n';
-                                }
 
-                            }
-                            else if (removeIndex !== undefined) {
-                                num = parseInt(num) + 1;
-                                records[removeIndex] = 'expect("' + selector + '").willRemoveChildren("' + se + '", ' + num + ');\n';
-                            }
-                            else {
+                            if (index === undefined) {
+
                                 records.push(expect);
 
                             }
@@ -402,18 +372,24 @@
 
 
             for (var i = 0; i < records.length; i++) {
-                var v = "exp" + i;
+                if (records[i]) {
+                    var v = "exp" + i;
 
-                testCase += '    var ' + v + ' = ' + records[i];
-                verifys.push(v + ".verify();")
+                    testCase += '    var ' + v + ' = ' + records[i];
+                    verifys.push(v + ".verify();")
+                }
+
 
             }
             var allEventRecordString = {};
 
             for (var i = 0; i < allEventRecord.length; i++) {
 
-
+                console.log("simulate", allEventRecord[i].target)
                 var selector = uitest.inner.elToSelector(allEventRecord[i].target);
+                console.log("simulate", selector)
+
+
                 if (allEventRecordString[selector + ":" + allEventRecord[i].type])continue;
 
                 allEventRecordString[selector + ":" + allEventRecord[i].type] = 1;
@@ -425,6 +401,8 @@
                 if (allEventRecord[i].type === "change") {
                     testCase += '    $("' + selector + '")[0].value = ' + allEventRecord[i].changeValue + '\n';
                 }
+
+
                 testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
             }
 

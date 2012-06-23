@@ -915,7 +915,7 @@ if (!JSON) {
                 if (username && password) {
                     result = buildUrl(result, "username=" + username + "&password=" + password)
                 }
-                console.log(result)
+
                 return result;
             }
 
@@ -942,12 +942,12 @@ if (!JSON) {
                         host.innerCall("setBeforeunloadWarning")
 
                         iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
-                        console.log(iframe.src)
+
                         $.ajax({
                             url     :buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
                             dataType:"text",
                             success :function (txt) {
-                                console.log(txt);
+
                                 host.textEditor.textModel.setText(null, txt)
                             }
                         })
@@ -1085,13 +1085,13 @@ if (!JSON) {
                     var t = e.target;
                     if (t.checked) {
                         uitest.configs.attrs[t.value] = 1
-                        console.log(uitest.configs.events[t.value])
+
                         host.innerCall("supportConfig", ["events", t.value, 1])
                         // uitest.synConfigs();
                     }
                     else {
                         uitest.configs.attrs[t.value] = 0;
-                        console.log(uitest.configs.events[t.value])
+
                         uitest.synConfigs();
                         //  host.innerCall("supportConfig", ["events", t.value, 0]);
                     }
@@ -1148,13 +1148,13 @@ if (!JSON) {
                     var t = e.target;
                     if (t.checked) {
                         uitest.configs.events[t.value] = 1
-                        console.log(uitest.configs.events[t.value])
+
                         host.innerCall("supportConfig", ["events", t.value, 1])
                         // uitest.synConfigs();
                     }
                     else {
                         uitest.configs.events[t.value] = 0;
-                        console.log(uitest.configs.events[t.value])
+
                         uitest.synConfigs();
                         //  host.innerCall("supportConfig", ["events", t.value, 0]);
                     }
@@ -1227,7 +1227,6 @@ if (!JSON) {
 
             offsetHTML = KISSY.Template(offsetHTML).render(uitest.configs.position);
 
-            console.log(offsetHTML)
 
 
             var tag = $(offsetHTML)[0];
@@ -1390,7 +1389,7 @@ if (!JSON) {
         },
         innerCall     :function (funName, args) {
             args = args || [];
-            console.log("innerCall", funName, args)
+
             postmsg.send({
                 target:$("#iframe-target")[0].contentWindow,
                 data  :{funName:funName, args:args}
@@ -1432,7 +1431,16 @@ if (!JSON) {
         initProxy             :function () {
             var host = this;
             var fireEventCallback;
-            var setInterval = window.setInterval
+            var setInterval = window.setInterval;
+
+
+            window.eventObserver = function (e) {
+
+                var target = e.target;
+
+                target._elToSelector = host.elToSelector(target);
+
+            }
 
             window.setInterval = function () {
                 var args = arguments;
@@ -1445,14 +1453,14 @@ if (!JSON) {
                 var fun = function () {
                     window._setIntervalRun = true;
 
-                    console.log("start setInterval")
+
                     if (uitest.configs.caseType == "event" && !uitest.configs.setInterval) {
 
                     }
                     else {
                         old.apply(window, arguments);
                     }
-                    console.log("end setInterval")
+
 
                 }
                 arrays[0] = fun;
@@ -1471,6 +1479,7 @@ if (!JSON) {
 
 
                 if (arrays[3]) {
+
                     realAdd.apply(this, arrays)
                 }
                 else {
@@ -1479,33 +1488,36 @@ if (!JSON) {
 
 
                     host["_bindEventType"][arrays[0]] = 1;
-                    /*   var type = arrays[0]
-                     var oldFun = arrays[1];
-                     if (oldFun) {
-                     var newFun = function () {
-                     if (uitest.configs.events[arrays[0]]) {
-                     console.log(oldFun)
-                     window.eventObserver && window.eventObserver(host, type)
-                     oldFun.apply(host, arguments)
-                     }
-                     }
-                     arrays[1] = newFun;
+                    var type = arrays[0]
+                    var oldFun = arrays[1];
+                    if (oldFun) {
+                        var newFun = function () {
 
-                     }
-                     */
+
+                            window.eventObserver && window.eventObserver.apply(host, arguments)
+                            oldFun.apply(host, arguments)
+                        }
+                        arrays[1] = newFun;
+                    }
+
+
+
                     realAdd.apply(this, arrays)
                 }
 
             };
             $(document).ready(function () {
-                var all = document.querySelectorAll("*");
+                var all = document.querySelectorAll("*")
+
+
+                //事件
                 for (var i = 0; i < all.length; i++) {
                     for (var p in uitest.configs.events) {
                         (function (type, target) {
                             var oldFun = target["on" + type]
                             if (oldFun) {
                                 var newFun = function () {
-                                    console.log("run", type, target, uitest.configs.events[type])
+
 
                                     if (uitest.configs.events[type]) {
                                         window.eventObserver && window.eventObserver(target, type)
@@ -1524,6 +1536,7 @@ if (!JSON) {
             var removeChild = window.Node.prototype.removeChild;
             window.Node.prototype.removeChild = function (el) {
 
+
                 el._elToSelector = host.elToSelector(el);
                 return  removeChild.apply(this, arguments)
             }
@@ -1531,7 +1544,7 @@ if (!JSON) {
             var stopPropagation = window.Event.prototype.stopPropagation;
 
             window.Event.prototype.stopPropagation = function () {
-                console.log("123");
+
                 window.stopPropagationProxy && window.stopPropagationProxy(this);
                 stopPropagation.apply(this, arguments);
             }
@@ -1545,7 +1558,7 @@ if (!JSON) {
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
 
                             if (!/^#/.test(target.href)) {
-                                console.log("preventDefault")
+
                                 e.preventDefault()
                             }
                             ;
@@ -1584,7 +1597,7 @@ if (!JSON) {
                 })
 
                 $(document).on("mouseleave", function (e) {
-                    console.log(345)
+
 
                     host.outterCall("showMouseoverPanel", [
                         "",
@@ -1604,6 +1617,8 @@ if (!JSON) {
 
         },
         runTestCase        :function (src) {
+            var old = uitest.configs.caseType
+            uitest.configs.caseType = "test"
             var host = this;
             eval(src);
             (function () {
@@ -1619,7 +1634,8 @@ if (!JSON) {
                  };
                  */
                 var htmlReporter = new jasmine.JsonReporter(function (json) {
-                    console.log(json)
+                    uitest.configs.caseType = old;
+
                     host.outterCall("showResult", [json]);
                 });
 
@@ -1637,13 +1653,13 @@ if (!JSON) {
             uitest.configs[key] = value;
         },
         supportConfig      :function (name, key, value) {
-            console.log(arguments)
+
             uitest.configs[name][key] = value;
-            console.log(uitest.configs[name][key])
+
         },
         setAllConfigs      :function (configs) {
             uitest.configs = configs;
-            console.log(uitest.configs)
+
         },
         _getHasClassParent :function (node) {
             var parent = el.parentNode;
@@ -1651,12 +1667,17 @@ if (!JSON) {
         },
 
         elToSelector              :function (el) {
-            if (!el)return;
+          
+
+            if (!el)return "";
+            if(el._elToSelector)return el._elToSelector;
             var selector = "";
             if (el == document) {
                 return "html"
             }
-            if (!el.tagName)return;
+
+            if (!el.tagName)return "";
+
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }
@@ -1667,11 +1688,17 @@ if (!JSON) {
                 return "head"
             }
 
-            if (el.id && !/\d/.test(el.id) && el._break !== "id") {
-                selector += "#" + el.id;
+            var id = el.getAttribute("id");
+
+            if (id && !/\d/.test(id) && el._break !== "id") {
+
+
+                selector += "#" + id;
                 return selector;
             }
-            if (el.className && !/\d/.test(el.className) && el._break !== "class") {
+
+            var className = el.getAttribute("class")
+            if (className && !/\d/.test(className) && el._break !== "class") {
 
                 selector = "." + el.classList[0];
 
@@ -1681,6 +1708,9 @@ if (!JSON) {
             }
 
             //可能已经被删除
+            if (!el.ownerDocument) {
+                el.parentNode = el._parentNode;
+            }
             if (!el.parentNode) {
 
                 return el._elToSelector || selector;
@@ -1691,7 +1721,9 @@ if (!JSON) {
             var p = el;
 
             while (true) {
-                p = p.parentNode;
+                p = p.parentNode || p._parentNode;
+
+                if (!p || !p.tagName)break;
                 var l = $(selector, p).length;
 
                 if (l == 1) {
@@ -1700,6 +1732,7 @@ if (!JSON) {
                     break;
                 }
 
+
                 if (p.tagName.toLowerCase() === "body") {
                     break;
                 }
@@ -1707,8 +1740,8 @@ if (!JSON) {
 
 
             if (!old) {
-                old = el.parentNode;
-                var c = $(el.tagName.toLowerCase(), old);
+                old = el.parentNode || el._parentNode;
+                var c = $(old).children(el.tagName.toLowerCase());
                 for (var i = 0; i < c.length; i++) {
                     if (c[i] == el) {
                         break;
@@ -1735,9 +1768,9 @@ if (!JSON) {
 
         },
         elToSelectorRelativeParent:function (el) {
-            if (!el)return;
+            if (!el)return "";
             var selector = "";
-            if (!el.tagName)return;
+            if (!el.tagName)return "";
             if (el.tagName.toLowerCase() === "body") {
                 return "body"
             }
@@ -1747,18 +1780,27 @@ if (!JSON) {
             if (el.tagName.toLowerCase() === "head") {
                 return "head"
             }
-
-            if (el.id && !/\d/.test(el.id) && el._break !== "id") {
-                selector += "#" + el.id;
+            var id = el.getAttribute("id");
+            if (id && !/\d/.test(id) && el._break !== "id") {
+                selector += "#" + id;
                 return selector;
             }
-            if (el.className && !/\d/.test(el.className) && el._break !== "class") {
+            var className = el.getAttribute("class");
+            if (className && !/\d/.test(className) && el._break !== "class") {
 
                 selector = "." + el.classList[0];
 
             }
             else {
-                selector = el.tagName.toLowerCase();
+
+                var c = $(el.tagName.toLowerCase(), el.parentNode);
+                for (var i = 0; i < c.length; i++) {
+                    if (c[i] == el) {
+                        break;
+                    }
+                }
+
+                selector = el.tagName.toLowerCase()+ ":nth-of-type(" + (i + 1) + ")";
             }
 
             return selector;

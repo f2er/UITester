@@ -44,7 +44,20 @@
     </script>
 </head>
 <body>
+<script>
+    // Save (cache) the original behavior of innerHTML
+    var originalInnerHTMLpropDesc = Object.getOwnPropertyDescriptor(Element.prototype, "innerHTML");
+    // Define my customizations, but use innerHTML when done...
+    Object.defineProperty(Element.prototype, "innerHTML",
+            {
+                set:function (htmlContent) {
+                    console.log("setinserHTML", htmlContent)
+                    originalInnerHTMLpropDesc.set.call(this, htmlContent);
+                }
+            }
+    )
 
+</script>
 
 <div id="test-page">
 
@@ -92,8 +105,8 @@
             D.addClass(el, "name")
         }
         document.getElementById("stop-event").addEventListener("click", function (e) {
-            console.log(' document.getElementById("stop-event")',e.target["_bindEventType"])
-            
+            console.log(' document.getElementById("stop-event")', e.target["_bindEventType"])
+
             e.stopPropagation();
             e.target.className = "qwwe"
         })

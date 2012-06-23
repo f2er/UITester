@@ -8,8 +8,8 @@
 
             var testCase = 'describe("标签位置测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
-            var offset = $(target).offset();
-            var r =  $(uitest.configs.position.relatedNode)
+            var offset = $(selector).offset();
+            var r =  $(uitest.configs.position.relatedNode).offset();
             
 
 

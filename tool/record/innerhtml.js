@@ -37,7 +37,8 @@
 
 
         //事件类型
-        document.body.addEventListener( function (e) {
+        document.body.addEventListener("click",function (e) {
+
             if (uitest.configs.caseType == "innerhtml") {
                 var target = e.target;
                 window.setTimeout(function () {
