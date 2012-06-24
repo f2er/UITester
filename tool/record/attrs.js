@@ -7,12 +7,22 @@
 
         var allMutationRecords = [];
 
+        var filterAttr = function(attrs){
+            var tempArray = [];
+            for(var i=0; i<attrs.length;i++){
+                if(uitest.confis.attr[attrs[i].name]){
+                    tempArray.push(attrs[i])
+                }
+            }
+            return tempArray;
+        }
+
 
         var createTestCase = function (target) {
 
             var testCase = 'describe("属性测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
-            var attrs = target.attributes;
+            var attrs = filterAttr(target.attributes);
             if (attrs.length == 0)return;
             target._addAttr = {};
             target._removeAttr = {};

@@ -324,17 +324,20 @@ body{
     color:#4A4A4A;
 }
 .configs{
+    padding:1px 0;
 }
 .configs .hide ul{
     display:none;
 }
-.configs h3{
+.configs li{
     display:block;
     margin:0;
     position:relative;
     overflow:hidden;;
-    padding:0 10px 0 10px;
+    margin:10px;
     color:#333;
+    height:32px;
+    width:32px;
     font-family:Helvetica, arial, freesans, clean, sans-serif;
     font-size:13px;
     font-weight:bold;
@@ -350,6 +353,11 @@ body{
     -webkit-touch-callout:none;
     -webkit-user-select:none;
     user-select:none;
+}
+.configs h3{
+    margin:0;
+    height:32px;
+    width:32px;
 }
 .jiao{
     text-indent:-500px;
@@ -391,10 +399,32 @@ body{
 .configs   li{
     list-style:none;
 }
-.configs h3.active{
-    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442))
-}
+.configs li.active{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFDE82), to(#FF9442));
 
+
+
+}
+.configs h3[data-type="tags"]{
+    background: url(img/icons.png) no-repeat -20px -12px;
+    text-indent:-500px;
+}
+.configs h3[data-type="position"]{
+    background:url(img/icons.png) no-repeat -20px -53px ;
+    text-indent:-500px;
+}
+.configs h3[data-type="innerhtml"]{
+    background:url(img/icons.png) no-repeat -20px -93px ;
+    text-indent:-500px;
+}
+.configs h3[data-type="attr"]{
+    background:url(img/icons.png) no-repeat -20px -133px ;
+    text-indent:-500px;
+}
+.configs h3[data-type="event"]{
+    background:url(img/icons.png) no-repeat -20px -163px ;
+    text-indent:-500px;
+}
 
 .tab1{
     width:20px;

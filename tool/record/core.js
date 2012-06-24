@@ -684,6 +684,9 @@ if (!JSON) {
             },
             relatedNode:"html"
         },
+        style:{
+
+        },
         attrs         :{
 
             accesskey       :1,
@@ -1207,7 +1210,7 @@ if (!JSON) {
             var host = this;
             var configs = $(".configs")[0];
             var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="" title="页面布局位置测试" data-type="position">位置<a class="status">记录</a></h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="" title="节点位置测试" data-type="position">位置<a class="status">记录</a></h3></li>';
 
             var e = $(html)[0];
 
@@ -1226,7 +1229,6 @@ if (!JSON) {
 
 
             offsetHTML = KISSY.Template(offsetHTML).render(uitest.configs.position);
-
 
 
             var tag = $(offsetHTML)[0];
@@ -1272,7 +1274,7 @@ if (!JSON) {
             var host = this;
             var configs = $(".configs")[0];
             var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="" title="页面内容是测试" data-type="innerhtml">内容<a class="status">记录</a></h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="" title="节点innerHTMl，value值测试" data-type="innerhtml">内容<a class="status">记录</a></h3></li>';
 
             var e = $(html)[0];
 
@@ -1291,19 +1293,20 @@ if (!JSON) {
                 if (e.target.tagName.toLowerCase() !== "h3")   return;
 
 
-                if ($(target).hasClass("active")) {
+                if ($(target).parent("li").hasClass("active")) {
 
                     host.innerCall("setConfig", ["caseType", "null"])
-                    $(target).removeClass("active");
+                    $(target).parent("li").removeClass("active");
                     return;
                 }
                 else {
                     var all = $("h3", ".configs");
                     for (var i = 0; i < all.length; i++) {
-                        $(all[i]).removeClass("active");
+                        $(all[i]).parent("li").removeClass("active");
+
                     }
 
-                    $(target).addClass('active');
+                    $(target).parent("li").addClass('active');
                     caseTest = $(target).attr("data-type");
 
 
@@ -1501,7 +1504,6 @@ if (!JSON) {
                     }
 
 
-
                     realAdd.apply(this, arrays)
                 }
 
@@ -1667,10 +1669,10 @@ if (!JSON) {
         },
 
         elToSelector              :function (el) {
-          
+
 
             if (!el)return "";
-            if(el._elToSelector)return el._elToSelector;
+            if (el._elToSelector)return el._elToSelector;
             var selector = "";
             if (el == document) {
                 return "html"
@@ -1800,7 +1802,7 @@ if (!JSON) {
                     }
                 }
 
-                selector = el.tagName.toLowerCase()+ ":nth-of-type(" + (i + 1) + ")";
+                selector = el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
             }
 
             return selector;
