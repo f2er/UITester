@@ -35,7 +35,7 @@ E.on(longtimeEl, "change", function () {
         timer = null;
     }
     timer = window.setInterval(function () {
-        iframe.reload();
+        iframe.src = iframe.src
 
     }, longtime)
 })
