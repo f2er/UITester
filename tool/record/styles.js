@@ -17,36 +17,33 @@
             return tempArray;
         }
 
-        var mergeCSSRules = function(CSSRules){
+        var mergeCSSRules = function (CSSRules) {
             var merged = {};
-            
-            for(var i=0;i<CSSRules.length;i++){
+
+            for (var i = 0; i < CSSRules.length; i++) {
                 var s = CSSRules[i].style;
-                for(var j =0;j<CSSRules.length;j++){
-                    if (uitest.configs.styles[CSSRules[j]]) {
-                        merged[CSSRules[j]] = CSSRules[CSSRules[j]];
+                for (var j = 0; j < s.length; j++) {
+                    if (uitest.configs.styles[s[j]]) {
+                        merged[s[j]] = s[s[j]];
                     }
 
                 }
             }
-          return merged;
+            return merged;
 
         }
-
-
 
 
         var createTestCase = function (target) {
 
             var testCase = 'describe("元素样式测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
-           // var computedStyle =window.getComputedStyle(target);
-         //   var styles = filterStyles(computedStyle);
-          var styles =   mergeCSSRules(window.getMatchedCSSRules(target))
+            // var computedStyle =window.getComputedStyle(target);
+            //   var styles = filterStyles(computedStyle);
+            var styles = mergeCSSRules(window.getMatchedCSSRules(target))
             if (Object.getOwnPropertyNames(styles).length == 0)return;
             //window.getMatchedCSSRules
-           // mergeCSSRules(window.getMatchedCSSRules(target))
-
+            // mergeCSSRules(window.getMatchedCSSRules(target))
 
 
             testCase += '  it("' + selector + ' 拥有样式"' + ', function(){\n';
