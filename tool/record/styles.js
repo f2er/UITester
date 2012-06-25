@@ -17,14 +17,16 @@
             return tempArray;
         }
 
-        var mergeCSSRules = function (CSSRules) {
+        var mergeCSSRules = function (CSSRules,target) {
             var merged = {};
 
             for (var i = 0; i < CSSRules.length; i++) {
                 var s = CSSRules[i].style;
                 for (var j = 0; j < s.length; j++) {
-                    if (uitest.configs.styles[s[j]]) {
-                        merged[s[j]] = s[s[j]];
+                    var sname = s.getPropertyShorthand(s[j])||s[j]
+                    
+                    if (uitest.configs.styles[sname]) {
+                        merged[sname] = $(target).css(sname);
                     }
 
                 }
@@ -40,7 +42,7 @@
             var selector = uitest.inner.elToSelector(target);
             // var computedStyle =window.getComputedStyle(target);
             //   var styles = filterStyles(computedStyle);
-            var styles = mergeCSSRules(window.getMatchedCSSRules(target))
+            var styles = mergeCSSRules(window.getMatchedCSSRules(target),target)
             if (Object.getOwnPropertyNames(styles).length == 0)return;
             //window.getMatchedCSSRules
             // mergeCSSRules(window.getMatchedCSSRules(target))
