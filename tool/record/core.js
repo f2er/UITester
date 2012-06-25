@@ -1921,7 +1921,7 @@ if (!JSON) {
             var links = document.querySelectorAll("link");
             for(var i =0;i<links.length;i++){
                 if(links[i].rel=="stylesheet"&& $(links[i]).data("isFetched")!=true){
-                    $.get("http://uitest.taobao.net/tool/fetch_css.php",{cssurl:links[i].href},function(data){
+                    $.get(location.href,{"__TEST__":true,"inject-type":"css",cssurl:links[i].href},function(data){
                         $("head").append("<style>"+data+"</style>");
 
                         $(links[i]).data("isFetched",true)
