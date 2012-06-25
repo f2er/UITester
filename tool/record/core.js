@@ -684,7 +684,7 @@ if (!JSON) {
             },
             relatedNode:"html"
         },
-        style:{
+        styles  :{
 
         },
         attrs         :{
@@ -847,17 +847,21 @@ if (!JSON) {
     uitest.outter = {
         init               :function () {
             var host = this;
+
             this.uatest();
+            this.buildStyleConfigs();
             this.codeEditor();
             this.initPage();
             this.observeCall();
             this.layout();
             this.initTabs();
             this.caseTypeEvent();
+
             this.tagsConfigsView();
             this.positionConfigsView();
+         //   this.styleConfigsView();
             //this.centerConfigsView();
-            //this.styleConfigsView();
+
             this.innerHTMLConfigsView();
             //this.subTreeConfigsView();
             this.attrConfigsView();
@@ -1261,12 +1265,80 @@ if (!JSON) {
             //  uitest.synConfigs()
 
         },
+        buildStyleConfigs   :function () {
+            var styles = window.getComputedStyle(document.documentElement);
+
+            for (var i = 0; i < styles.length; i++) {
+                if(!/^-/.test(styles[i]))uitest.configs.styles[styles[i]] = 1;
+                console.log(uitest.configs.styles[styles[i]])
+            }
+
+        },
 
         centerConfigsView   :function () {
 
 
         },
         styleConfigsView    :function () {
+            var host = this;
+            var configs = $(".configs")[0];
+            var html = '<li class="cfg-item hide"><h3 class="tag" title="元素样式测试" data-type="style">样式<a class="status">记录</a></h3></li>';
+            var tools = document.querySelector(".change-tools");
+            html += '</ul></li>';
+            var e = $(html)[0];
+            configs.appendChild(e);
+
+
+            var configsHTML = '<li id="configs-style" class="hide" style="display:none">选择样式类型：<span class="jiao"></span><div class="item">';
+
+
+            for (var p in uitest.configs.styles) {
+                var checked = "checked";
+                if (!uitest.configs.styles[p]) {
+                    checked = ""
+                }
+
+                configsHTML += '<div><span><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</span></div>'
+            }
+
+
+            configsHTML += "</div></li>";
+            var e = $(configsHTML)[0];
+            tools.appendChild(e);
+
+
+            $("input", e).on("change", function (e) {
+
+                    var t = e.target;
+                    if (t.checked) {
+                        uitest.configs.styles[t.value] = 1
+
+                        host.innerCall("supportConfig", ["styles", t.value, 1])
+                        // uitest.synConfigs();
+                    }
+                    else {
+                        uitest.configs.styles[t.value] = 0;
+
+                        uitest.synConfigs();
+                        //  host.innerCall("supportConfig", ["events", t.value, 0]);
+                    }
+
+
+                }
+            )
+
+
+            $(document).click(function (e) {
+                var target = e.target;
+                if (!$(target).closest("#configs-style")[0]) {
+                    $("#configs-style").addClass("hide")
+                }
+
+            })
+
+            $("#configs-style .jiao").click(function () {
+                $("#configs-style").toggleClass("hide")
+            })
 
 
         },

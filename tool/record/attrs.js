@@ -10,7 +10,7 @@
         var filterAttr = function(attrs){
             var tempArray = [];
             for(var i=0; i<attrs.length;i++){
-                if(uitest.confis.attr[attrs[i].name]){
+                if(uitest.confis.attrs[attrs[i].name]){
                     tempArray.push(attrs[i])
                 }
             }
@@ -20,7 +20,7 @@
 
         var createTestCase = function (target) {
 
-            var testCase = 'describe("属性测试用例",function(){\n';
+            var testCase = 'describe("节点属性测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
             var attrs = filterAttr(target.attributes);
             if (attrs.length == 0)return;
@@ -52,10 +52,10 @@
             })
 
 
-            testCase += '  it("' + selector + ' has attribute"' + ', function(){\n';
+            testCase += '  it("' + selector + ' 拥有属性"' + ', function(){\n';
 
 
-            testCase += '    var target = $("' + selector + '").get(0);\n';
+
             for (var i = 0; i < attrs.length; i++) {
 
 
@@ -65,7 +65,7 @@
                 if (!target._addAttr[name]) {
                     var value = target._modifiyAttr[name] || attrs[i].value;
 
-                    testCase += '    expect(target).toHaveAttr("' + name + '","' + value + '");\n';
+                    testCase += '    expect("'+selector+'").toHaveAttr("' + name + '","' + value + '");\n';
                 }
 
 

@@ -244,7 +244,10 @@
             var testCase = 'describe("交互动作测试用例",function(){\n';
 
 
-            testCase += '  it("' + 12 + '", function(){\n';
+            var lastAction  = allEventRecord[allEventRecord.length-1];
+
+
+            testCase += '  it("用户 '+lastAction.type+' '+toS(lastAction.target)+'", function(){\n';
 
 
             mutations.forEach(function (mutation) {
@@ -387,7 +390,7 @@
 
                 console.log("simulate", allEventRecord[i].target)
                 var selector = uitest.inner.elToSelector(allEventRecord[i].target);
-                console.log("simulate", selector)
+
 
 
                 if (allEventRecordString[selector + ":" + allEventRecord[i].type])continue;
