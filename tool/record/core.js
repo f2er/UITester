@@ -1276,7 +1276,7 @@ if (!JSON) {
         },
         fetchCSS:function(url){
             var host = this;
-            $.get("http://uitest.taobao.net/fetch_css.php",{cssurl:url},function(data){
+            $.get("http://uitest.taobao.net/tool/fetch_css.php",{cssurl:url},function(data){
                     host.innerCall("appendStyle",[data])
             })
         },
