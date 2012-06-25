@@ -859,7 +859,7 @@ if (!JSON) {
 
             this.tagsConfigsView();
             this.positionConfigsView();
-            //   this.styleConfigsView();
+            this.styleConfigsView();
             //this.centerConfigsView();
 
             this.innerHTMLConfigsView();
@@ -1195,6 +1195,7 @@ if (!JSON) {
             var e = $(html)[0];
             configs.appendChild(e);
             /*
+
              var configHtml = '<li id="configs-tags" style="display:none"><label>标签：<select>'
              //  configHtml += '<optgroup label="242">'
              for (var p in uitest.configs.tags) {
@@ -1202,7 +1203,6 @@ if (!JSON) {
              }
              // configHtml += '</optgroup>'
              configHtml += '</select></label></li>';
-
              tools.appendChild($(configHtml)[0])
 
 
@@ -1280,9 +1280,10 @@ if (!JSON) {
 
         },
         styleConfigsView    :function () {
+            
             var host = this;
             var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="tag" title="元素样式测试" data-type="style">样式<a class="status">记录</a></h3></li>';
+            var html = '<li class="cfg-item hide"><h3 class="tag" title="元素样式测试" data-type="style">css<a class="status">记录</a></h3></li>';
             var tools = document.querySelector(".change-tools");
             html += '</ul></li>';
             var e = $(html)[0];
@@ -1360,13 +1361,9 @@ if (!JSON) {
         caseTypeEvent:function () {
             var host = this;
             $(".configs").on("click", function (e) {
-
                 var target = e.target;
                 if (e.target.tagName.toLowerCase() !== "h3")   return;
-
-
                 if ($(target).parent("li").hasClass("active")) {
-
                     host.innerCall("setConfig", ["caseType", "null"])
                     $(target).parent("li").removeClass("active");
                     return;
@@ -1375,17 +1372,12 @@ if (!JSON) {
                     var all = $("h3", ".configs");
                     for (var i = 0; i < all.length; i++) {
                         $(all[i]).parent("li").removeClass("active");
-
                     }
-
                     $(target).parent("li").addClass('active');
                     caseTest = $(target).attr("data-type");
-
-
                     uitest.configs.caseType = caseTest;
                     host.showConfigs(caseTest);
-                    host.innerCall("setAllConfigs", [ uitest.configs])
-                  
+                    host.innerCall("setAllConfigs", [ uitest.configs ])
 
                 }
 
@@ -1736,7 +1728,7 @@ if (!JSON) {
             uitest.configs = configs;
             if(configs.caseType =="style"){
                this.fetchCSS();
-  
+
             }
             
             
@@ -1928,9 +1920,12 @@ if (!JSON) {
         fetchCSS         :function () {
             var links = document.querySelectorAll("link");
             for(var i =0;i<links.length;i++){
-                $.get("http://uitest.taobao.net/fetch_css.php",{cssurl:links[i].href},function(data){
-                   $("head").append("<style>"+data+"</style>");
-                })
+                if(links[i].rel=="stylesheet"){
+                    $.get("http://uitest.taobao.net/tool/fetch_css.php",{cssurl:links[i].href},function(data){
+                        $("head").append("<style>"+data+"</style>");
+                    })
+                }
+
             }
             
         },
