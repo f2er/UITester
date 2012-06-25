@@ -1921,7 +1921,7 @@ if (!JSON) {
             var links = document.querySelectorAll("link");
             for(var i =0;i<links.length;i++){
                 if(links[i].rel=="stylesheet"&& $(links[i]).data("isFetched")!=true){
-                    $.get(location.protocol+"//"+location.pathname,{"__TEST__":true,"inject-type":"css",cssurl:links[i].href},function(data){
+                    $.get(location.protocol+"//"+location.host,{"__TEST__":true,"inject-type":"css",cssurl:links[i].href},function(data){
                         $("head").append("<style>"+data+"</style>");
 
                         $(links[i]).data("isFetched",true)
