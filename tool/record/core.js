@@ -684,7 +684,7 @@ if (!JSON) {
             },
             relatedNode:"html"
         },
-        styles  :{
+        styles        :{
 
         },
         attrs         :{
@@ -859,7 +859,7 @@ if (!JSON) {
 
             this.tagsConfigsView();
             this.positionConfigsView();
-         //   this.styleConfigsView();
+            //   this.styleConfigsView();
             //this.centerConfigsView();
 
             this.innerHTMLConfigsView();
@@ -1269,7 +1269,7 @@ if (!JSON) {
             var styles = window.getComputedStyle(document.documentElement);
 
             for (var i = 0; i < styles.length; i++) {
-                if(!/^-/.test(styles[i]))uitest.configs.styles[styles[i]] = 1;
+                if (!/^-/.test(styles[i]))uitest.configs.styles[styles[i]] = 1;
                 console.log(uitest.configs.styles[styles[i]])
             }
 
@@ -1385,6 +1385,7 @@ if (!JSON) {
                     uitest.configs.caseType = caseTest;
                     host.showConfigs(caseTest);
                     host.innerCall("setAllConfigs", [ uitest.configs])
+                  
 
                 }
 
@@ -1733,6 +1734,12 @@ if (!JSON) {
         },
         setAllConfigs      :function (configs) {
             uitest.configs = configs;
+            if(configs.caseType =="style"){
+               this.fetchCSS();
+  
+            }
+            
+            
 
         },
         _getHasClassParent :function (node) {
@@ -1917,6 +1924,15 @@ if (!JSON) {
         },
         synOutterConfigs :function () {
             this.outterCall("setAllConfigs", [uitest.configs])
+        },
+        fetchCSS         :function () {
+            var links = document.querySelectorAll("link");
+            for(var i =0;i<links.length;i++){
+                $.get("http://uitest.taobao.net/fetch_css.php",{cssurl:links[i].href},function(data){
+                   $("head").append("<style>"+data+"</style>");
+                })
+            }
+            
         },
         observeCall      :function () {
             var host = this;
