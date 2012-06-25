@@ -1,7 +1,7 @@
 var S = KISSY, D = S.DOM, E = S.Event;
 var longtimeEl = D.get("#long-time");
 var lastTime = new Date().getTime();
-var longtime = 1000 * 60 * parseInt($(longtimeEl).val()) ;
+var longtime = 1000 * 60 * parseInt($(longtimeEl).val());
 var timer = null;
 var isAutoRun = D.get("#run-auto");
 var showRunConfig = D.get(".run-auto-set");
@@ -16,7 +16,8 @@ E.on(isAutoRun, "click", function () {
             timer = null;
         }
         timer = window.setInterval(function () {
-            iframe.reload();
+            iframe.src = iframe.src;
+            D.get("#run-result").innerHTML == "正在测试...."
 
         }, longtime)
     }
@@ -35,8 +36,8 @@ E.on(longtimeEl, "change", function () {
         timer = null;
     }
     timer = window.setInterval(function () {
-        iframe.src = iframe.src
-
+        iframe.src = iframe.src;
+        D.get("#run-result").innerHTML == "正在测试...."
     }, longtime)
 })
 
@@ -69,7 +70,7 @@ postmsg.bind(function (data) {
         }
 
         KISSY.io.post('./update_result.php', {
-            task_id:taskInfo.id,
+            task_id     :taskInfo.id,
             failed_specs:data.failedSpecs,
             total_specs :data.totalSpecs
         });
