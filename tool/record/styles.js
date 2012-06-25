@@ -26,6 +26,7 @@
             var styles = filterStyles(computedStyle);
             if (styles.length == 0)return;
             //window.getMatchedCSSRules
+            console.log(window.getMatchedCSSRules(target))
 
 
 
