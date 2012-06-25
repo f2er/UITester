@@ -17,9 +17,9 @@
 <script src="http://uitest.taobao.net/tool/record/tags.js" charset="utf-8"></script>
 <script src="http://uitest.taobao.net/tool/record/position.js" charset="utf-8"></script>
 <script src="http://uitest.taobao.net/tool/record/center.js" charset="utf-8"></script>
-<script src="http://uitest.taobao.net/tool/record/style.js" charset="utf-8"></script>
+<script src="http://uitest.taobao.net/tool/record/styles.js" charset="utf-8"></script>
 <script src="http://uitest.taobao.net/tool/record/innerhtml.js" charset="utf-8"></script>
-<script src="http://uitest.taobao.net/tool/record/subtree.js" charset="utf-8"></script>
+
 
 <?php echo $placeholder ?>
 
