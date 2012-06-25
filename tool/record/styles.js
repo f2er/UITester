@@ -9,24 +9,43 @@
 
         var filterStyles = function (styles) {
             var tempArray = [];
-            for (var i = 0; i < styles.length; i++) {
-                if (uitest.configs.styles[styles[i]]) {
-                    tempArray.push(styles[i])
+            for (var p in  styles) {
+                if (uitest.configs.styles[p]) {
+                    tempArray.push(styles[p])
                 }
             }
             return tempArray;
         }
+
+        var mergeCSSRules = function(CSSRules){
+            var merged = {};
+            
+            for(var i=0;i<CSSRules.length;i++){
+                var s = CSSRules[i].style;
+                for(var j =0;j<CSSRules.length;j++){
+                    if (uitest.configs.styles[CSSRules[j]]) {
+                        merged[CSSRules[j]] = CSSRules[CSSRules[j]];
+                    }
+
+                }
+            }
+          return merged;
+
+        }
+
+
 
 
         var createTestCase = function (target) {
 
             var testCase = 'describe("元素样式测试用例",function(){\n';
             var selector = uitest.inner.elToSelector(target);
-            var computedStyle =window.getComputedStyle(target);
-            var styles = filterStyles(computedStyle);
-            if (styles.length == 0)return;
+           // var computedStyle =window.getComputedStyle(target);
+         //   var styles = filterStyles(computedStyle);
+          var styles =   mergeCSSRules(window.getMatchedCSSRules(target))
+            if (Object.getOwnPropertyNames(styles).length == 0)return;
             //window.getMatchedCSSRules
-            console.log(window.getMatchedCSSRules(target))
+           // mergeCSSRules(window.getMatchedCSSRules(target))
 
 
 
@@ -35,11 +54,11 @@
             var expects = []
 
 
-            for (var i = 0; i < styles.length; i++) {
+            for (var p in  styles) {
 
 
-                var name = styles[i];
-                var value = computedStyle[name];
+                var name = p;
+                var value = styles[p];
                 if (value) {
                     expects.push('    expect("' + selector + '").toHaveComputedStyle("' + name + '","' + value + '");\n');
                 }
