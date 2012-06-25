@@ -1274,6 +1274,12 @@ if (!JSON) {
             }
 
         },
+        fetchCSS:function(url){
+            var host = this;
+            $.get("http://uitest.taobao.net/fetch_css.php",{cssurl:url},function(data){
+                    host.innerCall("appendStyle",[data])
+            })
+        },
 
         centerConfigsView   :function () {
 
@@ -1920,16 +1926,15 @@ if (!JSON) {
         fetchCSS         :function () {
             var links = document.querySelectorAll("link");
             for(var i =0;i<links.length;i++){
-                if(links[i].rel=="stylesheet"&& $(links[i]).data("isFetched")!=true){
-                    $.get(location.protocol+"//"+location.host,{"__TEST__":true,"inject-type":"css",cssurl:links[i].href},function(data){
-                        $("head").append("<style>"+data+"</style>");
-
-                        $(links[i]).data("isFetched",true)
-                    })
+                if(links[i].rel=="stylesheet"){
+                    this.outterCall("fetchCSS",[links[i].href])
                 }
 
             }
             
+        },
+        appendStyle:function(data){
+            $("head").append("<style>"+data+"</style>");
         },
         observeCall      :function () {
             var host = this;
