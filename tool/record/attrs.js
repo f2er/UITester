@@ -10,7 +10,7 @@
         var filterAttr = function(attrs){
             var tempArray = [];
             for(var i=0; i<attrs.length;i++){
-                if(uitest.confis.attrs[attrs[i].name]){
+                if(uitest.configs.attrs[attrs[i].name]){
                     tempArray.push(attrs[i])
                 }
             }

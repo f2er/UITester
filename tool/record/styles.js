@@ -19,6 +19,7 @@
 
         var mergeCSSRules = function (CSSRules,target) {
             var merged = {};
+            if(!CSSRules)CSSRules = [];
 
             for (var i = 0; i < CSSRules.length; i++) {
                 var s = CSSRules[i].style;
@@ -63,7 +64,10 @@
                 }
 
             }
-            if (expects.length == 0)return;
+            if (expects.length == 0){
+                uitest.inner.outterCall("appendCaseCode", ["//"+selector+" 没有定义样式"])
+                return;
+            }
 
             for (var i = 0; i < expects.length; i++) {
                 testCase += expects[i];
