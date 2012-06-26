@@ -648,6 +648,7 @@ if (!JSON) {
         setInterval   :false,
         showSelectMark:true,
         caseType      :"null",
+        preventDefault:true,
         events        :{
             // mouse events supported
             click     :1,
@@ -1630,7 +1631,7 @@ if (!JSON) {
                     if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
 
-                            if (!/^#/.test(target.href)) {
+                            if (!/^#/.test(target.getAttribute("href"))) {
 
                                 e.preventDefault()
                             }
