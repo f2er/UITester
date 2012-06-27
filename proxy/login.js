@@ -149,6 +149,6 @@ else{
         return uri + args.join('&').replace(/&+/g, '&') + hash;
 
     }
-  location.replace(buildUrl(location.href,"__isLogin=true"));
+  location.replace(buildUrl(location.href,"__islogin=true"));
 }
 
