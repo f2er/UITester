@@ -122,6 +122,33 @@ if (force || !checkLogin()) {
 
 }
 else{
-  location.replace(location.href);
+    var buildUrl = function () {
+
+        var args = Array.prototype.slice.call(arguments);
+
+        if (args.length < 2) {
+            return args[0] || '';
+        }
+
+        var uri = args.shift();
+
+        var splitArray = uri.split("#");
+
+        uri =splitArray[0];
+        var hash = splitArray[1];
+
+
+
+        if (hash) {
+            hash = "#" + hash;
+        }
+        else hash = ""
+
+        uri += uri.indexOf('?') > 0 ? '&' : '?';
+
+        return uri + args.join('&').replace(/&+/g, '&') + hash;
+
+    }
+  location.replace(buildUrl(location.href,"__isLogin=true"));
 }
 

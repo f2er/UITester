@@ -35,8 +35,9 @@ else {
     $usename = $_GET['username'];
     $password = $_GET['password'];
 }
+$islogin = $_GET['__islogin'];
 
-if (isset($usename) && isset($password)) {
+if (isset($usename) && isset($password)&&!isset($islogin)) {
     echo "<script>var username='" . $usename . "'; var password = '" . $password . "';var force = false;</script>";
     $type = 'login';
 }
