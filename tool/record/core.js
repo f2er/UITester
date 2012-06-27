@@ -500,8 +500,13 @@ if (!JSON) {
 
         var uri = args.shift();
 
-        uri = uri.split("#")[0];
-        var hash = uri.split("#")[1];
+       var splitArray = uri.split("#");
+
+        uri =splitArray[0];
+        var hash = splitArray[1];
+
+
+       
         if (hash) {
             hash = "#" + hash;
         }

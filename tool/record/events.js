@@ -110,6 +110,15 @@
                     }
 
                 }, true, true)
+                window.addEventListener("hashchange", function(){
+
+                    addEvent({
+                        type:"hashchange",
+                        value:location.hash
+                    })
+                }, false);
+
+
                 window.stopPropagationProxy = function (e) {
 
                     if (uitest.configs.caseType != "event")return;
@@ -148,16 +157,18 @@
 
 
         var observer = new MutationObserver(function (mutations) {
+            console.log(mutations)
             if (uitest.configs.caseType != "event")return;
 
 
             window.setTimeout(function () {
+                console.log("testCases",testCases)
                 if (testCases.length == 0)return;
                 addMutations(mutations);
 
                 uitest.inner.outterCall("showCreateBtn");
 
-            }, 0)
+            }, 10)
         });
 
         observer.observe(document, {
@@ -349,17 +360,20 @@
 
 
                             var se = toSP(removedNodes[i]);
-                            console.log("willAddChildren", mutation.target, selector, removedNodes[i], se)
-                            var expect = 'expect("' + selector + '").willRemoveChild("' + se + '");\n';
+                            if(se){
+                                var expect = 'expect("' + selector + '").willRemoveChild("' + se + '");\n';
 
-                            var addExpect = 'expect("' + selector + '").willAddChild("' + se + '");\n';
-                            var index = hasChildListRecords(addExpect);
+                                var addExpect = 'expect("' + selector + '").willAddChild("' + se + '");\n';
+                                var index = hasChildListRecords(addExpect);
 
-                            if (index === undefined) {
+                                if (index === undefined) {
 
-                                records.push(expect);
+                                    records.push(expect);
 
+                                }
                             }
+                           
+
 
 
                         }
@@ -389,6 +403,15 @@
             for (var i = 0; i < allEventRecord.length; i++) {
 
                 console.log("simulate", allEventRecord[i].target)
+
+               if(allEventRecord[i].type === "hashchange"){
+                   if (allEventRecordString[allEventRecord[i].value + ":" + allEventRecord[i].type])continue;
+
+                   allEventRecordString[allEventRecord[i].value + ":" + allEventRecord[i].type] = 1;
+                   testCase += '    simulate("' + allEventRecord[i].value + '","hashchange");\n';
+                   continue;
+               }
+
                 var selector = uitest.inner.elToSelector(allEventRecord[i].target);
 
 
@@ -401,6 +424,10 @@
                 if (/^key/.test(allEventRecord[i].type)) {
                     keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';
                 }
+                if (allEventRecord[i].type === "change") {
+                    testCase += '    $("' + selector + '")[0].value = ' + allEventRecord[i].changeValue + '\n';
+                }
+
                 if (allEventRecord[i].type === "change") {
                     testCase += '    $("' + selector + '")[0].value = ' + allEventRecord[i].changeValue + '\n';
                 }
