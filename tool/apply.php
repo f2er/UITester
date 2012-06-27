@@ -16,11 +16,9 @@ $query_result = mysql_query($sql);
 $result_item = mysql_fetch_assoc($query_result);
 
 $iframe_uri = $result_item['task_target_uri'];
-$iframe_uri .= (strpos($iframe_uri, '?') !== false) ? '&' : '?';
-
 $iframe_uri .= 'inject-taskid=' . $result_item['id'];
-$iframe_uri .= '&__TEST__';
-echo '<script>var taskInfo = {id:' . $result_item['id'] . '}</script>'
+
+echo '<script>var taskInfo = {id:' . $result_item['id'] . ';target_uri:'.$iframe_uri.'}</script>'
 
 ?>
 
@@ -70,6 +68,36 @@ echo '<script>var taskInfo = {id:' . $result_item['id'] . '}</script>'
 
 
 </div>
+<script>
+    var buildUrl = function () {
 
+        var args = Array.prototype.slice.call(arguments);
+
+        if (args.length < 2) {
+            return args[0] || '';
+        }
+
+        var uri = args.shift();
+
+        var splitArray = uri.split("#");
+
+        uri =splitArray[0];
+        var hash = splitArray[1];
+
+
+
+        if (hash) {
+            hash = "#" + hash;
+        }
+        else hash = ""
+
+        uri += uri.indexOf('?') > 0 ? '&' : '?';
+
+        return uri + args.join('&').replace(/&+/g, '&') + hash;
+
+    }
+
+    $("#run-iframe").attr("src",buildUrl(taskInfo.target_uri,"__TEST__=true","inject-taskid="+taskInfo.id))
+</script>
 
 <?php include_once('./common/footer.php'); ?>
