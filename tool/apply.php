@@ -18,7 +18,7 @@ $result_item = mysql_fetch_assoc($query_result);
 $iframe_uri = $result_item['task_target_uri'];
 $iframe_uri .= 'inject-taskid=' . $result_item['id'];
 
-echo '<script>var taskInfo = {id:' . $result_item['id'] . ';target_uri:'.$iframe_uri.'}</script>'
+echo '<script>var taskInfo = {id:' . $result_item['id'] . ';target_uri:"'.$iframe_uri.'"}</script>'
 
 ?>
 
