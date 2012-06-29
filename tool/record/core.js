@@ -1963,7 +1963,7 @@ if (!JSON) {
                     mutations[i].target._break = "id";
                 }
                 else if(mutations[i].type == "attributes" && (mutations[i].attributeName === "class")){
-                    var oldValue = mutation.oldValue;
+                    var oldValue = mutation[i].oldValue;
                     var oldClassList = [];
                     var appendClass =[];
                     if(oldValue){
