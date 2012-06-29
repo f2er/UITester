@@ -500,13 +500,12 @@ if (!JSON) {
 
         var uri = args.shift();
 
-       var splitArray = uri.split("#");
+        var splitArray = uri.split("#");
 
-        uri =splitArray[0];
+        uri = splitArray[0];
         var hash = splitArray[1];
 
 
-       
         if (hash) {
             hash = "#" + hash;
         }
@@ -1280,10 +1279,10 @@ if (!JSON) {
             }
 
         },
-        fetchCSS:function(url){
+        fetchCSS            :function (url) {
             var host = this;
-            $.get("http://uitest.taobao.net/tool/fetch_css.php",{cssurl:url},function(data){
-                    host.innerCall("appendStyle",[data])
+            $.get("http://uitest.taobao.net/tool/fetch_css.php", {cssurl:url}, function (data) {
+                host.innerCall("appendStyle", [data])
             })
         },
 
@@ -1292,7 +1291,7 @@ if (!JSON) {
 
         },
         styleConfigsView    :function () {
-            
+
             var host = this;
             var configs = $(".configs")[0];
             var html = '<li class="cfg-item hide"><h3 class="tag" title="元素样式测试" data-type="style">css<a class="status">记录</a></h3></li>';
@@ -1606,13 +1605,13 @@ if (!JSON) {
                     }
                 }
 
-               //添加elToSelector
-                for(var j=0;j<all.length;j++){
+                //添加elToSelector
+                for (var j = 0; j < all.length; j++) {
                     var t = all[j];
                     t._elToSelector = host.elToSelector(t);
-                    $(t).data("_elToSelector",host.elToSelector(t))
+                    $(t).data("_elToSelector", host.elToSelector(t))
 
-                    $(t).data("_elToSelectorRelativeParent",host.elToSelectorRelativeParent(t))
+                    $(t).data("_elToSelectorRelativeParent", host.elToSelectorRelativeParent(t))
                     console.log($(t).data("_elToSelector"))
                 }
 
@@ -1645,7 +1644,8 @@ if (!JSON) {
                             if (!/^#/.test(target.getAttribute("href"))) {
 
                                 e.preventDefault()
-                            };
+                            }
+                            ;
                         }
                     }
                     // e.halt();
@@ -1740,12 +1740,11 @@ if (!JSON) {
         },
         setAllConfigs      :function (configs) {
             uitest.configs = configs;
-            if(configs.caseType =="style"){
-               this.fetchCSS();
+            if (configs.caseType == "style") {
+                this.fetchCSS();
 
             }
-            
-            
+
 
         },
         _getHasClassParent :function (node) {
@@ -1757,8 +1756,8 @@ if (!JSON) {
 
 
             if (!el)return "";
-            if($(el).data("_elToSelector")) return $(el).data("_elToSelector");
-            if (el._elToSelector)return el._elToSelector;
+
+
             var selector = "";
             if (el == document) {
                 return "html"
@@ -1797,11 +1796,7 @@ if (!JSON) {
 
             //可能已经被删除
             if (!el.ownerDocument) {
-                el.parentNode = el._parentNode;
-            }
-            if (!el.parentNode) {
-
-                return el._elToSelector || selector;
+                return $(el).data("_elToSelector") || selector
             }
 
 
@@ -1856,9 +1851,9 @@ if (!JSON) {
 
         },
         elToSelectorRelativeParent:function (el) {
-            
+
             if (!el)return "";
-            if(($(el).data("_elToSelectorRelativeParent")))return $(el).data("_elToSelectorRelativeParent")
+
             var selector = "";
             if (!el.tagName)return "";
             if (el.tagName.toLowerCase() === "body") {
@@ -1876,14 +1871,18 @@ if (!JSON) {
                 return selector;
             }
             var className = el.getAttribute("class");
+
             if (className && !/\d/.test(className) && el._break !== "class") {
 
                 selector = "." + el.classList[0];
 
             }
+            else if (!el.ownerDocument) {
+                selector = $(el).data("_elToSelectorRelativeParent") || selector
+            }
             else {
 
-              var c =  $(el.parentNode).children(el.tagName.toLowerCase())
+                var c = $(el.parentNode).children(el.tagName.toLowerCase())
                 for (var i = 0; i < c.length; i++) {
                     if (c[i] == el) {
                         break;
@@ -1892,6 +1891,7 @@ if (!JSON) {
 
                 selector = el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
             }
+
 
             return selector;
 
@@ -1919,6 +1919,36 @@ if (!JSON) {
             });
 
         },
+        nodeAddEvent              :function () {
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+
+
+            var observer = new MutationObserver(function (mutations) {
+                mutations.each(function (mutation) {
+                    var addedNodes = mutation.addedNodes;
+                    var removedNodes = mutation.removedNodes;
+                    if (addedNodes.length > 0) {
+                        for (var i = 0; i < addedNodes.length; i++) {
+                            $(t).data("_elToSelector", host.elToSelector(addedNodes[i]))
+
+                            $(t).data("_elToSelectorRelativeParent", host.elToSelectorRelativeParent(addedNodes[i]))
+                        }
+
+                    }
+
+                })
+
+
+            });
+
+            observer.observe(document, {
+                childList:true,
+                subtree  :true
+
+            });
+
+
+        },
 
         hasSelectorChange:function (mutations) {
             for (var i = 0; i < mutations.length; i++) {
@@ -1936,16 +1966,16 @@ if (!JSON) {
         },
         fetchCSS         :function () {
             var links = document.querySelectorAll("link");
-            for(var i =0;i<links.length;i++){
-                if(links[i].rel=="stylesheet"){
-                    this.outterCall("fetchCSS",[links[i].href])
+            for (var i = 0; i < links.length; i++) {
+                if (links[i].rel == "stylesheet") {
+                    this.outterCall("fetchCSS", [links[i].href])
                 }
 
             }
-            
+
         },
-        appendStyle:function(data){
-            $("head").append("<style>"+data+"</style>");
+        appendStyle      :function (data) {
+            $("head").append("<style>" + data + "</style>");
         },
         observeCall      :function () {
             var host = this;

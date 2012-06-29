@@ -44,11 +44,7 @@
     $(document).ready(function () {
         var start = false;
         var all = document.querySelectorAll("*");
-        for (var i = 0; i < all.length; i++) {
 
-            all[i]._parentNode = all[i].parentNode
-
-        }
 
 
         var actionLock = false;
