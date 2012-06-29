@@ -1826,7 +1826,7 @@ if (!JSON) {
                     }
                 }
 
-                selector = this.elToSelector(old) + " " + el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
+                selector = uitest.inner.elToSelector(old) + " " + el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
 
             }
 
@@ -1835,7 +1835,7 @@ if (!JSON) {
                     selector = selector
                 }
                 else {
-                    selector = this.elToSelector(old) + " " + selector;
+                    selector = uitest.inner.elToSelector(old) + " " + selector;
 
                 }
             }
@@ -1925,9 +1925,9 @@ if (!JSON) {
                     var removedNodes = mutation.removedNodes;
                     if (addedNodes.length > 0) {
                         for (var i = 0; i < addedNodes.length; i++) {
-                            $(t).data("_elToSelector", host.elToSelector(addedNodes[i]))
+                            $(addedNodes[i]).data("_elToSelector", host.elToSelector(addedNodes[i]))
 
-                            $(t).data("_elToSelectorRelativeParent", host.elToSelectorRelativeParent(addedNodes[i]))
+                            $(addedNodes[i]).data("_elToSelectorRelativeParent", host.elToSelectorRelativeParent(addedNodes[i]))
                         }
 
                     }
