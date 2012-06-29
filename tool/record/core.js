@@ -1826,7 +1826,7 @@ if (!JSON) {
                     }
                 }
 
-                selector = uitest.inner.elToSelector(old) + " " + el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
+                selector = uitest.inner.elToSelector(old) + ">" + el.tagName.toLowerCase() + ":nth-of-type(" + (i + 1) + ")";
 
             }
 
@@ -1867,9 +1867,16 @@ if (!JSON) {
             }
             var className = el.getAttribute("class");
 
-            if (className && !/\d/.test(className) && el._break !== "class") {
+            if (className ) {
+                var avClass = [];
+                el._appendClass =  el._appendClass||"";
+                for(var i =0;i<el.classList.length;i++){
+                    if(!/\d/.test(el.classList[i])&&(el._appendClass.indexOf(el.classList[i])===-1)){
+                        avClass.push(el.classList[i]);
+                    }
+                }
 
-                selector = "." + el.classList[0];
+                selector = avClass.join(".");
 
             }
             else if (!el.ownerDocument) {
@@ -1949,11 +1956,31 @@ if (!JSON) {
         hasSelectorChange:function (mutations) {
             for (var i = 0; i < mutations.length; i++) {
 
-                if (mutations[i].type == "attributes" && (mutations[i].attributeName === "id" || mutations[i].attributeName === "class")) {
+                if (mutations[i].type == "attributes" && (mutations[i].attributeName === "id")){
 
 
-                    mutations[i].target._break = mutations[i].attributeName;
+
+                    mutations[i].target._break = "id";
                 }
+                else if(mutations[i].type == "attributes" && (mutations[i].attributeName === "class")){
+                    var oldValue = mutation.oldValue;
+                    var oldClassList = [];
+                    var appendClass =[];
+                    if(oldValue){
+                        oldClasList = oldValue.split(" ");
+                    }
+                    for(var j =0;j<mutations[i].target.classList.length;j++){
+                          if(oldValue.indexOf(mutations[i].target.classList[j])==-1){
+                              appendClass.push(mutations[i].target.classList[j])
+                          }
+                    }
+
+                    mutations[i].target._appendClass =appendClass.join(" ");
+
+
+                }
+
+
             }
 
         },
