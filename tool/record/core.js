@@ -1513,13 +1513,7 @@ if (!JSON) {
             var setInterval = window.setInterval;
 
 
-            window.eventObserver = function (e) {
-
-                var target = e.target;
-
-                target._elToSelector = host.elToSelector(target);
-
-            }
+          
 
             window.setInterval = function () {
                 var args = arguments;
@@ -1583,6 +1577,7 @@ if (!JSON) {
 
             };
             $(document).ready(function () {
+                host.nodeAddEvent()
                 var all = document.querySelectorAll("*");
                 //事件
                 for (var i = 0; i < all.length; i++) {
@@ -1920,6 +1915,7 @@ if (!JSON) {
 
         },
         nodeAddEvent              :function () {
+            var host =this;
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 
 
