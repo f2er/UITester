@@ -1513,7 +1513,7 @@ if (!JSON) {
             var setInterval = window.setInterval;
 
 
-          
+
 
             window.setInterval = function () {
                 var args = arguments;
@@ -1799,7 +1799,7 @@ if (!JSON) {
             var p = el;
 
             while (true) {
-                p = p.parentNode || p._parentNode;
+                p = p.parentNode ;
 
                 if (!p || !p.tagName)break;
                 var l = $(selector, p).length;
@@ -1920,7 +1920,7 @@ if (!JSON) {
 
 
             var observer = new MutationObserver(function (mutations) {
-                mutations.each(function (mutation) {
+                mutations.forEach(function (mutation) {
                     var addedNodes = mutation.addedNodes;
                     var removedNodes = mutation.removedNodes;
                     if (addedNodes.length > 0) {
