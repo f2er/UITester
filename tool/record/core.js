@@ -1532,8 +1532,6 @@ if (!JSON) {
                 var old = args[0];
                 var fun = function () {
                     window._setIntervalRun = true;
-
-
                     if (uitest.configs.caseType == "event" && !uitest.configs.setInterval) {
 
                     }
@@ -1586,9 +1584,7 @@ if (!JSON) {
 
             };
             $(document).ready(function () {
-                var all = document.querySelectorAll("*")
-
-
+                var all = document.querySelectorAll("*");
                 //事件
                 for (var i = 0; i < all.length; i++) {
                     for (var p in uitest.configs.events) {
@@ -1608,6 +1604,16 @@ if (!JSON) {
                         })(p, all[i]);
 
                     }
+                }
+
+               //添加elToSelector
+                for(var j=0;j<all.length;j++){
+                    var t = all[j];
+                    t._elToSelector = host.elToSelector(t);
+                    $(t).data("_elToSelector",host.elToSelector(t))
+
+                    $(t).data("_elToSelectorRelativeParent",host.elToSelectorRelativeParent(t))
+                    console.log($(t).data("_elToSelector"))
                 }
 
 
@@ -1639,13 +1645,9 @@ if (!JSON) {
                             if (!/^#/.test(target.getAttribute("href"))) {
 
                                 e.preventDefault()
-                            }
-                            ;
+                            };
                         }
-
                     }
-
-
                     // e.halt();
 
                 }, true, true)
@@ -1755,6 +1757,7 @@ if (!JSON) {
 
 
             if (!el)return "";
+            if($(el).data("_elToSelector")) return $(el).data("_elToSelector");
             if (el._elToSelector)return el._elToSelector;
             var selector = "";
             if (el == document) {
@@ -1853,7 +1856,9 @@ if (!JSON) {
 
         },
         elToSelectorRelativeParent:function (el) {
+            
             if (!el)return "";
+            if(($(el).data("_elToSelectorRelativeParent")))return $(el).data("_elToSelectorRelativeParent")
             var selector = "";
             if (!el.tagName)return "";
             if (el.tagName.toLowerCase() === "body") {
@@ -1878,7 +1883,7 @@ if (!JSON) {
             }
             else {
 
-                var c = $(el.tagName.toLowerCase(), el.parentNode);
+              var c =  $(el.parentNode).children(el.tagName.toLowerCase())
                 for (var i = 0; i < c.length; i++) {
                     if (c[i] == el) {
                         break;
