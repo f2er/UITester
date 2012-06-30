@@ -96,13 +96,11 @@
                     if (!uitest.configs.events[type])return;
                     var target = getValidEventTarget(e.target, e.type);
                     if (target) {
-                        if (e.type == "change") {
-                            e.changeValue = e.target.value;
-                        }
-                        else {
+                        if (e.type == "change") e.changeValue = e.target.value;
+
 
                             addEvent($.extend({}, e));
-                        }
+
                     }
 
                 }, true, true)
@@ -125,9 +123,8 @@
 
 
                     if (target) {
-                        if (e.type == "change") {
-                            e.changeValue = e.target.value;
-                        }
+                        if (e.type == "change")  e.changeValue = e.target.value;
+
 
                         addEvent($.extend({}, e));
                     }
@@ -420,16 +417,15 @@
                 if (/^key/.test(allEventRecord[i].type)) {
                     keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';
                 }
-                if (allEventRecord[i].type === "change") {
-                    testCase += '    $("' + selector + '")[0].value = ' + allEventRecord[i].changeValue + '\n';
-                }
-
-                if (allEventRecord[i].type === "change") {
-                    testCase += '    $("' + selector + '")[0].value = ' + allEventRecord[i].changeValue + '\n';
-                }
-
-
                 testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
+                if (allEventRecord[i].type === "change") {
+                    testCase += '    $("' + selector + '").val(' + allEventRecord[i].changeValue + ');\n';
+                }
+
+
+
+
+
             }
 
 
