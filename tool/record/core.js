@@ -1780,9 +1780,18 @@ if (!JSON) {
             }
 
             var className = el.getAttribute("class")
-            if (className && !/\d/.test(className) && el._break !== "class") {
+            
 
-                selector = "." + el.classList[0];
+            if (className ) {
+                var avClass = [];
+                el._appendClass =  el._appendClass||"";
+                for(var i =0;i<el.classList.length;i++){
+                    if(!/\d/.test(el.classList[i])&&(el._appendClass.indexOf(el.classList[i])===-1)){
+                        avClass.push(el.classList[i]);
+                    }
+                }
+
+                selector = "."+avClass.join(".");
 
             }
             else {
@@ -1876,7 +1885,7 @@ if (!JSON) {
                     }
                 }
 
-                selector = avClass.join(".");
+                selector = "."+avClass.join(".");
 
             }
             else if (!el.ownerDocument) {
