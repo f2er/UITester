@@ -1780,7 +1780,7 @@ if (!JSON) {
             }
 
             var className = el.getAttribute("class")
-            
+
 
             if (className ) {
                 var avClass = [];

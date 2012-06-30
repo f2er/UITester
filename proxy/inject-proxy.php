@@ -22,6 +22,12 @@ $ret = file_get_contents($url, false, stream_context_create(array(
 
 //准备数据
 $type = $_GET['inject-type'];
+$istest = $_GET['__TEST__'];
+if(isset($istest)){
+    echo $set;
+    return;
+}
+
 if (!isset($type)) {
     $type = 'run';
 }
