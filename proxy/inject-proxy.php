@@ -24,7 +24,7 @@ $ret = file_get_contents($url, false, stream_context_create(array(
 $type = $_GET['inject-type'];
 $istest = $_GET['__TEST__'];
 if(!isset($istest)){
-    echo $set;
+    echo $ret;
     return;
 }
 
