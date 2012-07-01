@@ -181,13 +181,14 @@
         }
 
 
+
         uitest.inner.createEventTypeTestCase = function () {
 
             for (var i = 0; i < testCases.length; i++) {
-                if (testCases[i].events && testCases[i].mutations) {
+
                     createTestCase(testCases[i].mutations, testCases[i].events)
 
-                }
+                
             }
             testCases = [];
 
