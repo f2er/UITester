@@ -1567,7 +1567,7 @@ if (!JSON) {
 
 
                             window.eventObserver && window.eventObserver.apply(host, arguments)
-                            oldFun.apply(host, arguments)
+                          if(uitest.configs.events[type])  oldFun.apply(host, arguments)
                         }
                         arrays[1] = newFun;
                     }

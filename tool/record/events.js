@@ -312,7 +312,7 @@
                 if (mutation.type == "childList") {
                     var tag = mutation.target.tagName.toLowerCase();
                     //难以预测，暂时不支持
-                    if(tag =="head"||tag=="body")return;
+                    if(tag =="head")return;
 
 
                     var addedNodes = mutation.addedNodes;
