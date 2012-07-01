@@ -670,11 +670,12 @@ if (!JSON) {
             keypress  :0,
             /// HTML events supported
             blur      :0,
-            change    :0,
+            change    :1,
             focus     :0,
             resize    :0,
             scroll    :0,
-            select    :0
+            select    :0,
+            textInput:1
 
 
         },

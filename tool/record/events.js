@@ -60,7 +60,7 @@
             else if (target["_bindEventType"] && target["_bindEventType"][type]) {
                 result = true
             }
-            else if (type == "change") {
+            else if (type == "change"||type == "textInput") {
                 result = true
             }
 
@@ -96,7 +96,7 @@
                     if (!uitest.configs.events[type])return;
                     var target = getValidEventTarget(e.target, e.type);
                     if (target) {
-                        if (e.type == "change") e.changeValue = e.target.value;
+                        if (e.type == "change"||e.type == "textInput") e.changeValue = e.target.value;
 
 
                             addEvent($.extend({}, e));
@@ -258,6 +258,9 @@
 
 
                 if (mutation.type == "attributes") {
+                    if(!mutation.target.parentNode||!mutation.target.ownerDocument){
+                        return;
+                    }
 
                     var oldValue = mutation.oldValue;
 
@@ -301,7 +304,6 @@
                     var expect = 'expect("' + selector + '").willModifyInnerHTML("' + newValue + '");\n';
                     if (!hasRecords(expect)) {
                         records.push(expect);
-
                     }
 
 
@@ -417,9 +419,23 @@
                 if (/^key/.test(allEventRecord[i].type)) {
                     keyCode = ',{keyCode:' + allEventRecord[i].keyCode + ',charCode:' + allEventRecord[i].charCode + '}';
                 }
-                testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
-                if (allEventRecord[i].type === "change") {
-                    testCase += '    $("' + selector + '").val(' + allEventRecord[i].changeValue + ');\n';
+
+                if (allEventRecord[i].type === "change"||allEventRecord[i].type === "textInput") {
+                    var temp = '    $("' + selector + '").val("' + $(selector).val() + '");\n'
+
+                    if (allEventRecordString[temp])continue;
+                    allEventRecordString[temp]=1
+                    testCase += '    $("' + selector + '").val("' + $(selector).val() + '");\n';
+                    testCase += '    simulate("' + selector + '","change"' + keyCode + ');\n';
+                }
+
+
+                else{
+                    var temp = '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n'
+                    if (allEventRecordString[temp])continue;
+                    allEventRecordString[temp]=1
+                    testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
+
                 }
 
 
@@ -437,6 +453,7 @@
             testCase += '  })\n})'
 
             uitest.inner.outterCall("appendCaseCode", [testCase]);
+            allEventRecordString =[]
             allEventRecord = [];
             allMutationRecords = []
 
