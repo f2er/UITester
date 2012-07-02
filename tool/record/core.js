@@ -669,12 +669,12 @@ if (!JSON) {
             keyup     :0,
             keypress  :0,
             /// HTML events supported
-            blur      :0,
+            blur      :1,
             change    :1,
-            focus     :0,
-            resize    :0,
-            scroll    :0,
-            select    :0,
+            focus     :1,
+            resize    :1,
+            scroll    :1,
+            select    :1,
             textInput:1
 
 
@@ -1572,7 +1572,7 @@ if (!JSON) {
 
 
                             window.eventObserver && window.eventObserver.apply(host, arguments)
-                          if(!(!uitest.configs.events[type]&&uitest.configs.caseType=="event"))  oldFun.apply(host, arguments)
+                          if(!(uitest.configs.events[type]===0&&uitest.configs.caseType=="event"))  oldFun.apply(host, arguments)
                         }
                         arrays[1] = newFun;
                     }
@@ -1594,7 +1594,7 @@ if (!JSON) {
                                 var newFun = function () {
 
 
-                                    if (!(!uitest.configs.events[type]&&uitest.configs.caseType=="event")) {
+                                    if (!(!uitest.configs.events[type]===0&&uitest.configs.caseType=="event")) {
                                         window.eventObserver && window.eventObserver(target, type)
                                         oldFun.apply(target, arguments)
                                     }
