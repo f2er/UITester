@@ -1540,6 +1540,11 @@ if (!JSON) {
             }
 
 
+            $(document).ready(function(){
+
+            })
+
+
             var realAdd = window.Node.prototype.addEventListener;
             window.Node.prototype.addEventListener = function () {
 
@@ -1567,7 +1572,7 @@ if (!JSON) {
 
 
                             window.eventObserver && window.eventObserver.apply(host, arguments)
-                          if(uitest.configs.events[type])  oldFun.apply(host, arguments)
+                          if(uitest.configs.events[type]&&uitest.configs.caseType=="event")  oldFun.apply(host, arguments)
                         }
                         arrays[1] = newFun;
                     }
@@ -1589,7 +1594,7 @@ if (!JSON) {
                                 var newFun = function () {
 
 
-                                    if (uitest.configs.events[type]) {
+                                    if (uitest.configs.events[type]&&uitest.configs.caseType=="event") {
                                         window.eventObserver && window.eventObserver(target, type)
                                         oldFun.apply(target, arguments)
                                     }
