@@ -1783,7 +1783,7 @@ if (!JSON) {
             var className = el.getAttribute("class")
 
 
-            if (className ) {
+            if (className) {
                 var avClass = [];
                 el._appendClass =  el._appendClass||"";
                 for(var i =0;i<el.classList.length;i++){
@@ -1791,13 +1791,22 @@ if (!JSON) {
                         avClass.push(el.classList[i]);
                     }
                 }
+                
+                if(avClass.length >0){
+                    selector = "."+avClass.join(".");
+                }
+                else{
+                    selector = el.tagName.toLowerCase();
+                }
 
-                selector = "."+avClass.join(".");
+
 
             }
             else {
                 selector = el.tagName.toLowerCase();
             }
+            
+            
 
             //可能已经被删除
             if (!el.ownerDocument) {
@@ -1973,7 +1982,7 @@ if (!JSON) {
                     mutations[i].target._break = "id";
                 }
                 else if(mutations[i].type == "attributes" && (mutations[i].attributeName === "class")){
-                    var oldValue = mutations[i].oldValue;
+                    var oldValue = mutations[i].oldValue||"";
                     var oldClassList = [];
                     var appendClass =[];
                     if(oldValue){

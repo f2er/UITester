@@ -188,7 +188,7 @@
 
                     createTestCase(testCases[i].mutations, testCases[i].events)
 
-                
+
             }
             testCases = [];
 
