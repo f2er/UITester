@@ -1572,7 +1572,7 @@ if (!JSON) {
 
 
                             window.eventObserver && window.eventObserver.apply(host, arguments)
-                          if(uitest.configs.events[type]&&uitest.configs.caseType=="event")  oldFun.apply(host, arguments)
+                          if(!(!uitest.configs.events[type]&&uitest.configs.caseType=="event"))  oldFun.apply(host, arguments)
                         }
                         arrays[1] = newFun;
                     }
@@ -1594,7 +1594,7 @@ if (!JSON) {
                                 var newFun = function () {
 
 
-                                    if (uitest.configs.events[type]&&uitest.configs.caseType=="event") {
+                                    if (!(!uitest.configs.events[type]&&uitest.configs.caseType=="event")) {
                                         window.eventObserver && window.eventObserver(target, type)
                                         oldFun.apply(target, arguments)
                                     }
