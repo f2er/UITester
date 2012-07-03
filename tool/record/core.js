@@ -1045,12 +1045,13 @@ if (!JSON) {
             })
         },
         showCreateBtn       :function () {
-            if (!this.actionMask) {
+          /*  if (!this.actionMask) {
                 this.actionMask = $('<div class="action-mask"></div>')[0];
                 $("#test-page")[0].appendChild(this.actionMask)
             }
             this.actionMask.style.display = "block";
             $(".has-test-case")[0].style.display = "inline-block"
+            */
         },
         hideCreateBtn       :function () {
             $(".has-test-case")[0].style.display = "none"
@@ -1659,7 +1660,8 @@ if (!JSON) {
         initMouseoverPanel    :function () {
             var host = this;
             window.setTimeout(function () {
-                $(document).on("mouseover", function (e) {
+
+                document.addEventListener("mouseover", function (e) {
                     var target = e.target;
 
                     if (uitest.configs.showSelectMark) {
@@ -1676,9 +1678,9 @@ if (!JSON) {
                     }
 
 
-                })
+                },true,true)
 
-                $(document).on("mouseleave", function (e) {
+                document.addEventListener("mouseleave", function (e) {
 
 
                     host.outterCall("showMouseoverPanel", [
@@ -1691,7 +1693,7 @@ if (!JSON) {
                     )
 
 
-                })
+                },true,true)
             }, 10)
         },
 
