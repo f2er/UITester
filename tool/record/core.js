@@ -896,6 +896,14 @@ if (!JSON) {
                 else {
                     $("#show-select-mark").css("color", "")
                     uitest.configs.showSelectMark = false;
+                    host.outterCall("showMouseoverPanel", [
+                        host.elToSelector(target),
+                        $(target).width(),
+                        $(target).height(),
+                        $(target).offset().left - $(document.body).scrollLeft(),
+                        $(target).offset().top - $(document.body).scrollTop()
+                    ]
+                    )
                 }
 
                 uitest.synConfigs();
@@ -1667,11 +1675,11 @@ if (!JSON) {
                     if (uitest.configs.showSelectMark) {
 
                         host.outterCall("showMouseoverPanel", [
-                            host.elToSelector(target),
-                            $(target).width(),
-                            $(target).height(),
-                            $(target).offset().left - $(document.body).scrollLeft(),
-                            $(target).offset().top - $(document.body).scrollTop()
+                            "",
+                            0,
+                            0,
+                            -999,
+                            -999
                         ]
                         )
 
