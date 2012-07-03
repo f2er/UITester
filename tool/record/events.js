@@ -157,7 +157,7 @@
 
             window.setTimeout(function () {
                 console.log("testCases",testCases)
-                if (testCases.length == 0)return;
+              
                 addMutations(mutations);
 
                 if(createTimer){
