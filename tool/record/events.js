@@ -170,7 +170,7 @@
 
                     createEventTypeTestCase();
 
-                },1000)
+                },200)
 
 
 
