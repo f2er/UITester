@@ -319,6 +319,8 @@
 
                     var selector = uitest.inner.elToSelector(target)
 
+                    newValue=   newValue.replace(/"/ig,'\\"')
+
 
                     var expect = 'expect("' + selector + '").willModifyInnerHTML("' + newValue + '");\n';
                     if (!hasRecords(expect)) {
