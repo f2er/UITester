@@ -1796,19 +1796,19 @@ if (!JSON) {
                 return selector;
             }
 
-            var className = el.getAttribute("class")
+            var className = $.trim(el.getAttribute("class"))
 
 
             if (className) {
                 var avClass = [];
                 el._appendClass =  el._appendClass||"";
                 for(var i =0;i<el.classList.length;i++){
-                    if(!/\d/.test(el.classList[i])&&(el._appendClass.indexOf(el.classList[i])===-1)){
+                    if($.trim(el.classList[i])&&!/\d/.test(el.classList[i])&&(el._appendClass.indexOf(el.classList[i])===-1)){
                         avClass.push(el.classList[i]);
                     }
                 }
                 
-                if(avClass.length >0){
+                if(avClass.length>0){
                     selector = "."+avClass.join(".");
                 }
                 else{
