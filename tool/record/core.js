@@ -1063,8 +1063,9 @@ if (!JSON) {
 
         },
         hideCreateBtn       :function () {
-            $(".has-test-case")[0].style.display = "none"
+          /*  $(".has-test-case")[0].style.display = "none"
             this.actionMask.style.display = "none";
+            */
         },
         createEventTest     :function () {
             var host = this;
