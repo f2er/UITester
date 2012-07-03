@@ -147,6 +147,7 @@
 //记录变化
 
         var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        var createTimer;
 
 
         var observer = new MutationObserver(function (mutations) {
@@ -159,9 +160,26 @@
                 if (testCases.length == 0)return;
                 addMutations(mutations);
 
-                uitest.inner.outterCall("showCreateBtn");
+                if(createTimer){
+                    window.clearTimeout(createTimer);
+                    createTimer = null;
 
-            }, 10)
+                }
+
+                createTimer = window.setTimeout(function(){
+
+                    createEventTypeTestCase();
+
+                },1000)
+
+
+
+            }, 1)
+
+
+
+
+
         });
 
         observer.observe(document, {
@@ -182,7 +200,7 @@
 
 
 
-        uitest.inner.createEventTypeTestCase = function () {
+        function  createEventTypeTestCase() {
 
             for (var i = 0; i < testCases.length; i++) {
 

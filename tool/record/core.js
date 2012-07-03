@@ -1050,8 +1050,9 @@ if (!JSON) {
                 $("#test-page")[0].appendChild(this.actionMask)
             }
             this.actionMask.style.display = "block";
-            $(".has-test-case")[0].style.display = "inline-block"
             */
+          //  $(".has-test-case")[0].style.display = "inline-block"
+
         },
         hideCreateBtn       :function () {
             $(".has-test-case")[0].style.display = "none"
@@ -1448,7 +1449,6 @@ if (!JSON) {
         },
         appendCaseCode:function (src) {
             this.codeTabs.switchTo(0);
-
             this.textEditor.textModel.appendText(src)
             var lines = $(".webkit-line-content");
             var lastLines = lines[lines.length - 1];
