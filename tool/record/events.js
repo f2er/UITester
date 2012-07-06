@@ -265,12 +265,21 @@
 
 
             var testCase = 'describe("交互动作测试用例",function(){\n';
+            var lastActionType ="";
+             var targetSelector = "";
+            if(allEventRecord.length!==0){
+                var lastAction  = allEventRecord[allEventRecord.length-1];
+
+                lastActionType = lastAction.type;
+                targetSelector =toS(lastAction.target)
+            }
 
 
-            var lastAction  = allEventRecord[allEventRecord.length-1];
+            
+          
 
 
-            testCase += '  it("用户 '+lastAction.type+' '+toS(lastAction.target)+'", function(){\n';
+            testCase += '  it('+lastActionType+' '+targetSelector+'", function(){\n';
 
 
             mutations.forEach(function (mutation) {
