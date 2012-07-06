@@ -157,7 +157,7 @@
 
             window.setTimeout(function () {
                 console.log("testCases",testCases)
-              
+
                 addMutations(mutations);
 
                 if(createTimer){
@@ -204,7 +204,7 @@
 
             for (var i = 0; i < testCases.length; i++) {
 
-                    createTestCase(testCases[i].mutations, testCases[i].events)
+                    createTestCase(testCases[i].mutations||[], testCases[i].events||[])
 
 
             }
