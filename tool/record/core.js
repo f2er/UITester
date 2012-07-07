@@ -1000,13 +1000,14 @@ if (!JSON) {
             $("#reload").on("click", function () {
                 host.innerCall("setBeforeunloadWarning")
                 $(iframe).unbind("load");
+
+                $(iframe).on("load", function () {
+                    uitest.synConfigs();
+                })
                 iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
             })
 
 
-            $(iframe).on("load", function () {
-                uitest.synConfigs();
-            })
 
 
         },
@@ -1039,6 +1040,8 @@ if (!JSON) {
                 run = true;
                 host.innerCall("setBeforeunloadWarning")
                 var iframe = $("#iframe-target")[0];
+                $(iframe).unbind("load");
+
 
                 $(iframe).on("load", function () {
                     if (run) {
@@ -1461,7 +1464,8 @@ if (!JSON) {
             this.textEditor.textModel.appendText(src)
             var lines = $(".webkit-line-content");
             var lastLines = lines[lines.length - 1];
-            lastLines.scrollIntoView()
+            lastLines.scrollIntoView();
+            uitest.synConfigs();
 
         },
         synConfigs    :function () {
