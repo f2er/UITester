@@ -369,6 +369,7 @@
                     if (addedNodes.length > 0) {
                         for (var i = 0; i < addedNodes.length; i++) {
                             addedNodes[i]._isJsAdd = true;
+                            if(!addedNodes[i]||!addedNodes[i].tagName)continue;
 
                             if(filterChild[addedNodes[i].tagName.toLowerCase()])continue;
 
