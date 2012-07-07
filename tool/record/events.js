@@ -178,7 +178,7 @@
 
                     createEventTypeTestCase();
 
-                },500)
+                },800)
 
 
 
@@ -496,6 +496,8 @@
 
 
             testCase += '  })\n})'
+                
+            if(allEventRecord.length ==0&&verifys.length==0)return;
 
             uitest.inner.outterCall("appendCaseCode", [testCase]);
             allEventRecordString =[]
