@@ -7,6 +7,11 @@
 
     var testCases = [];
 
+    var filterAttr = {"id":1,"src":1};
+    var filterParent ={"head":1}
+
+    var filterChild ={"iframe":1,"script":1}
+
     //[{events:[],mutations:[]}]
 
     var addEvent = function (e) {
@@ -295,6 +300,7 @@
                     if(!mutation.target.parentNode||!mutation.target.ownerDocument){
                         return;
                     }
+                    if(filterAttr[mutation.attributeName])return;
 
                     var oldValue = mutation.oldValue;
 
@@ -348,7 +354,8 @@
                 if (mutation.type == "childList") {
                     var tag = mutation.target.tagName.toLowerCase();
                     //难以预测，暂时不支持
-                    if(tag =="head")return;
+                    if(filterParent[tag])return;
+
 
 
                     var addedNodes = mutation.addedNodes;
@@ -362,6 +369,8 @@
                     if (addedNodes.length > 0) {
                         for (var i = 0; i < addedNodes.length; i++) {
                             addedNodes[i]._isJsAdd = true;
+
+                            if(filterChild[addedNodes[i].tagName.toLowerCase()])continue;
 
                             if (addedNodes[i].ownerDocument) {
 
