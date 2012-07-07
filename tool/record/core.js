@@ -672,9 +672,9 @@ if (!JSON) {
             blur      :1,
             change    :1,
             focus     :1,
-            resize    :1,
-            scroll    :1,
-            select    :1,
+            resize    :0,
+            scroll    :0,
+            select    :0,
             textInput:1
 
 

@@ -150,6 +150,9 @@
         var createTimer;
 
 
+
+
+
         var observer = new MutationObserver(function (mutations) {
             console.log(mutations)
             if (uitest.configs.caseType != "event")return;
@@ -170,7 +173,7 @@
 
                     createEventTypeTestCase();
 
-                },200)
+                },500)
 
 
 
@@ -213,6 +216,9 @@
         }
 
         function createTestCase(mutations, allEventRecord) {
+            if(mutations.length ==0&&allEventRecord==0){
+                return;
+            }
 
 
             uitest.inner.outterCall("hideCreateBtn");
@@ -279,7 +285,7 @@
           
 
 
-            testCase += '  it('+lastActionType+' '+targetSelector+'", function(){\n';
+            testCase += '  it("'+lastActionType+' '+targetSelector+'", function(){\n';
 
 
             mutations.forEach(function (mutation) {
