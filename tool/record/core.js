@@ -1290,7 +1290,7 @@ if (!JSON) {
 
             for (var i = 0; i < styles.length; i++) {
                 if (!/^-/.test(styles[i]))uitest.configs.styles[styles[i]] = 1;
-                console.log(uitest.configs.styles[styles[i]])
+
             }
 
         },
@@ -1627,7 +1627,7 @@ if (!JSON) {
                     $(t).data("_elToSelector", host.elToSelector(t))
 
                     $(t).data("_elToSelectorRelativeParent", host.elToSelectorRelativeParent(t))
-                    console.log($(t).data("_elToSelector"))
+
                 }
 
 
