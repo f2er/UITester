@@ -194,8 +194,13 @@ body{
     top:3px;
     right:20px;
 }
+.code .code-cmd ul{
+    height:22px;
+}
 .code .code-cmd li{
-    display:inline-block;;
+    float:left;
+    height:22px;
+    overflow:hidden;;
 }
 .code .code-cmd li a{
     display:inline-block;
@@ -315,7 +320,9 @@ body{
     -webkit-box-flex:1;
     -moz-box-flex:1;
     box-flex:1;
+    overflow-y:auto;
 }
+
 .tabs #test-result{
     display:none;
 }
@@ -568,6 +575,13 @@ body{
 #configs-event.hide .item,#configs-attr.hide .item,#configs-style.hide .item{
     display:none;
 }
+
+.has-test-case{
+    background:url("img/loading.gif") no-repeat;
+    width: 23px;
+    height: 22px;
+    display: inline-block;
+}
 </style>
 </head>
 <body>
@@ -623,6 +637,7 @@ body{
         </div>
         <div class="main">
             <div class="page">
+
                 <div id="page-tools">
 
                     <ul class="fix-tools">
@@ -666,9 +681,11 @@ body{
                 <div class="code-cmd">
                     <ul>
                         <li>
-                            <span class="has-test-case" style="display:none;"> <a class="create-test">动作完成</a><a
-                                    class="cancel-test" style="">取消</a></span>
+                            <span class="has-test-case" style="display:none;"></span>
+                            
                         </li>
+
+
 
                         <li>
                             <a href="#" class="run-test">测试</a>

@@ -51,7 +51,22 @@
         var all = document.querySelectorAll("*");
 
 
-
+        var userEvent ={
+            click     :1,
+            dblclick  :1,
+            mouseover :0,
+            mouseout  :0,
+            mouseenter:0,
+            mouseleave:0,
+            mousedown :0,
+            mouseup   :0,
+            mousemove :0,
+            //key events supported
+            keydown   :0,
+            keyup     :0,
+            keypress  :0
+        }
+       var hasUserEvent = false;
         var actionLock = false;
         var changeEventRecords = [];
         var preEventRecord;
@@ -70,6 +85,9 @@
             }
 
             return result;
+        }
+        var isUserEvent = function(type){
+           return userEvent[type]&&uitest.configs.events[type];
         }
 
         var getValidEventTarget = function (target, type) {
@@ -97,6 +115,7 @@
             (function (type) {
                 document.body.addEventListener(type, function (e) {
                     start = true;
+                    if(isUserEvent(e.type))hasUserEvent = true;
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[type])return;
                     var target = getValidEventTarget(e.target, e.type);
@@ -119,6 +138,7 @@
 
 
                 window.stopPropagationProxy = function (e) {
+                    if(isUserEvent(e.type))hasUserEvent = true;
 
                     if (uitest.configs.caseType != "event")return;
                     if (!uitest.configs.events[e.type])return;
@@ -167,6 +187,7 @@
                 console.log("testCases",testCases)
 
                 addMutations(mutations);
+                uitest.inner.outterCall("showCreateBtn");
 
                 if(createTimer){
                     window.clearTimeout(createTimer);
@@ -178,7 +199,7 @@
 
                     createEventTypeTestCase();
 
-                },800)
+                },1000)
 
 
 
@@ -210,7 +231,7 @@
 
         function  createEventTypeTestCase() {
 
-            for (var i = 0; i < testCases.length; i++) {
+            for (var i = testCases.length-1; i < testCases.length; i++) {
 
                     createTestCase(testCases[i].mutations||[], testCases[i].events||[])
 

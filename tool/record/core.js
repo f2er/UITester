@@ -675,7 +675,7 @@ if (!JSON) {
             resize    :0,
             scroll    :0,
             select    :0,
-            textInput:1
+            textInput :1
 
 
         },
@@ -887,6 +887,7 @@ if (!JSON) {
 
         },
         showSelectMarkEvent:function () {
+            var host = this;
             $("#show-select-mark").click(function () {
                 if (!uitest.configs.showSelectMark) {
                     $("#show-select-mark").css("color", "red")
@@ -896,17 +897,23 @@ if (!JSON) {
                 else {
                     $("#show-select-mark").css("color", "")
                     uitest.configs.showSelectMark = false;
-                    host.outterCall("showMouseoverPanel", [
-                        host.elToSelector(target),
-                        $(target).width(),
-                        $(target).height(),
-                        $(target).offset().left - $(document.body).scrollLeft(),
-                        $(target).offset().top - $(document.body).scrollTop()
-                    ]
+                    host.showMouseoverPanel(
+                        "",
+                        0,
+                        0,
+                        -999,
+                        -999
                     )
                 }
 
                 uitest.synConfigs();
+            })
+
+            $(document).mouseover(function () {
+                if(host.mouseoverPanel&&host.mouseoverPanel.style.display=="block"){
+                    host.hideMouseoverPanel();
+                }
+
             })
 
         },
@@ -917,12 +924,17 @@ if (!JSON) {
                 $("#test-page").get(0).appendChild(this.mouseoverPanel);
             }
             this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div>';
+            this.mouseoverPanel.style.display="block";
             this.mouseoverPanel.style.position = "absolute";
             this.mouseoverPanel.style.width = width + "px";
             this.mouseoverPanel.style.height = height + "px";
             this.mouseoverPanel.style.left = left + "px";
             this.mouseoverPanel.style.top = top + "px";
 
+        },
+        
+        hideMouseoverPanel :function () {
+           if(this.mouseoverPanel)this.mouseoverPanel.style.display="none";
         },
 
         initPage:function () {
@@ -1008,8 +1020,6 @@ if (!JSON) {
             })
 
 
-
-
         },
 
         initTabs            :function () {
@@ -1056,28 +1066,33 @@ if (!JSON) {
             })
         },
         showCreateBtn       :function () {
-          /*  if (!this.actionMask) {
-                this.actionMask = $('<div class="action-mask"></div>')[0];
-                $("#test-page")[0].appendChild(this.actionMask)
-            }
-            this.actionMask.style.display = "block";
-            */
-          //  $(".has-test-case")[0].style.display = "inline-block"
+            /*  if (!this.actionMask) {
+             this.actionMask = $('<div class="action-mask"></div>')[0];
+             $("#test-page")[0].appendChild(this.actionMask)
+             }
+             this.actionMask.style.display = "block";
+             */
+            var t = $(".has-test-case")[0]
+            t.style.display = "inline-block";
+            
+
+
 
         },
         hideCreateBtn       :function () {
-          /*  $(".has-test-case")[0].style.display = "none"
-            this.actionMask.style.display = "none";
-            */
+            $(".has-test-case")[0].style.display = "none"
+            /*  this.actionMask.style.display = "none";
+             */
         },
         createEventTest     :function () {
-            var host = this;
-            $(".create-test").on("click", function () {
-                host.innerCall("createEventTypeTestCase")
-            })
-            $(".cancel-test").on("click", function () {
-                host.innerCall("removeEventTypeTestCase")
-            })
+            /*  var host = this;
+             $(".create-test").on("click", function () {
+             host.innerCall("createEventTypeTestCase")
+             })
+             $(".cancel-test").on("click", function () {
+             host.innerCall("removeEventTypeTestCase")
+             })
+             */
         },
         attrConfigsView     :function () {
             var host = this;
@@ -1528,8 +1543,6 @@ if (!JSON) {
             var setInterval = window.setInterval;
 
 
-
-
             window.setInterval = function () {
                 var args = arguments;
                 var arrays = []
@@ -1554,7 +1567,7 @@ if (!JSON) {
             }
 
 
-            $(document).ready(function(){
+            $(document).ready(function () {
 
             })
 
@@ -1586,7 +1599,7 @@ if (!JSON) {
 
 
                             window.eventObserver && window.eventObserver.apply(host, arguments)
-                          if(!(uitest.configs.events[type]===0&&uitest.configs.caseType=="event"))  oldFun.apply(host, arguments)
+                            if (!(uitest.configs.events[type] === 0 && uitest.configs.caseType == "event"))  oldFun.apply(host, arguments)
                         }
                         arrays[1] = newFun;
                     }
@@ -1608,7 +1621,7 @@ if (!JSON) {
                                 var newFun = function () {
 
 
-                                    if (!(!uitest.configs.events[type]===0&&uitest.configs.caseType=="event")) {
+                                    if (!(!uitest.configs.events[type] === 0 && uitest.configs.caseType == "event")) {
                                         window.eventObserver && window.eventObserver(target, type)
                                         oldFun.apply(target, arguments)
                                     }
@@ -1677,21 +1690,21 @@ if (!JSON) {
                 document.addEventListener("mouseover", function (e) {
                     var target = e.target;
 
-                    if (uitest.configs.showSelectMark) {
+                    if (uitest.configs.showSelectMark && uitest.configs.caseType != "null") {
 
                         host.outterCall("showMouseoverPanel", [
-                            "",
-                            0,
-                            0,
-                            -999,
-                            -999
+                            host.elToSelector(target),
+                            $(target).width(),
+                            $(target).height(),
+                            $(target).offset().left - $(document.body).scrollLeft(),
+                            $(target).offset().top - $(document.body).scrollTop()
                         ]
                         )
 
                     }
 
 
-                },true,true)
+                }, true, true)
 
                 document.addEventListener("mouseleave", function (e) {
 
@@ -1706,7 +1719,7 @@ if (!JSON) {
                     )
 
 
-                },true,true)
+                }, true, true)
             }, 10)
         },
 
@@ -1805,28 +1818,26 @@ if (!JSON) {
 
             if (className) {
                 var avClass = [];
-                el._appendClass =  el._appendClass||"";
-                for(var i =0;i<el.classList.length;i++){
-                    if($.trim(el.classList[i])&&!/\d/.test(el.classList[i])&&(el._appendClass.indexOf(el.classList[i])===-1)){
+                el._appendClass = el._appendClass || "";
+                for (var i = 0; i < el.classList.length; i++) {
+                    if ($.trim(el.classList[i]) && !/\d/.test(el.classList[i]) && (el._appendClass.indexOf(el.classList[i]) === -1)) {
                         avClass.push(el.classList[i]);
                     }
                 }
-                
-                if(avClass.length>0){
-                    selector = "."+avClass.join(".");
+
+                if (avClass.length > 0) {
+                    selector = "." + avClass.join(".");
                 }
-                else{
+                else {
                     selector = el.tagName.toLowerCase();
                 }
-
 
 
             }
             else {
                 selector = el.tagName.toLowerCase();
             }
-            
-            
+
 
             //可能已经被删除
             if (!el.ownerDocument) {
@@ -1838,7 +1849,7 @@ if (!JSON) {
             var p = el;
 
             while (true) {
-                p = p.parentNode ;
+                p = p.parentNode;
 
                 if (!p || !p.tagName)break;
                 var l = $(selector, p).length;
@@ -1906,16 +1917,16 @@ if (!JSON) {
             }
             var className = el.getAttribute("class");
 
-            if (className ) {
+            if (className) {
                 var avClass = [];
-                el._appendClass =  el._appendClass||"";
-                for(var i =0;i<el.classList.length;i++){
-                    if(!/\d/.test(el.classList[i])&&(el._appendClass.indexOf(el.classList[i])===-1)){
+                el._appendClass = el._appendClass || "";
+                for (var i = 0; i < el.classList.length; i++) {
+                    if (!/\d/.test(el.classList[i]) && (el._appendClass.indexOf(el.classList[i]) === -1)) {
                         avClass.push(el.classList[i]);
                     }
                 }
 
-                selector = "."+avClass.join(".");
+                selector = "." + avClass.join(".");
 
             }
             else if (!el.ownerDocument) {
@@ -1961,7 +1972,7 @@ if (!JSON) {
 
         },
         nodeAddEvent              :function () {
-            var host =this;
+            var host = this;
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 
 
@@ -1995,26 +2006,25 @@ if (!JSON) {
         hasSelectorChange:function (mutations) {
             for (var i = 0; i < mutations.length; i++) {
 
-                if (mutations[i].type == "attributes" && (mutations[i].attributeName === "id")){
-
+                if (mutations[i].type == "attributes" && (mutations[i].attributeName === "id")) {
 
 
                     mutations[i].target._break = "id";
                 }
-                else if(mutations[i].type == "attributes" && (mutations[i].attributeName === "class")){
-                    var oldValue = mutations[i].oldValue||"";
+                else if (mutations[i].type == "attributes" && (mutations[i].attributeName === "class")) {
+                    var oldValue = mutations[i].oldValue || "";
                     var oldClassList = [];
-                    var appendClass =[];
-                    if(oldValue){
+                    var appendClass = [];
+                    if (oldValue) {
                         oldClasList = oldValue.split(" ");
                     }
-                    for(var j =0;j<mutations[i].target.classList.length;j++){
-                          if(oldValue.indexOf(mutations[i].target.classList[j])==-1){
-                              appendClass.push(mutations[i].target.classList[j])
-                          }
+                    for (var j = 0; j < mutations[i].target.classList.length; j++) {
+                        if (oldValue.indexOf(mutations[i].target.classList[j]) == -1) {
+                            appendClass.push(mutations[i].target.classList[j])
+                        }
                     }
 
-                    mutations[i].target._appendClass =appendClass.join(" ");
+                    mutations[i].target._appendClass = appendClass.join(" ");
 
 
                 }
