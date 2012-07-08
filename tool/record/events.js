@@ -187,6 +187,15 @@
                 console.log("testCases",testCases)
 
                 addMutations(mutations);
+                
+                if(testCases.length==0)return;
+
+                var last = testCases[testCases.length-1];
+
+                if(last.mutations.length ==0&&last.events==0)return;
+                
+
+
                 uitest.inner.outterCall("showCreateBtn");
 
                 if(createTimer){
