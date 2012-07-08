@@ -516,6 +516,15 @@ if (!JSON) {
         return uri + args.join('&').replace(/&+/g, '&') + hash;
 
     }
+    var build = function (baseUrl, username, password) {
+        var result = buildUrl(baseUrl, "inject-type=record&__TEST__");
+
+        if (username && password) {
+            result = buildUrl(result, "username=" + username + "&password=" + password)
+        }
+
+        return result;
+    }
 
     var unparam = function (str) {
         if (typeof str !== 'string'
@@ -942,15 +951,7 @@ if (!JSON) {
 
             // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
 
-            var build = function (baseUrl, username, password) {
-                var result = buildUrl(task_target_url_el.value, "inject-type=record&__TEST__");
 
-                if (username && password) {
-                    result = buildUrl(result, "username=" + username + "&password=" + password)
-                }
-
-                return result;
-            }
 
             var idEl = $("#task_id")[0];
             var nameEl = $("#task_name")[0];
@@ -1006,7 +1007,18 @@ if (!JSON) {
             $("#save-test").on("click", function () {
                 host.innerCall("setBeforeunloadWarning")
                 $("#task_script")[0].value = host.textEditor.textModel.text;
-                $('#save-form')[0].submit();
+
+                var nameEl = $("#task_name")[0];
+                var task_target_url_el = $("#task_target_uri")[0];
+                
+                if(nameEl.value ===""||task_target_url_el.value ===""){
+                    alert("用例名称或者测试地址不能为空")
+                }
+                else{
+                    $('#save-form')[0].submit();
+                }
+                
+
             })
 
             $("#reload").on("click", function () {
@@ -1062,7 +1074,11 @@ if (!JSON) {
                     }
 
                 })
-                iframe.src = iframe.src;
+                var task_target_url_el = $("#task_target_uri")[0];
+                var iframe = $("#iframe-target")[0];
+                var usernameEl = $("#username")[0];
+                var passwordEl = $("#password")[0];
+                iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
             })
         },
         showCreateBtn       :function () {

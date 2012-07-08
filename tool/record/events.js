@@ -242,6 +242,7 @@
 
             for (var i = testCases.length-1; i < testCases.length; i++) {
 
+
                     createTestCase(testCases[i].mutations||[], testCases[i].events||[])
 
 
@@ -333,12 +334,16 @@
                     if(filterAttr[mutation.attributeName])return;
 
                     var oldValue = mutation.oldValue;
+                    console.log("123")
 
 
                     var selector = uitest.inner.elToSelector(mutation.target)
                     var newValue = $(selector).attr(mutation.attributeName)
 
-                    if (oldValue && !newValue && !/\d+/.test(oldValue)) {
+                    console.log(newValue)
+
+
+                    if (!newValue ) {
 
 
                         var expect = 'expect("' + selector + '").willRemoveAttr("' + mutation.attributeName + '");\n'
@@ -349,14 +354,13 @@
 
                     }
 
-                    if (oldValue && newValue && !/\d+/.test(newValue)) {
+                    if (newValue) {
+
 
 
                         var expect = 'expect("' + selector + '").willHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n'
                         if (!hasRecords(expect)) {
                             records.push(expect);
-
-
                         }
 
                     }
@@ -398,7 +402,7 @@
 
                     if (addedNodes.length > 0) {
                         for (var i = 0; i < addedNodes.length; i++) {
-                            addedNodes[i]._isJsAdd = true;
+
                             if(!addedNodes[i]||!addedNodes[i].tagName)continue;
 
                             if(filterChild[addedNodes[i].tagName.toLowerCase()])continue;
@@ -443,9 +447,6 @@
 
                                 }
                             }
-                           
-
-
 
                         }
 
@@ -513,9 +514,6 @@
                     testCase += '    simulate("' + selector + '","' + allEventRecord[i].type + '"' + keyCode + ');\n';
 
                 }
-
-
-
 
 
             }

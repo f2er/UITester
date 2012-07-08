@@ -1,7 +1,7 @@
 <?php include_once('./common/header.php'); ?>
 
 <div class="sub-nav">
-    <a target="_blank" href="http://uitest.taobao.net/tool/record/record.html" class="new-record minibtn"">Â¼ÖÆÐÂÓÃÀý</a>
+
 </div>
 
 <div class="case-list">

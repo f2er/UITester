@@ -75,16 +75,16 @@
     </div>
     <div class="step-step">
         <div class="s">
-            <h3>安装:</h3>
-            <p>在浏览器中配置自动代理<a href="http://uitest.taobao.net/proxy.pac">http://uitest.taobao.net/proxy.pac</a></p>
+            <h3>第一步：安装:</h3>
+            <p>在使用uitester之前，需求在您使用的浏览器中配置自动代理<a href="http://uitest.taobao.net/proxy.pac">http://uitest.taobao.net/proxy.pac</a></p>
         </div>
         <div class="s">
-            <h3>录制:</h3>
-            <p>测试用例不再使用手动编写。UITester提供的专业的录制工具，快速完成用例的编写和修改</p>
+            <h3>第二步：录制:</h3>
+            <p>UITester提供的专门的测试用例生成工具，这将大大提高编写和修改测试用例的效率。目前录制工具只支持chrome 17及以上版本</p>
         </div>
         <div class="s">
-            <h3>测试:</h3>
-            <p>UITester提供了一套专门的ui测试框架<a href="https://github.com/taobao-sns-fed/UITester">uitest</a>,更适合基于HTML页面的UI测试</p>
+            <h3>第三步：测试:</h3>
+            <p>UITester基于于一套专门的ui测试框架<a href="https://github.com/taobao-sns-fed/uitest">uitest</a>,来完成对HTML页面测试工具; 测试平台可以使您轻松的在不同浏览器下运行测试用例</p>
         </div>
 
 

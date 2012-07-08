@@ -142,7 +142,7 @@ body{
     height:20px;
 }
 #content .main .page{
-    height:200px;
+    height:350px;
     background-color:#fff;
     display:-webkit-box;
     -webkit-box-orient:vertical;
@@ -582,6 +582,9 @@ body{
     height: 22px;
     display: inline-block;
 }
+.text-editor{
+    line-height:18px;
+}
 </style>
 </head>
 <body>
@@ -607,7 +610,7 @@ body{
                 <ul>
                     <li><span class="name">用例名称：<input name="task_name" id="task_name" type="text"></span></li>
                     <li><span>测试页面地址:</span>
-                        <input name="task_target_uri" id="task_target_uri" type="url" value="./testiframe.html"/>
+                        <input name="task_target_uri" id="task_target_uri" type="url" value="./home.html"/>
                         <a id="reload" style="vertical-align:middle;" href="#"><img width="16"
                                                                                     src="./img/reload.png"></a>
                     </li>
@@ -654,7 +657,7 @@ body{
 
                 </div>
                 <div id="test-page">
-                    <iframe id="iframe-target" src="./testiframe.html#sharebtn" width="100%"></iframe>
+                    <iframe id="iframe-target" src="./home.html" width="100%"></iframe>
                 </div>
 
 

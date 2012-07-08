@@ -6,18 +6,19 @@
 
         var createTestCase = function (target) {
 
-            var testCase = 'describe("标签位置测试用例",function(){\n';
+            var testCase = 'describe("测试标签位置",function(){\n';
             var selector = uitest.inner.elToSelector(target);
             var offset = $(selector).offset();
             var r =  $(uitest.configs.position.relatedNode).offset();
             
 
 
-            testCase += '  it("' + selector + ' at  position"' + ', function(){\n';
-            testCase += '    expect("' + selector + '" ).atPosition(' + (offset.left-r.left) + ',' + (offset.top-r.top) + ', '+uitest.configs.position.offset.value+',"'+uitest.configs.position.relatedNode+'");\n';
+            testCase += '  it("' + selector + '"' + ', function(){\n';
+            testCase += '    expect("' + selector + '").atPosition(' + (offset.left-r.left) + ', ' + (offset.top-r.top) + ', '+uitest.configs.position.offset.value+', "'+uitest.configs.position.relatedNode+'");\n';
 
             //showMsg(123);
             testCase += '  })\n})\n'
+
             uitest.inner.outterCall("appendCaseCode", [testCase])
 
         }

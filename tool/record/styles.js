@@ -39,7 +39,7 @@
 
         var createTestCase = function (target) {
 
-            var testCase = 'describe("元素样式测试用例",function(){\n';
+            var testCase = 'describe("测试元素样式",function(){\n';
             var selector = uitest.inner.elToSelector(target);
             // var computedStyle =window.getComputedStyle(target);
             //   var styles = filterStyles(computedStyle);
@@ -54,7 +54,7 @@
             // mergeCSSRules(window.getMatchedCSSRules(target))
 
 
-            testCase += '  it("' + selector + ' 拥有样式"' + ', function(){\n';
+            testCase += '  it("' + selector + '"' + ', function(){\n';
 
             var expects = []
 
