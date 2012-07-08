@@ -100,7 +100,7 @@
                 else {
                     target = target.parentNode;
                 }
-                if (!target || (target == window) || (target.tagName.toLowerCase() === "html")) {
+                if (!target) {
                     break;
                 }
 
@@ -113,7 +113,7 @@
         for (var p in uitest.configs.events) {
 
             (function (type) {
-                document.body.addEventListener(type, function (e) {
+                document.addEventListener(type, function (e) {
                     start = true;
                     if(isUserEvent(e.type))hasUserEvent = true;
                     if (uitest.configs.caseType != "event")return;
