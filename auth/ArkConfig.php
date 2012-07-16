@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ArkÅäÖÃÎÄ¼ş
+ * Arkï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
  */
 define('ARKSERVER','arkserver');
 define('SECRETCACHE','secretcache');
@@ -28,7 +28,7 @@ $ArkConfig = array(
 	APPCODE=>'27ccf1e9e5d3477a88052db2c22f5681',
 	LOGPATH=>'log',
 	CONTEXTTYPE=>'session',
-	APPATH => '/ark',
+	APPATH => '/',
 	LOGOUTPARAM=>'cmd',
 	LOGOUTVALUE=>'out'
 );
