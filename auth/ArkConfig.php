@@ -18,7 +18,7 @@ define('LOGOUTPARAM','logoutparam');
 define('LOGOUTVALUE','logoutvalue');
 
 $ArkConfig = array(
-	ARKSERVER=>'https://ark.taobao.ali.com:4430/arkserver/',
+	ARKSERVER=>'https://ark.taobao.org:4430/arkserver',
 	SECRETCACHE=>'120',
 	DYNAMICDOMAIN=> false,
 	CLIENTTYPE=> 'app',
