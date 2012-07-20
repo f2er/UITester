@@ -68,11 +68,18 @@
         .step-step .s  a{
             color:#999;
         }
+        .summery{
+            margin:30px;
+            padding:20px;
+            width:500px;
+            margin:auto;
+            font-size:20px;
+        }
     </style>
-    <div class="summery">
-
-
-    </div>
+<div class="summery">
+    <p>UITester是一个自动化的前端UI测试平台.</p>
+    <p>UITester适用于所有淘宝页面，通过录制工具快速编辑和修改测试用例，并能在所有浏览器中自动回归测试</p>
+</div>
     <div class="step-step">
         <div class="s">
             <h3>第一步：安装:</h3>
