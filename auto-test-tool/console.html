@@ -6,13 +6,28 @@
 </head>
 <body>
 
+<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io.connect('http://localhost');
-  socket.on('news', function (data) {
+var socket = io.connect('http://localhost');
+socket.on('client_is_connected', function (data){
     console.log(data);
-    socket.emit('my other event', { my: 'data' });
-  });
+    // socket.emit('my other event', { my: 'data' });
+
+    var S = KISSY, UA = S.UA;
+
+    var client, ua;
+
+    ua = UA.shell + (('ie' === ua) ? UA[UA.shell] : '');
+
+    client = {
+        ua: ua,
+        id: ''
+    };
+
+    socket.emit('client_register', client);
+
+});
 </script>
 
 </body>

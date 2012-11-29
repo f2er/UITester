@@ -35,12 +35,27 @@ clientManager.init({
 //     eventManager: eventManager
 // });
 
-// this is test event emit
-eventManager.emit('client_disconnect');
+
+// app.on('connection', function (socket){
+//     console.log('hey http');
+// });
 
 io.sockets.on('connection', function (socket) {
-    // socket.emit('news', { hello: 'world' });
-    // socket.on('report', function (data) {
-    //   console.log(data);
-    // });
+    // console.info(socket);
+
+    socket.on('disconnect', function (){
+        eventManager.emit('client_disconnect');
+    });
+
+    socket.emit('client_is_connected', '[Server Msg] Your client is connected to server');
+
+    socket.on('client_register', function (data){
+        console.info(data);
+        eventManager.emit('client_connect', data);
+    });
+
+    socket.on('client_task_finish', function (data){
+        eventManager.emit('client_task_finish', data);
+    });
 });
+

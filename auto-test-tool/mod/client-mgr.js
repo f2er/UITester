@@ -7,20 +7,50 @@ var _ = require('underscore');
 
 var ClientPool = {
     init: function (){
-        this.config = {};
+        this.config = {
+            totalClients: 0
+        };
         
-        this.clients = [];
+        this.clients = {
+            ie6: [],
+            ie7: [],
+            ie8: [],
+            ie9: [],
+            ie10: [],
+            chrome: [],
+            firefox: []
+        };
 
-        this.unavailableClients = [];
+        // this.unavailableClients = [];
     },
 
     getInfo: function (){
+        return this.config;
     },
 
-    setItem: function (){
+    setItem: function (clientObject, clientType){
+        var hsot = this;
+
+        host.clients[clientType] = clientObject;
     },
 
-    removeItem: function (){
+    removeItem: function (clientId, clientType){
+        var host = this;
+
+        if (!clientType || !clientId){
+            throw('[err] clientType or clientId Error!');
+        }
+
+        var removedItem,
+            clients = host.clients[clientType];
+
+        _.each(clients, function (client, index){
+            if (clientId === client.clientId){
+                clients.splice(index, 1);
+            }
+        });
+
+        return removedItem;
     }
 };
 
@@ -39,8 +69,8 @@ var ClientManager = {
         },
 
         'data_update': function (data){
-            console.log('[EventManager] data update event');
         },
+
         'task': function (data){
             console.log('[EventManager] task event');
         }
@@ -49,7 +79,8 @@ var ClientManager = {
     init: function (config){
         var host = this;
 
-        host.EventManager = config.EventManager;
+        host.EventManager = config.eventManager;
+
         host.handleEventListener();
     },
 
