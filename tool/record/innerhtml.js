@@ -1,0 +1,53 @@
+﻿(function () {
+    //重置setTimeout,setInterval
+    // ajax等异步方法
+    $(document).ready(function () {
+
+
+
+
+        var createTestCase = function (target) {
+            var testCase = 'describe("标签内容测试用例",function(){\n';
+            var selector = uitest.inner.elToSelector(target);
+
+            var tag = target.tagName.toLowerCase()
+            if (tag === "input" || tag === "textarea" || tag === "button") {
+
+                testCase += '  it("' + selector + ' to be exist"' + ', function(){\n';
+
+
+                testCase += '    expect("' + selector + '").toHaveProp("value", "' + target.value + '");\n';
+                testCase += '  })\n})\n'
+                uitest.inner.outterCall("appendCaseCode", [testCase])
+            }
+            else {
+                var html = target.innerHTML;
+                testCase += '  it("' + selector + ' to have ther innerHTML "' + ', function(){\n';
+                console.log(html.replace(/\s/g, ""))
+
+                html = html.replace(/\n/g, "\\n").replace(/\n/g, "\\n").replace(/"/g, '\\"');
+
+                testCase += '    expect("' + selector + '").toHaveHtml("' + html + '");\n';
+                testCase += '  })\n})\n'
+                uitest.inner.outterCall("appendCaseCode", [testCase])
+            }
+
+
+        }
+
+
+        //事件类型
+        document.body.addEventListener("click",function (e) {
+
+            if (uitest.configs.caseType == "innerhtml") {
+                var target = e.target;
+                window.setTimeout(function () {
+                    createTestCase(target);
+                }, 0)
+            }
+        },true,true)
+
+
+    })
+
+})();

@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<meta charset="gbk">
-	<title>测试用例列表</title>
+        <meta charset="gbk">
+        <title>测试用例列表</title>
     <link rel="stylesheet" href="common.css" />
 </head>
 <body>
@@ -49,7 +49,7 @@
                                     <input type="text" name="task_name" class="input-box" value="' . $task_name . '" />
                                 </td>
                             </tr>
-                            <tr>
+<tr>
                                 <th>测试网址</th>
                                 <td>
                                     <input type="text" name="task_target_uri" class="input-box" value="' . $task_target_uri . '" />
@@ -58,10 +58,15 @@
                             <tr>
                                 <th>用例地址</th>
                                 <td>
-                                    <input type="text" name="task_inject_uri" class="input-box" value="' . $task_inject_uri. '" />
-                                </td>
-                            </tr>
+ <textarea type="text" name="task_script" class="input-box" rows="10">
+');
 
+include('../case/'.$task_id.'.js');
+
+echo('
+</textarea>
+</td>
+                            </tr>
                             <tr>
                                 <td colspan="2">
                                     <input type="hidden" name="modify_tag" value="' . $modify_tag . '" />

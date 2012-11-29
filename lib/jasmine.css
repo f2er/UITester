@@ -1,4 +1,4 @@
-body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
+
 
 #HTMLReporter { font-size: 11px; font-family: Monaco, "Lucida Console", monospace; line-height: 14px; color: #333333; }
 #HTMLReporter a { text-decoration: none; }
@@ -79,3 +79,51 @@ body { background-color: #eeeeee; padding: 0; margin: 5px; overflow-y: scroll; }
 #TrivialReporter.show-passed .passed, #TrivialReporter.show-skipped .skipped { display: block; }
 #TrivialReporter #jasmine_content { position: fixed; right: 100%; }
 #TrivialReporter .runner { border: 1px solid gray; display: block; margin: 5px 0; padding: 2px 0 2px 10px; }
+
+.result-report * {
+font-size: 12px;
+font-family: Monaco, "Lucida Console", monospace;
+line-height: 14px;
+color: #333;
+padding: 0;
+margin: 0;
+}
+
+.result-report .title {
+height: 27px;
+padding: 0 15px;
+}
+.result-report .title span {
+line-height: 27px;
+color: #ffffff;
+
+}
+
+.result-report .passed-alert {
+background-color: #5e7d00;
+}
+
+.result-report .fail-alert {
+background-color: #B03911;
+}
+
+.result-report .passed a {
+color: #5e7d00;
+}
+
+.result-report .failed a {
+color: #b03911;
+}
+.result-report .detail {
+padding: 10px;
+}
+
+.result-report .spec {
+margin-left: 20px;
+}
+
+.result-report .error-stack {
+padding: 15px;
+background-color: #fff;
+border: 1px solid #d2d3d4;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="gbk">
+    <title>UI Tester </title>
+
+
+    <script src="./postmsg.js"></script>
+    <script src="../../lib/jquery-1.7.2.min.js"></script>
+    <script src="../../lib/kissy-aio.js"></script>
+    <script src="../../lib/jasmine.js"></script>
+    <script src="../../lib/jasmine-html.js"></script>
+    <script src="../../lib/event-simulate.js"></script>
+    <script src="../../lib/matcher.js"></script>
+    <script src="./core.js" charset="utf-8"></script>
+    <script>
+        uitest.inner.init();
+    </script>
+    <script src="./events.js" charset="utf-8"></script>
+    <script src="./attrs.js" charset="utf-8"></script>
+    <script src="./tags.js" charset="utf-8"></script>
+    <script src="./position.js" charset="utf-8"></script>
+    <script src="./center.js" charset="utf-8"></script>
+    <script src="./style.js" charset="utf-8"></script>
+    <script src="./innerhtml.js" charset="utf-8"></script>
+    <script src="./subtree.js" charset="utf-8"></script>
+
+
+    <style>
+
+        body{
+            background-color:#fff;
+            overflow:auto;
+        }
+
+        .name{
+            COLOR:BLUE;
+        }
+
+    </style>
+    <script>
+
+
+    </script>
+</head>
+<body>
+<script>
+    // Save (cache) the original behavior of innerHTML
+    var originalInnerHTMLpropDesc = Object.getOwnPropertyDescriptor(Element.prototype, "innerHTML");
+    // Define my customizations, but use innerHTML when done...
+    Object.defineProperty(Element.prototype, "innerHTML",
+            {
+                set:function (htmlContent) {
+                    console.log("setinserHTML", htmlContent)
+                    originalInnerHTMLpropDesc.set.call(this, htmlContent);
+                }
+            }
+    )
+
+</script>
+
+<div id="test-page">
+
+    <ul>
+        <li><a href="#" onclick="addAttr(this)"><span>addAttr</span></a></li>
+        <li><a href="#" onclick="clickRemove(this)">clickRemove</a></li>
+        <li><a href="#" id="stop-event">stop-event</a></li>
+        <li><a href="#" onclick="removeAttr(this)" class="13 red">removeAttr</a></li>
+        <li><a href="#" onclick="changeAttr(this)" class="blue">changeAttr</a></li>
+        <li><a href="#" onclick="changeStyle(this)" class="blue">changeStyle</a></li>
+        <li><a href="#" onclick="changeInnerHtml(this)" class="blue">changeInnerHtml</a></li>
+        <li><a href="#" onclick="appendNewChild(this)" class="blue">appendNewChild</a></li>
+        <li><a href="#" onclick="removeOldChild(this)" class="blue">remove<span
+                id="remove">OldChild</span></a>
+        <li><a href="#" id="over" onmouseover="setBgColor(this)" class="blue">red</a></li>
+        <li><a>red</a></li>
+        <li><a id="click">clic1k</a></li>
+        <li><a href="#1123123">clic2k</a></li>
+
+
+    </ul>
+    <ul>
+        <li><input type="text"/></li>
+        <li><input type="radio"/></li>
+        <li><input type="checkbox"/></li>
+        <li><textarea></textarea></li>
+        <li><select>
+            <option>123</option>
+            <option>123</option>
+        </select></li>
+    </ul>
+    <div class="sns-widget" data-sharebtn="{}"></div>
+    <a name="1123123" id="set"></a>
+    <script>
+        var S = KISSY, D = KISSY.DOM;
+        E = KISSY.Event;
+
+        setInterval(function () {
+
+                    D.get("#set").innerHTML = "123"
+                }
+
+                , 10)
+        var addAttr = function (el) {
+            D.addClass(el, "name")
+        }
+        document.getElementById("stop-event").addEventListener("click", function (e) {
+            console.log(' document.getElementById("stop-event")', e.target["_bindEventType"])
+
+            e.stopPropagation();
+            e.target.className = "qwwe"
+        })
+
+        var clickRemove = function (el) {
+
+            D.remove(el);
+        }
+        var removeAttr = function (el) {
+            D.removeClass(el, "red")
+        }
+        var changeAttr = function (el) {
+            el.className = "red"
+        }
+        var changeStyle = function (el) {
+            el.style.color = "green"
+        }
+        var changeInnerHtml = function (el) {
+
+            el.innerHTML = "haschangeInnerHtml"
+        }
+        var appendNewChild = function (el) {
+            var newEl = document.createElement("span");
+            newEl.innerHTML = "new span el"
+            el.appendChild(newEl);
+        }
+        var removeOldChild = function (el) {
+            var t = document.getElementById("remove")
+            D.remove(t);
+        }
+        var setBgColor = function (el) {
+            window.setTimeout(function () {
+                el.style.backgroundColor = "red";
+            }, 1000)
+
+        }
+
+        D.get("#click").addEventListener("click", function () {
+
+        })
+
+
+    </script>
+
+</div>
+
+<!--
+<script>
+    window.setTimeout(function () {
+
+        describe("交互动作测试用例", function () {
+            it("12", function () {
+                console.log("gogo")
+                var exp1 = expect("#test-page div").willModifyAttr("class", "sns-widget sns-sharebtn sns-sharebtn-default");
+
+                var exp21 = expect(".sns-share-widget").willModifyAttr("class", "sns-share-widget ks-overlay ks-ext-position");
+
+
+
+
+                simulate("#test-page div", "click");
+                waitsMatchers(function () {
+                    exp1.verify();
+
+                    exp21.verify();
+
+
+
+
+                })
+            })
+        });
+
+
+    }, 2000)
+
+
+</script>
+<script>
+    window.setTimeout(function () {
+
+
+        var jasmineEnv = jasmine.getEnv();
+        jasmineEnv.updateInterval = 1000;
+
+        var htmlReporter = new jasmine.HtmlReporter();
+
+        jasmineEnv.addReporter(htmlReporter);
+
+        jasmineEnv.specFilter = function (spec) {
+            return htmlReporter.specFilter(spec);
+        };
+
+
+
+        function execJasmine() {
+            jasmineEnv.execute();
+        }
+        execJasmine()
+
+
+    }, 3000)
+
+</script>
+-->
+
+
+</body>
+</html>

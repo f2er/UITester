@@ -1,57 +1,65 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-	<meta charset="gbk">
-	<title>测试用例列表</title>
-    <link rel="stylesheet" href="common.css" />
-</head>
-<body>
-    <div id="page">
-        <div id="head">UITester</div>
-        <div id="content">
+<?php include_once('./common/header.php'); ?>
 
-            <div class="case-list">
-                <a href="modify.php" class="add-case">添加用例</a>
+<div class="sub-nav">
 
-                <table class="case-table">
-                    <colgroup>
-                        <col class="case-name" />
-                        <col class="case-action" />
-                    </colgroup>
-                	<tr>
-                		<th>用例名</th>
-                		<th>操作</th>
-                	</tr>
+</div>
 
-                    <?php
-                        include_once('conn_db.php');
+<div class="case-list">
+    <ul>
+        <?php
+        include_once('conn_db.php');
 
-                        $sql = 'select * from list';
-                        $query_list_result = mysql_query($sql);
+        $sql = 'select * from list';
+        $query_list_result = mysql_query($sql);
 
-                        $result_num = mysql_num_rows($query_list_result);
+        $result_num = mysql_num_rows($query_list_result);
 
-                        for($idx = 0; $idx < $result_num; $idx ++){
-                            $result_item = mysql_fetch_assoc($query_list_result);
+        for ($idx = 0; $idx < $result_num; $idx++) {
+            $result_item = mysql_fetch_assoc($query_list_result);
+            $className = "";
+            if ($result_item['total_specs'] == 0) {
+                $className = "";
+            }
+            else if ($result_item['total_specs'] != 0 && $result_item['failed_specs'] == 0) {
+                $className = "passed";
+            }
+            else {
+                $className = "failed";
+            }
 
-                            echo('
-                                <tr>
-                                    <td>' . $result_item['task_name'] . '</td>
-                                    <td>
-                                        <a href="modify.php?task_id=' . $result_item['id'] . '" class="J_Edit">修改</a>
-                                        <a href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '" class="J_Remove">删除</a>
-                                        <a href="apply.php?task_id=' . $result_item['id'] . '" class="J_Run" target="_blank">启动测试</a>
-                                    </td>
-                                </tr>
-                            ');
-                        }
-                    ?>
-                </table>
+
+            echo('
+                                <li class="' . $className . '">
+            <div class="name"><p><span>' . $result_item['task_name'] . '</span></p>
+
+                <div class="top-action">
+                    <a target="_blank" class="case" href="' . $result_item['task_inject_uri'] . '">测试用例</a>
+                    <a target="_blank" class="url" href="' . $result_item['task_target_uri'] . '">测试页面</a>
+
+                </div>
             </div>
 
-        </div>
-        <div id="footer"></div>
-        
-    </div>
-</body>
-</html>
+            <div class="result">用例总数：<span class="total-specs"><em>' . $result_item['total_specs'] . '</em></span> <em>|</em> 失败用例总数：<span
+                class="failed-specs"><em>' . $result_item['failed_specs'] . '</em></span>
+
+                <div class="bottom-action">
+                    <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
+                    <a target="_blank" class="url minibtn" href="apply.php?task_id=' . $result_item['id'] . '">测试</a>
+                    <a target="_blank" class="record minibtn" href="http://uitest.taobao.net/tool/record/record.html?id=' . $result_item['id'] . '">录制</a>
+                </div>
+            </div>
+
+        </li>
+
+                            ');
+        }
+        ?>
+
+
+    </ul>
+
+
+</div>
+
+
+<?php include_once('./common/footer.php'); ?>
