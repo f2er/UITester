@@ -7,11 +7,10 @@ var _ = require('underscore');
 
 var ClientPool = {
     init: function (){
-        this.config = {
-
-        };
+        this.config = {};
         
         this.clients = [];
+
         this.unavailableClients = [];
     },
 
@@ -26,7 +25,6 @@ var ClientPool = {
 };
 
 var ClientManager = {
-    // listen custom event send by other module
     listenEventMap: {
         'client_connect': function (data){
             console.log('[EventManager] client connect');
