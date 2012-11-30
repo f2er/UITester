@@ -26,8 +26,12 @@ socket.on('client_is_connected', function (data){
     };
 
     socket.emit('client_register', client);
-
 });
+
+
+// Send task report to server through Socket.IO
+// by trigger method of emit of socket object
+// socket.emit('client_task_finish', jasmineData);
 </script>
 
 </body>
