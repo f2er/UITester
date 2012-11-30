@@ -68,10 +68,10 @@ var ClientManager = {
             console.log('[EventManager] client task finish event');
         },
 
-        'data_update': function (data){
+        'task_data_update': function (data){
         },
 
-        'task': function (data){
+        'task_start': function (data){
             console.log('[EventManager] task event');
         }
     },

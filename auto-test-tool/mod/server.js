@@ -41,19 +41,21 @@ clientManager.init({
 // });
 
 io.sockets.on('connection', function (socket) {
-    // console.info(socket);
-
+    // Socket.IO disconnected
     socket.on('disconnect', function (){
         eventManager.emit('client_disconnect');
     });
 
+    // Socket.IO connected
     socket.emit('client_is_connected', '[Server Msg] Your client is connected to server');
 
+    // Register client after Socket.IO connected
     socket.on('client_register', function (data){
         console.info(data);
         eventManager.emit('client_connect', data);
     });
 
+    // Client task finished, report send back
     socket.on('client_task_finish', function (data){
         eventManager.emit('client_task_finish', data);
     });
