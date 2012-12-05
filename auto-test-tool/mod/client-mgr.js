@@ -10,8 +10,13 @@ var ClientPool = {
         this.config = {
             totalClients: 0
         };
+
+        // store all clients referrence while the client
+        // type is not cared
+        this.clients = [];
         
-        this.clients = {
+        // store clients referrence by client type
+        this.clientsMap = {
             ie6: [],
             ie7: [],
             ie8: [],
@@ -21,6 +26,7 @@ var ClientPool = {
             firefox: []
         };
 
+        // for report
         // this.unavailableClients = [];
     },
 
@@ -28,10 +34,19 @@ var ClientPool = {
         return this.config;
     },
 
-    setItem: function (clientObject, clientType){
-        var hsot = this;
+    setItem: function (clientObject){
+        var host = this;
 
-        host.clients[clientType] = clientObject;
+        // 压入全局的 clients 数组中
+        host.clients.push(clientObject);
+
+        // 推入区分 clients 类型的数组中
+        var clientType, ua = clientObject.userAgent.browser;
+
+        clientType = ua.name + (ua.msie ? ua.version : '');
+        host.clientsMap[clientType] = clientObject;
+
+        console.info(host.clientsMap);
     },
 
     removeItem: function (clientId, clientType){
@@ -56,28 +71,41 @@ var ClientPool = {
 
 var ClientManager = {
     listenEventMap: {
-        'client_connect': function (data){
-            console.log('[EventManager] client connect');
+        'client:register': function (clientObject){
+            // console.info('[EventMgr]\r\n', data);
+
+            ClientPool.setItem(clientObject);
+
+            // broadcast a message, an availabe client
+            // is now here, mostly this message is listened
+            // by TaskManager
+            ClientManager.EventManager.emit('client:availabe', clientObject);
         },
 
-        'client_disconnect': function (data){
-            console.log('[EventManager] client disconnect event');
+        'client:availabe': function (clientObject){
+            console.info('[ClientMgr Event] available client:', clientObject);
         },
 
-        'client_task_finish': function (data){
-            console.log('[EventManager] client task finish event');
+        'client:disconnect': function (clientObject){
+            console.info('[ClientMgr Event]test break point of disconnect');
         },
 
-        'task_data_update': function (data){
+        'client:task_finish': function (clientObject){
+            console.info('[ClientMgr Event] client task finish event');
         },
 
-        'task_start': function (data){
-            console.log('[EventManager] task event');
+        'task_data_update': function (clientObject){
+        },
+
+        'task_start': function (clientObject){
+            console.info('[ClientMgr Event] task event');
         }
     },
 
     init: function (config){
         var host = this;
+
+        ClientPool.init();
 
         host.EventManager = config.eventManager;
 

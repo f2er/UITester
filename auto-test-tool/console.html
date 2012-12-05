@@ -6,32 +6,22 @@
 </head>
 <body>
 
-<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
 var socket = io.connect('http://localhost');
-socket.on('client_is_connected', function (data){
-    console.log(data);
-    // socket.emit('my other event', { my: 'data' });
 
-    var S = KISSY, UA = S.UA;
+socket.on('console:is_connected', function (data){
+    window.console && console.log(data);
 
-    var client, ua;
+    socket.emit('console:register', {
+        'userAgent': window.navigator.userAgent
+    });
 
-    ua = UA.shell + (('ie' === ua) ? UA[UA.shell] : '');
-
-    client = {
-        ua: ua,
-        id: ''
-    };
-
-    socket.emit('client_register', client);
 });
-
 
 // Send task report to server through Socket.IO
 // by trigger method of emit of socket object
-// socket.emit('client_task_finish', jasmineData);
+// socket.emit('client:task_finish', jasmineData);
 </script>
 
 </body>
