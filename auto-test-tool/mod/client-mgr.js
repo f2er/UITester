@@ -32,7 +32,7 @@ var ClientPool = {
     },
 
     getInfo: function (){
-        return this.config;
+        return this.summary;
     },
 
     _updateInfo: function (clientObject, action){
@@ -117,8 +117,6 @@ var ClientPool = {
 var ClientManager = {
     listenEventMap: {
         'client:register': function (clientObject){
-            // console.info('[EventMgr]\r\n', data);
-
             ClientPool.setItem(clientObject);
 
             // console.info('[ClientMgr Event] register client:', clientObject.clientType);
@@ -129,8 +127,15 @@ var ClientManager = {
             EventManager.emit('client:available', clientObject);
         },
 
+        // send a msg to client for trace log
         'client:available': function (clientObject){
             console.info('[ClientMgr Event] available client:', clientObject.clientType);
+
+            clientObject.socket.emit('console:available', {
+                'msg': 'UITester: An client is available.',
+                'available_client': clientObject.clientType,
+                'client_summary': ClientPool.getInfo()
+            });
         },
 
         'client:unavailable': function (clientObject){
