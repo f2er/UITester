@@ -8,7 +8,8 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
-var socket = io.connect('http://localhost');
+var http_host = location.host;
+var socket = io.connect('http://' + http_host);
 
 socket.on('console:is_connected', function (data){
     window.console && console.log(data);
