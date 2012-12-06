@@ -42,8 +42,10 @@ ClientManager.init();
 // });
 
 io.sockets.on('connection', function (socket) {
-    // store client info for ident
-    var clientObject = {};
+    // wrapper object
+    var clientObject = {
+        socket: socket
+    };
 
     // Socket.IO disconnected
     socket.on('disconnect', function (){
@@ -52,17 +54,13 @@ io.sockets.on('connection', function (socket) {
 
     // Register client after Socket.IO connected
     socket.on('console:register', function (data){
-        // Mix clientType(just ua) to clientObject
-
-        socket.userAgent = userAgent.parse(data.userAgent);
-        EventManager.emit('client:register', socket);
+        clientObject.userAgent = userAgent.parse(data.userAgent);
+        EventManager.emit('client:register', clientObject);
     });
 
     // Client task finished, report send back
     socket.on('console:task_finish', function (data){
-        // Mix Jasmine report to clientObject
         clientObject.task_report_data = data.task_report_data;
-
         EventManager.emit('client:task_finish', data);
     });
 
