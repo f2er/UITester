@@ -10,9 +10,7 @@ var _ = require('underscore'),
 
 var ClientPool = {
     init: function (){
-        this.config = {
-            totalClients: 0
-        };
+        this.summary = { total: 0 };
 
         // store all clients referrence while the client
         // type is not cared
@@ -37,6 +35,37 @@ var ClientPool = {
         return this.config;
     },
 
+    _updateInfo: function (clientObject, action){
+        var host = this,
+            clientType = clientObject.clientType,
+            summary = host.summary;
+
+        if ('add' === action){
+            if (!summary[clientType]){
+                summary[clientType] = [];
+            }
+
+            summary[clientType] ++;
+            summary.total ++;
+        }
+
+        if ('remove' === action){
+            summary[clientType] --;
+            summary.total --;
+
+            if (0 === summary[clientType].length){
+                delete summary[clientType];
+            }
+        }
+
+        console.info('[ClientPool Message]', clientType, action);
+        console.info(host.summary);
+    },
+
+    _getUA: function (uaObj){
+        return (uaObj.name + (uaObj.msie ? uaObj.version : ''));
+    },
+
     setItem: function (clientObject){
         var host = this;
 
@@ -44,31 +73,44 @@ var ClientPool = {
         host.clients.push(clientObject);
 
         // 推入区分 clients 类型的数组中
-        var clientType, ua = clientObject.userAgent.browser;
+        var clientType = host._getUA(clientObject.userAgent.browser);
 
-        clientType = ua.name + (ua.msie ? ua.version : '');
-        host.clientsMap[clientType] = clientObject;
+        // cache clientType
+        clientObject.clientType = clientType;
 
-        console.info(host.clientsMap);
-    },
-
-    removeItem: function (clientId, clientType){
-        var host = this;
-
-        if (!clientType || !clientId){
-            throw('[err] clientType or clientId Error!');
+        if (!host.clientsMap[clientType]){
+            host.clientsMap[clientType] = [];
         }
 
-        var removedItem,
-            clients = host.clients[clientType];
+        host.clientsMap[clientType].push(clientObject);
 
-        _.each(clients, function (client, index){
-            if (clientId === client.clientId){
-                clients.splice(index, 1);
-            }
-        });
+        host.clients.push(clientObject);
 
-        return removedItem;
+        host._updateInfo(clientObject, 'add');
+    },
+
+    removeItem: function (clientObject){
+        var host = this;
+
+        if (!clientObject){
+            throw('[Error] Not an available clientObject');
+        }
+
+        var clients = host.clients,
+            clientsMap = host.clientsMap,
+            clientType = clientObject.clientType,
+
+            indexInClients = _.indexOf(clients, clientObject),
+            indexInClientsMap = _.indexOf(clientsMap[clientType], clientObject);
+
+        clients.splice(indexInClients, 1);
+        clientsMap[clientType].splice(indexInClientsMap, 1);
+
+        if (0 === clientsMap[clientType].length){
+            delete clientsMap[clientType];
+        }
+
+        host._updateInfo(clientObject, 'remove');
     }
 };
 
@@ -79,22 +121,29 @@ var ClientManager = {
 
             ClientPool.setItem(clientObject);
 
+            // console.info('[ClientMgr Event] register client:', clientObject.clientType);
+
             // broadcast a message, an availabe client
             // is now here, mostly this message is listened
             // by TaskManager
-            EventManager.emit('client:availabe', clientObject);
+            EventManager.emit('client:available', clientObject);
         },
 
         'client:available': function (clientObject){
-            console.info('[ClientMgr Event] available client:', clientObject);
+            console.info('[ClientMgr Event] available client:', clientObject.clientType);
+        },
+
+        'client:unavailable': function (clientObject){
+            console.info('[ClientMgr Events] unavailable client', clientObject.clientType);
         },
 
         'client:disconnect': function (clientObject){
-            console.info('[ClientMgr Event]test break point of disconnect');
+            console.info('[ClientMgr Event] client disconnect', clientObject.clientType);
+            ClientPool.removeItem(clientObject);
         },
 
         'client:task_finish': function (clientObject){
-            console.info('[ClientMgr Event] client task finish event');
+            console.info('[ClientMgr Event] client task finish event', clientObject.clientType);
         },
 
         'task_data_update': function (clientObject){
