@@ -29,11 +29,11 @@ socket.on('console:is_connected', function (data){
 
 socket.on('console:available', function (data){
     console.info(data);
-})
+});
 
 // Send task report to server through Socket.IO
 // by trigger method of emit of socket object
-// socket.emit('client:task_finish', jasmineData);
+// socket.emit('console:task_finish', jasmineData);
 </script>
 
 </body>
