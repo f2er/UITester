@@ -17,15 +17,7 @@ var ClientPool = {
         this.clients = [];
         
         // store clients referrence by client type
-        this.clientsMap = {
-            ie6: [],
-            ie7: [],
-            ie8: [],
-            ie9: [],
-            ie10: [],
-            chrome: [],
-            firefox: []
-        };
+        this.clientsMap = {};
 
         // for report
         // this.unavailableClients = [];
@@ -60,6 +52,7 @@ var ClientPool = {
 
         console.info('[ClientPool Message]', clientType, action);
         console.info(host.summary);
+        console.info(host.clientsMap);
     },
 
     _getUA: function (uaObj){
@@ -165,7 +158,9 @@ var ClientManager = {
         'task:start': function (clientObject){
             console.info('[TaskMgr Event] Task is start');
 
-
+            EventManager.emit('console:task_start', {
+                // this data is to be implented
+            });
         }
     },
 
