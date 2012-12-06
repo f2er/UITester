@@ -3,7 +3,10 @@
  * @author: LongGang <tblonggang@gmail.com>
  */
 
-var _ = require('underscore');
+var _ = require('underscore'),
+    EventManager = require('./event-mgr');
+
+// console.info('frome client-mgr', EventManager);
 
 var ClientPool = {
     init: function (){
@@ -79,10 +82,10 @@ var ClientManager = {
             // broadcast a message, an availabe client
             // is now here, mostly this message is listened
             // by TaskManager
-            ClientManager.EventManager.emit('client:availabe', clientObject);
+            EventManager.emit('client:availabe', clientObject);
         },
 
-        'client:availabe': function (clientObject){
+        'client:available': function (clientObject){
             console.info('[ClientMgr Event] available client:', clientObject);
         },
 
@@ -107,8 +110,6 @@ var ClientManager = {
 
         ClientPool.init();
 
-        host.EventManager = config.eventManager;
-
         host.handleEventListener();
     },
 
@@ -116,7 +117,7 @@ var ClientManager = {
         var host = this;
 
         _.each(host.listenEventMap, function (fn, eventName){
-            host.EventManager.on(eventName, fn);
+            EventManager.on(eventName, fn);
         });
     }
 };

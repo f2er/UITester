@@ -25,26 +25,21 @@ function handler (req, res) {
 }
 
 // Generate unique id for identify client
-function guid (){
-    if (!this.guid){ this.guid = 0; }
-    return this.guid++;
-}
+// function guid (){
+//     if (!this.guid){ this.guid = 0; }
+//     return this.guid++;
+// }
 
-var clientManager = require('./client-mgr'),
-    // taskManager = require('./task-mgr'),
-    eventManager = require('./event-mgr');
+var ClientManager = require('./client-mgr'),
+    // TaskManager = require('./task-mgr'),
+    EventManager = require('./event-mgr');
 
-clientManager.init({
-    eventManager: eventManager
-});
+ClientManager.init();
+// TaskManager.init();
 
-// taskManager.init({
-//     eventManager: eventManager
+// app.on('connection', function (socket){
+//     console.log(socket);
 // });
-
-app.on('connection', function (socket){
-    // console.log(socket);
-});
 
 io.sockets.on('connection', function (socket) {
     // store client info for ident
@@ -52,7 +47,7 @@ io.sockets.on('connection', function (socket) {
 
     // Socket.IO disconnected
     socket.on('disconnect', function (){
-        eventManager.emit('client:disconnect', clientObject);
+        EventManager.emit('client:disconnect', clientObject);
     });
 
     // Register client after Socket.IO connected
@@ -60,7 +55,7 @@ io.sockets.on('connection', function (socket) {
         // Mix clientType(just ua) to clientObject
 
         socket.userAgent = userAgent.parse(data.userAgent);
-        eventManager.emit('client:register', socket);
+        EventManager.emit('client:register', socket);
     });
 
     // Client task finished, report send back
@@ -68,7 +63,7 @@ io.sockets.on('connection', function (socket) {
         // Mix Jasmine report to clientObject
         clientObject.task_report_data = data.task_report_data;
 
-        eventManager.emit('client:task_finish', data);
+        EventManager.emit('client:task_finish', data);
     });
 
     // Socket.IO connected

@@ -1,6 +1,8 @@
 var _ = require('underscore');
 
-var EventManager = {};
+var EventManager = {
+    'modName': 'EventManager'
+};
 
 _.extend(EventManager, require('events').EventEmitter.prototype);
 
