@@ -25,15 +25,22 @@ socket.on('console:is_connected', function (data){
     socket.emit('console:register', {
         'userAgent': window.navigator.userAgent
     });
+
+    // Listen this event for debug
+    socket.on('console:available', function (data){
+        console.info(data);
+    });
+
+    // when task data push by socket, this event
+    // will be triggered
+    socket.on('console:task_start');
+
+    // Send task report to server through Socket.IO
+    // by trigger method of emit of socket object
+    // socket.emit('console:task_finish', jasmineData);
 });
 
-socket.on('console:available', function (data){
-    console.info(data);
-});
 
-// Send task report to server through Socket.IO
-// by trigger method of emit of socket object
-// socket.emit('console:task_finish', jasmineData);
 </script>
 
 </body>
