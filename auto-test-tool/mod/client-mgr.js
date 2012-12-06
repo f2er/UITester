@@ -138,24 +138,34 @@ var ClientManager = {
             });
         },
 
-        'client:unavailable': function (clientObject){
-            console.info('[ClientMgr Events] unavailable client', clientObject.clientType);
-        },
+        // // I don't care of this event
+        // 'client:unavailable': function (clientObject){
+        //     console.info('[ClientMgr Events] unavailable client', clientObject.clientType);
+        // },
 
         'client:disconnect': function (clientObject){
             console.info('[ClientMgr Event] client disconnect', clientObject.clientType);
+
             ClientPool.removeItem(clientObject);
+            EventManager.emit('client:available', clientObject);
         },
 
         'client:task_finish': function (clientObject){
-            console.info('[ClientMgr Event] client task finish event', clientObject.clientType);
+            console.info('[ClientMgr Event] client task finish');
+
+            var reportData = clientObject.reportData;
+
+            EventManager.emit('task:finish', clientObject);
         },
 
-        'task_data_update': function (clientObject){
+        'task:data_update': function (clientObject){
+            console.info('[TaskMgr Event] new data is OK');
         },
 
-        'task_start': function (clientObject){
-            console.info('[ClientMgr Event] task event');
+        'task:start': function (clientObject){
+            console.info('[TaskMgr Event] Task is start');
+
+
         }
     },
 
