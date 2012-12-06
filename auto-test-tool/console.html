@@ -11,14 +11,25 @@
 var http_host = location.host;
 var socket = io.connect('http://' + http_host);
 
+if (!window.console){
+    window.console = {
+        log: function (){},
+        info: function (){},
+        debug: function (){}
+    }
+}
+
 socket.on('console:is_connected', function (data){
-    window.console && console.log(data);
+    console.info(data);
 
     socket.emit('console:register', {
         'userAgent': window.navigator.userAgent
     });
-
 });
+
+socket.on('console:available', function (data){
+    console.info(data);
+})
 
 // Send task report to server through Socket.IO
 // by trigger method of emit of socket object
