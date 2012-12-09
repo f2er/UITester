@@ -172,9 +172,7 @@ var ClientManager = {
         'client:task_finish': function (clientObject){
             console.log('[ClientMgr Event] client task finish');
 
-            var reportData = clientObject.reportData;
-
-            EventManager.emit('task:finish', clientObject);
+            ClientPool._setItemFree(clientObject);
         },
 
         'task:data_update': function (){
@@ -210,6 +208,8 @@ var ClientManager = {
                 taskObject: taskObject,
                 clientObject: clientObject
             };
+
+            ClientPool._setItemBusy(clientObject);
 
             EventManager.emit('console:task_start', wrapperObject);
         }
