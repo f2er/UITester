@@ -1,10 +1,12 @@
  /**
  * UITester Server Module
- * @author: LongGang <tblonggang@gmail.com>
- * require:
+ * @author LongGang <tblonggang@gmail.com>
+ * @description UITester auto test server
+ * @require:
  *      1. underscore (npm install unerscore)
  *      2. socket.IO (npm install socket.io)
  */
+
 var app = require('http').createServer(handler),
     io = require('socket.io').listen(app, { 'log level': 2 }),
     fs = require('fs'),
@@ -23,12 +25,6 @@ function handler (req, res) {
         res.end(data);
     });
 }
-
-// Generate unique id for identify client
-// function guid (){
-//     if (!this.guid){ this.guid = 0; }
-//     return this.guid++;
-// }
 
 var ClientManager = require('./client-mgr'),
     // TaskManager = require('./task-mgr'),
@@ -67,5 +63,11 @@ io.sockets.on('connection', function (socket) {
     // Socket.IO connected
     socket.emit('console:is_connected', {
         msg: 'UITester: Your ClientId is connected.'
+    });
+
+    // This is just simulate event of task:data_update
+    // simply by console.html for testing
+    socket.on('console:send_test_data_update', function (){
+        EventManager.emit('task:data_update');
     });
 });
