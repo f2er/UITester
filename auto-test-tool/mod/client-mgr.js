@@ -1,12 +1,13 @@
 /**
  * UITester Client Manager Module
- * @author: LongGang <tblonggang@gmail.com>
+ * @author LongGang <tblonggang@gmail.com>
+ * @description supply management for the client connected
  */
 
 var _ = require('underscore'),
     EventManager = require('./event-mgr');
 
-// console.info('frome client-mgr', EventManager);
+// console.log('frome client-mgr', EventManager);
 
 var ClientPool = {
     init: function (){
@@ -50,22 +51,47 @@ var ClientPool = {
             }
         }
 
-        console.info('[ClientPool Message]', clientType, action);
-        console.info(host.summary);
-        console.info(host.clientsMap);
+        console.log('[ClientPool Message]', clientType, action);
+        console.log(host.summary);
+        console.log(host.clientsMap);
+        
     },
 
     _getUA: function (uaObj){
         return (uaObj.name + (uaObj.msie ? uaObj.version : ''));
     },
 
+    _setItemFree: function (clientObject){
+        clientObject.status = 'free';
+    },
+
+    _setItemBusy: function (clientObject){
+        clientObject.status = 'busy';
+    },
+
+    _checkItemFree: function (clientObject){
+        return ('free' === clientObject.status);
+    },
+
+    getFreeClient: function (){
+        var host = this,
+            ret = [];
+
+        _.each(host.clients, function (clientObject){
+            if (host._checkItemFree(clientObject)){
+                ret.push(clientObject);
+            }
+        });
+
+        return ret;
+    },
+
     setItem: function (clientObject){
         var host = this;
 
-        // 压入全局的 clients 数组中
-        host.clients.push(clientObject);
+        // new connected client, it must be free
+        host._setItemFree(clientObject);
 
-        // 推入区分 clients 类型的数组中
         var clientType = host._getUA(clientObject.userAgent.browser);
 
         // cache clientType
@@ -112,7 +138,7 @@ var ClientManager = {
         'client:register': function (clientObject){
             ClientPool.setItem(clientObject);
 
-            // console.info('[ClientMgr Event] register client:', clientObject.clientType);
+            // console.log('[ClientMgr Event] register client:', clientObject.clientType);
 
             // broadcast a message, an availabe client
             // is now here, mostly this message is listened
@@ -122,7 +148,7 @@ var ClientManager = {
 
         // send a msg to client for trace log
         'client:available': function (clientObject){
-            console.info('[ClientMgr Event] available client:', clientObject.clientType);
+            console.log('[ClientMgr Event] available client:', clientObject.clientType);
 
             clientObject.socket.emit('console:available', {
                 'msg': 'UITester: An client is available.',
@@ -133,34 +159,59 @@ var ClientManager = {
 
         // // I don't care of this event
         // 'client:unavailable': function (clientObject){
-        //     console.info('[ClientMgr Events] unavailable client', clientObject.clientType);
+        //     console.log('[ClientMgr Events] unavailable client', clientObject.clientType);
         // },
 
         'client:disconnect': function (clientObject){
-            console.info('[ClientMgr Event] client disconnect', clientObject.clientType);
+            console.log('[ClientMgr Event] client disconnect', clientObject.clientType);
 
             ClientPool.removeItem(clientObject);
             EventManager.emit('client:available', clientObject);
         },
 
         'client:task_finish': function (clientObject){
-            console.info('[ClientMgr Event] client task finish');
+            console.log('[ClientMgr Event] client task finish');
 
             var reportData = clientObject.reportData;
 
             EventManager.emit('task:finish', clientObject);
         },
 
-        'task:data_update': function (clientObject){
-            console.info('[TaskMgr Event] new data is OK');
+        'task:data_update': function (){
+            console.log('[TaskMgr Event] new data is OK');
+
+            _.each(ClientPool.getFreeClient(), function (clientObject){
+                EventManager.emit('client:available', clientObject);
+            });
         },
 
-        'task:start': function (clientObject){
-            console.info('[TaskMgr Event] Task is start');
+        'task:start': function (taskObject){
+            console.log('[TaskMgr Event] Task is start');
 
-            EventManager.emit('console:task_start', {
-                // this data is to be implented
-            });
+            var taskClientType = taskObject.clientType;
+
+            var clients = ClientPool[taskClientType];
+
+            var idx = 0, len = clients.length;
+
+            for (; idx < len; idx ++){
+                if (clients[idx].status === 'free'){
+                    break;
+                }
+            }
+
+            if (idx >= len){
+                throw ('task required a invalid client');
+            }
+
+            var clientObject = clients[idx];
+
+            var wrapperObject = {
+                taskObject: taskObject,
+                clientObject: clientObject
+            };
+
+            EventManager.emit('console:task_start', wrapperObject);
         }
     },
 

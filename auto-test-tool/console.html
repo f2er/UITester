@@ -33,11 +33,13 @@ socket.on('console:is_connected', function (data){
 
     // when task data push by socket, this event
     // will be triggered
-    socket.on('console:task_start');
+    socket.on('console:task_start', function (data){
+        // launch task code here
+    });
 
     // Send task report to server through Socket.IO
     // by trigger method of emit of socket object
-    // socket.emit('console:task_finish', jasmineData);
+     // socket.emit('console:task_finish', jasmineData);
 });
 
 
