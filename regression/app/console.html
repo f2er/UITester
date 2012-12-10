@@ -43,7 +43,7 @@ socket.on('console:is_connected', function (data){
     // will be triggered
     socket.on('console:task_start', function (data){
         console.log("console:task_start",data);
-        runScript(data);
+        runScript(data.script);
 
 
 
@@ -54,7 +54,7 @@ socket.on('console:is_connected', function (data){
     // socket.emit('console:task_finish', jasmineData);
 });
 var runScript = function(script) {
-     eval(script);
+     eval('void ' + script + '()');
     //收集测试报告，并在页面上显示
     UT.report(function (reports) {
         console.log("console:task_finish",reports);
