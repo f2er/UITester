@@ -7,8 +7,6 @@
 var _ = require('underscore'),
     EventManager = require('./event-mgr');
 
-// console.log('frome client-mgr', EventManager);
-
 var ClientPool = {
     init: function (){
         this.summary = { total: 0 };
@@ -136,11 +134,11 @@ var ClientPool = {
 var ClientManager = {
     listenEventMap: {
         'client:register': function (clientObject){
+            console.log('[ClientMgr Event] client register:', clientObject.clienttype);
+
             ClientPool.setItem(clientObject);
 
-            // console.log('[ClientMgr Event] register client:', clientObject.clientType);
-
-            // broadcast a message, an availabe client
+            // send a message, an availabe client
             // is now here, mostly this message is listened
             // by TaskManager
             EventManager.emit('client:available', clientObject);
@@ -188,7 +186,7 @@ var ClientManager = {
         },
 
         'task:start': function (taskObject){
-            console.log('[TaskMgr Event] Task is start');
+            console.log('[TaskMgr Event] task is start');
 
             var taskClientType = taskObject.clientType;
 
