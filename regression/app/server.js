@@ -55,8 +55,10 @@ io.sockets.on('connection', function (socket) {
 
     // Client task finished, report send back
     socket.on('console:task_finish', function (data){
+        clientObject.taskObject.reportData = data;
+
         // Tell TaskManager to save Test Data
-        EventManager.emit('task:finish', data);
+        EventManager.emit('task:finish', clientObject.taskObject);
 
         // Tell ClientManager to release the client
         EventManager.emit('client:task_finish', clientObject);
