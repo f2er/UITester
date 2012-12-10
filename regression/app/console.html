@@ -7,6 +7,7 @@
 <body>
 
 <script src="/socket.io/socket.io.js"></script>
+<script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
 <script>
 var http_host = location.host;
 var socket = io.connect('http://' + http_host);
@@ -34,15 +35,25 @@ socket.on('console:is_connected', function (data){
     // when task data push by socket, this event
     // will be triggered
     socket.on('console:task_start', function (data){
-        // launch task code here
+        runScript(data);
+
+
+
     });
 
     // Send task report to server through Socket.IO
     // by trigger method of emit of socket object
     // socket.emit('console:task_finish', jasmineData);
 });
+var runScript = function(script) {
+     eval(script);
+    //收集测试报告，并在页面上显示
+    UT.report(function (reports) {
+        socket.emit('console:task_finish', {reportData: reports});
+    });
 
 
+};
 </script>
 
 </body>
