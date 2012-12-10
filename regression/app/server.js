@@ -15,7 +15,6 @@ var app = require('http').createServer(handler),
 app.listen(3030);
 
 function handler (req, res) {
-    console.log(__dirname + '/../console.html');
     fs.readFile(__dirname + '/console.html', function (err, data) {
         if (err) {
             res.writeHead(500);
