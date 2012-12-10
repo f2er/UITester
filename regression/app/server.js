@@ -26,11 +26,11 @@ function handler (req, res) {
 }
 
 var ClientManager = require('client-mgr'),
-    // TaskManager = require('task-mgr'),
+    TaskManager = require('task-mgr').TaskManager,
     EventManager = require('event-mgr');
 
 ClientManager.init();
-// TaskManager.init();
+TaskManager.init();
 
 // app.on('connection', function (socket){
 //     console.log(socket);
