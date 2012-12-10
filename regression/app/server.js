@@ -1,58 +1,76 @@
  /**
  * UITester Server Module
- * @author: LongGang <tblonggang@gmail.com>
- * require:
+ * @author LongGang <tblonggang@gmail.com>
+ * @description UITester auto test server
+ * @require:
  *      1. underscore (npm install unerscore)
  *      2. socket.IO (npm install socket.io)
  */
-var io = require('socket.io').listen(8080, {'log level': 0});
+
+var app = require('http').createServer(handler),
+    io = require('socket.io').listen(app, { 'log level': 2 }),
+    fs = require('fs'),
     userAgent = require('user-agent');
 
+app.listen(3030);
+
+function handler (req, res) {
+    console.log(__dirname + '/../console.html');
+    fs.readFile(__dirname + '/console.html', function (err, data) {
+        if (err) {
+            res.writeHead(500);
+            return res.end('Error loading console.html');
+        }
+        res.writeHead(200);
+        res.end(data);
+    });
+}
+
 var ClientManager = require('client-mgr'),
-    TaskManager = require('task-mgr').TaskManager,
-    EventManager = require('event-mgr').EventManager;
+    // TaskManager = require('task-mgr'),
+    EventManager = require('event-mgr');
 
 ClientManager.init();
-TaskManager.init();
+// TaskManager.init();
 
- var guid = -1;
-
- function Client(socket) {
-     this.socket = socket;
-     this.id = ++guid;
-     this.task = this.clientType = this.reportData = this.userAgent = null;
- }
-
- Client.prototype.runTask = function(task) {
-     this.socket.emit('console:task', task);
-     this.task = task;
-     console.info('run task', task.id);
-     EventManager.emit('console:busy', this);
- };
-
+// app.on('connection', function (socket){
+//     console.log(socket);
+// });
 
 io.sockets.on('connection', function (socket) {
     // wrapper object
-    var clientObject = new Client(socket);
+    var clientObject = {
+        socket: socket
+    };
 
+    // Socket.IO disconnected
     socket.on('disconnect', function (){
-        EventManager.emit('console:disconnect', clientObject);
+        EventManager.emit('client:disconnect', clientObject);
     });
 
     // Register client after Socket.IO connected
     socket.on('console:register', function (data){
-        //1、设置浏览器类型
         clientObject.userAgent = userAgent.parse(data.userAgent);
-        //2、触发注册事件
-        EventManager.emit('console:register', clientObject);
+        EventManager.emit('client:register', clientObject);
     });
 
     // Client task finished, report send back
     socket.on('console:task_finish', function (data){
-        //1、置入报告数据
-        clientObject.task.reportData = data.reportData;
-        //2、触发任务结束事件
-        EventManager.emit('console:task_finish', clientObject);
+        // Tell TaskManager to save Test Data
+        EventManager.emit('task:finish', data);
 
+        // Tell ClientManager to release the client
+        EventManager.emit('client:task_finish', clientObject);
     });
+
+    // Socket.IO connected
+    socket.emit('console:is_connected', {
+        msg: 'UITester: Your ClientId is connected.'
+    });
+
+    // This is just simulate event of task:data_update
+    // // simply by console.html for testing
+    // socket.on('console:send_test_data_update', function (){
+    //     EventManager.emit('task:data_update');
+    // });
 });

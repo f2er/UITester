@@ -1,44 +1,47 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>UITester Console</title>
+	<meta charset="UTF-8">
+	<title>UITester Console</title>
 </head>
 <body>
 
-<script src="socket.io.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script>
-    if (!window.console) {
-        window.console = {
-            log:function () {
-            },
-            info:function () {
-            },
-            debug:function () {
-            }
-        }
+var http_host = location.host;
+var socket = io.connect('http://' + http_host);
+
+if (!window.console){
+    window.console = {
+        log: function (){},
+        info: function (){},
+        debug: function (){}
     }
+}
 
-    var SERVER = 'http://127.0.0.1:8080';
-    var socket = io.connect(SERVER);
+socket.on('console:is_connected', function (data){
+    console.info(data);
 
-    var runScript = function(script) {
-        var result = new Function(script)();
-        socket.emit('console:task_finish', {reportData: result});
-    };
-
-    var sendAgent = function() {
-        socket.emit('console:register', {
-            'userAgent':window.navigator.userAgent
-        });
-    };
-    socket.on('connect',sendAgent);
-
-    socket.on('console:task', function(task) {
-         socket.emit('console:task_start');
-         console.log(task);
-         runScript(task.script);
+    socket.emit('console:register', {
+        'userAgent': window.navigator.userAgent
     });
+
+    // Listen this event for debug
+    socket.on('console:available', function (data){
+        console.info(data);
+    });
+
+    // when task data push by socket, this event
+    // will be triggered
+    socket.on('console:task_start', function (data){
+        // launch task code here
+    });
+
+    // Send task report to server through Socket.IO
+    // by trigger method of emit of socket object
+    // socket.emit('console:task_finish', jasmineData);
+});
+
 
 </script>
 
