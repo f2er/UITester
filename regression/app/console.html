@@ -28,7 +28,7 @@ if (!window.console){
 }
 
 socket.on('console:is_connected', function (data){
-    console.info(data);
+    console.info("console:is_connected",data);
 
     socket.emit('console:register', {
         'userAgent': window.navigator.userAgent
@@ -36,12 +36,13 @@ socket.on('console:is_connected', function (data){
 
     // Listen this event for debug
     socket.on('console:available', function (data){
-        console.info(data);
+        console.info('console:available',data);
     });
 
     // when task data push by socket, this event
     // will be triggered
     socket.on('console:task_start', function (data){
+        console.log("console:task_start",data);
         runScript(data);
 
 
@@ -56,6 +57,7 @@ var runScript = function(script) {
      eval(script);
     //收集测试报告，并在页面上显示
     UT.report(function (reports) {
+        console.log("console:task_finish",reports);
         socket.emit('console:task_finish', {reportData: reports});
     });
 
