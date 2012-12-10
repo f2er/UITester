@@ -178,6 +178,10 @@ var ClientManager = {
         'task:data_update': function (){
             console.log('[TaskMgr Event] new data is OK');
 
+            // if TaskManager subscribe this msg, it can
+            // get all client infomations
+            EventManager.emit('client:check_types', ClientPool.getInfo());
+
             _.each(ClientPool.getFreeClient(), function (clientObject){
                 EventManager.emit('client:available', clientObject);
             });
