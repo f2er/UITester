@@ -32,10 +32,6 @@ var ClientManager = require('client-mgr'),
 ClientManager.init();
 TaskManager.init();
 
-// app.on('connection', function (socket){
-//     console.log(socket);
-// });
-
 io.sockets.on('connection', function (socket) {
     // wrapper object
     var clientObject = {
