@@ -1,41 +1,37 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="gbk">
-    <title>测试用例列表</title>
-    <link rel="stylesheet" href="http://uitest.taobao.net/tool/css/common.css" />
-    <style>
-        #header ul{
-            position:absolute;
-            top:0;
-            right:0;
+<?php
+session_start();
+require '../auth/AuthBoot.php';
+$user = $ArkAuth->getAppUser();
+$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 
-        }
-        #header ul li{
-            display:inline-block;
-            margin-right:10px;
-        }
-        #header ul li a{
-            font-weight: bold;
-            color: #222;
-            -moz-transition: color .15s ease-in 0;
-            -webkit-transition: color .15s ease-in 0;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-            font-size:13px;
-        }
+?>
 
-    </style>
-</head>
-<body>
-<div id="page">
-    <div id="header">
-        <div class="header-wrap">
-        <a href="/" class="logo">UITester</a>
-        <ul>
-            <li><a href="http://uitest.taobao.net/tool/record/record.html?">录制用例</a></li>
-            <li><a href="http://uitest.taobao.net/tool/list.php">查看用例</a></li>
-            <li><a href="https://github.com/taobao-sns-fed/uitest/">测试框架</a></li>
-        </ul>
-        </div>
-    </div>
-    <div id="content">
+
+<!doctype html>
+<meta charset="gbk">
+<title>测试用例列表</title>
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/common.css" />
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+	<div class="container">
+	  <div class="login-info">hello: <a href="#"><?php echo print_r($userName); ?></a>  <a charset="utf8" class="logout" href="https://ark.taobao.org:4430/arkserver/Login.aspx?cmd=logout&app=http://uitest.taobao.net/&redirectURL=http://uitest.taobao.net/tool/list.php">退出</a></div>
+	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </a>
+	  <a class="brand" href="list.php">UITester</a>
+	  <div class="nav-collapse collapse">
+		<ul class="nav">
+		  <li class="active"><a href="list.php">查看用例</a></li>
+		  <li><a href="record/record.html?">录制用例</a></li>
+		  <li><a href="https://github.com/taobao-sns-fed/uitest/">测试框架</a></li>
+		</ul>
+	  </div><!--/.nav-collapse -->
+	</div>
+  </div>
+</div>
+
+<div class="container">
