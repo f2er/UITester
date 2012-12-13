@@ -58,6 +58,7 @@ socket.on('console:is_connected', function (data){
 });
 var runScriptFromUrl = function(url) {
     jasmine._newEnv = true;
+    
     jQuery.getScript(url);
 
 };
