@@ -46,7 +46,9 @@ socket.on('console:is_connected', function (data){
        if(data&&data.script){
            runScript(data.script);
        }
-
+       if(data&&data.task_inject_uri){
+            runScriptFromUrl(data.task_inject_uri);
+       }
 
     });
 
@@ -54,6 +56,10 @@ socket.on('console:is_connected', function (data){
     // by trigger method of emit of socket object
     // socket.emit('console:task_finish', jasmineData);
 });
+var runScriptFromUrl = function(url) {
+    jQuery.getScript(url);
+
+};
 var runScript = function(script) {
 
     //新开一个环境
