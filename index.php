@@ -1,9 +1,10 @@
+<base href="tool/">
 <?php include_once('./tool/common/header.php'); ?>
     <style>
-        .nav{
+        .nav2{
             text-align:center;
         }
-        .nav a{
+        .nav2 a{
             display: inline-block;
             padding: 10px 20px;
             color:
@@ -96,7 +97,7 @@
 
 
     </div>
-    <div class="nav">
+    <div class="nav2">
         <a href="http://uitest.taobao.net/tool/record/record.html">录制新测试用例</a>
         <a href="http://uitest.taobao.net/tool/list.php">查看已有测试用例</a>
 
