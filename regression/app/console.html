@@ -57,6 +57,7 @@ socket.on('console:is_connected', function (data){
     // socket.emit('console:task_finish', jasmineData);
 });
 var runScriptFromUrl = function(url) {
+    jasmine._newEnv = true;
     jQuery.getScript(url);
 
 };
