@@ -43,8 +43,9 @@ socket.on('console:is_connected', function (data){
     // will be triggered
     socket.on('console:task_start', function (data){
         console.log("console:task_start",data);
-        runScript(data.script);
-
+       if(data&&data.script){
+           runScript(data.script);
+       }
 
 
     });
