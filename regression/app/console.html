@@ -54,6 +54,9 @@ socket.on('console:is_connected', function (data){
     // socket.emit('console:task_finish', jasmineData);
 });
 var runScript = function(script) {
+
+    //新开一个环境
+    jasmine._newEnv = true;
      eval('void ' + script + '()');
     //收集测试报告，并在页面上显示
     UT.report(function (reports) {
