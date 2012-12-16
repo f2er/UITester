@@ -12,78 +12,97 @@
 </ul>
 
 
-
 <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
-    var http_host = location.host;
-    var socket = io.connect('http://' + http_host);
+    (function () {
+        var timer = null;
+        var isRunning = false;
+        var isConnected = false
+        var http_host = location.host;
+        var socket = io.connect('http://' + http_host);
 
-    if (!window.console) {
-        window.console = {
-            log:function () {
-            },
-            info:function () {
-            },
-            debug:function () {
+        if (!window.console) {
+            window.console = {
+                log:function () {
+                },
+                info:function () {
+                },
+                debug:function () {
+                }
             }
         }
-    }
-    socket.on("connect", function () {
-        console.info("connect");
-
-        socket.emit('console:register', {
-            'userAgent':window.navigator.userAgent
-        });
-
-        // Listen this event for debug
-        socket.on('console:available', function (data) {
-            console.info('console:available', data);
-        });
-
-        // when task data push by socket, this event
-        // will be triggered
-        socket.on('console:task_start', function (data) {
-            console.log("console:task_start", data);
-            if (data && data.script) {
-                runScript(data.script);
-            }
-            if (data && data.task_inject_uri) {
-                runScriptFromUrl(data.task_inject_uri);
-            }
-
-
-        });
-
-        setTimeout(function(){
-            socket.on("remote:task_finish",function(data){
-                console.log("remote:task_finish",data)
-            })
-            socket.emit("remote:task_start",{"task_inject_uri":"http://assets.daily.taobao.net/p/uitest/docs/examples/tblogin.js"})
-        },5000)
-
-        // Send task report to server through Socket.IO
-        // by trigger method of emit of socket object
-        // socket.emit('console:task_finish', jasmineData);
-    })
-
-
-    var runScriptFromUrl = function (url) {
-        jasmine._newEnv = true;
-
-        jQuery.getScript(url, function () {
-            UT.report(function (reports) {
-                var reportData = {reportData:reports}
-
-
-                socket.emit('console:task_finish', reportData);
+        socket.on("connect", function () {
+            console.info("connect");
+            socket.emit('console:register', {
+                'userAgent':window.navigator.userAgent
             });
-        });
+            if(isConnected) return;
+            isConnected = true;
 
 
-    };
 
+            socket.on('console:reload', function (data) {
+                window.location.reload();
+
+            })
+
+
+
+            // when task data push by socket, this event
+            // will be triggered
+            socket.on('console:task_start', function (data) {
+                console.log("console:task_start", data);
+                if(isRunning) return;
+                isRunning = true;
+                if(timer){
+                    window.clearTimeout(timer);
+                    timer = null;
+                }
+               timer =  setTimeout(function(){
+                   // 三分钟没有完成，
+                   window.location.reload();
+                }, 1000*60*3)
+                if (data && data.script) {
+                    runScript(data.script);
+                }
+                if (data && data.task_inject_uri) {
+                    runScriptFromUrl(data.task_inject_uri);
+                }
+
+
+            });
+            /*
+             setTimeout(function(){
+             socket.on("remote:task_finish",function(data){
+             console.log("remote:task_finish",data)
+             })
+             socket.emit("remote:task_start",{"task_inject_uri":"http://assets.daily.taobao.net/p/uitest/docs/examples/tblogin.js"})
+             },5000)
+             */
+            // Send task report to server through Socket.IO
+            // by trigger method of emit of socket object
+            // socket.emit('console:task_finish', jasmineData);
+        })
+
+
+        var runScriptFromUrl = function (url) {
+            jasmine._newEnv = true;
+
+            jQuery.getScript(url, function () {
+                UT.report(function (reports) {
+
+
+                    isRunning = false;
+                    socket.emit('console:task_finish', reports);
+                });
+            });
+
+
+        };
+
+    })();
 </script>
 
 </body>
