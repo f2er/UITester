@@ -2,17 +2,14 @@
 
 <link rel="stylesheet" href="css/form.css">
 <style>
-.other {
-	position: absolute;
-	top: 70px;
-	right: 161px;
+#info {
+	float: right;
 	font-size: 14px;
 	line-height: 2.5;
 	border: 1px solid #eee;
 	padding: 10px 10px 10px 30px;
 	min-width: 200px;
 }
-
 </style>
 
 <h1>修改任务</h1>
@@ -38,8 +35,9 @@ if ($task_id !== ''){
 		$task_name = $result_item['task_name'];
 		$task_target_uri = $result_item['task_target_uri'];
 		$description = $result_item['description'];
-		$timer = $result_item['timer'];
-		$first = $result_item['first'];
+		$week = $result_item['week'];
+		$duration = $result_item['duration'];
+		$start_time = $result_item['start_time'];
 		$interval = $result_item['interval'];
 		$task_inject_uri = $result_item['task_inject_uri'];
 		$svn = $result_item['svn'];
@@ -51,11 +49,48 @@ if ($task_id !== ''){
 		$productline = $result_item['productline'];
 		$project = $result_item['project'];
 
+		$start = substr($start_time, 11, 5);
+
 		$modify_tag = 'modify';
 	}
 }
 
 ?>
+
+
+<div id="info">
+	<ul>
+		<li>任务id: <?php echo $task_id  ?>
+		<li>产品线: <?php 
+		
+		$productlines = array(
+			"84" => '基础业务',
+			"86" => '商品平台',
+			"87" => '业务安全',
+			"94" => '开放平台',
+			"105" => '商户平台',
+			"106" => 'SNS',
+			"118" => '运营服务',
+			"206" => '外部产品线',
+			"257" => 'UED',
+			"336" => '通用产品'		
+		);
+		echo $productlines[$productline]
+		
+		?>
+		<li>产品: <?php
+		
+		$projects = array(
+			"1" => '我的淘宝',
+			"2" => '淘金币'
+		);
+		echo $projects[$project];
+		
+		?>
+		<li>创建人: <?php echo $creator  ?>
+		<li>创建时间: <?php echo $createtime  ?>
+	</ul>
+</div>
 
 
 <form method="POST" action="handle.php">
@@ -94,7 +129,7 @@ if ($task_id !== ''){
 				<tr>
 					<th>定时</th>
 					<td>
-						<input type="hidden" name="timer" value="' . $timer . '" />
+						<input type="hidden" name="week" value="' . $week . '" />
 						<input type="checkbox" name="timers" value="1" />星期一 
 						<input type="checkbox" name="timers" value="2" />星期二 
 						<input type="checkbox" name="timers" value="3" />星期三 
@@ -102,9 +137,9 @@ if ($task_id !== ''){
 						<input type="checkbox" name="timers" value="5" />星期五 
 						<input type="checkbox" name="timers" value="6" />星期六 
 						<input type="checkbox" name="timers" value="7" />星期日
-							<br/>	
-						每天回归的时间点: <input type="text" name="first" value="' . $first . '" size="5" style="width:40px"> 
-						间隔时间: <input type="text" name="interval" value="' . $interval . '" size="5" style="width:40px">
+							<br/><br/>	
+						每天回归的时间点: <input type="text" name="start" value="' . $start . '" size="5" placeholder="mm:ss" style="width:40px"> 
+						间隔时间: <input type="text" name="duration" value="' . $duration . '" size="5" style="width:40px">
 					</td>
 				</tr>
 				<tr>
@@ -119,40 +154,6 @@ if ($task_id !== ''){
 	</table>
 </form>
 
-<div class="other">
-	<ul>
-		<li>任务id: <?php echo $task_id  ?>
-		<li>产品线: <?php 
-		
-		$productlines = array(
-			"84" => '基础业务',
-			"86" => '商品平台',
-			"87" => '业务安全',
-			"94" => '开放平台',
-			"105" => '商户平台',
-			"106" => 'SNS',
-			"118" => '运营服务',
-			"206" => '外部产品线',
-			"257" => 'UED',
-			"336" => '通用产品'		
-		);
-		echo $productlines[$productline]
-		
-		?>
-		<li>产品: <?php
-		
-		$projects = array(
-			"1" => '我的淘宝',
-			"2" => '淘金币'
-		);
-		echo $projects[$project];
-		
-		?>
-		<li>创建人: <?php echo $creator  ?>
-		<li>创建时间: <?php echo $createtime  ?>
-	</ul>
-</div>
-
 <br/>
 <hr>
 <br/>
@@ -162,25 +163,24 @@ if ($task_id !== ''){
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script>
-KISSY.ready(function(S) {
+KISSY.use('sizzle', function(S) {
 	var $ = S.all;
-	$('.J_ViewResult').on('click', function(ev) {
-		ev.preventDefault();
 
-		if(S.trim($('#result').html()) !== '') {
-			$('#result').toggle();
-		} else {
-			$('#result').html('没有结果');
-		}
-	});
-
-	var values = $('[name=timer]').val().split(',');
+	var values = $('[name=week]').val().split(',');
 	$('[name=timers]').each(function(timers) {
 		if(S.indexOf(timers.val(), values) > -1) {
 			timers.attr('checked', true);
 		} else {
 			timers.attr('checked', false);
 		}
+	});
+
+	$('form').on('submit', function() {
+		var values = S.map($('[name=timers]:checked'), function(timers) {
+			return $(timers).val();
+		});
+
+		$('[name=week]').val(values.join(','));
 	});
 });
 </script>

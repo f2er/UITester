@@ -1,6 +1,11 @@
 #content {
 	padding-top: 20px;
 }
+h1 {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
 td, th {
 	padding: 8px;
 	height: 30px;
@@ -20,4 +25,22 @@ input[type=submit] {
 textarea {
 	width: 304px;
 	height: 70px;
+}
+
+
+input[type=checkbox] {
+	vertical-align: -1px;
+	margin-right: 4px;
+	margin-left: 5px;
+}
+
+select, textarea, input[type="text"] {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0;
+}
+
+th {
+	text-align: right;
+	margin-right: 10px;
 }

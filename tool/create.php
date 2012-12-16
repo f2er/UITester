@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="css/form.css">
 
 
-<h1>创建一个新任务吧</h1>
+<h1>创建新任务</h1>
 
 <form method="POST" action="handle.php">
 	<table class="add-case-table">
@@ -63,7 +63,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>SVN:</th>
+					<th>脚本地址:</th>
 					<td>
 						<input type="text" name="svn" class="input-box"/>
 					</td>
@@ -71,7 +71,7 @@
 				<tr>
 					<th>定时:</th>
 					<td>
-						<input type="hidden" name="timer">
+						<input type="hidden" name="week">
 						<input type="checkbox" name="timers" value="1" />星期一 
 						<input type="checkbox" name="timers" value="2" />星期二 
 						<input type="checkbox" name="timers" value="3" />星期三 
@@ -79,9 +79,10 @@
 						<input type="checkbox" name="timers" value="5" />星期五 
 						<input type="checkbox" name="timers" value="6" />星期六 
 						<input type="checkbox" name="timers" value="7" />星期日
-							<br/>	
-						每天回归的时间点: <input type="text" name="first" value="18:30" size="5" style="width:40px">
-						回归频率: <input type="text" name="interval" value="" size="5" style="width:40px">
+							<br/><br/>	
+						每天回归的时间点: <input type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
+
+						回归频率: <input type="text" name="duration" value="" size="5" style="width:40px">分钟
 					</td>
 				</tr>
 				<tr>
@@ -107,9 +108,8 @@ KISSY.use('sizzle', function(S) {
 		var values = S.map($('[name=timers]:checked'), function(timers) {
 			return $(timers).val();
 		});
-		var time = $('[name=timer_time]').val();
 
-		$('[name=timer]').val(values.join(','));
+		$('[name=week]').val(values.join(','));
 	});
 });
 </script>

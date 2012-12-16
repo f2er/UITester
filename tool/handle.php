@@ -8,11 +8,15 @@
     $task_target_uri = trim($_REQUEST['task_target_uri']);
     $task_inject_uri = 'case/'.$task_id.'.js';
     $description = $_REQUEST['description'];
-    $timer = $_REQUEST['timer'];
-    $svn = $_REQUEST['svn'];
-    $creator = 'admin';
     $productline = $_REQUEST['productline'];
     $project = $_REQUEST['project'];
+    $creator = 'admin';
+    $svn = $_REQUEST['svn'];
+    $week = $_REQUEST['week'];
+    $start = $_REQUEST['start'];
+    $duration = $_REQUEST['duration'];
+
+	$start_time = date('Y-m-d ').$start.':00';
 
     //file_put_contents('../'.$task_inject_uri, $task_inject_script);
 
@@ -32,7 +36,9 @@
             task_target_uri= "' . $task_target_uri . '",
             task_inject_uri= "' . $task_inject_uri. '",
             description = "' . $description . '",
-            timer = "' . $timer . '",
+            week = "' . $week . '",
+            duration = "' . $duration . '",
+            start_time = "' . $start_time . '",
 			svn = "' . $svn . '"
             WHERE id = ' . $task_id;
 
@@ -45,23 +51,27 @@
                 task_target_uri,
                 task_inject_uri,
                 description,
-				timer,
-				svn,
 				creator,
 				createtime,
 				productline,
-				project
+				project,
+				svn,
+				week,
+				start_time,
+				duration
             ) VALUES (
                 "' . $task_name . '" ,
                 "' . $task_target_uri . '",
                 "' . $task_inject_uri . '",
                 "' . $description . '",
-                "' . $timer . '",
-                "' . $svn . '",
                 "' . $creator . '",
                 " now() ",
                 "' . $productline . '",
-                "' . $project . '"
+                "' . $project . '",
+                "' . $svn . '",
+                "' . $week . '",
+                "' . $start_time . '",
+                "' . $duration . '"
             );
         ';
 
