@@ -6,12 +6,14 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 
 ?>
 
-
 <!doctype html>
 <meta charset="gbk">
 <title>测试用例列表</title>
 <link rel="stylesheet" href="css/bootstrap.css" />
 <link rel="stylesheet" href="css/common.css" />
+
+
+
 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">

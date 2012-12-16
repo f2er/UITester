@@ -3,118 +3,221 @@
 <head>
     <meta charset="gbk">
     <title>测试用例列表</title>
-    <link rel="stylesheet" href="../css/common.css"/>
+    <!-- Le styles -->
+    <link href="../css/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+    <link href="../css/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="../css/bootstrap/js/bootstrap-transition.js"></script>
+
+    <style>
+        body {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+    </style>
 </head>
 <body>
 <div id="page">
-    <div id="header">
-        <div class="header-wrap">
-            <a href="/" class="logo">UITester</a>
-            <ul>
-                <li></li>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!--  <a class="brand" href="list.php">UITest</a> -->
+
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="index.php">查看用例</a></li>
+                        <li><a href="list.php">查看用例</a></li>
+                        <li><a href="record/record.html?">录制用例</a></li>
+                        <li><a href="https://github.com/taobao-sns-fed/uitest/">测试框架</a></li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+                <div class="nav-collapse collapse pull-right">
+                    <ul class="nav">
+                        <li>
+                            <a class="123" href="#"> we</a>
+                        </li>
+                        <li>
+                            <a charset="utf8" class="logout"
+                               href="https://ark.taobao.org:4430/arkserver/Login.aspx?cmd=logout&app=http://uitest.taobao.net/&redirectURL=http://uitest.taobao.net/tool/list.php">退出</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron masthead">
+        <style>
+
+            .jumbotron {
+                position: relative;
+                padding: 40px 0;
+                color: white;
+                text-align: center;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
+                background: #020031;
+                background: -moz-linear-gradient(45deg, #020031 0%, #6D3353 100%);
+                background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #020031), color-stop(100%, #6D3353));
+                background: -webkit-linear-gradient(45deg, #020031 0%, #6D3353 100%);
+                background: -o-linear-gradient(45deg, #020031 0%, #6D3353 100%);
+                background: -ms-linear-gradient(45deg, #020031 0%, #6D3353 100%);
+                background: linear-gradient(45deg, #020031 0%, #6D3353 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#020031', endColorstr = '#6d3353', GradientType = 1);
+                -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
+                -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
+                box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
+            }
+
+            .jumbotron a {
+                color: white;
+                color: rgba(255, 255, 255, .5);
+                -webkit-transition: all .2s ease-in-out;
+                -moz-transition: all .2s ease-in-out;
+                transition: all .2s ease-in-out;
+            }
+
+            .jumbotron .container {
+                position: relative;
+                z-index: 2;
+            }
+
+            .jumbotron p {
+                font-size: 24px;
+                font-weight: 300;
+                line-height: 1.25;
+                margin-bottom: 30px;
+            }
+
+            .jumbotron::after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: url(../css/bootstrap/img/bs-docs-masthead-pattern.png) repeat center center;
+                opacity: .4;
+            }
+
+            .masthead p {
+                font-size: 40px;
+                font-weight: 200;
+                line-height: 1.25;
+            }
+
+            .masthead {
+                padding: 70px 0 80px;
+                margin-bottom: 0;
+                color: white;
+            }
+
+            .masthead h1 {
+                font-size: 120px;
+                line-height: 1;
+                letter-spacing: -2px;
+            }
+
+            .masthead-links {
+                margin: 0;
+                list-style: none;
+            }
+
+            .masthead-links li {
+                display: inline;
+                padding: 0 10px;
+                color: rgba(255, 255, 255, .25);
+            }
+        </style>
+        <div class="container">
+            <h1>UITester</h1>
+
+            <p>Sleek, intuitive, and powerful front-end framework for faster and easier web development.</p>
+
+            <p>
+
+            <div class="input-append">
+                <input class="input-xlarge" placeholder="输入测试代码的地址" id="test_src" type="text">
+                <button class="btn btn-primary " type="button " id="run_test">测试</button>
+
+            </div>
+            </p>
+            <ul class="masthead-links">
+                <li>
+                    <a href="http://github.com/twitter/bootstrap"
+                       onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub
+                        project</a>
+                </li>
+                <li>
+                    <a href="./getting-started.html#examples"
+                       onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
+                </li>
+                <li>
+                    <a href="./extend.html"
+                       onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Extend']);">Extend</a>
+                </li>
+                <li>
+                    Version 2.2.2
+                </li>
             </ul>
         </div>
     </div>
-    <div id="content">
+
+    <footer>
+        <br>
+        <br>
+
         <style>
-            .nav{
-                text-align:center;
+            footer {
+                background-color: whiteSmoke;
             }
-            .nav a{
-                display: inline-block;
-                padding: 10px 20px;
-                color:
-                    #BED7E1;
-                text-shadow: -1px -1px 0
-                rgba(0, 0, 0, 0.25);
-                font-size: 12px;
-                background:#50B7D1;
-                background: -moz-linear-gradient(
-                    #50B7D1,
-                    #286DA3);
-                background: -webkit-linear-gradient(
-                    #50B7D1,
-                    #286DA3);
-                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#50b7d1',endColorstr='#286da3')";
-                border: 1px solid
-                #51A0B3;
-                border-radius: 4px;
-                box-shadow: 0 1px 4px
-                rgba(0, 0, 0, 0.3);
-                -webkit-font-smoothing: antialiased;
-                color:
-                    white;
-                font-size: 16px;
-                font-weight:bold;
-                font-family:tahoma;
-                margin:10px;
+
+            footer p {
+                text-align: center;
             }
-            #content{
-                text-align:center;
-            }
-            .step-step{
-                margin: 25px 0 12px 0;
-                padding: 15px 30px;
-                font-size: 14px;
-                color:
-                    #333;
-                border: 1px solid
-                #EEE;
-                border-radius: 4px;
-                box-shadow: 0 1px 1px
-                #777;
-                overflow:hidden;;
-            }
-            .step-step .s{
-                float:left;
-                width:28%;
-                text-align:left;
-                margin:23px;
-            }
-            .step-step .s h3{
-                font-family: Palatino,Georgia,"Times New Roman",serif;
-                font-size: 20px;
-                font-weight: normal;
-                color:
-                    black;
-            }
-            .step-step .s p{
-                margin:5px 0px;
-                color:#999;
-            }
-            .step-step .s  a{
-                color:#999;
-            }
-            #footer{
-                text-align:center;
-                margin:30px;
-                padding:20px;
-            }
-            .summery{
-                margin:30px;
-                padding:20px;
-                width:500px;
-                margin:auto;
-                font-size:20px;
-            }
+
+
         </style>
+        <p> 淘宝前端测试技术小组 2012</p>
+        <br>
+        <br>
+        <br>
+
+    </footer>
+
+    <div class="container" style="display: none">
+
+
         <div class="summery">
             <p>UITester是一个自动化的前端UI测试平台.</p>
+
             <p>UITester适用于所有淘宝页面，通过录制工具快速编辑和修改测试用例，并能在所有浏览器中自动回归测试</p>
         </div>
         <div class="step-step">
             <div class="s">
                 <h3>安装:</h3>
+
                 <p>在浏览器中配置自动代理<a href="http://uitest.taobao.net/proxy.pac">http://uitest.taobao.net/proxy.pac</a></p>
             </div>
             <div class="s">
                 <h3>录制:</h3>
+
                 <p>测试用例不再使用手动编写。UITester提供的专业的录制工具，快速完成用例的编写和修改</p>
             </div>
             <div class="s">
                 <h3>测试:</h3>
-                <p>UITester提供了一套专门的ui测试框架<a href="https://github.com/taobao-sns-fed/UITester">uitest</a>,更适合基于HTML页面的UI测试</p>
+
+                <p>UITester提供了一套专门的ui测试框架<a href="https://github.com/taobao-sns-fed/UITester">uitest</a>,更适合基于HTML页面的UI测试
+                </p>
             </div>
 
 
@@ -126,7 +229,51 @@
         </div>
 
     </div>
-    <div id="footer">Powered by  SNS前端</div>
+
 </div>
+<script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+
+
+<script>
+    var http_host = location.host||"localhost";
+    var url = 'http://' + http_host + ":3030" + "/socket.io/socket.io.js"
+    alert(url)
+
+    jQuery.getScript(url, function () {
+
+        var socket = io.connect('http://' + http_host);
+
+        if (!window.console) {
+            window.console = {
+                log:function () {
+                },
+                info:function () {
+                },
+                debug:function () {
+                }
+            }
+        }
+        socket.on("connect", function () {
+            console.info("connect");
+            socket.on("remote:task_finish", function (data) {
+                console.log("remote:task_finish", data)
+            })
+
+            jQuery("#run_test").on("click", function () {
+                var src = jQuery("#test_src").val();
+                socket.emit("remote:task_start", {"task_inject_uri":src})
+            })
+
+
+            // Send task report to server through Socket.IO
+            // by trigger method of emit of socket object
+            // socket.emit('console:task_finish', jasmineData);
+        })
+
+
+    })
+
+
+</script>
 </body>
 </html>
