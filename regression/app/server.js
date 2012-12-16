@@ -1,4 +1,4 @@
- /**
+﻿/**
  * UITester Server Module
  * @author LongGang <tblonggang@gmail.com>
  * @description UITester auto test server
@@ -6,15 +6,18 @@
  *      1. underscore (npm install unerscore)
  *      2. socket.IO (npm install socket.io)
  */
-
-var app = require('http').createServer(handler),
-    io = require('socket.io').listen(app, { 'log level': 2 }),
+//回归服务
+var http = require("http"),
+    socket = require('socket.io'),
     fs = require('fs'),
     userAgent = require('user-agent');
 
+var app = http.createServer(handler),
+    io = socket.listen(app, { 'log level':2 });
+
 app.listen(3030);
 
-function handler (req, res) {
+function handler(req, res) {
     fs.readFile(__dirname + '/console.html', function (err, data) {
         if (err) {
             res.writeHead(500);
@@ -27,48 +30,49 @@ function handler (req, res) {
 
 var ClientManager = require('client-mgr'),
     TaskManager = require('task-mgr').TaskManager,
+    RemoteTaskManager = require('remote-task').RemoteTaskManager,
     EventManager = require('event-mgr');
 
 ClientManager.init();
+RemoteTaskManager.init();
 TaskManager.init();
+
 
 io.sockets.on('connection', function (socket) {
     // wrapper object
-    var clientObject = {
-        socket: socket
-    };
+    var clientObject = null;
 
     // Socket.IO disconnected
-    socket.on('disconnect', function (){
-        EventManager.emit('client:disconnect', clientObject);
+    socket.on('disconnect', function () {
+        if (clientObject)  EventManager.emit('client:disconnect', clientObject);
     });
 
     // Register client after Socket.IO connected
-    socket.on('console:register', function (data){
-        clientObject.userAgent = userAgent.parse(data.userAgent);
+    socket.on('console:register', function (data) {
+        clientObject = {
+            socket:socket,
+            userAgent:userAgent.parse(data.userAgent)
+        };
+
         EventManager.emit('client:register', clientObject);
     });
 
-    // Client task finished, report send back
-    socket.on('console:task_finish', function (data){
-        clientObject.taskObject.task_result = data;
-        console.log("console:task_finish", clientObject.taskObject);
-
-        // Tell TaskManager to save Test Data
-        EventManager.emit('task:finish', clientObject.taskObject);
-
-        // Tell ClientManager to release the client
-        EventManager.emit('client:task_finish', clientObject);
-    });
 
     // Socket.IO connected
-    socket.emit('console:is_connected', {
-        msg: 'UITester: Your ClientId is connected.'
+
+
+    socket.on('remote:task_start', function (data) {
+         console.log("remote:task_start",data)
+        var remoteTask = {
+            task:data,
+            socket:socket
+        }
+        RemoteTaskManager.taskStart(remoteTask)
+
     });
 
-    // This is just simulate event of task:data_update
-    // // simply by console.html for testing
-    // socket.on('console:send_test_data_update', function (){
-    //     EventManager.emit('task:data_update');
-    // });
+
 });
+//远程运行服务
+
+

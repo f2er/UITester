@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>UITester Console</title>
+    <meta charset="UTF-8">
+    <title>UITester Console</title>
 </head>
 <body>
 <h3>请先安装浏览器插件</h3>
@@ -13,67 +13,77 @@
 
 
 
-<script src="/socket.io/socket.io.js"></script>
 <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
 <script>
-var http_host = location.host;
-var socket = io.connect('http://' + http_host);
+    var http_host = location.host;
+    var socket = io.connect('http://' + http_host);
 
-if (!window.console){
-    window.console = {
-        log: function (){},
-        info: function (){},
-        debug: function (){}
+    if (!window.console) {
+        window.console = {
+            log:function () {
+            },
+            info:function () {
+            },
+            debug:function () {
+            }
+        }
     }
-}
+    socket.on("connect", function () {
+        console.info("connect");
 
-socket.on('console:is_connected', function (data){
-    console.info("console:is_connected",data);
+        socket.emit('console:register', {
+            'userAgent':window.navigator.userAgent
+        });
 
-    socket.emit('console:register', {
-        'userAgent': window.navigator.userAgent
-    });
+        // Listen this event for debug
+        socket.on('console:available', function (data) {
+            console.info('console:available', data);
+        });
 
-    // Listen this event for debug
-    socket.on('console:available', function (data){
-        console.info('console:available',data);
-    });
+        // when task data push by socket, this event
+        // will be triggered
+        socket.on('console:task_start', function (data) {
+            console.log("console:task_start", data);
+            if (data && data.script) {
+                runScript(data.script);
+            }
+            if (data && data.task_inject_uri) {
+                runScriptFromUrl(data.task_inject_uri);
+            }
 
-    // when task data push by socket, this event
-    // will be triggered
-    socket.on('console:task_start', function (data){
-        console.log("console:task_start",data);
-       if(data&&data.script){
-           runScript(data.script);
-       }
-       if(data&&data.task_inject_uri){
-            runScriptFromUrl(data.task_inject_uri);
-       }
-        
 
-    });
+        });
 
-    // Send task report to server through Socket.IO
-    // by trigger method of emit of socket object
-    // socket.emit('console:task_finish', jasmineData);
-});
-var runScriptFromUrl = function(url) {
-    jasmine._newEnv = true;
+        setTimeout(function(){
+            socket.on("remote:task_finish",function(data){
+                console.log("remote:task_finish",data)
+            })
+            socket.emit("remote:task_start",{"task_inject_uri":"http://assets.daily.taobao.net/p/uitest/docs/examples/tblogin.js"})
+        },5000)
 
-    jQuery.getScript(url);
+        // Send task report to server through Socket.IO
+        // by trigger method of emit of socket object
+        // socket.emit('console:task_finish', jasmineData);
+    })
 
-};
-var runScript = function(script) {
 
-    //新开一个环境
-    jasmine._newEnv = true;
-     eval('void ' + script + '()');
-    //收集测试报告，并在页面上显示
-    UT.report(function (reports) {
-        console.log("console:task_finish",reports);
-        socket.emit('console:task_finish', {reportData: reports});
-    });
-};
+    var runScriptFromUrl = function (url) {
+        jasmine._newEnv = true;
+
+        jQuery.getScript(url, function () {
+            UT.report(function (reports) {
+                var reportData = {reportData:reports}
+
+
+                socket.emit('console:task_finish', reportData);
+            });
+        });
+
+
+    };
+
 </script>
 
 </body>
