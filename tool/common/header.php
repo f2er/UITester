@@ -9,11 +9,10 @@
 <!doctype html>
 <meta charset="gbk">
 <title>测试用例列表</title>
-<link rel="stylesheet" href="css/bootstrap.css" />
-<link rel="stylesheet" href="css/common.css" />
-
-
-
+<link rel="stylesheet" href="assets/bootstrap.css" />
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="assets/common.css" />
+<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
@@ -24,7 +23,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </a>
-	  <a class="brand" href="list.php">UITester</a>
+	  <a class="brand" href="index.php">UITester</a>
 	  <div class="nav-collapse collapse">
 		<ul class="nav">
 		  <li class="active"><a href="list.php">查看用例</a></li>
@@ -36,4 +35,4 @@
   </div>
 </div>
 
-<div class="container">
+

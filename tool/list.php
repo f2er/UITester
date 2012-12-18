@@ -1,8 +1,10 @@
 <?php include_once('./common/header.php'); ?>
 
+<div class="container">
 <div class="sub-nav">
-     <select id="productline" name="productline" required>
-		<option value="">--请选择产品线--</option>
+     产品线: <select id="productline" name="productline" required>
+		<option value="">全部</option>
+<!--
 		<option value="84">基础业务</option>
 		<option value="86">商品平台</option>
 		<option value="87">业务安全</option>
@@ -13,12 +15,12 @@
 		<option value="206">外部产品线</option>
 		<option value="257">UED</option>
 		<option value="336">通用产品</option>
-
 	</select>
 	<select id="project" name="project" required>
 		<option value="">--请选择产品--</option>
 		<option value="1">我的淘宝</option>
 		<option value="2">淘金币</option>
+-->
 	</select>
 	<a class="url" style="float:right" href="create.php">新增页面</a>
 </div>
@@ -54,8 +56,8 @@
 
 
             echo('
-                                <li class="' . $className . '">
-            <div class="name"><p><span>' . $result_item['task_name'] . '</span></p>
+            <li id="'.$result_item['id'].'"class="' . $className . '">
+            <div class="name"><p><a href="detail.php?id='.$result_item['id'].'">' . $result_item['task_name'] . '</a></p>
 
                 <div class="top-action">
 <!--
@@ -73,8 +75,8 @@
 				<a href="result.php?task_id=' . $result_item['id'] .'">查看结果</a>
 
                 <div class="bottom-action">
-                    <a class="record minibtn" href="modify.php?task_id=' . $result_item['id'] . '">修改</a>
-                    <a target="_blank" class="url minibtn" href="apply.php?task_id=' . $result_item['id'] . '">测试</a>
+                    <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
+                    <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>
                     <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
 <!--                    <a target="_blank" class="record minibtn" href="record/record.html?id=' . $result_item['id'] . '">录制</a>
 -->
@@ -97,22 +99,25 @@
 <?php include_once('./common/footer.php'); ?>
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<script src="assets/form.js"></script>
 <script>
+
 KISSY.ready(function(S) {
 	var $ = S.all;
 	$('.sub-nav').all('select').on('change', function(ev) {
 		ev.preventDefault();
 
-
 		location.href = '?' + S.param({
-			productline : S.all('#productline').val(),
-			project : S.all('#project').val()
+			//project : S.all('#project').val(),
+			productline : S.all('#productline').val()
 		});
 	});
 
-
 	var param = S.unparam(location.search.slice(1));
 	S.all('#productline').val(param.productline || '');
-	S.all('#project').val(param.project || '');
+	//S.all('#project').val(param.project || '');
 });
 </script>
+
+
+</div>

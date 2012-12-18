@@ -5,13 +5,10 @@
     $modify_tag = $_REQUEST['modify_tag'];
     $task_id = $_REQUEST['task_id'];
     $task_name = trim($_REQUEST['task_name']);
-    $task_target_uri = trim($_REQUEST['task_target_uri']);
-    $task_inject_uri = 'case/'.$task_id.'.js';
-    $description = $_REQUEST['description'];
+    $task_inject_uri = $_REQUEST['task_inject_uri'];;
     $productline = $_REQUEST['productline'];
     $project = $_REQUEST['project'];
     $creator = 'admin';
-    $svn = $_REQUEST['svn'];
     $week = $_REQUEST['week'];
     $start = $_REQUEST['start'];
     $duration = $_REQUEST['duration'];
@@ -33,13 +30,10 @@
         $sql = '
             UPDATE list SET
             task_name= "' . $task_name . '",
-            task_target_uri= "' . $task_target_uri . '",
             task_inject_uri= "' . $task_inject_uri. '",
-            description = "' . $description . '",
             week = "' . $week . '",
             duration = "' . $duration . '",
-            start_time = "' . $start_time . '",
-			svn = "' . $svn . '"
+            start_time = "' . $start_time . '"
             WHERE id = ' . $task_id;
 
     }
@@ -48,27 +42,21 @@
         $sql = '
             INSERT INTO list (
                 task_name,
-                task_target_uri,
                 task_inject_uri,
-                description,
 				creator,
 				createtime,
 				productline,
 				project,
-				svn,
 				week,
 				start_time,
 				duration
             ) VALUES (
                 "' . $task_name . '" ,
-                "' . $task_target_uri . '",
                 "' . $task_inject_uri . '",
-                "' . $description . '",
                 "' . $creator . '",
                 " now() ",
                 "' . $productline . '",
                 "' . $project . '",
-                "' . $svn . '",
                 "' . $week . '",
                 "' . $start_time . '",
                 "' . $duration . '"

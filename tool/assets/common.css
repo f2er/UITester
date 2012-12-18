@@ -7,6 +7,10 @@ ul, p {
 	padding:0;
 }
 
+.navbar-inner {
+	border-radius: 0;
+}
+
 .login-info {
 	float: right;
 	color: white;
@@ -21,6 +25,8 @@ ul, p {
 .login-info a.logout {
 	color: #888;
 }
+
+
 
 
 

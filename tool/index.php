@@ -1,59 +1,18 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta charset="gbk">
-    <title>测试用例列表</title>
-    <!-- Le styles -->
-    <link href="../css/bootstrap/css/bootstrap.css" rel="stylesheet">
+<?php include 'common/header.php' ?>
 
-    <link href="../css/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+<style>
+.navbar {
+	margin-bottom: 0;
+}
+</style>
 
-    <style>
-        body {
-            padding-top: 40px;
-            padding-bottom: 40px;
-        }
+<script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
-    </style>
-</head>
-<body>
-<div id="page">
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <!--  <a class="brand" href="list.php">UITest</a> -->
-
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="active"><a href="index.php">查看用例</a></li>
-                    <li><a href="list.php">查看用例</a></li>
-                    <li><a href="record/record.html?">录制用例</a></li>
-                    <li><a href="https://github.com/taobao-sns-fed/uitest/">测试框架</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-            <div class="nav-collapse collapse pull-right">
-                <ul class="nav">
-                    <li>
-                        <a class="123" href="#"> we</a>
-                    </li>
-                    <li>
-                        <a charset="utf8" class="logout"
-                           href="https://ark.taobao.org:4430/arkserver/Login.aspx?cmd=logout&app=http://uitest.taobao.net/&redirectURL=http://uitest.taobao.net/tool/list.php">退出</a>
-                    </li>
-
-                </ul>
-
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="jumbotron masthead">
     <style>

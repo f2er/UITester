@@ -1,6 +1,6 @@
 <?php include_once('./common/header.php'); ?>
 
-<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="assets/form.css">
 <style>
 #info {
 	float: right;
@@ -12,6 +12,9 @@
 }
 </style>
 
+
+<div class="container">
+
 <h1>修改任务</h1>
 
 
@@ -21,7 +24,7 @@ $task_target_uri = '';
 $task_inject_uri = '';
 $modify_tag = '';
 
-$task_id = trim($_REQUEST['task_id']);
+$task_id = trim($_GET['id']);
 
 if ($task_id !== ''){
 
@@ -33,16 +36,10 @@ if ($task_id !== ''){
 	if (mysql_num_rows($taskResult) > 0){
 		$result_item = mysql_fetch_assoc($taskResult);
 		$task_name = $result_item['task_name'];
-		$task_target_uri = $result_item['task_target_uri'];
-		$description = $result_item['description'];
 		$week = $result_item['week'];
 		$duration = $result_item['duration'];
 		$start_time = $result_item['start_time'];
-		$interval = $result_item['interval'];
 		$task_inject_uri = $result_item['task_inject_uri'];
-		$svn = $result_item['svn'];
-		$description = $result_item['description'];
-		$url = $result_item['url'];
 		$creator = $result_item['creator'];
 		$createtime = $result_item['createtime'];
 		$result = $result_item['result'];
@@ -61,32 +58,7 @@ if ($task_id !== ''){
 <div id="info">
 	<ul>
 		<li>任务id: <?php echo $task_id  ?>
-		<li>产品线: <?php 
-		
-		$productlines = array(
-			"84" => '基础业务',
-			"86" => '商品平台',
-			"87" => '业务安全',
-			"94" => '开放平台',
-			"105" => '商户平台',
-			"106" => 'SNS',
-			"118" => '运营服务',
-			"206" => '外部产品线',
-			"257" => 'UED',
-			"336" => '通用产品'		
-		);
-		echo $productlines[$productline]
-		
-		?>
-		<li>产品: <?php
-		
-		$projects = array(
-			"1" => '我的淘宝',
-			"2" => '淘金币'
-		);
-		echo $projects[$project];
-		
-		?>
+		<li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span>
 		<li>创建人: <?php echo $creator  ?>
 		<li>创建时间: <?php echo $createtime  ?>
 	</ul>
@@ -109,21 +81,9 @@ if ($task_id !== ''){
 					</td>
 				</tr>
 				<tr>
-					<th>描述</th>
-					<td>
-						<textarea name="description" class="input-box">' . $description . '</textarea>
-					</td>
-				</tr>
-				<tr>
-					<th>测试页面</th>
-					<td>
-						<input type="url" name="task_target_uri" class="input-box" value="' . $task_target_uri . '" />
-					</td>
-				</tr>
-				<tr>
 					<th>测试用例地址</th>
 					<td>
-						<input type="text" name="svn" class="input-box" value="' . $svn . '" />
+						<input type="text" name="task_inject_uri" class="input-box" value="' . $task_inject_uri . '" />
 					</td>
 				</tr>
 				<tr>
@@ -138,8 +98,15 @@ if ($task_id !== ''){
 						<input type="checkbox" name="timers" value="6" />星期六 
 						<input type="checkbox" name="timers" value="7" />星期日
 							<br/><br/>	
-						每天回归的时间点: <input type="text" name="start" value="' . $start . '" size="5" placeholder="mm:ss" style="width:40px"> 
-						间隔时间: <input type="text" name="duration" value="' . $duration . '" size="5" style="width:40px">
+						每天回归的时间点: <input type="text" name="start" value="' . $start . '" size="5" placeholder="mm:ss" style="width:40px"> &nbsp;&nbsp;
+						间隔时间: <select class="duration" name="duration" data-value="'.$duration.'">
+							<option value="30">0.5</option>
+							<option value="60">1</option>
+							<option value="120">2</option>
+							<option value="240">4</option>
+							<option value="480">8</option>
+							<option value="720">12</option>
+						</select>小时
 					</td>
 				</tr>
 				<tr>
@@ -162,9 +129,13 @@ if ($task_id !== ''){
 
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<script src="assets/form.js"></script>
 <script>
+
 KISSY.use('sizzle', function(S) {
 	var $ = S.all;
+
+	var productline = productline;
 
 	var values = $('[name=week]').val().split(',');
 	$('[name=timers]').each(function(timers) {
@@ -174,6 +145,7 @@ KISSY.use('sizzle', function(S) {
 			timers.attr('checked', false);
 		}
 	});
+	$('[name=duration]').val($('[name=duration]').attr('data-value'));
 
 	$('form').on('submit', function() {
 		var values = S.map($('[name=timers]:checked'), function(timers) {
@@ -184,3 +156,6 @@ KISSY.use('sizzle', function(S) {
 	});
 });
 </script>
+
+
+</div>
