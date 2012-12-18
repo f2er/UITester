@@ -16,7 +16,7 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
 	<div class="container">
-	  <div class="login-info">hello: <a href="#"><?php echo print_r($userName); ?></a>  <a charset="utf8" class="logout" href="https://ark.taobao.org:4430/arkserver/Login.aspx?cmd=logout&app=http://uitest.taobao.net/&redirectURL=http://uitest.taobao.net/tool/list.php">ÍË³ö</a></div>
+	  <div class="login-info">hello: <a href="#"><?php echo $userName; ?></a>  <a charset="utf8" class="logout" href="https://ark.taobao.org:4430/arkserver/Login.aspx?cmd=logout&app=http://uitest.taobao.net/&redirectURL=http://uitest.taobao.net/tool/list.php">ÍË³ö</a></div>
 	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
