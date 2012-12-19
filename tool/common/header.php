@@ -1,9 +1,3 @@
-<?php
-session_start();
-require '../auth/AuthBoot.php';
-$user = $ArkAuth->getAppUser();
-$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
-?>
 
 <!doctype html>
 <html>
