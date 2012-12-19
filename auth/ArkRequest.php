@@ -77,7 +77,7 @@ final class ArkRequest {
     
 	public static function processLogoutUrl($param,$version = ''){
 		if(!$version)
-			return self::processUrl($param, self::LOGOUTURL);
+			return self::processUrl($param, self::LOGOUTURL, $_SERVER["HTTP_REFERER"]);
 		else
 			return sprintf("%s&version=%s", self::processLogoutUrl($param), $version);
 
@@ -107,13 +107,17 @@ final class ArkRequest {
         return sprintf(self::VALIDATEACCESSTOKEMURL, Config::get(ARKSERVER), $accessToken, $appCode, $clientType, $clientVersion);
     }
     
-	public static function processUrl($param, $formaturl){
+	public static function processUrl($param, $formaturl, $force){
 		$app = (isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) != 'off')) ? 'https://' : 'http://'.$_SERVER ['HTTP_HOST'].Config::get(APPATH);
 		$redirectUrl = (isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) != 'off')) ? 'https://' : 'http://'.$_SERVER ['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 		$app = self::removePort($app);
 		
 		$redirectUrl = self::removeSlashEnd($redirectUrl);
 		$redirectUrl = self::formatUrlParam($redirectUrl, $param);
+
+		if($force != null) {
+			$redirectUrl = $force;
+		}
 
 		return sprintf($formaturl,Config::get(ARKSERVER), urlencode(iconv('gb2312', 'utf-8', $app)), urlencode(iconv('gb2312', 'utf-8', $redirectUrl)));
 	}

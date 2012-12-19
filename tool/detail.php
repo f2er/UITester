@@ -1,22 +1,26 @@
 <?php include_once('./common/header.php'); ?>
 
+<link rel="stylesheet" href="assets/form.css">
+<script src="assets/form.js"></script>
 <style>
-.other {
-	position: absolute;
-	top: 70px;
-	right: 161px;
+#info {
+	float: right;
 	font-size: 14px;
 	line-height: 2.5;
 	border: 1px solid #eee;
-	padding: 10px;
+	padding: 10px 10px 10px 30px;
 	min-width: 200px;
+}
+#detail-info {
+	margin-left: 40px;
 }
 
 </style>
 
-<h1>查看结果</h1>
 
+<div class="container">
 
+<h1>任务评情</h1>
 
 
 <?php
@@ -25,7 +29,7 @@ $task_target_uri = '';
 $task_inject_uri = '';
 $modify_tag = '';
 
-$task_id = trim($_REQUEST['task_id']);
+$task_id = trim($_REQUEST['id']);
 
 if ($task_id !== ''){
 
@@ -39,7 +43,10 @@ if ($task_id !== ''){
 		$task_name = $result_item['task_name'];
 		$task_target_uri = $result_item['task_target_uri'];
 		$description = $result_item['description'];
-		$timer = $result_item['timer'];
+		$week = $result_item['week'];
+		$duration = $result_item['duration'];
+		$start_time = $result_item['start_time'];
+		$interval = $result_item['interval'];
 		$task_inject_uri = $result_item['task_inject_uri'];
 		$svn = $result_item['svn'];
 		$description = $result_item['description'];
@@ -50,38 +57,34 @@ if ($task_id !== ''){
 		$productline = $result_item['productline'];
 		$project = $result_item['project'];
 
+		$start = substr($start_time, 11, 5);
+
 		$modify_tag = 'modify';
 	}
 }
+
 ?>
 
-<div id="result">
-	<p>任务名称:    <?php echo $result_item['task_name'] ?></p>
-	<p>任务结果:    <br/><br/></p>
-<?php 
-	if($result) {
-		echo $result;
-	} else {
-		echo '没有结果';
-	}
-?>
+
+<h2><?php echo $task_name ?></h2>
+<p><?php echo $description ?></p>
+<div id="detail-info">
+	<ul>
+		<li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span>
+		<li>创建人: <?php echo $creator  ?>
+		<li>测试页面: <?php echo $task_target_uri  ?>
+		<li>测试用例地址: <?php echo $svn  ?>
+		<li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span>
+		<li>启动时间: <?php echo $start_time  ?>
+		<li>回归频率: <?php echo $duration / 60  ?>小时
+		<li>创建时间: <?php echo $createtime  ?>
+	</ul>
 </div>
-	
+
+
 <?php include_once('./common/footer.php'); ?>
 
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
-<script>
-KISSY.ready(function(S) {
-	var $ = S.all;
-	$('.J_ViewResult').on('click', function(ev) {
-		ev.preventDefault();
 
-		if(S.trim($('#result').html()) !== '') {
-			$('#result').toggle();
-		} else {
-			$('#result').html('没有结果');
-		}
-	});
-});
-</script>
+</div>

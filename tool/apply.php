@@ -1,7 +1,7 @@
 <?php include_once('./common/header.php'); ?>
 
 <?php
-$task_id = trim($_REQUEST['task_id']);
+$task_id = trim($_REQUEST['id']);
 
 if ($task_id === '') {
     echo('未指定参数 task_id');
@@ -62,7 +62,7 @@ echo '<script>var taskInfo = {id:' . $result_item['id'] . ', target_uri:"'.$ifra
     <script src="http://uitest.taobao.net/lib/jasmine-html.js" charset="UTF-8"></script>
     <script src="http://uitest.taobao.net/lib/event-simulate.js"></script>
     <script src="http://uitest.taobao.net/tool/record/postmsg.js"></script>
-    <script src="http://uitest.taobao.net/tool/js/outerRun.js"></script>
+    <script src="http://uitest.taobao.net/tool/assets/outerRun.js"></script>
     <link rel="stylesheet" type="text/css" href="http://uitest.taobao.net/lib/jasmine.css">
 
 

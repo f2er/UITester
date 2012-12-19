@@ -4,15 +4,17 @@
     <meta charset="gbk">
     <title>测试用例列表</title>
     <!-- Le styles -->
-    <link href="../css/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <link href="../css/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="../assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+    <link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="../css/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 
     <style>
         body {
@@ -233,6 +235,24 @@
 
 </div>
 
+<!-- Button to trigger modal -->
+
+
+<!-- Modal -->
+<div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">测试结果</h3>
+    </div>
+    <div class="modal-body result-report">
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+    </div>
+</div>
+
 
 <script>
     (function () {
@@ -260,7 +280,9 @@
             jQuery("#run_test").on("click", function () {
                 if (isConnected) {
                     var src = jQuery("#test_src").val();
-                    console.log(src);
+
+                    jQuery("#myModal .modal-body").html("正在测试....");
+                    $('#myModal').modal('show');
                     socket.emit("remote:task_start", {"task_inject_uri":src})
                 }
                 else {
@@ -273,8 +295,17 @@
                 console.info("connect");
                 if (isConnected)return;
                 isConnected = true;
+                var jsonReporter = new jasmine.JsonReporter();
+                $('#myModal').modal({show:false})
                 socket.on("remote:task_finish", function (data) {
-                    alert(data.task_result)
+                    $('#myModal').modal('show');
+                    for(var p in data.task_result){
+                        console.log(data.task_result[p])
+                        jQuery("#myModal .modal-body").html("")
+                        jsonReporter.renderHTML(data.task_result[p], jQuery("#myModal .modal-body"));
+                    }
+
+
                     console.log("remote:task_finish", data)
                 })
 

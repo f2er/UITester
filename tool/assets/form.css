@@ -44,3 +44,7 @@ th {
 	text-align: right;
 	margin-right: 10px;
 }
+
+.duration {
+	width: 70px;
+}

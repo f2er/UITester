@@ -1,7 +1,9 @@
 <?php include_once('./common/header.php'); ?>
 
-<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="assets/form.css">
 
+
+<div class="container">
 
 <h1>创建新任务</h1>
 
@@ -14,7 +16,6 @@
 
 		<?php
 			$task_name = '';
-			$task_target_uri = '';
 			$task_inject_uri = '';
 			$modify_tag = '';
 
@@ -23,24 +24,8 @@
 				<tr>
 					<th>产品:</th>
 					<td>
-						<select name="productline" required>
-							<option value="">--请选择产品线--</option>
-							<option value="84">基础业务</option>
-							<option value="86">商品平台</option>
-							<option value="87">业务安全</option>
-							<option value="94">开放平台</option>
-							<option value="105">商户平台</option>
-							<option value="106">SNS</option>
-							<option value="118">运营服务</option>
-							<option value="206">外部产品线</option>
-							<option value="257">UED</option>
-							<option value="336">通用产品</option>
-
-						</select>
-						<select name="project" required>
-							<option value="">--请选择产品--</option>
-							<option value="1">我的淘宝</option>
-							<option value="2">淘金币</option>
+						<select id="productline" name="productline" required value="">
+							<option value="" selected="selected">全部</option>
 						</select>
 					</td>
 				</tr>
@@ -51,21 +36,9 @@
 					</td>
 				</tr>
 				<tr>
-					<th>描述:</th>
-					<td>
-						<textarea type="text" name="description" class="input-box"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<th>测试页面:</th>
-					<td>
-						<input type="url" name="task_target_uri" class="input-box"/>
-					</td>
-				</tr>
-				<tr>
 					<th>脚本地址:</th>
 					<td>
-						<input type="text" name="svn" class="input-box"/>
+						<input type="text" name="task_inject_uri" class="input-box"/>
 					</td>
 				</tr>
 				<tr>
@@ -80,9 +53,16 @@
 						<input type="checkbox" name="timers" value="6" />星期六 
 						<input type="checkbox" name="timers" value="7" />星期日
 							<br/><br/>	
-						每天回归的时间点: <input type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
+						每天回归的时间点: <input class="duration" type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
 
-						回归频率: <input type="text" name="duration" value="" size="5" style="width:40px">分钟
+						回归频率: <select class="duration" name="duration">
+							<option value="30">0.5</option>
+							<option value="60">1</option>
+							<option value="120">2</option>
+							<option value="240">4</option>
+							<option value="480">8</option>
+							<option value="720">12</option>
+						</select>小时
 					</td>
 				</tr>
 				<tr>
@@ -100,7 +80,9 @@
 <?php include_once('./common/footer.php'); ?>
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<script src="assets/form.js"></script>
 <script>
+
 KISSY.use('sizzle', function(S) {
 	var $ = KISSY.all;
 
@@ -113,3 +95,6 @@ KISSY.use('sizzle', function(S) {
 	});
 });
 </script>
+
+
+</div>
