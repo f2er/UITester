@@ -57,20 +57,20 @@ io.sockets.on('connection', function (socket) {
         EventManager.emit('client:register', clientObject);
     });
 
-
-    // Socket.IO connected
-
-
     socket.on('remote:task_start', function (data) {
-         console.log("remote:task_start",data)
+        console.log("remote:task_start",data);
+
         var remoteTask = {
             task:data,
             socket:socket
-        }
-        RemoteTaskManager.taskStart(remoteTask)
+        };
 
+        RemoteTaskManager.taskStart(remoteTask);
     });
 
+    setInterval(function (){
+        EventManager.emit('client:send_summary', clientObject);
+    }, 1000);
 
 });
 //远程运行服务
