@@ -89,11 +89,10 @@
 
         var runScriptFromUrl = function (url) {
             jasmine._newEnv = true;
+            UT.configs.windowType = "window";
 
             jQuery.getScript(url, function () {
                 UT.report(function (reports) {
-
-
                     isRunning = false;
                     socket.emit('console:task_finish', reports);
                 });

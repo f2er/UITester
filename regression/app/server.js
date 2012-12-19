@@ -35,7 +35,7 @@ var ClientManager = require('client-mgr'),
 
 ClientManager.init();
 RemoteTaskManager.init();
-//TaskManager.init();
+TaskManager.init();
 
 
 io.sockets.on('connection', function (socket) {
