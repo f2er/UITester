@@ -1,4 +1,9 @@
 <?php
+session_start();
+require '../auth/AuthBoot.php';
+$user = $ArkAuth->getAppUser();
+$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
+
     // include databse connector
     include_once('conn_db.php');
 
@@ -8,7 +13,7 @@
     $task_inject_uri = $_REQUEST['task_inject_uri'];;
     $productline = $_REQUEST['productline'];
     $project = $_REQUEST['project'];
-    $creator = 'admin';
+    $creator = $userName;
     $week = $_REQUEST['week'];
     $start = $_REQUEST['start'];
     $duration = $_REQUEST['duration'];
@@ -54,7 +59,7 @@
                 "' . $task_name . '" ,
                 "' . $task_inject_uri . '",
                 "' . $creator . '",
-                " now() ",
+                now(),
                 "' . $productline . '",
                 "' . $project . '",
                 "' . $week . '",
