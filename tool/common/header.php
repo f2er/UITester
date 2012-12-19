@@ -6,6 +6,8 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 ?>
 
 <!doctype html>
+<html>
+<head>
 <meta charset="gbk">
 <title>测试用例列表</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
@@ -18,7 +20,8 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
+</head>
+<body>
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
 	<div class="container">
@@ -32,8 +35,9 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 	  <div class="nav-collapse collapse">
 		<ul class="nav">
 		  <li class="active"><a href="list.php">查看用例</a></li>
-		  <li><a href="record/record.html?">录制用例</a></li>
-		  <li><a href="https://github.com/taobao-sns-fed/uitest/">测试框架</a></li>
+            <li><a href="http://uitest.taobao.net/tool/create.php">回归测试</a></li>
+		  <li><a href="record/record.html?">录制工具</a></li>
+		  <li><a href="https://github.com/taobao-sns-fed/uitest/">帮助中心</a></li>
 		</ul>
 	  </div><!--/.nav-collapse -->
 	</div>
