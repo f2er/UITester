@@ -8,10 +8,16 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 <!doctype html>
 <meta charset="gbk">
 <title>测试用例列表</title>
-<link rel="stylesheet" href="assets/bootstrap.css" />
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="assets/common.css" />
-<script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+<link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
