@@ -5,6 +5,7 @@
     <title>UITester Console</title>
 </head>
 <body>
+<div id="all"></div>
 <h3>请先安装浏览器插件</h3>
 <ul>
     <li><a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/chrome.crx">chrome插件</a></li>
@@ -51,6 +52,7 @@
             // Get Client Summary
             socket.on('console:summary', function (data){
                 console.info(data);
+               jQuery("#all").html(JSON.stringify(data));
             });
 
 
