@@ -56,7 +56,7 @@ if ($task_id !== ''){
 </div>
 
 <br/>
-<pre id="output"></div>
+<pre id="output" class="result-report"></div>
 	
 <?php include_once('./common/footer.php'); ?>
 
