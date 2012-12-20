@@ -14,9 +14,9 @@
 
 </style>
 
+<div class="container">
+
 <h1>查看结果</h1>
-
-
 
 
 <?php
@@ -37,18 +37,10 @@ if ($task_id !== ''){
 	if (mysql_num_rows($taskResult) > 0){
 		$result_item = mysql_fetch_assoc($taskResult);
 		$task_name = $result_item['task_name'];
-		$task_target_uri = $result_item['task_target_uri'];
-		$description = $result_item['description'];
-		$timer = $result_item['timer'];
 		$task_inject_uri = $result_item['task_inject_uri'];
-		$svn = $result_item['svn'];
-		$description = $result_item['description'];
-		$url = $result_item['url'];
 		$creator = $result_item['creator'];
 		$createtime = $result_item['createtime'];
-		$result = $result_item['result'];
-		$productline = $result_item['productline'];
-		$project = $result_item['project'];
+		$result = $result_item['task_result'];
 
 		$modify_tag = 'modify';
 	}
@@ -58,6 +50,8 @@ if ($task_id !== ''){
 <div id="result">
 	<p>任务名称:    <?php echo $result_item['task_name'] ?></p>
 	<p>任务结果:    <br/><br/></p>
+
+<pre>
 <?php 
 	if($result) {
 		echo $result;
@@ -65,6 +59,7 @@ if ($task_id !== ''){
 		echo '没有结果';
 	}
 ?>
+</pre>
 </div>
 	
 <?php include_once('./common/footer.php'); ?>
@@ -85,3 +80,6 @@ KISSY.ready(function(S) {
 	});
 });
 </script>
+
+
+</div>
