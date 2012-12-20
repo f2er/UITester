@@ -68,9 +68,10 @@ io.sockets.on('connection', function (socket) {
         RemoteTaskManager.taskStart(remoteTask);
     });
 
-    setInterval(function (){
+    // For Console Request
+    socket.on('console:get_summary', function (){
         EventManager.emit('client:send_summary', clientObject);
-    }, 1000);
+    });
 
 });
 //远程运行服务
