@@ -46,7 +46,12 @@
             socket.on('console:reload', function (data) {
                 window.location.reload();
 
-            })
+            });
+
+            // Get Client Summary
+            socket.on('console:summary', function (data){
+                console.info(data);
+            });
 
 
 
