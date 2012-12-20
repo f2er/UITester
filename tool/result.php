@@ -65,7 +65,7 @@ if ($task_id !== ''){
 <script>
 
 KISSY.ready(function(S) {
-	var result = '<?php if($result) echo $result; else echo "{}"; ?>';
+	var result = <?php if($result) echo $result; else echo "{}"; ?>;
 	var json = S.JSON.parse(result);
 	var jsonReporter = new jasmine.JsonReporter();
 	S.each(json, function(value, key) {
