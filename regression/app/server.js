@@ -49,6 +49,8 @@ io.sockets.on('connection', function (socket) {
 
     // Register client after Socket.IO connected
     socket.on('console:register', function (data) {
+        console.log("register",data)
+        console.log("register",JSON.parse(data))
         clientObject = {
             socket:socket,
             userAgent:userAgent.parse(data.userAgent)

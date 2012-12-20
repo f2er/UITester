@@ -14,7 +14,7 @@
 
 
 <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
-<script src="/socket.io/socket.io.js"></script>
+<script charset="utf-8" src="/socket.io/socket.io.js"></script>
 
 <script>
     (function () {
@@ -36,9 +36,10 @@
         }
         socket.on("connect", function () {
             console.info("connect");
-            socket.emit('console:register', {
-                'userAgent':window.navigator.userAgent
-            });
+            socket.emit('console:register', JSON.stringify({
+                'userAgent':window.navigator.userAgent,
+                "test":"我就是测试一下中文"
+            }));
             if(isConnected) return;
             isConnected = true;
 
@@ -100,6 +101,8 @@
 
             jQuery.getScript(url, function () {
                 UT.report(function (reports) {
+                    console.log(reports);
+                    console.log(JSON.stringify(reports));
                     isRunning = false;
                     socket.emit('console:task_finish', reports);
                 });
