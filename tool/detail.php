@@ -20,7 +20,7 @@
 
 <div class="container">
 
-<h1>任务评情</h1>
+<h1>任务详情</h1>
 
 
 <?php
