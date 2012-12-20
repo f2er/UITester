@@ -42,6 +42,9 @@ if ($task_id !== ''){
 		$createtime = $result_item['createtime'];
 		$result = $result_item['task_result'];
 
+		//数据库中是UTF8, 转换为GBK, 用于页面显示
+		$result = mb_convert_encoding($result, 'GBK', 'UTF-8');
+
 		$modify_tag = 'modify';
 	}
 }
@@ -50,35 +53,26 @@ if ($task_id !== ''){
 <div id="result">
 	<p>任务名称:    <?php echo $result_item['task_name'] ?></p>
 	<p>任务结果:    <br/><br/></p>
-
-<pre>
-<?php 
-	if($result) {
-		echo $result;
-	} else {
-		echo '没有结果';
-	}
-?>
-</pre>
 </div>
+
+<br/>
+<pre id="output"></div>
 	
 <?php include_once('./common/footer.php'); ?>
 
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script>
-KISSY.ready(function(S) {
-	var $ = S.all;
-	$('.J_ViewResult').on('click', function(ev) {
-		ev.preventDefault();
 
-		if(S.trim($('#result').html()) !== '') {
-			$('#result').toggle();
-		} else {
-			$('#result').html('没有结果');
-		}
+KISSY.ready(function(S) {
+	var result = '<?php echo $result ?>';
+	var json = S.JSON.parse(result);
+	var jsonReporter = new jasmine.JsonReporter();
+	S.each(json, function(value, key) {
+		jsonReporter.renderHTML(value, S.DOM.get("#output"));
 	});
 });
+
 </script>
 
 
