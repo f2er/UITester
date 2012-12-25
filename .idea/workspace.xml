@@ -41,11 +41,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="2.4642856">
-              <folding />
+            <state line="55" column="53" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.5992579">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="25" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.78326994">
+            <state line="68" column="22" selection-start="2350" selection-end="2350" vertical-scroll-proportion="-0.6785714">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -149,13 +151,13 @@
         <option value="$PROJECT_DIR$/regression/app/server.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/run.html" />
-        <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/index.php" />
         <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/tool/list.php" />
+        <option value="$PROJECT_DIR$/tool/result.php" />
       </list>
     </option>
   </component>
@@ -427,13 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="2.4642856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="43" selection-start="246" selection-end="246" vertical-scroll-proportion="89.10714">
@@ -462,7 +457,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="25" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.78326994">
+        <state line="68" column="22" selection-start="2350" selection-end="2350" vertical-scroll-proportion="-0.6785714">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="53" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.5992579">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>

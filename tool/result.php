@@ -14,9 +14,9 @@
 
 </style>
 
-<div class="container">
+<div class="container" style="width: 920px">
 
-<h1>查看结果</h1>
+
 
 
 <?php
@@ -53,8 +53,7 @@ if ($task_id !== ''){
 ?>
 
 <div id="result">
-	<p>任务名称:    <?php echo $result_item['task_name'] ?></p>
-	<p>任务结果:    <br/><br/></p>
+	<h3><?php echo $result_item['task_name'] ?> 的测试结果</h3>
 </div>
 
 <br/>
