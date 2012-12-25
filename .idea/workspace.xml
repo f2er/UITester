@@ -23,15 +23,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="proxy-net.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxy/proxy-net.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="13" selection-start="4193" selection-end="4193" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/server.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -104,11 +95,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="37" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.6697588">
+            <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="-0.6785714">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tool/create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="137" column="10" selection-start="4702" selection-end="4702" vertical-scroll-proportion="0.18060836">
+              <folding>
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#2946#4702#0" expanded="true" />
+                <marker date="1356431752047" expanded="true" signature="3063:3081" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="3234:3240" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="3262:3281" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="3363:3369" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="3393:3412" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="3491:3497" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="3519:3538" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="4453:4471" placeholder="..." />
+                <marker date="1356431752047" expanded="true" signature="4890:4902" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/test/helpers/ws.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy-https-to-https.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy1.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy.js" />
@@ -142,6 +153,7 @@
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/run.html" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/create.php" />
       </list>
     </option>
   </component>
@@ -329,11 +341,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="0" selection-start="11043" selection-end="11043" vertical-scroll-proportion="0.9313725" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxy/proxy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="26" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0" />
@@ -432,8 +439,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="37" selection-start="1520" selection-end="1520" vertical-scroll-proportion="0.6697588">
+        <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="-0.6785714">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="10" selection-start="4702" selection-end="4702" vertical-scroll-proportion="0.18060836">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2946#4702#0" expanded="true" />
+            <marker date="1356431752047" expanded="true" signature="3063:3081" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="3234:3240" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="3262:3281" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="3363:3369" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="3393:3412" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="3491:3497" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="3519:3538" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="4453:4471" placeholder="..." />
+            <marker date="1356431752047" expanded="true" signature="4890:4902" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
