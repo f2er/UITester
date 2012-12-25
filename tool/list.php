@@ -24,7 +24,11 @@
 	</select>
 
 </div>
-
+<style>
+    .brower_error,.brower_success{
+       display: inline-block;
+    }
+</style>
 <div class="case-list">
     <ul>
         <?php
@@ -83,14 +87,14 @@
                 for(var  p in result){
                    var fs = result[p].reports.failedSpecs;
                    var ts = result[p].reports.totalSpecs;
-                   if(!fs||!ts){
-                     var cl = "error";
+                   if(fs|| !ts){
+                     var cl = "btn  btn-danger";
                      var msg = "未通过"
                    }else{
-                    var cl = "success";
+                    var cl = "btn btn-success";
                      var msg = "通过"
                    }
-                 document.write("<div class=\"brower_"+cl+" \"><span class=\"name\">"+p+"<span><span class=\"result\">"+msg+"<span><div>")
+                 document.write("<span class=\"+cl+"\"><span class=\"b_name\">"+p+"<span> <span class=\"b_rs\">"+msg+"<span><span>")
                 }
               }
               }catch(e){
@@ -98,9 +102,8 @@
               }
 
             </script>
-				总数：<span class="total-specs"><em>' . $result_item['total_specs'] . '</em></span> <em>|</em> 失败：<span
-                class="failed-specs"><em>' . $result_item['failed_specs'] . '</em></span>
-				<a href="result.php?task_id=' . $result_item['id'] .'">查看结果</a>
+
+				<a class="btn btn-link" href="result.php?task_id=' . $result_item['id'] .'">查看结果</a>
 
                 <div class="bottom-action">
                     <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>

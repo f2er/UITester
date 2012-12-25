@@ -85,7 +85,7 @@
       <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="45" selection-start="2792" selection-end="2792" vertical-scroll-proportion="0.27756655">
+            <state line="105" column="38" selection-start="3401" selection-end="3401" vertical-scroll-proportion="0.6026616">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -466,7 +466,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="45" selection-start="2792" selection-end="2792" vertical-scroll-proportion="0.27756655">
+        <state line="105" column="38" selection-start="3401" selection-end="3401" vertical-scroll-proportion="0.6026616">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
