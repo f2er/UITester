@@ -65,7 +65,7 @@
                     <a target="_blank" class="url" href="' . $result_item['task_target_uri'] . '">测试页面</a>
 -->
 					<span class="">创建者: '. $result_item['creator'] . '</span>  &nbsp;&nbsp;&nbsp;
-					<span class="">上次测试时间: 2012.09.27 15:00</span>
+					<span class="">上次测试时间: '. ($result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time']) . '</span>
                 </div>
             </div>
 

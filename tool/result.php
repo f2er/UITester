@@ -56,7 +56,7 @@ if ($task_id !== ''){
 </div>
 
 <br/>
-<pre id="output"></div>
+<pre id="output" class="result-report"></div>
 	
 <?php include_once('./common/footer.php'); ?>
 
@@ -65,8 +65,10 @@ if ($task_id !== ''){
 <script>
 
 KISSY.ready(function(S) {
+
 	var result = '<?php echo $result ?>';
-	var json = S.JSON.parse(result.replace(/^.*{/g,'"{').replace(/}.*$/g,'}'));
+	var json = S.JSON.parse(result.replace(/^.*{/g,'{').replace(/}.*$/g,'}'));
+
 	var jsonReporter = new jasmine.JsonReporter();
 	S.each(json, function(value, key) {
 		jsonReporter.renderHTML(value, S.DOM.get("#output"));
