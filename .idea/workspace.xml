@@ -35,7 +35,7 @@
       <file leaf-file-name="detail.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-2.7142856">
+            <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-19.0">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="54" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.32142857">
+            <state line="48" column="21" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.525">
               <folding />
             </state>
           </provider>
@@ -368,13 +368,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-2.7142856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/chrome/src/addscript.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="85" selection-start="578" selection-end="584" vertical-scroll-proportion="-11.36">
@@ -405,9 +398,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-19.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="54" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.32142857">
+        <state line="48" column="21" selection-start="1006" selection-end="1006" vertical-scroll-proportion="0.525">
           <folding />
         </state>
       </provider>

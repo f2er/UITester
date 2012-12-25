@@ -45,9 +45,10 @@ if ($task_id !== ''){
 		//数据库中是UTF8, 转换为GBK, 用于页面显示
 		$result = mb_convert_encoding($result, 'GBK', 'UTF-8');
 
-        $result = preg_replace("/^.*{/g",'{',$result);
-        $result = preg_replace("/}.*$/g",'}',$result);
-
+        $result = preg_replace("/^.*{/", '{',$result);
+        echo $result;
+        $result = preg_replace("/}.*$/", '}',$result);
+        echo $result;
 
 		$modify_tag = 'modify';
 	}
