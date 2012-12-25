@@ -71,7 +71,7 @@
                 timer = setTimeout(function () {
                     // 三分钟没有完成，
                     if (callback[id]) {
-                        callback[id]({total_specs:0, failed_specs:0})
+                        callback[id]({reports:{total_specs:0, failed_specs:0,suites:{}}})
                     }
                 }, 1000 * 60 * 2)
 

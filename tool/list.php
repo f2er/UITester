@@ -70,6 +70,24 @@
             </div>
 
             <div class="result">
+            <script>
+              var result = '.$result_item['task_result'].';
+              if(result){
+                for(var  p in result){
+                   var fs = result[p].result.failedSpecs;
+                   var ts = result[p].result.totalSpecs;
+                   if(!fs||!ts){
+                     var cl = "error";
+                     var msg = "未通过"
+                   }else{
+                    var cl = "success";
+                     var msg = "通过"
+                   }
+                 document.write("<div class=\"brower_"+cl+" \"><span class="name">"+p+"<span><span class="result">"+msg+"<span><div>")
+                }
+              }
+
+            </script>
 				总数：<span class="total-specs"><em>' . $result_item['total_specs'] . '</em></span> <em>|</em> 失败：<span
                 class="failed-specs"><em>' . $result_item['failed_specs'] . '</em></span>
 				<a href="result.php?task_id=' . $result_item['id'] .'">查看结果</a>
