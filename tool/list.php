@@ -81,8 +81,8 @@
               var result ='.$result_item['task_result']." ".';
               if(result){
                 for(var  p in result){
-                   var fs = result[p].result.failedSpecs;
-                   var ts = result[p].result.totalSpecs;
+                   var fs = result[p].reports.failedSpecs;
+                   var ts = result[p].reports.totalSpecs;
                    if(!fs||!ts){
                      var cl = "error";
                      var msg = "Î´Í¨¹ý"
