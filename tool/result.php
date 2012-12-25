@@ -72,8 +72,8 @@ KISSY.ready(function(S) {
 	//var json = S.JSON.parse(result.replace(/^.*{/g,'{').replace(/}.*$/g,'}'));
 
 	var jsonReporter = new jasmine.JsonReporter();
-	S.each(json, function(value, key) {
-		jsonReporter.renderHTML(result, S.DOM.get("#output"));
+	S.each(result, function(value, key) {
+		jsonReporter.renderHTML(value, S.DOM.get("#output"));
 	});
 });
 
