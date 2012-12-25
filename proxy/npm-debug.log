@@ -1,0 +1,1382 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'http-proxy' ]
+2 info using npm@1.1.66
+3 info using node@v0.8.15
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose read json D:\GitHub\UITester\proxy\package.json
+6 verbose read json D:\GitHub\UITester\proxy\node_modules\http-proxy\package.json
+7 verbose read json D:\GitHub\UITester\proxy\package.json
+8 verbose cache add [ 'http-proxy', null ]
+9 silly cache add name=undefined spec="http-proxy" args=["http-proxy",null]
+10 verbose parsed url { pathname: 'http-proxy',
+10 verbose parsed url   path: 'http-proxy',
+10 verbose parsed url   href: 'http-proxy' }
+11 silly lockFile 4f393ca6-http-proxy http-proxy
+12 verbose lock http-proxy C:\Users\bofei.zq\AppData\Roaming\npm-cache\4f393ca6-http-proxy.lock
+13 silly lockFile 4f393ca6-http-proxy http-proxy
+14 verbose addNamed [ 'http-proxy', '' ]
+15 verbose addNamed [ null, '' ]
+16 silly lockFile d4c17bc7-http-proxy http-proxy@
+17 verbose lock http-proxy@ C:\Users\bofei.zq\AppData\Roaming\npm-cache\d4c17bc7-http-proxy.lock
+18 silly addNameRange { name: 'http-proxy', range: '', hasData: false }
+19 verbose url raw http-proxy
+20 verbose url resolving [ 'https://registry.npmjs.org/', './http-proxy' ]
+21 verbose url resolved https://registry.npmjs.org/http-proxy
+22 info trying registry request attempt 1 at 16:02:11
+23 verbose etag "4W9IRO8VT59A4EAK4WJSFO5U4"
+24 http GET https://registry.npmjs.org/http-proxy
+25 http 200 https://registry.npmjs.org/http-proxy
+26 silly registry.get cb [ 200,
+26 silly registry.get   { vary: 'Accept',
+26 silly registry.get     server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
+26 silly registry.get     etag: '"A49LYR78Q6OG90EP7VHCTPMGP"',
+26 silly registry.get     date: 'Sun, 23 Dec 2012 08:01:11 GMT',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'content-length': '155148' } ]
+27 silly addNameRange number 2 { name: 'http-proxy', range: '', hasData: true }
+28 silly addNameRange versions [ 'http-proxy',
+28 silly addNameRange   [ '0.5.9',
+28 silly addNameRange     '0.5.10',
+28 silly addNameRange     '0.5.11',
+28 silly addNameRange     '0.6.0',
+28 silly addNameRange     '0.6.1',
+28 silly addNameRange     '0.6.2',
+28 silly addNameRange     '0.6.4',
+28 silly addNameRange     '0.6.5',
+28 silly addNameRange     '0.6.6',
+28 silly addNameRange     '0.7.0',
+28 silly addNameRange     '0.7.2',
+28 silly addNameRange     '0.7.3',
+28 silly addNameRange     '0.7.4',
+28 silly addNameRange     '0.7.5',
+28 silly addNameRange     '0.7.6',
+28 silly addNameRange     '0.8.0',
+28 silly addNameRange     '0.8.1',
+28 silly addNameRange     '0.8.2',
+28 silly addNameRange     '0.8.3',
+28 silly addNameRange     '0.8.4',
+28 silly addNameRange     '0.8.5',
+28 silly addNameRange     '0.8.6',
+28 silly addNameRange     '0.8.7' ] ]
+29 verbose addNamed [ 'http-proxy', '0.8.7' ]
+30 verbose addNamed [ '0.8.7', '0.8.7' ]
+31 silly lockFile f835028c-http-proxy-0-8-7 http-proxy@0.8.7
+32 verbose lock http-proxy@0.8.7 C:\Users\bofei.zq\AppData\Roaming\npm-cache\f835028c-http-proxy-0-8-7.lock
+33 silly lockFile 2cdb58bd--http-proxy-http-proxy-0-8-7-tgz https://registry.npmjs.org/http-proxy/-/http-proxy-0.8.7.tgz
+34 verbose lock https://registry.npmjs.org/http-proxy/-/http-proxy-0.8.7.tgz C:\Users\bofei.zq\AppData\Roaming\npm-cache\2cdb58bd--http-proxy-http-proxy-0-8-7-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/http-proxy/-/http-proxy-0.8.7.tgz',
+35 verbose addRemoteTarball   'a7bc538618092cd26ed191e4625933baef6de80e' ]
+36 info retry fetch attempt 1 at 16:02:21
+37 verbose fetch to= C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\tmp.tgz
+38 http GET https://registry.npmjs.org/http-proxy/-/http-proxy-0.8.7.tgz
+39 http 200 https://registry.npmjs.org/http-proxy/-/http-proxy-0.8.7.tgz
+40 silly shasum updated bytes 40960
+41 silly shasum updated bytes 40960
+42 silly shasum updated bytes 40960
+43 silly shasum updated bytes 40960
+44 silly shasum updated bytes 40960
+45 silly shasum updated bytes 40960
+46 silly shasum updated bytes 40960
+47 silly shasum updated bytes 10133
+48 info shasum a7bc538618092cd26ed191e4625933baef6de80e
+48 info shasum C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\tmp.tgz
+49 verbose tar unpack C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\tmp.tgz
+50 silly lockFile af0544c0-41769-0-4819284195546061-package C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\package
+51 verbose lock C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\package C:\Users\bofei.zq\AppData\Roaming\npm-cache\af0544c0-41769-0-4819284195546061-package.lock
+52 silly gunzTarPerm modes [ '755', '644' ]
+53 silly gunzTarPerm extractEntry package.json
+54 silly gunzTarPerm extractEntry .npmignore
+55 silly gunzTarPerm extractEntry README.md
+56 silly gunzTarPerm extractEntry LICENSE
+57 silly gunzTarPerm extractEntry CHANGELOG.md
+58 silly gunzTarPerm extractEntry benchmark/websockets-throughput.js
+59 silly gunzTarPerm extractEntry .travis.yml
+60 silly gunzTarPerm extractEntry config.sample.json
+61 silly gunzTarPerm extractEntry examples/package.json
+62 silly gunzTarPerm extractEntry examples/balancer/simple-balancer.js
+63 silly gunzTarPerm extractEntry examples/helpers/store.js
+64 silly gunzTarPerm extractEntry examples/http/basic-proxy.js
+65 silly gunzTarPerm extractEntry examples/http/concurrent-proxy.js
+66 silly gunzTarPerm extractEntry examples/http/custom-proxy-error.js
+67 silly gunzTarPerm extractEntry examples/http/forward-proxy.js
+68 silly gunzTarPerm extractEntry examples/http/latent-proxy.js
+69 silly gunzTarPerm extractEntry examples/http/proxy-https-to-http.js
+70 silly gunzTarPerm extractEntry examples/http/proxy-https-to-https.js
+71 silly gunzTarPerm extractEntry examples/http/proxy-table.js
+72 silly gunzTarPerm extractEntry examples/http/standalone-proxy.js
+73 silly gunzTarPerm extractEntry examples/middleware/bodyDecoder-middleware.js
+74 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware-proxytable.js
+75 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware.js
+76 silly gunzTarPerm extractEntry examples/middleware/jsonp-middleware.js
+77 silly gunzTarPerm extractEntry examples/middleware/modifyResponse-middleware.js
+78 silly gunzTarPerm extractEntry examples/middleware/url-middleware.js
+79 silly gunzTarPerm extractEntry examples/middleware/url-middleware2.js
+80 silly gunzTarPerm extractEntry examples/websocket/latent-websocket-proxy.js
+81 silly gunzTarPerm extractEntry examples/websocket/standalone-websocket-proxy.js
+82 silly gunzTarPerm extractEntry examples/websocket/websocket-proxy.js
+83 silly gunzTarPerm extractEntry examples/node_modules/connect/package.json
+84 silly gunzTarPerm extractEntry examples/node_modules/connect/.npmignore
+85 silly gunzTarPerm extractEntry examples/node_modules/connect/LICENSE
+86 silly gunzTarPerm extractEntry examples/node_modules/connect/index.js
+87 silly gunzTarPerm extractEntry examples/node_modules/connect/test.js
+88 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/connect.js
+89 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/http.js
+90 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/https.js
+91 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/index.js
+92 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/patch.js
+93 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/utils.js
+94 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/basicAuth.js
+95 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/directory.js
+96 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/errorHandler.js
+97 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/favicon.js
+98 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/limit.js
+99 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/csrf.js
+100 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/methodOverride.js
+101 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/profiler.js
+102 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/query.js
+103 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/responseTime.js
+104 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/router.js
+105 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/cookieParser.js
+106 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/static.js
+107 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/compiler.js
+108 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session.js
+109 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/bodyParser.js
+110 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/vhost.js
+111 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/logger.js
+112 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/cookie.js
+113 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/memory.js
+114 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/session.js
+115 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/store.js
+116 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/directory.html
+117 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/error.html
+118 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/favicon.ico
+119 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_edit.png
+120 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page.png
+121 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_attach.png
+122 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_code.png
+123 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_copy.png
+124 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_delete.png
+125 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_edit.png
+126 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_error.png
+127 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_excel.png
+128 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_find.png
+129 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_gear.png
+130 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_go.png
+131 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_green.png
+132 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_key.png
+133 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_lightning.png
+134 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_link.png
+135 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_paintbrush.png
+136 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_paste.png
+137 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_red.png
+138 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_refresh.png
+139 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_save.png
+140 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white.png
+141 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_acrobat.png
+142 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_actionscript.png
+143 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_add.png
+144 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_c.png
+145 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_camera.png
+146 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_cd.png
+147 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_code.png
+148 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_code_red.png
+149 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_coldfusion.png
+150 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_compressed.png
+151 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_copy.png
+152 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_cplusplus.png
+153 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_csharp.png
+154 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_cup.png
+155 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_database.png
+156 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_delete.png
+157 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_dvd.png
+158 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_add.png
+159 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_error.png
+160 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_excel.png
+161 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_find.png
+162 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_flash.png
+163 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_freehand.png
+164 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_gear.png
+165 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_get.png
+166 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_go.png
+167 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_h.png
+168 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_horizontal.png
+169 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_key.png
+170 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_lightning.png
+171 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_link.png
+172 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_magnify.png
+173 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_medal.png
+174 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_office.png
+175 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_paint.png
+176 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_paintbrush.png
+177 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_paste.png
+178 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_php.png
+179 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_picture.png
+180 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_powerpoint.png
+181 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_put.png
+182 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_ruby.png
+183 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_stack.png
+184 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_star.png
+185 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_swoosh.png
+186 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_text.png
+187 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_text_width.png
+188 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_tux.png
+189 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_vector.png
+190 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_visualstudio.png
+191 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_width.png
+192 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_word.png
+193 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_world.png
+194 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_wrench.png
+195 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_zip.png
+196 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_word.png
+197 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_world.png
+198 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/style.css
+199 silly gunzTarPerm extractEntry examples/node_modules/connect/meta.json
+200 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/package.json
+201 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/README.md
+202 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/LICENSE
+203 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/mime.js
+204 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/test.js
+205 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/types/mime.types
+206 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/types/node.types
+207 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/package.json
+208 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/.npmignore
+209 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/benchmark.js
+210 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/examples.js
+211 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/index.js
+212 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/Readme.md
+213 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/.gitmodules
+214 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/component.json
+215 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/.travis.yml
+216 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/History.md
+217 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/Makefile
+218 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/parse.js
+219 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/stringify.js
+220 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/expect.js
+221 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/jquery.js
+222 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/mocha.js
+223 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/qs.js
+224 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/index.html
+225 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/mocha.css
+226 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/qs.css
+227 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/package.json
+228 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/.npmignore
+229 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/README.md
+230 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/index.js
+231 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/lib/gzip.js
+232 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/lib/staticGzip.js
+233 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/gzip.test.js
+234 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/staticGzip.test.js
+235 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/blank.gif
+236 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/index.html
+237 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/style.css
+238 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/sub/index.html
+239 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/helpers/index.js
+240 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/package.json
+241 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/README.md
+242 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/LICENSE
+243 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/mime.js
+244 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/test.js
+245 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/types/mime.types
+246 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/types/node.types
+247 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/package.json
+248 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/.npmignore
+249 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/README.md
+250 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/index.js
+251 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/examples/example.js
+252 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/History.md
+253 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/Makefile
+254 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/lib/connect-jsonp.js
+255 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/.gitmodules
+256 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/package.json
+257 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/.npmignore
+258 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/.gitmodules
+259 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/History.md
+260 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/Makefile
+261 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/Readme.md
+262 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/bin/expresso
+263 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/api.html
+264 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/index.html
+265 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/index.md
+266 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/layout/foot.html
+267 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/layout/head.html
+268 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/lib/bar.js
+269 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/lib/foo.js
+270 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/assert.test.js
+271 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/async.test.js
+272 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/bar.test.js
+273 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/foo.test.js
+274 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/http.test.js
+275 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/serial/async.test.js
+276 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/serial/http.test.js
+277 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/test/test.js
+278 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/package.json
+279 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/.npmignore
+280 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/index.js
+281 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/readme.markdown
+282 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/package.json
+283 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/.npmignore
+284 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/index.js
+285 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/readme.markdown
+286 silly gunzTarPerm extractEntry lib/node-http-proxy.js
+287 silly gunzTarPerm extractEntry lib/node-http-proxy/http-proxy.js
+288 silly gunzTarPerm extractEntry lib/node-http-proxy/proxy-table.js
+289 silly gunzTarPerm extractEntry lib/node-http-proxy/routing-proxy.js
+290 silly gunzTarPerm extractEntry test/examples-test.js
+291 silly gunzTarPerm extractEntry test/core/README.md
+292 silly gunzTarPerm extractEntry test/core/common.js
+293 silly gunzTarPerm extractEntry test/core/pummel/test-http-upload-timeout.js
+294 silly gunzTarPerm extractEntry test/core/run
+295 silly gunzTarPerm extractEntry test/core/run-single
+296 silly gunzTarPerm extractEntry test/core/simple/test-http-chunked.js
+297 silly gunzTarPerm extractEntry test/core/simple/test-http-extra-response.js
+298 silly gunzTarPerm extractEntry test/core/simple/test-http-head-request.js
+299 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body-end.js
+300 silly gunzTarPerm extractEntry test/core/simple/test-http-eof-on-connect.js
+301 silly gunzTarPerm extractEntry test/core/simple/test-http-host-headers.js
+302 silly gunzTarPerm extractEntry test/core/simple/test-http-many-keep-alive-connections.js
+303 silly gunzTarPerm extractEntry test/core/simple/test-http-multi-line-headers.js
+304 silly gunzTarPerm extractEntry test/core/simple/test-http-proxy.js
+305 silly gunzTarPerm extractEntry test/core/simple/test-http-response-close.js
+306 silly gunzTarPerm extractEntry test/core/simple/test-http-contentLength0.js
+307 silly gunzTarPerm extractEntry test/core/simple/test-http-server-multiheaders.js
+308 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload.js
+309 silly gunzTarPerm extractEntry test/core/simple/test-http-set-cookies.js
+310 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload-buf.js
+311 silly gunzTarPerm extractEntry test/core/simple/test-http-status-code.js
+312 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort2.js
+313 silly gunzTarPerm extractEntry test/core/simple/test-http-upgrade-server2.js
+314 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort.js
+315 silly gunzTarPerm extractEntry test/core/simple/test-http.js
+316 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body.js
+317 silly gunzTarPerm extractEntry test/fixtures/agent2-cert.pem
+318 silly gunzTarPerm extractEntry test/fixtures/agent2-csr.pem
+319 silly gunzTarPerm extractEntry test/fixtures/agent2-key.pem
+320 silly gunzTarPerm extractEntry test/fixtures/agent2.cnf
+321 silly gunzTarPerm extractEntry test/helpers/http.js
+322 silly gunzTarPerm extractEntry test/helpers/index.js
+323 silly gunzTarPerm extractEntry test/helpers/ws.js
+324 silly gunzTarPerm extractEntry test/http/http-test.js
+325 silly gunzTarPerm extractEntry test/http/routing-table-test.js
+326 silly gunzTarPerm extractEntry test/macros/examples.js
+327 silly gunzTarPerm extractEntry test/macros/http.js
+328 silly gunzTarPerm extractEntry test/macros/index.js
+329 silly gunzTarPerm extractEntry test/macros/ws.js
+330 silly gunzTarPerm extractEntry test/ws/routing-table-test.js
+331 silly gunzTarPerm extractEntry test/ws/socket.io-test.js
+332 silly gunzTarPerm extractEntry test/ws/ws-test.js
+333 silly gunzTarPerm extractEntry bin/node-http-proxy
+334 verbose read json C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\package\package.json
+335 silly lockFile af0544c0-41769-0-4819284195546061-package C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\package
+336 verbose from cache C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\package\package.json
+337 verbose tar pack [ 'C:\\Users\\bofei.zq\\AppData\\Roaming\\npm-cache\\http-proxy\\0.8.7\\package.tgz',
+337 verbose tar pack   'C:\\Users\\bofei.zq\\AppData\\Local\\Temp\\npm-3516\\1356249741769-0.4819284195546061\\package' ]
+338 verbose tarball C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz
+339 verbose folder C:\Users\bofei.zq\AppData\Local\Temp\npm-3516\1356249741769-0.4819284195546061\package
+340 silly lockFile ee81b21c-che-http-proxy-0-8-7-package-tgz C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz
+341 verbose lock C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz C:\Users\bofei.zq\AppData\Roaming\npm-cache\ee81b21c-che-http-proxy-0-8-7-package-tgz.lock
+342 silly lockFile ee81b21c-che-http-proxy-0-8-7-package-tgz C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz
+343 silly lockFile 31a7e37e-m-cache-http-proxy-0-8-7-package C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package
+344 verbose lock C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package C:\Users\bofei.zq\AppData\Roaming\npm-cache\31a7e37e-m-cache-http-proxy-0-8-7-package.lock
+345 silly lockFile 31a7e37e-m-cache-http-proxy-0-8-7-package C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package
+346 verbose tar unpack C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz
+347 silly lockFile 31a7e37e-m-cache-http-proxy-0-8-7-package C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package
+348 verbose lock C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package C:\Users\bofei.zq\AppData\Roaming\npm-cache\31a7e37e-m-cache-http-proxy-0-8-7-package.lock
+349 silly gunzTarPerm modes [ '755', '644' ]
+350 silly gunzTarPerm extractEntry package.json
+351 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+352 silly gunzTarPerm extractEntry .npmignore
+353 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+354 silly gunzTarPerm extractEntry README.md
+355 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+356 silly gunzTarPerm extractEntry LICENSE
+357 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+358 silly gunzTarPerm extractEntry CHANGELOG.md
+359 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 438, 420 ]
+360 silly gunzTarPerm extractEntry config.sample.json
+361 silly gunzTarPerm modified mode [ 'config.sample.json', 438, 420 ]
+362 silly gunzTarPerm extractEntry .travis.yml
+363 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+364 silly gunzTarPerm extractEntry lib/node-http-proxy.js
+365 silly gunzTarPerm modified mode [ 'lib/node-http-proxy.js', 438, 420 ]
+366 silly gunzTarPerm extractEntry lib/node-http-proxy/http-proxy.js
+367 silly gunzTarPerm modified mode [ 'lib/node-http-proxy/http-proxy.js', 438, 420 ]
+368 silly gunzTarPerm extractEntry lib/node-http-proxy/proxy-table.js
+369 silly gunzTarPerm modified mode [ 'lib/node-http-proxy/proxy-table.js', 438, 420 ]
+370 silly gunzTarPerm extractEntry lib/node-http-proxy/routing-proxy.js
+371 silly gunzTarPerm modified mode [ 'lib/node-http-proxy/routing-proxy.js', 438, 420 ]
+372 silly gunzTarPerm extractEntry test/examples-test.js
+373 silly gunzTarPerm modified mode [ 'test/examples-test.js', 438, 420 ]
+374 silly gunzTarPerm extractEntry test/core/README.md
+375 silly gunzTarPerm modified mode [ 'test/core/README.md', 438, 420 ]
+376 silly gunzTarPerm extractEntry test/core/common.js
+377 silly gunzTarPerm modified mode [ 'test/core/common.js', 438, 420 ]
+378 silly gunzTarPerm extractEntry test/core/pummel/test-http-upload-timeout.js
+379 silly gunzTarPerm modified mode [ 'test/core/pummel/test-http-upload-timeout.js', 438, 420 ]
+380 silly gunzTarPerm extractEntry test/core/run
+381 silly gunzTarPerm modified mode [ 'test/core/run', 438, 420 ]
+382 silly gunzTarPerm extractEntry test/core/run-single
+383 silly gunzTarPerm modified mode [ 'test/core/run-single', 438, 420 ]
+384 silly gunzTarPerm extractEntry test/core/simple/test-http-chunked.js
+385 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-chunked.js', 438, 420 ]
+386 silly gunzTarPerm extractEntry test/core/simple/test-http-extra-response.js
+387 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-extra-response.js', 438, 420 ]
+388 silly gunzTarPerm extractEntry test/core/simple/test-http-head-request.js
+389 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-head-request.js', 438, 420 ]
+390 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body-end.js
+391 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-head-response-has-no-body-end.js',
+391 silly gunzTarPerm   438,
+391 silly gunzTarPerm   420 ]
+392 silly gunzTarPerm extractEntry test/core/simple/test-http-eof-on-connect.js
+393 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-eof-on-connect.js', 438, 420 ]
+394 silly gunzTarPerm extractEntry test/core/simple/test-http-host-headers.js
+395 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-host-headers.js', 438, 420 ]
+396 silly gunzTarPerm extractEntry test/core/simple/test-http-many-keep-alive-connections.js
+397 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-many-keep-alive-connections.js',
+397 silly gunzTarPerm   438,
+397 silly gunzTarPerm   420 ]
+398 silly gunzTarPerm extractEntry test/core/simple/test-http-multi-line-headers.js
+399 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-multi-line-headers.js', 438, 420 ]
+400 silly gunzTarPerm extractEntry test/core/simple/test-http-proxy.js
+401 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-proxy.js', 438, 420 ]
+402 silly gunzTarPerm extractEntry test/core/simple/test-http-response-close.js
+403 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-response-close.js', 438, 420 ]
+404 silly gunzTarPerm extractEntry test/core/simple/test-http-contentLength0.js
+405 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-contentLength0.js', 438, 420 ]
+406 silly gunzTarPerm extractEntry test/core/simple/test-http-server-multiheaders.js
+407 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-server-multiheaders.js', 438, 420 ]
+408 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload.js
+409 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-client-upload.js', 438, 420 ]
+410 silly gunzTarPerm extractEntry test/core/simple/test-http-set-cookies.js
+411 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-set-cookies.js', 438, 420 ]
+412 silly gunzTarPerm extractEntry test/core/simple/test-http-client-upload-buf.js
+413 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-client-upload-buf.js', 438, 420 ]
+414 silly gunzTarPerm extractEntry test/core/simple/test-http-status-code.js
+415 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-status-code.js', 438, 420 ]
+416 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort2.js
+417 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-client-abort2.js', 438, 420 ]
+418 silly gunzTarPerm extractEntry test/core/simple/test-http-upgrade-server2.js
+419 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-upgrade-server2.js', 438, 420 ]
+420 silly gunzTarPerm extractEntry test/core/simple/test-http-client-abort.js
+421 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-client-abort.js', 438, 420 ]
+422 silly gunzTarPerm extractEntry test/core/simple/test-http.js
+423 silly gunzTarPerm modified mode [ 'test/core/simple/test-http.js', 438, 420 ]
+424 silly gunzTarPerm extractEntry test/core/simple/test-http-head-response-has-no-body.js
+425 silly gunzTarPerm modified mode [ 'test/core/simple/test-http-head-response-has-no-body.js',
+425 silly gunzTarPerm   438,
+425 silly gunzTarPerm   420 ]
+426 silly gunzTarPerm extractEntry test/fixtures/agent2-cert.pem
+427 silly gunzTarPerm modified mode [ 'test/fixtures/agent2-cert.pem', 438, 420 ]
+428 silly gunzTarPerm extractEntry test/fixtures/agent2-csr.pem
+429 silly gunzTarPerm modified mode [ 'test/fixtures/agent2-csr.pem', 438, 420 ]
+430 silly gunzTarPerm extractEntry test/fixtures/agent2-key.pem
+431 silly gunzTarPerm modified mode [ 'test/fixtures/agent2-key.pem', 438, 420 ]
+432 silly gunzTarPerm extractEntry test/fixtures/agent2.cnf
+433 silly gunzTarPerm modified mode [ 'test/fixtures/agent2.cnf', 438, 420 ]
+434 silly gunzTarPerm extractEntry test/helpers/http.js
+435 silly gunzTarPerm modified mode [ 'test/helpers/http.js', 438, 420 ]
+436 silly gunzTarPerm extractEntry test/helpers/index.js
+437 silly gunzTarPerm modified mode [ 'test/helpers/index.js', 438, 420 ]
+438 silly gunzTarPerm extractEntry test/helpers/ws.js
+439 silly gunzTarPerm modified mode [ 'test/helpers/ws.js', 438, 420 ]
+440 silly gunzTarPerm extractEntry test/http/http-test.js
+441 silly gunzTarPerm modified mode [ 'test/http/http-test.js', 438, 420 ]
+442 silly gunzTarPerm extractEntry test/http/routing-table-test.js
+443 silly gunzTarPerm modified mode [ 'test/http/routing-table-test.js', 438, 420 ]
+444 silly gunzTarPerm extractEntry test/macros/examples.js
+445 silly gunzTarPerm modified mode [ 'test/macros/examples.js', 438, 420 ]
+446 silly gunzTarPerm extractEntry test/macros/http.js
+447 silly gunzTarPerm modified mode [ 'test/macros/http.js', 438, 420 ]
+448 silly gunzTarPerm extractEntry test/macros/index.js
+449 silly gunzTarPerm modified mode [ 'test/macros/index.js', 438, 420 ]
+450 silly gunzTarPerm extractEntry test/macros/ws.js
+451 silly gunzTarPerm modified mode [ 'test/macros/ws.js', 438, 420 ]
+452 silly gunzTarPerm extractEntry test/ws/routing-table-test.js
+453 silly gunzTarPerm modified mode [ 'test/ws/routing-table-test.js', 438, 420 ]
+454 silly gunzTarPerm extractEntry test/ws/socket.io-test.js
+455 silly gunzTarPerm modified mode [ 'test/ws/socket.io-test.js', 438, 420 ]
+456 silly gunzTarPerm extractEntry test/ws/ws-test.js
+457 silly gunzTarPerm modified mode [ 'test/ws/ws-test.js', 438, 420 ]
+458 silly gunzTarPerm extractEntry benchmark/websockets-throughput.js
+459 silly gunzTarPerm modified mode [ 'benchmark/websockets-throughput.js', 438, 420 ]
+460 silly gunzTarPerm extractEntry bin/node-http-proxy
+461 silly gunzTarPerm modified mode [ 'bin/node-http-proxy', 438, 420 ]
+462 silly gunzTarPerm extractEntry examples/package.json
+463 silly gunzTarPerm modified mode [ 'examples/package.json', 438, 420 ]
+464 silly gunzTarPerm extractEntry examples/balancer/simple-balancer.js
+465 silly gunzTarPerm modified mode [ 'examples/balancer/simple-balancer.js', 438, 420 ]
+466 silly gunzTarPerm extractEntry examples/helpers/store.js
+467 silly gunzTarPerm modified mode [ 'examples/helpers/store.js', 438, 420 ]
+468 silly gunzTarPerm extractEntry examples/http/basic-proxy.js
+469 silly gunzTarPerm modified mode [ 'examples/http/basic-proxy.js', 438, 420 ]
+470 silly gunzTarPerm extractEntry examples/http/concurrent-proxy.js
+471 silly gunzTarPerm modified mode [ 'examples/http/concurrent-proxy.js', 438, 420 ]
+472 silly gunzTarPerm extractEntry examples/http/custom-proxy-error.js
+473 silly gunzTarPerm modified mode [ 'examples/http/custom-proxy-error.js', 438, 420 ]
+474 silly gunzTarPerm extractEntry examples/http/forward-proxy.js
+475 silly gunzTarPerm modified mode [ 'examples/http/forward-proxy.js', 438, 420 ]
+476 silly gunzTarPerm extractEntry examples/http/latent-proxy.js
+477 silly gunzTarPerm modified mode [ 'examples/http/latent-proxy.js', 438, 420 ]
+478 silly gunzTarPerm extractEntry examples/http/proxy-https-to-http.js
+479 silly gunzTarPerm modified mode [ 'examples/http/proxy-https-to-http.js', 438, 420 ]
+480 silly gunzTarPerm extractEntry examples/http/proxy-https-to-https.js
+481 silly gunzTarPerm modified mode [ 'examples/http/proxy-https-to-https.js', 438, 420 ]
+482 silly gunzTarPerm extractEntry examples/http/proxy-table.js
+483 silly gunzTarPerm modified mode [ 'examples/http/proxy-table.js', 438, 420 ]
+484 silly gunzTarPerm extractEntry examples/http/standalone-proxy.js
+485 silly gunzTarPerm modified mode [ 'examples/http/standalone-proxy.js', 438, 420 ]
+486 silly gunzTarPerm extractEntry examples/middleware/bodyDecoder-middleware.js
+487 silly gunzTarPerm modified mode [ 'examples/middleware/bodyDecoder-middleware.js', 438, 420 ]
+488 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware-proxytable.js
+489 silly gunzTarPerm modified mode [ 'examples/middleware/gzip-middleware-proxytable.js', 438, 420 ]
+490 silly gunzTarPerm extractEntry examples/middleware/gzip-middleware.js
+491 silly gunzTarPerm modified mode [ 'examples/middleware/gzip-middleware.js', 438, 420 ]
+492 silly gunzTarPerm extractEntry examples/middleware/jsonp-middleware.js
+493 silly gunzTarPerm modified mode [ 'examples/middleware/jsonp-middleware.js', 438, 420 ]
+494 silly gunzTarPerm extractEntry examples/middleware/modifyResponse-middleware.js
+495 silly gunzTarPerm modified mode [ 'examples/middleware/modifyResponse-middleware.js', 438, 420 ]
+496 silly gunzTarPerm extractEntry examples/middleware/url-middleware.js
+497 silly gunzTarPerm modified mode [ 'examples/middleware/url-middleware.js', 438, 420 ]
+498 silly gunzTarPerm extractEntry examples/middleware/url-middleware2.js
+499 silly gunzTarPerm modified mode [ 'examples/middleware/url-middleware2.js', 438, 420 ]
+500 silly gunzTarPerm extractEntry examples/websocket/latent-websocket-proxy.js
+501 silly gunzTarPerm modified mode [ 'examples/websocket/latent-websocket-proxy.js', 438, 420 ]
+502 silly gunzTarPerm extractEntry examples/websocket/standalone-websocket-proxy.js
+503 silly gunzTarPerm modified mode [ 'examples/websocket/standalone-websocket-proxy.js', 438, 420 ]
+504 silly gunzTarPerm extractEntry examples/websocket/websocket-proxy.js
+505 silly gunzTarPerm modified mode [ 'examples/websocket/websocket-proxy.js', 438, 420 ]
+506 silly gunzTarPerm extractEntry examples/node_modules/connect/package.json
+507 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/package.json', 438, 420 ]
+508 silly gunzTarPerm extractEntry examples/node_modules/connect/.npmignore
+509 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/.npmignore', 438, 420 ]
+510 silly gunzTarPerm extractEntry examples/node_modules/connect/LICENSE
+511 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/LICENSE', 438, 420 ]
+512 silly gunzTarPerm extractEntry examples/node_modules/connect/index.js
+513 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/index.js', 438, 420 ]
+514 silly gunzTarPerm extractEntry examples/node_modules/connect/test.js
+515 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/test.js', 438, 420 ]
+516 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/connect.js
+517 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/connect.js', 438, 420 ]
+518 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/http.js
+519 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/http.js', 438, 420 ]
+520 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/https.js
+521 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/https.js', 438, 420 ]
+522 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/index.js
+523 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/index.js', 438, 420 ]
+524 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/patch.js
+525 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/patch.js', 438, 420 ]
+526 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/utils.js
+527 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/utils.js', 438, 420 ]
+528 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/basicAuth.js
+529 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/basicAuth.js',
+529 silly gunzTarPerm   438,
+529 silly gunzTarPerm   420 ]
+530 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/directory.js
+531 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/directory.js',
+531 silly gunzTarPerm   438,
+531 silly gunzTarPerm   420 ]
+532 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/errorHandler.js
+533 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/errorHandler.js',
+533 silly gunzTarPerm   438,
+533 silly gunzTarPerm   420 ]
+534 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/favicon.js
+535 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/favicon.js',
+535 silly gunzTarPerm   438,
+535 silly gunzTarPerm   420 ]
+536 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/limit.js
+537 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/limit.js',
+537 silly gunzTarPerm   438,
+537 silly gunzTarPerm   420 ]
+538 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/csrf.js
+539 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/csrf.js',
+539 silly gunzTarPerm   438,
+539 silly gunzTarPerm   420 ]
+540 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/methodOverride.js
+541 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/methodOverride.js',
+541 silly gunzTarPerm   438,
+541 silly gunzTarPerm   420 ]
+542 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/profiler.js
+543 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/profiler.js',
+543 silly gunzTarPerm   438,
+543 silly gunzTarPerm   420 ]
+544 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/query.js
+545 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/query.js',
+545 silly gunzTarPerm   438,
+545 silly gunzTarPerm   420 ]
+546 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/responseTime.js
+547 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/responseTime.js',
+547 silly gunzTarPerm   438,
+547 silly gunzTarPerm   420 ]
+548 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/router.js
+549 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/router.js',
+549 silly gunzTarPerm   438,
+549 silly gunzTarPerm   420 ]
+550 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/cookieParser.js
+551 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/cookieParser.js',
+551 silly gunzTarPerm   438,
+551 silly gunzTarPerm   420 ]
+552 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/static.js
+553 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/static.js',
+553 silly gunzTarPerm   438,
+553 silly gunzTarPerm   420 ]
+554 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/compiler.js
+555 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/compiler.js',
+555 silly gunzTarPerm   438,
+555 silly gunzTarPerm   420 ]
+556 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session.js
+557 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/session.js',
+557 silly gunzTarPerm   438,
+557 silly gunzTarPerm   420 ]
+558 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/bodyParser.js
+559 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/bodyParser.js',
+559 silly gunzTarPerm   438,
+559 silly gunzTarPerm   420 ]
+560 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/vhost.js
+561 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/vhost.js',
+561 silly gunzTarPerm   438,
+561 silly gunzTarPerm   420 ]
+562 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/logger.js
+563 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/logger.js',
+563 silly gunzTarPerm   438,
+563 silly gunzTarPerm   420 ]
+564 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/cookie.js
+565 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/session/cookie.js',
+565 silly gunzTarPerm   438,
+565 silly gunzTarPerm   420 ]
+566 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/memory.js
+567 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/session/memory.js',
+567 silly gunzTarPerm   438,
+567 silly gunzTarPerm   420 ]
+568 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/session.js
+569 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/session/session.js',
+569 silly gunzTarPerm   438,
+569 silly gunzTarPerm   420 ]
+570 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/middleware/session/store.js
+571 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/middleware/session/store.js',
+571 silly gunzTarPerm   438,
+571 silly gunzTarPerm   420 ]
+572 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/directory.html
+573 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/directory.html',
+573 silly gunzTarPerm   438,
+573 silly gunzTarPerm   420 ]
+574 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/error.html
+575 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/error.html',
+575 silly gunzTarPerm   438,
+575 silly gunzTarPerm   420 ]
+576 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/favicon.ico
+577 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/favicon.ico',
+577 silly gunzTarPerm   438,
+577 silly gunzTarPerm   420 ]
+578 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_edit.png
+579 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_edit.png',
+579 silly gunzTarPerm   438,
+579 silly gunzTarPerm   420 ]
+580 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page.png
+581 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page.png',
+581 silly gunzTarPerm   438,
+581 silly gunzTarPerm   420 ]
+582 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_attach.png
+583 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_attach.png',
+583 silly gunzTarPerm   438,
+583 silly gunzTarPerm   420 ]
+584 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_code.png
+585 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_code.png',
+585 silly gunzTarPerm   438,
+585 silly gunzTarPerm   420 ]
+586 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_copy.png
+587 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_copy.png',
+587 silly gunzTarPerm   438,
+587 silly gunzTarPerm   420 ]
+588 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_delete.png
+589 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_delete.png',
+589 silly gunzTarPerm   438,
+589 silly gunzTarPerm   420 ]
+590 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_edit.png
+591 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_edit.png',
+591 silly gunzTarPerm   438,
+591 silly gunzTarPerm   420 ]
+592 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_error.png
+593 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_error.png',
+593 silly gunzTarPerm   438,
+593 silly gunzTarPerm   420 ]
+594 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_excel.png
+595 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_excel.png',
+595 silly gunzTarPerm   438,
+595 silly gunzTarPerm   420 ]
+596 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_find.png
+597 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_find.png',
+597 silly gunzTarPerm   438,
+597 silly gunzTarPerm   420 ]
+598 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_gear.png
+599 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_gear.png',
+599 silly gunzTarPerm   438,
+599 silly gunzTarPerm   420 ]
+600 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_go.png
+601 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_go.png',
+601 silly gunzTarPerm   438,
+601 silly gunzTarPerm   420 ]
+602 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_green.png
+603 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_green.png',
+603 silly gunzTarPerm   438,
+603 silly gunzTarPerm   420 ]
+604 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_key.png
+605 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_key.png',
+605 silly gunzTarPerm   438,
+605 silly gunzTarPerm   420 ]
+606 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_lightning.png
+607 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_lightning.png',
+607 silly gunzTarPerm   438,
+607 silly gunzTarPerm   420 ]
+608 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_link.png
+609 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_link.png',
+609 silly gunzTarPerm   438,
+609 silly gunzTarPerm   420 ]
+610 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_paintbrush.png
+611 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_paintbrush.png',
+611 silly gunzTarPerm   438,
+611 silly gunzTarPerm   420 ]
+612 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_paste.png
+613 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_paste.png',
+613 silly gunzTarPerm   438,
+613 silly gunzTarPerm   420 ]
+614 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_red.png
+615 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_red.png',
+615 silly gunzTarPerm   438,
+615 silly gunzTarPerm   420 ]
+616 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_refresh.png
+617 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_refresh.png',
+617 silly gunzTarPerm   438,
+617 silly gunzTarPerm   420 ]
+618 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_save.png
+619 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_save.png',
+619 silly gunzTarPerm   438,
+619 silly gunzTarPerm   420 ]
+620 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white.png
+621 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white.png',
+621 silly gunzTarPerm   438,
+621 silly gunzTarPerm   420 ]
+622 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_acrobat.png
+623 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_acrobat.png',
+623 silly gunzTarPerm   438,
+623 silly gunzTarPerm   420 ]
+624 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_actionscript.png
+625 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_actionscript.png',
+625 silly gunzTarPerm   438,
+625 silly gunzTarPerm   420 ]
+626 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_add.png
+627 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_add.png',
+627 silly gunzTarPerm   438,
+627 silly gunzTarPerm   420 ]
+628 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_c.png
+629 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_c.png',
+629 silly gunzTarPerm   438,
+629 silly gunzTarPerm   420 ]
+630 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_camera.png
+631 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_camera.png',
+631 silly gunzTarPerm   438,
+631 silly gunzTarPerm   420 ]
+632 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_cd.png
+633 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_cd.png',
+633 silly gunzTarPerm   438,
+633 silly gunzTarPerm   420 ]
+634 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_code.png
+635 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_code.png',
+635 silly gunzTarPerm   438,
+635 silly gunzTarPerm   420 ]
+636 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_code_red.png
+637 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_code_red.png',
+637 silly gunzTarPerm   438,
+637 silly gunzTarPerm   420 ]
+638 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_coldfusion.png
+639 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_coldfusion.png',
+639 silly gunzTarPerm   438,
+639 silly gunzTarPerm   420 ]
+640 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_compressed.png
+641 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_compressed.png',
+641 silly gunzTarPerm   438,
+641 silly gunzTarPerm   420 ]
+642 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_copy.png
+643 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_copy.png',
+643 silly gunzTarPerm   438,
+643 silly gunzTarPerm   420 ]
+644 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_cplusplus.png
+645 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_cplusplus.png',
+645 silly gunzTarPerm   438,
+645 silly gunzTarPerm   420 ]
+646 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_csharp.png
+647 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_csharp.png',
+647 silly gunzTarPerm   438,
+647 silly gunzTarPerm   420 ]
+648 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_cup.png
+649 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_cup.png',
+649 silly gunzTarPerm   438,
+649 silly gunzTarPerm   420 ]
+650 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_database.png
+651 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_database.png',
+651 silly gunzTarPerm   438,
+651 silly gunzTarPerm   420 ]
+652 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_delete.png
+653 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_delete.png',
+653 silly gunzTarPerm   438,
+653 silly gunzTarPerm   420 ]
+654 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_dvd.png
+655 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_dvd.png',
+655 silly gunzTarPerm   438,
+655 silly gunzTarPerm   420 ]
+656 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_add.png
+657 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_add.png',
+657 silly gunzTarPerm   438,
+657 silly gunzTarPerm   420 ]
+658 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_error.png
+659 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_error.png',
+659 silly gunzTarPerm   438,
+659 silly gunzTarPerm   420 ]
+660 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_excel.png
+661 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_excel.png',
+661 silly gunzTarPerm   438,
+661 silly gunzTarPerm   420 ]
+662 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_find.png
+663 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_find.png',
+663 silly gunzTarPerm   438,
+663 silly gunzTarPerm   420 ]
+664 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_flash.png
+665 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_flash.png',
+665 silly gunzTarPerm   438,
+665 silly gunzTarPerm   420 ]
+666 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_freehand.png
+667 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_freehand.png',
+667 silly gunzTarPerm   438,
+667 silly gunzTarPerm   420 ]
+668 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_gear.png
+669 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_gear.png',
+669 silly gunzTarPerm   438,
+669 silly gunzTarPerm   420 ]
+670 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_get.png
+671 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_get.png',
+671 silly gunzTarPerm   438,
+671 silly gunzTarPerm   420 ]
+672 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_go.png
+673 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_go.png',
+673 silly gunzTarPerm   438,
+673 silly gunzTarPerm   420 ]
+674 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_h.png
+675 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_h.png',
+675 silly gunzTarPerm   438,
+675 silly gunzTarPerm   420 ]
+676 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_horizontal.png
+677 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_horizontal.png',
+677 silly gunzTarPerm   438,
+677 silly gunzTarPerm   420 ]
+678 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_key.png
+679 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_key.png',
+679 silly gunzTarPerm   438,
+679 silly gunzTarPerm   420 ]
+680 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_lightning.png
+681 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_lightning.png',
+681 silly gunzTarPerm   438,
+681 silly gunzTarPerm   420 ]
+682 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_link.png
+683 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_link.png',
+683 silly gunzTarPerm   438,
+683 silly gunzTarPerm   420 ]
+684 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_magnify.png
+685 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_magnify.png',
+685 silly gunzTarPerm   438,
+685 silly gunzTarPerm   420 ]
+686 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_medal.png
+687 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_medal.png',
+687 silly gunzTarPerm   438,
+687 silly gunzTarPerm   420 ]
+688 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_office.png
+689 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_office.png',
+689 silly gunzTarPerm   438,
+689 silly gunzTarPerm   420 ]
+690 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_paint.png
+691 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_paint.png',
+691 silly gunzTarPerm   438,
+691 silly gunzTarPerm   420 ]
+692 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_paintbrush.png
+693 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_paintbrush.png',
+693 silly gunzTarPerm   438,
+693 silly gunzTarPerm   420 ]
+694 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_paste.png
+695 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_paste.png',
+695 silly gunzTarPerm   438,
+695 silly gunzTarPerm   420 ]
+696 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_php.png
+697 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_php.png',
+697 silly gunzTarPerm   438,
+697 silly gunzTarPerm   420 ]
+698 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_picture.png
+699 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_picture.png',
+699 silly gunzTarPerm   438,
+699 silly gunzTarPerm   420 ]
+700 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_powerpoint.png
+701 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_powerpoint.png',
+701 silly gunzTarPerm   438,
+701 silly gunzTarPerm   420 ]
+702 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_put.png
+703 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_put.png',
+703 silly gunzTarPerm   438,
+703 silly gunzTarPerm   420 ]
+704 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_ruby.png
+705 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_ruby.png',
+705 silly gunzTarPerm   438,
+705 silly gunzTarPerm   420 ]
+706 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_stack.png
+707 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_stack.png',
+707 silly gunzTarPerm   438,
+707 silly gunzTarPerm   420 ]
+708 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_star.png
+709 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_star.png',
+709 silly gunzTarPerm   438,
+709 silly gunzTarPerm   420 ]
+710 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_swoosh.png
+711 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_swoosh.png',
+711 silly gunzTarPerm   438,
+711 silly gunzTarPerm   420 ]
+712 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_text.png
+713 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_text.png',
+713 silly gunzTarPerm   438,
+713 silly gunzTarPerm   420 ]
+714 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_text_width.png
+715 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_text_width.png',
+715 silly gunzTarPerm   438,
+715 silly gunzTarPerm   420 ]
+716 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_tux.png
+717 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_tux.png',
+717 silly gunzTarPerm   438,
+717 silly gunzTarPerm   420 ]
+718 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_vector.png
+719 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_vector.png',
+719 silly gunzTarPerm   438,
+719 silly gunzTarPerm   420 ]
+720 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_visualstudio.png
+721 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_visualstudio.png',
+721 silly gunzTarPerm   438,
+721 silly gunzTarPerm   420 ]
+722 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_width.png
+723 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_width.png',
+723 silly gunzTarPerm   438,
+723 silly gunzTarPerm   420 ]
+724 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_word.png
+725 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_word.png',
+725 silly gunzTarPerm   438,
+725 silly gunzTarPerm   420 ]
+726 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_world.png
+727 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_world.png',
+727 silly gunzTarPerm   438,
+727 silly gunzTarPerm   420 ]
+728 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_wrench.png
+729 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_wrench.png',
+729 silly gunzTarPerm   438,
+729 silly gunzTarPerm   420 ]
+730 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_white_zip.png
+731 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_white_zip.png',
+731 silly gunzTarPerm   438,
+731 silly gunzTarPerm   420 ]
+732 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_word.png
+733 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_word.png',
+733 silly gunzTarPerm   438,
+733 silly gunzTarPerm   420 ]
+734 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/icons/page_world.png
+735 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/icons/page_world.png',
+735 silly gunzTarPerm   438,
+735 silly gunzTarPerm   420 ]
+736 silly gunzTarPerm extractEntry examples/node_modules/connect/lib/public/style.css
+737 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/lib/public/style.css',
+737 silly gunzTarPerm   438,
+737 silly gunzTarPerm   420 ]
+738 silly gunzTarPerm extractEntry examples/node_modules/connect/meta.json
+739 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/meta.json', 438, 420 ]
+740 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/package.json
+741 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/package.json',
+741 silly gunzTarPerm   438,
+741 silly gunzTarPerm   420 ]
+742 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/README.md
+743 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/README.md',
+743 silly gunzTarPerm   438,
+743 silly gunzTarPerm   420 ]
+744 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/LICENSE
+745 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/LICENSE',
+745 silly gunzTarPerm   438,
+745 silly gunzTarPerm   420 ]
+746 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/mime.js
+747 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/mime.js',
+747 silly gunzTarPerm   438,
+747 silly gunzTarPerm   420 ]
+748 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/test.js
+749 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/test.js',
+749 silly gunzTarPerm   438,
+749 silly gunzTarPerm   420 ]
+750 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/types/mime.types
+751 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/types/mime.types',
+751 silly gunzTarPerm   438,
+751 silly gunzTarPerm   420 ]
+752 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/mime/types/node.types
+753 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/mime/types/node.types',
+753 silly gunzTarPerm   438,
+753 silly gunzTarPerm   420 ]
+754 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/package.json
+755 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/package.json',
+755 silly gunzTarPerm   438,
+755 silly gunzTarPerm   420 ]
+756 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/.npmignore
+757 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/.npmignore',
+757 silly gunzTarPerm   438,
+757 silly gunzTarPerm   420 ]
+758 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/benchmark.js
+759 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/benchmark.js',
+759 silly gunzTarPerm   438,
+759 silly gunzTarPerm   420 ]
+760 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/examples.js
+761 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/examples.js',
+761 silly gunzTarPerm   438,
+761 silly gunzTarPerm   420 ]
+762 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/index.js
+763 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/index.js',
+763 silly gunzTarPerm   438,
+763 silly gunzTarPerm   420 ]
+764 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/History.md
+765 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/History.md',
+765 silly gunzTarPerm   438,
+765 silly gunzTarPerm   420 ]
+766 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/.gitmodules
+767 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/.gitmodules',
+767 silly gunzTarPerm   438,
+767 silly gunzTarPerm   420 ]
+768 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/component.json
+769 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/component.json',
+769 silly gunzTarPerm   438,
+769 silly gunzTarPerm   420 ]
+770 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/Makefile
+771 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/Makefile',
+771 silly gunzTarPerm   438,
+771 silly gunzTarPerm   420 ]
+772 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/.travis.yml
+773 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/.travis.yml',
+773 silly gunzTarPerm   438,
+773 silly gunzTarPerm   420 ]
+774 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/Readme.md
+775 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/Readme.md',
+775 silly gunzTarPerm   438,
+775 silly gunzTarPerm   420 ]
+776 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/parse.js
+777 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/parse.js',
+777 silly gunzTarPerm   438,
+777 silly gunzTarPerm   420 ]
+778 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/stringify.js
+779 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/stringify.js',
+779 silly gunzTarPerm   438,
+779 silly gunzTarPerm   420 ]
+780 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/expect.js
+781 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/expect.js',
+781 silly gunzTarPerm   438,
+781 silly gunzTarPerm   420 ]
+782 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/jquery.js
+783 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/jquery.js',
+783 silly gunzTarPerm   438,
+783 silly gunzTarPerm   420 ]
+784 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/mocha.js
+785 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/mocha.js',
+785 silly gunzTarPerm   438,
+785 silly gunzTarPerm   420 ]
+786 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/qs.js
+787 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/qs.js',
+787 silly gunzTarPerm   438,
+787 silly gunzTarPerm   420 ]
+788 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/index.html
+789 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/index.html',
+789 silly gunzTarPerm   438,
+789 silly gunzTarPerm   420 ]
+790 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/mocha.css
+791 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/mocha.css',
+791 silly gunzTarPerm   438,
+791 silly gunzTarPerm   420 ]
+792 silly gunzTarPerm extractEntry examples/node_modules/connect/node_modules/qs/test/browser/qs.css
+793 silly gunzTarPerm modified mode [ 'examples/node_modules/connect/node_modules/qs/test/browser/qs.css',
+793 silly gunzTarPerm   438,
+793 silly gunzTarPerm   420 ]
+794 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/package.json
+795 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/package.json', 438, 420 ]
+796 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/.npmignore
+797 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/.npmignore', 438, 420 ]
+798 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/README.md
+799 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/README.md', 438, 420 ]
+800 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/index.js
+801 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/index.js', 438, 420 ]
+802 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/lib/gzip.js
+803 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/lib/gzip.js', 438, 420 ]
+804 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/lib/staticGzip.js
+805 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/lib/staticGzip.js',
+805 silly gunzTarPerm   438,
+805 silly gunzTarPerm   420 ]
+806 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/gzip.test.js
+807 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/gzip.test.js',
+807 silly gunzTarPerm   438,
+807 silly gunzTarPerm   420 ]
+808 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/staticGzip.test.js
+809 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/staticGzip.test.js',
+809 silly gunzTarPerm   438,
+809 silly gunzTarPerm   420 ]
+810 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/blank.gif
+811 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/fixtures/blank.gif',
+811 silly gunzTarPerm   438,
+811 silly gunzTarPerm   420 ]
+812 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/index.html
+813 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/fixtures/index.html',
+813 silly gunzTarPerm   438,
+813 silly gunzTarPerm   420 ]
+814 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/style.css
+815 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/fixtures/style.css',
+815 silly gunzTarPerm   438,
+815 silly gunzTarPerm   420 ]
+816 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/fixtures/sub/index.html
+817 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/fixtures/sub/index.html',
+817 silly gunzTarPerm   438,
+817 silly gunzTarPerm   420 ]
+818 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/test/helpers/index.js
+819 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/test/helpers/index.js',
+819 silly gunzTarPerm   438,
+819 silly gunzTarPerm   420 ]
+820 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/package.json
+821 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/package.json',
+821 silly gunzTarPerm   438,
+821 silly gunzTarPerm   420 ]
+822 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/README.md
+823 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/README.md',
+823 silly gunzTarPerm   438,
+823 silly gunzTarPerm   420 ]
+824 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/LICENSE
+825 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/LICENSE',
+825 silly gunzTarPerm   438,
+825 silly gunzTarPerm   420 ]
+826 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/mime.js
+827 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/mime.js',
+827 silly gunzTarPerm   438,
+827 silly gunzTarPerm   420 ]
+828 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/test.js
+829 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/test.js',
+829 silly gunzTarPerm   438,
+829 silly gunzTarPerm   420 ]
+830 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/types/mime.types
+831 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/types/mime.types',
+831 silly gunzTarPerm   438,
+831 silly gunzTarPerm   420 ]
+832 silly gunzTarPerm extractEntry examples/node_modules/connect-gzip/node_modules/mime/types/node.types
+833 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-gzip/node_modules/mime/types/node.types',
+833 silly gunzTarPerm   438,
+833 silly gunzTarPerm   420 ]
+834 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/package.json
+835 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/package.json', 438, 420 ]
+836 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/.npmignore
+837 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/.npmignore', 438, 420 ]
+838 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/README.md
+839 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/README.md', 438, 420 ]
+840 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/index.js
+841 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/index.js', 438, 420 ]
+842 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/lib/connect-jsonp.js
+843 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/lib/connect-jsonp.js',
+843 silly gunzTarPerm   438,
+843 silly gunzTarPerm   420 ]
+844 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/examples/example.js
+845 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/examples/example.js',
+845 silly gunzTarPerm   438,
+845 silly gunzTarPerm   420 ]
+846 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/Makefile
+847 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/Makefile', 438, 420 ]
+848 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/History.md
+849 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/History.md', 438, 420 ]
+850 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/.gitmodules
+851 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/.gitmodules', 438, 420 ]
+852 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/package.json
+853 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/package.json',
+853 silly gunzTarPerm   438,
+853 silly gunzTarPerm   420 ]
+854 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/.npmignore
+855 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/.npmignore',
+855 silly gunzTarPerm   438,
+855 silly gunzTarPerm   420 ]
+856 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/.gitmodules
+857 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/.gitmodules',
+857 silly gunzTarPerm   438,
+857 silly gunzTarPerm   420 ]
+858 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/bin/expresso
+859 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/bin/expresso',
+859 silly gunzTarPerm   438,
+859 silly gunzTarPerm   420 ]
+860 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/api.html
+861 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/docs/api.html',
+861 silly gunzTarPerm   438,
+861 silly gunzTarPerm   420 ]
+862 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/index.html
+863 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/docs/index.html',
+863 silly gunzTarPerm   438,
+863 silly gunzTarPerm   420 ]
+864 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/index.md
+865 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/docs/index.md',
+865 silly gunzTarPerm   438,
+865 silly gunzTarPerm   420 ]
+866 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/layout/foot.html
+867 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/docs/layout/foot.html',
+867 silly gunzTarPerm   438,
+867 silly gunzTarPerm   420 ]
+868 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/docs/layout/head.html
+869 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/docs/layout/head.html',
+869 silly gunzTarPerm   438,
+869 silly gunzTarPerm   420 ]
+870 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/History.md
+871 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/History.md',
+871 silly gunzTarPerm   438,
+871 silly gunzTarPerm   420 ]
+872 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/lib/bar.js
+873 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/lib/bar.js',
+873 silly gunzTarPerm   438,
+873 silly gunzTarPerm   420 ]
+874 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/lib/foo.js
+875 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/lib/foo.js',
+875 silly gunzTarPerm   438,
+875 silly gunzTarPerm   420 ]
+876 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/Makefile
+877 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/Makefile',
+877 silly gunzTarPerm   438,
+877 silly gunzTarPerm   420 ]
+878 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/Readme.md
+879 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/Readme.md',
+879 silly gunzTarPerm   438,
+879 silly gunzTarPerm   420 ]
+880 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/assert.test.js
+881 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/assert.test.js',
+881 silly gunzTarPerm   438,
+881 silly gunzTarPerm   420 ]
+882 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/async.test.js
+883 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/async.test.js',
+883 silly gunzTarPerm   438,
+883 silly gunzTarPerm   420 ]
+884 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/bar.test.js
+885 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/bar.test.js',
+885 silly gunzTarPerm   438,
+885 silly gunzTarPerm   420 ]
+886 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/foo.test.js
+887 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/foo.test.js',
+887 silly gunzTarPerm   438,
+887 silly gunzTarPerm   420 ]
+888 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/http.test.js
+889 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/http.test.js',
+889 silly gunzTarPerm   438,
+889 silly gunzTarPerm   420 ]
+890 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/serial/async.test.js
+891 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/serial/async.test.js',
+891 silly gunzTarPerm   438,
+891 silly gunzTarPerm   420 ]
+892 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/support/expresso/test/serial/http.test.js
+893 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/support/expresso/test/serial/http.test.js',
+893 silly gunzTarPerm   438,
+893 silly gunzTarPerm   420 ]
+894 silly gunzTarPerm extractEntry examples/node_modules/connect-jsonp/test/test.js
+895 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-jsonp/test/test.js', 438, 420 ]
+896 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/package.json
+897 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-restreamer/package.json',
+897 silly gunzTarPerm   438,
+897 silly gunzTarPerm   420 ]
+898 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/.npmignore
+899 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-restreamer/.npmignore',
+899 silly gunzTarPerm   438,
+899 silly gunzTarPerm   420 ]
+900 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/index.js
+901 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-restreamer/index.js', 438, 420 ]
+902 silly gunzTarPerm extractEntry examples/node_modules/connect-restreamer/readme.markdown
+903 silly gunzTarPerm modified mode [ 'examples/node_modules/connect-restreamer/readme.markdown',
+903 silly gunzTarPerm   438,
+903 silly gunzTarPerm   420 ]
+904 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/package.json
+905 silly gunzTarPerm modified mode [ 'examples/node_modules/proxy-by-url/package.json', 438, 420 ]
+906 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/.npmignore
+907 silly gunzTarPerm modified mode [ 'examples/node_modules/proxy-by-url/.npmignore', 438, 420 ]
+908 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/index.js
+909 silly gunzTarPerm modified mode [ 'examples/node_modules/proxy-by-url/index.js', 438, 420 ]
+910 silly gunzTarPerm extractEntry examples/node_modules/proxy-by-url/readme.markdown
+911 silly gunzTarPerm modified mode [ 'examples/node_modules/proxy-by-url/readme.markdown',
+911 silly gunzTarPerm   438,
+911 silly gunzTarPerm   420 ]
+912 verbose read json C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package\package.json
+913 silly lockFile 31a7e37e-m-cache-http-proxy-0-8-7-package C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package
+914 silly shasum updated bytes 40960
+915 silly shasum updated bytes 40960
+916 silly shasum updated bytes 40960
+917 silly shasum updated bytes 40960
+918 silly shasum updated bytes 40960
+919 silly shasum updated bytes 40960
+920 silly shasum updated bytes 40960
+921 silly shasum updated bytes 10458
+922 info shasum c9fa72fa0b85e8e468af5f70b6f689dc2f0f1ce5
+922 info shasum C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz
+923 verbose from cache C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package\package.json
+924 verbose chmod C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz 644
+925 silly chown skipping for windows C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package.tgz
+926 silly lockFile 2cdb58bd--http-proxy-http-proxy-0-8-7-tgz https://registry.npmjs.org/http-proxy/-/http-proxy-0.8.7.tgz
+927 silly lockFile f835028c-http-proxy-0-8-7 http-proxy@0.8.7
+928 silly lockFile d4c17bc7-http-proxy http-proxy@
+929 silly resolved [ { name: 'http-proxy',
+929 silly resolved     version: '0.8.7',
+929 silly resolved     description: 'A full-featured http reverse proxy for node.js',
+929 silly resolved     author: { name: 'Nodejitsu Inc.', email: 'info@nodejitsu.com' },
+929 silly resolved     maintainers: [ [Object], [Object] ],
+929 silly resolved     repository:
+929 silly resolved      { type: 'git',
+929 silly resolved        url: 'http://github.com/nodejitsu/node-http-proxy.git' },
+929 silly resolved     keywords: [ 'reverse', 'proxy', 'http' ],
+929 silly resolved     dependencies: { colors: '0.x.x', optimist: '0.3.x', pkginfo: '0.2.x' },
+929 silly resolved     devDependencies:
+929 silly resolved      { request: '1.9.x',
+929 silly resolved        vows: '0.6.x',
+929 silly resolved        async: '0.1.x',
+929 silly resolved        'socket.io': '0.9.11',
+929 silly resolved        'socket.io-client': '0.9.11',
+929 silly resolved        ws: '0.4.23' },
+929 silly resolved     main: './lib/node-http-proxy',
+929 silly resolved     bin: { 'node-http-proxy': './bin/node-http-proxy' },
+929 silly resolved     scripts:
+929 silly resolved      { test: 'npm run-script test-http && npm run-script test-https && npm run-script test-core',
+929 silly resolved        'test-http': 'vows --spec && vows --spec --target=https',
+929 silly resolved        'test-https': 'vows --spec --proxy=https && vows --spec --proxy=https --target=https',
+929 silly resolved        'test-core': 'test/core/run' },
+929 silly resolved     engines: { node: '>= 0.6.6' },
+929 silly resolved     readme: '# node-http-proxy [![Build Status](https://secure.travis-ci.org/nodejitsu/node-http-proxy.png)](http://travis-ci.org/nodejitsu/node-http-proxy)\n\n<img src="http://i.imgur.com/8fTt9.png" />\n\n## Battle-hardened node.js http proxy\n\n### Features\n\n* Reverse proxies incoming http.ServerRequest streams\n* Can be used as a CommonJS module in node.js\n* Uses event buffering to support application latency in proxied requests\n* Reverse or Forward Proxy based on simple JSON-based configuration\n* Supports [WebSockets][1]\n* Supports [HTTPS][2]\n* Minimal request overhead and latency\n* Full suite of functional tests\n* Battled-hardened through __production usage__ @ [nodejitsu.com][0]\n* Written entirely in Javascript\n* Easy to use API\n\n### When to use node-http-proxy\n\nLet\'s suppose you were running multiple http application servers, but you only wanted to expose one machine to the internet. You could setup node-http-proxy on that one machine and then reverse-proxy the incoming http requests to locally running services which were not exposed to the outside network. \n\n### Installing npm (node package manager)\n\n```\ncurl https://npmjs.org/install.sh | sh\n```\n\n### Installing node-http-proxy\n\n```\nnpm install http-proxy\n```\n\n## Using node-http-proxy\n\nThere are several ways to use node-http-proxy; the library is designed to be flexible so that it can be used by itself, or in conjunction with other node.js libraries / tools:\n\n1. Standalone HTTP Proxy server\n2. Inside of another HTTP server (like Connect)\n3. In conjunction with a Proxy Routing Table\n4. As a forward-proxy with a reverse proxy \n5. From the command-line as a long running process\n6. customized with 3rd party middleware.\n\nIn each of these scenarios node-http-proxy can handle any of these types of requests:\n\n1. HTTP Requests (http://)\n2. HTTPS Requests (https://)\n3. WebSocket Requests (ws://)\n4. Secure WebSocket Requests (wss://)\n\nSee the [examples][3] for more working sample code.\n\n### Setup a basic stand-alone proxy server\n\n``` js\nvar http = require(\'http\'),\n    httpProxy = require(\'http-proxy\');\n//\n// Create your proxy server\n//\nhttpProxy.createServer(9000, \'localhost\').listen(8000);\n\n//\n// Create your target server\n//\nhttp.createServer(function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'request successfully proxied!\' + \'\\n\' + JSON.stringify(req.headers, true, 2));\n  res.end();\n}).listen(9000);\n```\n\n### Setup a stand-alone proxy server with custom server logic\n\n``` js\nvar http = require(\'http\'),\n    httpProxy = require(\'http-proxy\');\n    \n//\n// Create a proxy server with custom application logic\n//\nhttpProxy.createServer(function (req, res, proxy) {\n  //\n  // Put your custom server logic here\n  //\n  proxy.proxyRequest(req, res, {\n    host: \'localhost\',\n    port: 9000\n  });\n}).listen(8000);\n\nhttp.createServer(function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'request successfully proxied: \' + req.url +\'\\n\' + JSON.stringify(req.headers, true, 2));\n  res.end();\n}).listen(9000);\n```\n\n### Setup a stand-alone proxy server with latency (e.g. IO, etc)\n\n``` js\nvar http = require(\'http\'),\n    httpProxy = require(\'http-proxy\');\n\n//\n// Create a proxy server with custom application logic\n//\nhttpProxy.createServer(function (req, res, proxy) {\n  //\n  // Buffer the request so that `data` and `end` events\n  // are not lost during async operation(s).\n  //\n  var buffer = httpProxy.buffer(req);\n  \n  //\n  // Wait for two seconds then respond: this simulates\n  // performing async actions before proxying a request\n  //\n  setTimeout(function () {\n    proxy.proxyRequest(req, res, {\n      host: \'localhost\',\n      port: 9000, \n      buffer: buffer\n    });      \n  }, 2000);\n}).listen(8000);\n\nhttp.createServer(function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'request successfully proxied: \' + req.url +\'\\n\' + JSON.stringify(req.headers, true, 2));\n  res.end();\n}).listen(9000);\n```\n\n### Proxy requests within another http server\n\n``` js\nvar http = require(\'http\'),\n    httpProxy = require(\'http-proxy\');\n    \n//\n// Create a new instance of HttProxy to use in your server\n//\nvar proxy = new httpProxy.RoutingProxy();\n\n//\n// Create a regular http server and proxy its handler\n//\nhttp.createServer(function (req, res) {\n  //\n  // Put your custom server logic here, then proxy\n  //\n  proxy.proxyRequest(req, res, {\n    host: \'localhost\',\n    port: 9000\n  });\n}).listen(8001);\n\nhttp.createServer(function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'request successfully proxied: \' + req.url +\'\\n\' + JSON.stringify(req.headers, true, 2));\n  res.end();\n}).listen(9000); \n```\n\n### Proxy requests using a ProxyTable\nA Proxy Table is a simple lookup table that maps incoming requests to proxy target locations. Take a look at an example of the options you need to pass to httpProxy.createServer:\n\n``` js\nvar options = {\n  router: {\n    \'foo.com/baz\': \'127.0.0.1:8001\',\n    \'foo.com/buz\': \'127.0.0.1:8002\',\n    \'bar.com/buz\': \'127.0.0.1:8003\'\n  }\n};\n```\n\nThe above route table will take incoming requests to \'foo.com/baz\' and forward them to \'127.0.0.1:8001\'. Likewise it will take incoming requests to \'foo.com/buz\' and forward them to \'127.0.0.1:8002\'. The routes themselves are later converted to regular expressions to enable more complex matching functionality. We can create a proxy server with these options by using the following code:\n\n``` js\nvar proxyServer = httpProxy.createServer(options);\nproxyServer.listen(80);\n```\n\n### Proxy requests using a \'Hostname Only\' ProxyTable\nAs mentioned in the previous section, all routes passes to the ProxyTable are by default converted to regular expressions that are evaluated at proxy-time. This is good for complex URL rewriting of proxy requests, but less efficient when one simply wants to do pure hostname routing based on the HTTP \'Host\' header. If you are only concerned with hostname routing, you change the lookup used by the internal ProxyTable:\n\n``` js\nvar options = {\n  hostnameOnly: true,\n  router: {\n    \'foo.com\': \'127.0.0.1:8001\',\n    \'bar.com\': \'127.0.0.1:8002\'\n  }\n}\n```\n\nNotice here that I have not included paths on the individual domains because this is not possible when using only the HTTP \'Host\' header. Care to learn more? See [RFC2616: HTTP/1.1, Section 14.23, "Host"][4].\n\n### Proxy requests with an additional forward proxy\nSometimes in addition to a reverse proxy, you may want your front-facing server to forward traffic to another location. For example, if you wanted to load test your staging environment. This is possible when using node-http-proxy using similar JSON-based configuration to a proxy table: \n\n``` js\nvar proxyServerWithForwarding = httpProxy.createServer(9000, \'localhost\', {\n  forward: {\n    port: 9000,\n    host: \'staging.com\'\n  }\n});\nproxyServerWithForwarding.listen(80);\n```\n\nThe forwarding option can be used in conjunction with the proxy table options by simply including both the \'forward\' and \'router\' properties in the options passed to \'createServer\'.\n\n### Listening for proxy events\nSometimes you want to listen to an event on a proxy. For example, you may want to listen to the \'end\' event, which represents when the proxy has finished proxying a request.\n\n``` js\nvar httpProxy = require(\'http-proxy\');\n\nvar server = httpProxy.createServer(function (req, res, proxy) {\n  var buffer = httpProxy.buffer(req);\n\n  proxy.proxyRequest(req, res, {\n    host: \'127.0.0.1\',\n    port: 9000,\n    buffer: buffer\n  });\n});\n\nserver.proxy.on(\'end\', function() {\n  console.log("The request was proxied.");\n});\n\nserver.listen(8000);\n```\n\nIt\'s important to remember not to listen for events on the proxy object in the function passed to `httpProxy.createServer`. Doing so would add a new listener on every request, which would end up being a disaster.\n\n## Using HTTPS\nYou have all the full flexibility of node-http-proxy offers in HTTPS as well as HTTP. The two basic scenarios are: with a stand-alone proxy server or in conjunction with another HTTPS server.\n\n### Proxying to HTTP from HTTPS\nThis is probably the most common use-case for proxying in conjunction with HTTPS. You have some front-facing HTTPS server, but all of your internal traffic is HTTP. In this way, you can reduce the number of servers to which your CA and other important security files are deployed and reduce the computational overhead from HTTPS traffic. \n\nUsing HTTPS in `node-http-proxy` is relatively straight-forward:\n \n``` js\nvar fs = require(\'fs\'),\n    http = require(\'http\'),\n    https = require(\'https\'),\n    httpProxy = require(\'http-proxy\');\n    \nvar options = {\n  https: {\n    key: fs.readFileSync(\'path/to/your/key.pem\', \'utf8\'),\n    cert: fs.readFileSync(\'path/to/your/cert.pem\', \'utf8\')\n  }\n};\n\n//\n// Create a standalone HTTPS proxy server\n//\nhttpProxy.createServer(8000, \'localhost\', options).listen(8001);\n\n//\n// Create an instance of HttpProxy to use with another HTTPS server\n//\nvar proxy = new httpProxy.HttpProxy({\n  target: {\n    host: \'localhost\', \n    port: 8000\n  }\n});\nhttps.createServer(options.https, function (req, res) {\n  proxy.proxyRequest(req, res)\n}).listen(8002);\n\n//\n// Create the target HTTPS server for both cases\n//\nhttp.createServer(function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'hello https\\n\');\n  res.end();\n}).listen(8000);\n```\n\n### Using two certificates\n\nSuppose that your reverse proxy will handle HTTPS traffic for two different domains `fobar.com` and `barbaz.com`.\nIf you need to use two different certificates you can take advantage of [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication).\n\n``` js\nvar https = require(\'https\'),\n    path = require("path"),\n    fs = require("fs"),\n    crypto = require("crypto");\n\n//\n// generic function to load the credentials context from disk\n//\nfunction getCredentialsContext (cer) {\n  return crypto.createCredentials({\n    key:  fs.readFileSync(path.join(__dirname, \'certs\', cer + \'.key\')),\n    cert: fs.readFileSync(path.join(__dirname, \'certs\', cer + \'.crt\'))\n  }).context;\n}\n\n//\n// A certificate per domain hash\n//\nvar certs = {\n  "fobar.com":  getCredentialsContext("foobar"),\n  "barbaz.com": getCredentialsContext("barbaz")\n};\n\n//\n// Proxy options\n//\nvar options = {\n  https: {\n    SNICallback: function(hostname){\n      return certs[hostname];\n    }\n  },\n  hostnameOnly: true,\n  router: {\n    \'fobar.com\':  \'127.0.0.1:8001\',\n    \'barbaz.com\': \'127.0.0.1:8002\'\n  }\n};\n\n//\n// Create a standalone HTTPS proxy server\n//\nhttpProxy.createServer(options).listen(8001);\n\n//\n// Create the target HTTPS server\n//\nhttp.createServer(function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'hello https\\n\');\n  res.end();\n}).listen(8000);\n\n```\n\n### Proxying to HTTPS from HTTPS\nProxying from HTTPS to HTTPS is essentially the same as proxying from HTTPS to HTTP, but you must include the `target` option in when calling `httpProxy.createServer` or instantiating a new instance of `HttpProxy`.\n\n``` js\nvar fs = require(\'fs\'),\n    https = require(\'https\'),\n    httpProxy = require(\'http-proxy\');\n    \nvar options = {\n  https: {\n    key: fs.readFileSync(\'path/to/your/key.pem\', \'utf8\'),\n    cert: fs.readFileSync(\'path/to/your/cert.pem\', \'utf8\')\n  },\n  target: {\n    https: true // This could also be an Object with key and cert properties\n  }\n};\n\n//\n// Create a standalone HTTPS proxy server\n//\nhttpProxy.createServer(8000, \'localhost\', options).listen(8001);\n\n//\n// Create an instance of HttpProxy to use with another HTTPS server\n//\nvar proxy = new httpProxy.HttpProxy({ \n  target: {\n    host: \'localhost\', \n    port: 8000,\n    https: true\n  }\n});\n\nhttps.createServer(options.https, function (req, res) {\n  proxy.proxyRequest(req, res);\n}).listen(8002);\n\n//\n// Create the target HTTPS server for both cases\n//\nhttps.createServer(options.https, function (req, res) {\n  res.writeHead(200, { \'Content-Type\': \'text/plain\' });\n  res.write(\'hello https\\n\');\n  res.end();\n}).listen(8000);\n```\n## Middleware\n\n`node-http-proxy` now supports connect middleware. Add middleware functions to your createServer call:\n\n``` js\nhttpProxy.createServer(\n  require(\'connect-gzip\').gzip(),\n  9000, \'localhost\'\n).listen(8000);\n```\n\n## Proxying WebSockets\nWebsockets are handled automatically when using `httpProxy.createServer()`, but if you want to use it in conjunction with a stand-alone HTTP + WebSocket (such as [socket.io][5]) server here\'s how:\n\n``` js\nvar http = require(\'http\'),\n    httpProxy = require(\'http-proxy\');\n    \n//\n// Create an instance of node-http-proxy\n//\nvar proxy = new httpProxy.HttpProxy({\n  target: {\n    host: \'localhost\',\n    port: 8000\n  }\n});\n\nvar server = http.createServer(function (req, res) {\n  //\n  // Proxy normal HTTP requests\n  //\n  proxy.proxyRequest(req, res);\n});\n\nserver.on(\'upgrade\', function(req, socket, head) {\n  //\n  // Proxy websocket requests too\n  //\n  proxy.proxyWebSocketRequest(req, socket, head);\n});\n\nserver.listen(8080);\n```\n\n### Configuring your Socket limits\n\nBy default, `node-http-proxy` will set a 100 socket limit for all `host:port` proxy targets. You can change this in two ways: \n\n1. By passing the `maxSockets` option to `httpProxy.createServer()`\n2. By calling `httpProxy.setMaxSockets(n)`, where `n` is the number of sockets you with to use. \n\n## POST requests and buffering\n\nexpress.bodyParser will interfere with proxying of POST requests (and other methods that have a request \nbody). With bodyParser active, proxied requests will never send anything to the upstream server, and \nthe original client will just hang. See https://github.com/nodejitsu/node-http-proxy/issues/180 for options.\n\n## Using node-http-proxy from the command line\nWhen you install this package with npm, a node-http-proxy binary will become available to you. Using this binary is easy with some simple options:\n\n``` js\nusage: node-http-proxy [options] \n\nAll options should be set with the syntax --option=value\n\noptions:\n  --port   PORT       Port that the proxy server should run on\n  --target HOST:PORT  Location of the server the proxy will target\n  --config OUTFILE    Location of the configuration file for the proxy server\n  --silent            Silence the log output from the proxy server\n  -h, --help          You\'re staring at it\n```\n\n<br/>\n## Why doesn\'t node-http-proxy have more advanced features like x, y, or z?\n\nIf you have a suggestion for a feature currently not supported, feel free to open a [support issue][6]. node-http-proxy is designed to just proxy http requests from one server to another, but we will be soon releasing many other complimentary projects that can be used in conjunction with node-http-proxy.\n\n## Options\n\n### Http Proxy\n\n`createServer()` supports the following options\n\n```javascript\n{\n  forward: { // options for forward-proxy\n    port: 8000,\n    host: \'staging.com\'\n  },\n  target : { // options for proxy target\n    port : 8000, \n    host : \'localhost\',\n  };\n  source : { // additional options for websocket proxying \n    host : \'localhost\',\n    port : 8000,\n    https: true\n  },\n  enable : {\n    xforward: true // enables X-Forwarded-For\n  },\n  changeOrigin: false, // changes the origin of the host header to the target URL\n}\n```\n\n## Run Tests\nThe test suite is designed to fully cover the combinatoric possibilities of HTTP and HTTPS proxying:\n\n1. HTTP --> HTTP\n2. HTTPS --> HTTP\n3. HTTPS --> HTTPS\n4. HTTP --> HTTPS\n\n```\nvows test/*-test.js --spec\nvows test/*-test.js --spec --https\nvows test/*-test.js --spec --https --target=https\nvows test/*-test.js --spec --target=https\n```\n\n<br/>\n### License\n\n(The MIT License)\n\nCopyright (c) 2010 Charlie Robbins, Mikeal Rogers, Fedor Indutny, & Marak Squires\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n"Software"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n[0]: http://nodejitsu.com\n[1]: https://github.com/nodejitsu/node-http-proxy/blob/master/examples/websocket/websocket-proxy.js\n[2]: https://github.com/nodejitsu/node-http-proxy/blob/master/examples/http/proxy-https-to-http.js\n[3]: https://github.com/nodejitsu/node-http-proxy/tree/master/examples\n[4]: http://www.ietf.org/rfc/rfc2616.txt\n[5]: http://socket.io\n[6]: http://github.com/nodejitsu/node-http-proxy/issues\n',
+929 silly resolved     readmeFilename: 'README.md',
+929 silly resolved     _id: 'http-proxy@0.8.7',
+929 silly resolved     dist: { shasum: 'c9fa72fa0b85e8e468af5f70b6f689dc2f0f1ce5' },
+929 silly resolved     _from: 'http-proxy' } ]
+930 info install http-proxy@0.8.7 into D:\GitHub\UITester\proxy
+931 info installOne http-proxy@0.8.7
+932 verbose from cache C:\Users\bofei.zq\AppData\Roaming\npm-cache\http-proxy\0.8.7\package\package.json
+933 info D:\GitHub\UITester\proxy\node_modules\http-proxy unbuild
+934 verbose from cache D:\GitHub\UITester\proxy\node_modules\http-proxy\package.json
+935 info preuninstall http-proxy@0.8.5
+936 info uninstall http-proxy@0.8.5
+937 verbose true,D:\GitHub\UITester\proxy\node_modules,D:\GitHub\UITester\proxy\node_modules unbuild http-proxy@0.8.5
+938 verbose D:\GitHub\UITester\proxy\node_modules\.bin,[object Object] binRoot
+939 info postuninstall http-proxy@0.8.5
+940 info D:\GitHub\UITester\proxy\node_modules\http-proxy unbuild
+941 verbose read json D:\GitHub\UITester\proxy\node_modules\http-proxy\package.json
+942 error error rolling back Error: EBUSY, rmdir 'D:\GitHub\UITester\proxy\node_modules\http-proxy\examples\http'
+942 error error rolling back  http-proxy@0.8.7 { [Error: EBUSY, rmdir 'D:\GitHub\UITester\proxy\node_modules\http-proxy\examples\http']
+942 error error rolling back   errno: 10,
+942 error error rolling back   code: 'EBUSY',
+942 error error rolling back   path: 'D:\\GitHub\\UITester\\proxy\\node_modules\\http-proxy\\examples\\http' }
+943 error Error: EBUSY, rmdir 'D:\GitHub\UITester\proxy\node_modules\http-proxy\examples\http'
+944 error If you need help, you may report this log at:
+944 error     <http://github.com/isaacs/npm/issues>
+944 error or email it to:
+944 error     <npm-@googlegroups.com>
+945 error System Windows_NT 6.1.7601
+946 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "http-proxy"
+947 error cwd D:\GitHub\UITester\proxy
+948 error node -v v0.8.15
+949 error npm -v 1.1.66
+950 error path D:\GitHub\UITester\proxy\node_modules\http-proxy\examples\http
+951 error code EBUSY
+952 error errno 10
+953 verbose exit [ 10, true ]

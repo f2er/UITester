@@ -5,7 +5,7 @@
     <title>UITester Console</title>
 </head>
 <body>
-<div id="all"></div>
+<div id="""></div>
 <h3>请先安装浏览器插件</h3>
 <ul>
     <li><a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/chrome.crx">chrome插件</a></li>
@@ -14,7 +14,7 @@
 
 
 <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
-<script charset="utf-8" src="/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 
 <script>
     (function () {
@@ -36,10 +36,9 @@
         }
         socket.on("connect", function () {
             console.info("connect");
-            socket.emit('console:register', JSON.stringify({
-                'userAgent':window.navigator.userAgent,
-                "test":"我就是测试一下中文"
-            }));
+            socket.emit('console:register', {
+                'userAgent':window.navigator.userAgent
+            });
             if(isConnected) return;
             isConnected = true;
 
@@ -53,7 +52,6 @@
             // Get Client Summary
             socket.on('console:summary', function (data){
                 console.info(data);
-               jQuery("#all").html(JSON.stringify(data));
             });
 
 
@@ -101,8 +99,6 @@
 
             jQuery.getScript(url, function () {
                 UT.report(function (reports) {
-                    console.log(reports);
-                    console.log(JSON.stringify(reports));
                     isRunning = false;
                     socket.emit('console:task_finish', reports);
                 });

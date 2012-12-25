@@ -72,8 +72,7 @@ if ($task_id !== ''){
 	<ul>
 		<li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span>
 		<li>创建人: <?php echo $creator  ?>
-		<li>测试页面: <?php echo $task_target_uri  ?>
-		<li>测试用例地址: <?php echo $svn  ?>
+		<li>测试用例地址: <?php echo $task_inject_uri  ?>
 		<li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span>
 		<li>启动时间: <?php echo $start_time  ?>
 		<li>回归频率: <?php echo $duration / 60  ?>小时
