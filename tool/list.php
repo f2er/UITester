@@ -72,7 +72,7 @@
             <div class="result">
             <script>
             try{
-              var result = '.$result_item['task_result'].';
+              var result ='.$result_item['task_result']." ".';
               if(result){
                 for(var  p in result){
                    var fs = result[p].result.failedSpecs;
@@ -87,7 +87,9 @@
                  document.write("<div class=\"brower_"+cl+" \"><span class=\"name\">"+p+"<span><span class=\"result\">"+msg+"<span><div>")
                 }
               }
-              }catch(e){}
+              }catch(e){
+
+              }
 
             </script>
 				×ÜÊý£º<span class="total-specs"><em>' . $result_item['total_specs'] . '</em></span> <em>|</em> Ê§°Ü£º<span

@@ -41,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="53" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.5992579">
+            <state line="55" column="53" selection-start="1043" selection-end="1043" vertical-scroll-proportion="-31.892857">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="22" selection-start="2350" selection-end="2350" vertical-scroll-proportion="-0.6785714">
+            <state line="74" column="58" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.24144487">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -156,8 +156,8 @@
         <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
-        <option value="$PROJECT_DIR$/tool/list.php" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/list.php" />
       </list>
     </option>
   </component>
@@ -455,18 +455,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/list.php">
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="22" selection-start="2350" selection-end="2350" vertical-scroll-proportion="-0.6785714">
+        <state line="55" column="53" selection-start="1043" selection-end="1043" vertical-scroll-proportion="-31.892857">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
+    <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="53" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.5992579">
+        <state line="74" column="58" selection-start="2500" selection-end="2500" vertical-scroll-proportion="0.24144487">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
