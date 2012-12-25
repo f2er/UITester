@@ -54,6 +54,12 @@
                 $className = "failed";
             }
 
+            if($result_item['task_result']==""){
+                $result_item['task_result'] = '""';
+            }
+
+
+
 
             echo('
             <li id="'.$result_item['id'].'"class="' . $className . '">
