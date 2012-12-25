@@ -71,6 +71,7 @@
 
             <div class="result">
             <script>
+            try{
               var result = '.$result_item['task_result'].';
               if(result){
                 for(var  p in result){
@@ -83,9 +84,10 @@
                     var cl = "success";
                      var msg = "通过"
                    }
-                 document.write("<div class=\"brower_"+cl+" \"><span class="name">"+p+"<span><span class="result">"+msg+"<span><div>")
+                 document.write("<div class=\"brower_"+cl+" \"><span class=\"name\">"+p+"<span><span class=\"result\">"+msg+"<span><div>")
                 }
               }
+              }catch(e){}
 
             </script>
 				总数：<span class="total-specs"><em>' . $result_item['total_specs'] . '</em></span> <em>|</em> 失败：<span
@@ -135,6 +137,11 @@ KISSY.ready(function(S) {
 	S.all('#productline').val(param.productline || '');
 	//S.all('#project').val(param.project || '');
 });
+
+
+
+
+
 </script>
 
 

@@ -26,7 +26,7 @@
       <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="44" selection-start="1429" selection-end="1429" vertical-scroll-proportion="-8.36">
+            <state line="72" column="44" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.76">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="-0.6785714">
+            <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="2.4642856">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="create.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/create.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="43" selection-start="246" selection-end="246" vertical-scroll-proportion="-6.107143">
+            <state line="15" column="43" selection-start="246" selection-end="246" vertical-scroll-proportion="89.10714">
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#fieldset#0;n#form#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="e#3038#4794#0" expanded="true" />
@@ -74,7 +74,7 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="28" selection-start="2699" selection-end="2699" vertical-scroll-proportion="27.821428">
+            <state line="88" column="28" selection-start="2699" selection-end="2699" vertical-scroll-proportion="109.67857">
               <folding />
             </state>
           </provider>
@@ -83,7 +83,7 @@
       <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="119" selection-start="3016" selection-end="3016" vertical-scroll-proportion="0.32509506">
+            <state line="89" column="25" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.78326994">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -385,13 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="-0.6785714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="196" column="0" selection-start="3217" selection-end="3217" vertical-scroll-proportion="0.0">
@@ -406,9 +399,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="87" selection-start="2325" selection-end="2325" vertical-scroll-proportion="-10.178572">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="44" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../uitest/jasmine-html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="538" column="0" selection-start="16861" selection-end="16867" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="133" column="55" selection-start="3458" selection-end="3458" vertical-scroll-proportion="2.08">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="30" selection-start="1069" selection-end="1069" vertical-scroll-proportion="2.4642856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/create.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="43" selection-start="246" selection-end="246" vertical-scroll-proportion="-6.107143">
+        <state line="15" column="43" selection-start="246" selection-end="246" vertical-scroll-proportion="89.10714">
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#fieldset#0;n#form#0;n#div#0;n#!!top" expanded="true" />
             <element signature="e#3038#4794#0" expanded="true" />
@@ -425,44 +453,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="44" selection-start="1429" selection-end="1429" vertical-scroll-proportion="-8.36">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="55" selection-start="3458" selection-end="3458" vertical-scroll-proportion="2.08">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="28" selection-start="2699" selection-end="2699" vertical-scroll-proportion="27.821428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../uitest/jasmine-html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="538" column="0" selection-start="16861" selection-end="16867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="87" selection-start="2325" selection-end="2325" vertical-scroll-proportion="-10.178572">
+        <state line="88" column="28" selection-start="2699" selection-end="2699" vertical-scroll-proportion="109.67857">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="119" selection-start="3016" selection-end="3016" vertical-scroll-proportion="0.32509506">
+        <state line="89" column="25" selection-start="3112" selection-end="3112" vertical-scroll-proportion="0.78326994">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
