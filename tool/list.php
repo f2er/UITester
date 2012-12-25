@@ -94,7 +94,7 @@
                     var cl = "btn btn-success";
                      var msg = "Í¨¹ý"
                    }
-                 document.write("<span class=\""+cl+"\"><span class=\"b_name\">"+p+"<span> <span class=\"b_rs\">"+msg+"<span><span>")
+                 document.write("<span class=\""+cl+"\"><span class=\"b_name\">"+p+"</span> <span class=\"b_rs\">"+msg+"</span><span>")
                 }
               }
               }catch(e){
