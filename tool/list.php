@@ -88,13 +88,13 @@
                    var fs = result[p].reports.failedSpecs;
                    var ts = result[p].reports.totalSpecs;
                    if(fs|| !ts){
-                     var cl = "btn  btn-danger";
+                     var cl = "label label-important";
                      var msg = "未通过"
                    }else{
-                    var cl = "btn btn-success";
+                    var cl = "label label-success";
                      var msg = "通过"
                    }
-                 document.write("<span class=\""+cl+"\"><span class=\"b_name\">"+p+"</span> <span class=\"b_rs\">"+msg+"</span><span>")
+                 document.write("<span class=\""+cl+"\"><span class=\"b_name\">"+p+"</span> <span class=\"b_rs\">"+msg+"</span></span>")
                 }
               }
               }catch(e){
