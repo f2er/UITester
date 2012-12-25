@@ -9,11 +9,11 @@ $modify_tag = '';
 ?>
 <style>
     .container{
-        width: 920px;
-        padding-top:40px ;
+
+
     }
 </style>
-<div class="container">
+<div class="container" style="width: 920px; padding-top:40px ;">
 
 
     <form class="form-horizontal" method="POST" action="handle.php">

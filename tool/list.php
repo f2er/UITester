@@ -1,6 +1,6 @@
 <?php include_once('./common/header.php'); ?>
 
-<div class="container">
+<div class="container" style="width: 920px">
 <div class="sub-nav">
      产品线: <select id="productline" name="productline" required>
 		<option value="">全部</option>
