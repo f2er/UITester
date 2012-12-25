@@ -41,15 +41,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addscript.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/chrome/src/addscript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="85" selection-start="578" selection-end="584" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -107,20 +98,29 @@
       <file leaf-file-name="create.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/create.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="10" selection-start="4702" selection-end="4702" vertical-scroll-proportion="0.18060836">
+            <state line="72" column="52" selection-start="2933" selection-end="2933" vertical-scroll-proportion="0.5418251">
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="e#2946#4702#0" expanded="true" />
-                <marker date="1356431752047" expanded="true" signature="3063:3081" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="3234:3240" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="3262:3281" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="3363:3369" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="3393:3412" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="3491:3497" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="3519:3538" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="4453:4471" placeholder="..." />
-                <marker date="1356431752047" expanded="true" signature="4890:4902" placeholder="..." />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#fieldset#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#2998#4754#0" expanded="true" />
+                <marker date="1356432917488" expanded="true" signature="3115:3133" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="3286:3292" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="3314:3333" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="3415:3421" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="3445:3464" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="3543:3549" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="3571:3590" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="4505:4523" placeholder="..." />
+                <marker date="1356432917488" expanded="true" signature="4952:4964" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="196" column="0" selection-start="3217" selection-end="3217" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,7 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy-https-to-https.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy1.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy.js" />
         <option value="$PROJECT_DIR$/proxy/proxy.js" />
@@ -153,6 +152,7 @@
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/run.html" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/create.php" />
       </list>
     </option>
@@ -341,11 +341,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proxy/proxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="26" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="14" selection-start="130" selection-end="132" vertical-scroll-proportion="0.0" />
@@ -444,21 +439,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="196" column="0" selection-start="3217" selection-end="3217" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/create.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="10" selection-start="4702" selection-end="4702" vertical-scroll-proportion="0.18060836">
+        <state line="72" column="52" selection-start="2933" selection-end="2933" vertical-scroll-proportion="0.5418251">
           <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#2946#4702#0" expanded="true" />
-            <marker date="1356431752047" expanded="true" signature="3063:3081" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="3234:3240" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="3262:3281" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="3363:3369" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="3393:3412" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="3491:3497" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="3519:3538" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="4453:4471" placeholder="..." />
-            <marker date="1356431752047" expanded="true" signature="4890:4902" placeholder="..." />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#4;n#fieldset#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#2998#4754#0" expanded="true" />
+            <marker date="1356432917488" expanded="true" signature="3115:3133" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="3286:3292" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="3314:3333" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="3415:3421" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="3445:3464" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="3543:3549" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="3571:3590" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="4505:4523" placeholder="..." />
+            <marker date="1356432917488" expanded="true" signature="4952:4964" placeholder="..." />
           </folding>
         </state>
       </provider>

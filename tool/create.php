@@ -7,13 +7,17 @@ $task_name = '';
 $task_inject_uri = '';
 $modify_tag = '';
 ?>
+<style>
+    .container{
+        width: 920px;
+    }
+</style>
 <div class="container">
-    <div class="page-header">
-        <h1>创建新任务</h1>
-    </div>
-
+    <
 
     <form class="form-horizontal" method="POST" action="handle.php">
+        <fieldset>
+            <legend>创建回归任务</legend>
         <div class="control-group">
             <label class="control-label" for="productline">产品</label>
             <div class="controls">
@@ -66,7 +70,7 @@ $modify_tag = '';
             <div class="controls">
                 <input type="hidden" name="modify_tag" value="<?php echo $modify_tag ?>" />
                 <input type="hidden" name="task_id" value="<?php echo$task_id ?>" />
-                <button type="submit" class="btn">Sign in</button>
+                <button type="submit" class="btn">确定</button>
             </div>
         </div>
 
@@ -137,7 +141,7 @@ $modify_tag = '';
 			');
         */
 		?>
-	</table>
+        </fieldset>
 
 </form>
 
