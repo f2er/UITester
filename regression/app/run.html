@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UITester run</title>
+    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+</head>
+<body>
+
+<script>
+    UT.configs.windowType = "window";
+    var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
+    var id = location.href.match(/id=(.*)$/)[1];
+    jQuery.getScript(url,function(){
+        UT.report(function(report){
+            console&& console.log("report")
+            UT.postmsg.send({
+                target:opener||parent,
+
+                data:{
+                    id:id,
+                    report:report
+                }
+            })
+        })
+    })
+
+</script>
+
+
+</body>
+</html>

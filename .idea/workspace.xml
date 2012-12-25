@@ -26,25 +26,25 @@
       <file leaf-file-name="proxy-net.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxy/proxy-net.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="13" selection-start="4193" selection-end="4193" vertical-scroll-proportion="-0.76">
+            <state line="128" column="13" selection-start="4193" selection-end="4193" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/detail.php">
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-19.0">
+            <state line="24" column="53" selection-start="706" selection-end="713" vertical-scroll-proportion="-7.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <file leaf-file-name="run.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/run.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="5" selection-start="960" selection-end="960" vertical-scroll-proportion="-0.1875">
+            <state line="15" column="16" selection-start="471" selection-end="471" vertical-scroll-proportion="-4.321429">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="addscript.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/chrome/src/addscript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="85" selection-start="578" selection-end="584" vertical-scroll-proportion="-11.36">
+            <state line="15" column="85" selection-start="578" selection-end="584" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,36 +62,52 @@
       <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2939" column="9" selection-start="93234" selection-end="93239" vertical-scroll-proportion="-0.76">
+            <state line="3254" column="9" selection-start="102467" selection-end="102467" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="16" selection-start="1772" selection-end="1772" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1355708048275" expanded="false" signature="3880:3894" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="taobao.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="14" selection-start="130" selection-end="132" vertical-scroll-proportion="-3.04">
+            <state line="77" column="51" selection-start="2416" selection-end="2416" vertical-scroll-proportion="-10.785714">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proxy.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxy/proxy.js">
+      <file leaf-file-name="data-mod.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="26" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
+            <state line="124" column="18" selection-start="3280" selection-end="3280" vertical-scroll-proportion="-17.56">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client-mgr.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="153" column="43" selection-start="4005" selection-end="4012" vertical-scroll-proportion="0.3321033">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="89" column="17" selection-start="1944" selection-end="1944" vertical-scroll-proportion="-5.68">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/result.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="6" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -110,12 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/proxy/node_modules/http-proxy/examples/middleware/modifyResponse-middleware.js" />
-        <option value="$PROJECT_DIR$/proxy/node_modules/http-proxy/examples/middleware/gzip-middleware.js" />
-        <option value="$PROJECT_DIR$/proxy/node_modules/http-proxy/lib/node-http-proxy.js" />
-        <option value="$PROJECT_DIR$/proxy/node_modules/http-proxy/examples/http/proxy-https-to-https.js" />
-        <option value="$PROJECT_DIR$/proxy/node_modules/http-proxy/examples/http/proxy.js" />
-        <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/test/helpers/http.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/test/helpers/ws.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy-https-to-https.js" />
         <option value="$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy1.js" />
@@ -123,16 +133,21 @@
         <option value="$PROJECT_DIR$/proxy/proxy.js" />
         <option value="$PROJECT_DIR$/proxy/proxy-net.js" />
         <option value="$PROJECT_DIR$/tool/detail.php" />
-        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../p/uitest/plugin/chrome/src/addscript.js" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
+        <option value="$PROJECT_DIR$/regression/app/run.html" />
+        <option value="$PROJECT_DIR$/regression/app/console.html" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
+        <option value="$PROJECT_DIR$/regression/app/server.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-49" />
     <option name="width" value="1296" />
     <option name="height" value="776" />
   </component>
@@ -162,6 +177,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -196,7 +212,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -237,14 +252,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="0" />
+    <frame x="-49" y="0" width="1296" height="776" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16531605" sideWeight="0.87296414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17017828" sideWeight="0.87296414" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12703583" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -314,41 +329,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/test/helpers/ws.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="68" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="0" selection-start="3025" selection-end="3185" vertical-scroll-proportion="0.36206895" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/lib/node-http-proxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="33" selection-start="4880" selection-end="4887" vertical-scroll-proportion="-0.20905173" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/lib/node-http-proxy/http-proxy.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="30" selection-start="1737" selection-end="1737" vertical-scroll-proportion="0.037254903" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/test/helpers/http.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="30" selection-start="409" selection-end="425" vertical-scroll-proportion="0.039175257" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy-https-to-https.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1795" selection-end="1881" vertical-scroll-proportion="0.74509805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy-https-to-http.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1459" selection-end="1804" vertical-scroll-proportion="0.11176471" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/http-proxy/node_modules/http-proxy/examples/http/proxy1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="358" column="0" selection-start="11043" selection-end="11043" vertical-scroll-proportion="0.9313725" />
@@ -356,37 +336,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxy/proxy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="26" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proxy/proxy-net.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="13" selection-start="4193" selection-end="4193" vertical-scroll-proportion="-0.76">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/chrome/src/addscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="85" selection-start="578" selection-end="584" vertical-scroll-proportion="-11.36">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2939" column="9" selection-start="93234" selection-end="93239" vertical-scroll-proportion="-0.76">
-          <folding />
-        </state>
+        <state line="79" column="26" selection-start="2369" selection-end="2369" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="14" selection-start="130" selection-end="132" vertical-scroll-proportion="-3.04">
-          <folding />
-        </state>
+        <state line="6" column="14" selection-start="130" selection-end="132" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
@@ -400,14 +355,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/detail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="-19.0">
+        <state line="66" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="5" selection-start="960" selection-end="960" vertical-scroll-proportion="-0.1875">
+        <state line="57" column="6" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/proxy-net.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="13" selection-start="4193" selection-end="4193" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/ECMAScript.js2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="25" selection-start="9753" selection-end="9808" vertical-scroll-proportion="0.33212996">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/chrome/src/addscript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="85" selection-start="578" selection-end="584" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3254" column="9" selection-start="102467" selection-end="102467" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/run.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="471" selection-end="471" vertical-scroll-proportion="-4.321429">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="51" selection-start="2416" selection-end="2416" vertical-scroll-proportion="-10.785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="18" selection-start="3280" selection-end="3280" vertical-scroll-proportion="-17.56">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="17" selection-start="1944" selection-end="1944" vertical-scroll-proportion="-5.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="53" selection-start="706" selection-end="713" vertical-scroll-proportion="-7.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="153" column="43" selection-start="4005" selection-end="4012" vertical-scroll-proportion="0.3321033">
           <folding />
         </state>
       </provider>

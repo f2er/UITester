@@ -18,14 +18,27 @@ var app = http.createServer(handler),
 app.listen(3030);
 
 function handler(req, res) {
-    fs.readFile(__dirname + '/console.html', function (err, data) {
-        if (err) {
-            res.writeHead(500);
-            return res.end('Error loading console.html');
-        }
-        res.writeHead(200);
-        res.end(data);
-    });
+    if(req.url.indexOf("run.html")!=-1){
+        fs.readFile(__dirname + '/run.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading console.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        })
+    }
+    else{
+        fs.readFile(__dirname + '/console.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading console.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        });
+    }
+
 }
 
 var ClientManager = require('client-mgr'),
@@ -49,8 +62,8 @@ io.sockets.on('connection', function (socket) {
 
     // Register client after Socket.IO connected
     socket.on('console:register', function (data) {
-        console.log("register",data)
-        console.log("register",JSON.parse(data))
+
+
         clientObject = {
             socket:socket,
             userAgent:userAgent.parse(data.userAgent)
