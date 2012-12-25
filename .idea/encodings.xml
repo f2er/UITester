@@ -3,6 +3,8 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/tool/create.php" charset="GBK" />
     <file url="file://$PROJECT_DIR$/tool/detail.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/tool/index.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/tool/list.php" charset="GBK" />
     <file url="file://$PROJECT_DIR$/tool/result.php" charset="GBK" />
   </component>
 </project>

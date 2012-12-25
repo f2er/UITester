@@ -22,7 +22,7 @@
 		<option value="2">淘金币</option>
 -->
 	</select>
-	<a class="url" style="float:right" href="create.php">新增页面</a>
+
 </div>
 
 <div class="case-list">
@@ -76,7 +76,7 @@
 
                 <div class="bottom-action">
                     <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
-                    <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>
+                   <!-- <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>-->
                     <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
 <!--                    <a target="_blank" class="record minibtn" href="record/record.html?id=' . $result_item['id'] . '">录制</a>
 -->
