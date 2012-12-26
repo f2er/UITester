@@ -23,10 +23,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="28" selection-start="1861" selection-end="1878" vertical-scroll-proportion="0.5681818">
+            <state line="62" column="28" selection-start="1861" selection-end="1878" vertical-scroll-proportion="-35.785713">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="form.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/assets/form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="56" selection-start="3948" selection-end="3948" vertical-scroll-proportion="0.0">
+            <state line="8" column="50" selection-start="3468" selection-end="3468" vertical-scroll-proportion="0.22518519">
               <folding />
             </state>
           </provider>
@@ -155,8 +155,8 @@
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
         <option value="$PROJECT_DIR$/tool/list.php" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
-        <option value="$PROJECT_DIR$/tool/assets/form.js" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/assets/form.js" />
       </list>
     </option>
   </component>
@@ -430,13 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/assets/form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="56" selection-start="3948" selection-end="3948" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="107" column="135" selection-start="3341" selection-end="3672" vertical-scroll-proportion="-13.571428">
@@ -453,13 +446,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="28" selection-start="1861" selection-end="1878" vertical-scroll-proportion="0.5681818">
+        <state line="62" column="28" selection-start="1861" selection-end="1878" vertical-scroll-proportion="-35.785713">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/assets/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="50" selection-start="3468" selection-end="3468" vertical-scroll-proportion="0.22518519">
+          <folding />
         </state>
       </provider>
     </entry>

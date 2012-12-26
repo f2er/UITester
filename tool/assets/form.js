@@ -7,7 +7,7 @@ jQuery(document).ready(function() {
 	//ÊÇ¸öselect, ·Åoption
 	if($('#productline').length && $('#productline')[0].tagName == 'SELECT') {
 		$.each(productlines, function(line, key) {
-			$('#productline').append('<option value="'+key+'">'+line+'</option>')
+			$('#productline').append('<option value="'+line+'">'+key+'</option>')
 		});
 		$('#productline').val($('#productline').val('data-value'));
 	}
