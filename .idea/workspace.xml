@@ -23,16 +23,17 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="97" selection-start="2263" selection-end="2294" vertical-scroll-proportion="-4.4528303">
+            <state line="73" column="35" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.072440945">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1356521916921" expanded="true" signature="3206:3217" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -86,10 +87,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="32" selection-start="972" selection-end="972" vertical-scroll-proportion="0.5247093">
+            <state line="73" column="24" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,8 +150,8 @@
         <option value="$PROJECT_DIR$/tool/assets/form.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jquery-1.7.2.min.js" />
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
-        <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
+        <option value="$PROJECT_DIR$/tool/result.php" />
       </list>
     </option>
   </component>
@@ -442,6 +443,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="24" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="45" selection-start="897" selection-end="934" vertical-scroll-proportion="-7.5">
@@ -451,21 +459,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="97" selection-start="2263" selection-end="2294" vertical-scroll-proportion="-4.4528303">
+        <state line="73" column="35" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.072440945">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1356521916921" expanded="true" signature="3206:3217" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="32" selection-start="972" selection-end="972" vertical-scroll-proportion="0.5247093">
-          <folding />
         </state>
       </provider>
     </entry>
