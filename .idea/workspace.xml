@@ -53,16 +53,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/local-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="48" selection-start="2639" selection-end="2639" vertical-scroll-proportion="0.7409091">
+            <state line="7" column="8" selection-start="259" selection-end="857" vertical-scroll-proportion="-0.6785714">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/regression/app/console.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="520" selection-end="520" vertical-scroll-proportion="0.4030303">
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,7 +144,6 @@
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/index.php" />
-        <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/tool/local-test1.php" />
         <option value="$PROJECT_DIR$/tool/localhost-test.php" />
@@ -142,6 +152,7 @@
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/tool/remote-test.php" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
+        <option value="$PROJECT_DIR$/regression/app/console.html" />
       </list>
     </option>
   </component>
@@ -354,13 +365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="106" selection-start="366" selection-end="366" vertical-scroll-proportion="-3.392857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="73" column="47" selection-start="2220" selection-end="2304" vertical-scroll-proportion="-10.857142">
@@ -447,13 +451,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="48" selection-start="2639" selection-end="2639" vertical-scroll-proportion="0.7409091">
+        <state line="7" column="8" selection-start="259" selection-end="857" vertical-scroll-proportion="-0.6785714">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="520" selection-end="520" vertical-scroll-proportion="0.4030303">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
