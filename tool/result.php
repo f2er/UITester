@@ -54,7 +54,8 @@
         <div style="float: right">
             <a target="_blank" class="btn btn-small" href="apply.php?id=' . $result_item['id'] . '">²âÊÔ</a>
             <a class="btn btn-small" href="modify.php?id=' . $result_item['id'] . '">ÐÞ¸Ä</a>
-            <a target="_self" class="btn btn-small" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">É¾³ý</a>
+            <a target="_self" class="btn btn-small"
+               href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">É¾³ý</a>
         </div>
     </div>
 
@@ -81,7 +82,7 @@
         <li><a href="#ie6">IE6</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content result-report">
         <div class="tab-pane active" id="home"></div>
         <div class="tab-pane" id="ie9"></div>
         <div class="tab-pane" id="ie8"></div>
@@ -89,29 +90,25 @@
         <div class="tab-pane" id="ie6"></div>
     </div>
 
-
-
-
-
-    <div id="output" class="result-report"></div>
-
     <?php include_once('./common/footer.php'); ?>
-
-
     <script>
-
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
         jQuery(document).ready(function () {
-
             var result = <?php echo $result ?>;
             //var json = S.JSON.parse(result.replace(/^.*{/g,'{').replace(/}.*$/g,'}'));
-
             var jsonReporter = new jasmine.JsonReporter();
-            jQuery.each(result, function ( key,value) {
-                console.log("rend ", key)
-                jsonReporter.renderHTML(value, jQuery("#" + key)[0]);
+            var i = 1;
+            jQuery.each(result, function (key, value) {
+                if (i) {
+                    $('#myTab a[href="#' + key + '"]').tab('show');
+                    i = 0;
+                }
+                jsonReporter.renderHTML(value, jQuery("#" + key));
             });
         });
-
     </script>
 
 
