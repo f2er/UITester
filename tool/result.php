@@ -1,5 +1,5 @@
 <?php include_once('./common/header.php'); ?>
-<script src="assets/form.js"></script>
+<script src="assets/form.js" xmlns="http://www.w3.org/1999/html"></script>
 <style>
     .other {
         position: absolute;
@@ -48,9 +48,16 @@
         }
     }
     ?>
-    <div class="page-header">
-        <h2><?php echo $result_item['task_name'] ?></h2>
+    <div>
+        <span><?php echo $result_item['task_name'] ?></span>
+
+        <div style="float: right">
+            <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>
+            <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
+            <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
+        </div>
     </div>
+
 
     <div id="detail-info">
         <ul>
@@ -62,7 +69,10 @@
             <li>创建时间: <?php echo $createtime  ?>
         </ul>
     </div>
+    <p>
 
+    <h2>测试结果</h2>
+    </p>
     <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#chrome">chrome</a></li>
         <li><a href="#ie9">IE9</a></li>
@@ -102,8 +112,9 @@
 
             var jsonReporter = new jasmine.JsonReporter();
             jQuery.each(result, function (value, key) {
+                console.log("rend ", key)
 
-                jsonReporter.renderHTML(value, jQuery("#"+key));
+                jsonReporter.renderHTML(value, jQuery("#" + key));
             });
         });
 

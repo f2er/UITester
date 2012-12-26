@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
 	//是个span, 取值
 	if($('#weeks').length && $('#weeks')[0].tagName == 'SPAN') {
 		var ids = $('#weeks').attr('data-id');
-		var value = S.map(ids.split(','), function(id) {
+		var value = $.map(ids.split(','), function(id) {
 			return '星期' + ['','一','二','三','四','五','六','七'][$.trim(id)];
 		}).join(', ');
 		$('#weeks').html(value);
