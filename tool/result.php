@@ -35,6 +35,8 @@
         if (mysql_num_rows($taskResult) > 0) {
             $result_item = mysql_fetch_assoc($taskResult);
             $task_name = $result_item['task_name'];
+            $productline = $result_item['productline'];
+            $week = $result_item['week'];
             $task_inject_uri = $result_item['task_inject_uri'];
             $creator = $result_item['creator'];
             $createtime = $result_item['createtime'];
@@ -83,7 +85,7 @@
     </ul>
 
     <div class="tab-content result-report">
-        <div class="tab-pane active" id="home"></div>
+        <div class="tab-pane active" id="chrome"></div>
         <div class="tab-pane" id="ie9"></div>
         <div class="tab-pane" id="ie8"></div>
         <div class="tab-pane" id="ie7"></div>

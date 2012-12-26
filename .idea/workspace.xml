@@ -26,7 +26,7 @@
       <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="67" selection-start="3501" selection-end="3501" vertical-scroll-proportion="0.68333334">
+            <state line="38" column="41" selection-start="982" selection-end="982" vertical-scroll-proportion="0.42204726">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -40,7 +40,7 @@
       <file leaf-file-name="detail.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="0" selection-start="1920" selection-end="1920" vertical-scroll-proportion="-23.107143">
+            <state line="45" column="37" selection-start="865" selection-end="894" vertical-scroll-proportion="-4.785714">
               <folding />
             </state>
           </provider>
@@ -403,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="0" selection-start="1920" selection-end="1920" vertical-scroll-proportion="-23.107143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/assets/form.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
@@ -455,9 +448,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="37" selection-start="865" selection-end="894" vertical-scroll-proportion="-4.785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="67" selection-start="3501" selection-end="3501" vertical-scroll-proportion="0.68333334">
+        <state line="38" column="41" selection-start="982" selection-end="982" vertical-scroll-proportion="0.42204726">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
