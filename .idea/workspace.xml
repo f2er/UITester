@@ -40,10 +40,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="remote-test.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="remote-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="50" selection-start="369" selection-end="397" vertical-scroll-proportion="0.37424242">
+            <state line="13" column="50" selection-start="369" selection-end="397" vertical-scroll-proportion="-8.821428">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -56,7 +56,19 @@
       <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/local-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="87" selection-start="327" selection-end="339" vertical-scroll-proportion="-7.857143">
+            <state line="3" column="17" selection-start="0" selection-end="1446" vertical-scroll-proportion="-2.0357144">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="localhost-test.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tool/localhost-test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="119" selection-start="514" selection-end="514" vertical-scroll-proportion="0.25151515">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -68,7 +80,7 @@
       <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/common/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="84" selection-start="1691" selection-end="1691" vertical-scroll-proportion="-14.25">
+            <state line="39" column="64" selection-start="1671" selection-end="1671" vertical-scroll-proportion="-16.285715">
               <folding />
             </state>
           </provider>
@@ -132,7 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/regression/app/server.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
@@ -142,12 +153,13 @@
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/index.php" />
-        <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/tool/local-test1.php" />
         <option value="$PROJECT_DIR$/tool/remote-test.php" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
+        <option value="$PROJECT_DIR$/tool/common/header.php" />
+        <option value="$PROJECT_DIR$/tool/localhost-test.php" />
       </list>
     </option>
   </component>
@@ -416,13 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/common/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="84" selection-start="1691" selection-end="1691" vertical-scroll-proportion="-14.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="150" column="39" selection-start="5344" selection-end="5344" vertical-scroll-proportion="-1.245283">
@@ -438,9 +443,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="50" selection-start="369" selection-end="397" vertical-scroll-proportion="-8.821428">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="87" selection-start="327" selection-end="339" vertical-scroll-proportion="-7.857143">
+        <state line="3" column="17" selection-start="0" selection-end="1446" vertical-scroll-proportion="-2.0357144">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -448,13 +464,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
+    <entry file="file://$PROJECT_DIR$/tool/common/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="50" selection-start="369" selection-end="397" vertical-scroll-proportion="0.37424242">
+        <state line="39" column="64" selection-start="1671" selection-end="1671" vertical-scroll-proportion="-16.285715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/localhost-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="119" selection-start="514" selection-end="514" vertical-scroll-proportion="0.25151515">
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
