@@ -59,7 +59,7 @@
             }
 
             if($result_item['task_result']==""){
-                $result_item['task_result'] = '""';
+                $result_item['task_result'] = '';
             }
 
 
@@ -67,13 +67,9 @@
 
             echo('
             <li id="'.$result_item['id'].'"class="' . $className . '">
-            <div class="name"><p><a href="detail.php?id='.$result_item['id'].'">' . $result_item['task_name'] . '</a></p>
+            <div class="name"><p><a  href="result.php?task_id=' . $result_item['id'] .'">' . $result_item['task_name'] . '</a></p>
 
                 <div class="top-action">
-<!--
-                    <a target="_blank" class="case" href="' . $result_item['task_inject_uri'] . '">测试用例</a>
-                    <a target="_blank" class="url" href="' . $result_item['task_target_uri'] . '">测试页面</a>
--->
 					<span class="">创建者: '. $result_item['creator'] . '</span>  &nbsp;&nbsp;&nbsp;
 					<span class="">上次测试时间: '. ($result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time']) . '</span>
                 </div>
@@ -103,13 +99,14 @@
 
             </script>
 
-				<a class="btn btn-link" href="result.php?task_id=' . $result_item['id'] .'">查看结果</a>
+
 
                 <div class="bottom-action">
-                    <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
+                <a class="btn btn-link" href="result.php?task_id=' . $result_item['id'] .'">查看详情</a>
+     <!--                <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
                    <!-- <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>-->
                     <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
-<!--                    <a target="_blank" class="record minibtn" href="record/record.html?id=' . $result_item['id'] . '">录制</a>
+                   <a target="_blank" class="record minibtn" href="record/record.html?id=' . $result_item['id'] . '">录制</a>
 -->
                 </div>
             </div>
