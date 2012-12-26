@@ -107,7 +107,7 @@
             //var json = S.JSON.parse(result.replace(/^.*{/g,'{').replace(/}.*$/g,'}'));
 
             var jsonReporter = new jasmine.JsonReporter();
-            jQuery.each(result, function (value, key) {
+            jQuery.each(result, function ( key,value) {
                 console.log("rend ", key)
 
                 jsonReporter.renderHTML(value, jQuery("#" + key)[0]);
