@@ -26,14 +26,14 @@
       <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="35" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.072440945">
+            <state line="74" column="79" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.52125984">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1356521916921" expanded="true" signature="3206:3217" placeholder="..." />
+                <marker date="1356522215693" expanded="true" signature="3349:3360" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -81,7 +81,7 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="135" selection-start="3341" selection-end="3672" vertical-scroll-proportion="-13.571428">
+            <state line="73" column="47" selection-start="2220" selection-end="2304" vertical-scroll-proportion="-10.857142">
               <folding />
             </state>
           </provider>
@@ -391,13 +391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="135" selection-start="3341" selection-end="3672" vertical-scroll-proportion="-13.571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/assets/form.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="8" selection-start="8" selection-end="8" vertical-scroll-proportion="0.0">
@@ -457,16 +450,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="47" selection-start="2220" selection-end="2304" vertical-scroll-proportion="-10.857142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="35" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.072440945">
+        <state line="74" column="79" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.52125984">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1356521916921" expanded="true" signature="3206:3217" placeholder="..." />
+            <marker date="1356522215693" expanded="true" signature="3349:3360" placeholder="..." />
           </folding>
         </state>
       </provider>

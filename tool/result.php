@@ -45,6 +45,7 @@
             //数据库中是UTF8, 转换为GBK, 用于页面显示
             $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
             $modify_tag = 'modify';
+           $prev_time =  $result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time'];
         }
     }
     ?>
@@ -71,7 +72,7 @@
     </div>
 
 
-    <p style="margin: 10px 0  5px 0">测试结果:</p>
+    <p style="margin: 10px 0  5px 0">测试结果:(上次回归时间:<?php echo $prev_time ?>)</p>
 
     <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#chrome">chrome</a></li>
