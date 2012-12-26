@@ -26,14 +26,14 @@
       <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="79" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.52125984">
+            <state line="56" column="92" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.3417323">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-                <marker date="1356522215693" expanded="true" signature="3349:3360" placeholder="..." />
+                <marker date="1356522349790" expanded="true" signature="3360:3371" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -459,14 +459,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="79" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.52125984">
+        <state line="56" column="92" selection-start="1940" selection-end="1940" vertical-scroll-proportion="0.3417323">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1356522215693" expanded="true" signature="3349:3360" placeholder="..." />
+            <marker date="1356522349790" expanded="true" signature="3360:3371" placeholder="..." />
           </folding>
         </state>
       </provider>
