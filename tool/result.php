@@ -147,7 +147,8 @@
                 }
 
 
-                jQuery("#go_test").on("click", function () {
+                jQuery("#go_test").on("click", function (e) {
+                    e.preventDefault();
                     if (isConnected) {
                         var src = jQuery("#test_src").val();
 
