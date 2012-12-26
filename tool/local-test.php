@@ -52,7 +52,7 @@
                     UT.execute(function (data) {
                         var jsonReporter = new jasmine.JsonReporter();
                         jQuery("#myModal .modal-body").html("")
-                        jsonReporter.renderHTML(data.task_result[p], jQuery("#myModal .modal-body"));
+                        jsonReporter.renderHTML(data, jQuery("#myModal .modal-body"));
                         $('#myModal').modal('show');
                     })
                 })
@@ -62,7 +62,7 @@
                 UT.execute(function (data) {
                     var jsonReporter = new jasmine.JsonReporter();
                     jQuery("#myModal .modal-body").html("")
-                    jsonReporter.renderHTML(data.task_result[p], jQuery("#myModal .modal-body"));
+                    jsonReporter.renderHTML(data, jQuery("#myModal .modal-body"));
                     $('#myModal').modal('show');
                 })
             }
