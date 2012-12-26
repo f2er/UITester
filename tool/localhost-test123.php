@@ -11,17 +11,17 @@
 
     <div id="input_test"  style="text-align: center">
         <div class="alert alert-info" style="margin: 10px auto;padding:8px;text-align: left;width: 500px; ">
-            <strong>²âÊÔ·½Ê½</strong>
-            <p> 1.ÐèÒªÊÖ¶¯ÒýÈë<a href="http://http://assets.daily.taobao.net/p/uitest/build/uitest-jquery.js">uitest²âÊÔ¿ò¼Ü</a>£¬
-                »òÕß°²×°UITesterä¯ÀÀÆ÷²å¼þ<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a>
+            <strong>æµ‹è¯•æ–¹å¼</strong>
+            <p> 1.éœ€è¦æ‰‹åŠ¨å¼•å…¥<a href="http://http://assets.daily.taobao.net/p/uitest/build/uitest-jquery.js">uitestæµ‹è¯•æ¡†æž¶</a>ï¼Œ
+                æˆ–è€…å®‰è£…UITesteræµè§ˆå™¨æ’ä»¶<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a>
                 <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/IESetup/Debug/IESetup.msi">ie</a>
             </p>
-            <p>2.ÔÚÏÂÃæµÄÎÄ±¾¿ò¼ÜÖÐÊäÈëÄãµÄ²âÊÔ´úÂë</p>
+            <p>2.åœ¨ä¸‹é¢çš„æ–‡æœ¬æ¡†æž¶ä¸­è¾“å…¥ä½ çš„æµ‹è¯•ä»£ç </p>
 
         </div>
         <textarea id="test_text" rows="6"  style="width: 500px"></textarea><br>
 
-        <button class=""btn   " type="button " id="run_test">²âÊÔ</button>
+        <button class=""btn   " type="button " id="run_test">æµ‹è¯•</button>
 
     </div>
 
