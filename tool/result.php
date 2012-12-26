@@ -11,6 +11,16 @@
         padding: 10px;
         min-width: 200px;
     }
+    #detail-info{
+        border: solid 1px #CCC;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #FAFAFA;
+        margin: 30px 0;
+
+    }
+
+
 
 </style>
 
@@ -68,11 +78,12 @@
             <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
             <li>回归频率: <?php echo $duration / 60  ?>小时</li>
             <li>创建时间: <?php echo $createtime  ?></li>
+            <li>上次回归时间:<?php echo $prev_time ?></li>
         </ul>
     </div>
 
 
-    <p style="margin: 10px 0  5px 0">测试结果:(上次回归时间:<?php echo $prev_time ?>)</p>
+
 
     <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#chrome">chrome</a></li>
