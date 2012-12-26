@@ -41,11 +41,9 @@
             $creator = $result_item['creator'];
             $createtime = $result_item['createtime'];
             $result = $result_item['task_result'];
-
+            $duration = $result_item['duration'];
             //数据库中是UTF8, 转换为GBK, 用于页面显示
             $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
-
-
             $modify_tag = 'modify';
         }
     }
@@ -64,18 +62,18 @@
 
     <div id="detail-info">
         <ul class="unstyled">
-            <li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span>
-            <li>创建人: <span><?php echo $creator  ?></span>
-            <li>测试用例地址: <?php echo $task_inject_uri  ?>
-            <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span>
-            <li>回归频率: <?php echo $duration / 60  ?>小时
-            <li>创建时间: <?php echo $createtime  ?>
+            <li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
+            <li>创建人: <span><?php echo $creator  ?></span></li>
+            <li>测试用例地址: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
+            <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
+            <li>回归频率: <?php echo $duration / 60  ?>小时</li>
+            <li>创建时间: <?php echo $createtime  ?></li>
         </ul>
     </div>
-    <p>
 
-    <h3>测试结果</h3>
-    </p>
+
+    <p style="margin: 10px 0 0 5px">测试结果:</p>
+
     <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#chrome">chrome</a></li>
         <li><a href="#ie9">IE9</a></li>
