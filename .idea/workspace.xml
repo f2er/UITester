@@ -53,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/local-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="32" selection-start="836" selection-end="836" vertical-scroll-proportion="0.37424242">
+            <state line="54" column="77" selection-start="2176" selection-end="2176" vertical-scroll-proportion="-1.8571428">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -64,6 +64,15 @@
                 <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jasmine-html.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="554" column="48" selection-start="16742" selection-end="16742" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,19 +124,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="jasmine.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3277" column="39" selection-start="103473" selection-end="103473" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="14" selection-start="3008" selection-end="3227" vertical-scroll-proportion="-14.071428">
+            <state line="3067" column="56" selection-start="96808" selection-end="96808" vertical-scroll-proportion="0.4651852">
               <folding />
             </state>
           </provider>
@@ -146,7 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../p/uitest/src/jquery-1.7.2.min.js" />
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/index.php" />
@@ -160,8 +159,9 @@
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/tblogin.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
-        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine-html.js" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
       </list>
     </option>
   </component>
@@ -353,13 +353,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="24" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../uitest/jasmine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-69.31111">
@@ -467,16 +460,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3277" column="39" selection-start="103473" selection-end="103473" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="836" selection-end="836" vertical-scroll-proportion="0.37424242">
+        <state line="54" column="77" selection-start="2176" selection-end="2176" vertical-scroll-proportion="-1.8571428">
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -484,6 +470,20 @@
             <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="554" column="48" selection-start="16742" selection-end="16742" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3067" column="56" selection-start="96808" selection-end="96808" vertical-scroll-proportion="0.4651852">
+          <folding />
         </state>
       </provider>
     </entry>
