@@ -98,7 +98,6 @@
     <?php include_once('./common/footer.php'); ?>
 
 
-    <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
     <script>
 
         jQuery(document).ready(function () {
@@ -109,7 +108,6 @@
             var jsonReporter = new jasmine.JsonReporter();
             jQuery.each(result, function ( key,value) {
                 console.log("rend ", key)
-
                 jsonReporter.renderHTML(value, jQuery("#" + key)[0]);
             });
         });
