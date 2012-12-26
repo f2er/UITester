@@ -1,113 +1,47 @@
 <?php include_once('./common/header.php'); ?>
 <script src="assets/form.js"></script>
 <style>
-    .other {
-        position: absolute;
-        top: 70px;
-        right: 161px;
-        font-size: 14px;
-        line-height: 2.5;
-        border: 1px solid #eee;
-        padding: 10px;
-        min-width: 200px;
+    #input_test {
+        margin: 50px 0 0;
     }
 
 </style>
 
-<div class="container" style="width: 920px">
+<div class="container" style="width: 920">
 
+    <div id="input_test" class="input-append" style="text-align: center">
+        <div class="alert alert-info">
+            éœ€è¦æ‰‹åŠ¨å¼•å…¥<a href="http://http://assets.daily.taobao.net/p/uitest/build/uitest-jquery.js">uitestæµ‹è¯•æ¡†æ¶</a>ï¼Œ
+            æˆ–è€…å®‰è£…UITesteræµè§ˆå™¨æ’ä»¶<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a> 
+            <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/IESetup/Debug/IESetup.msi">ie</a>
+        </div>
+        <textarea id="test_text" rows="3"></textarea>
 
-    <?php
-    $task_name = '';
-    $task_target_uri = '';
-    $task_inject_uri = '';
-    $modify_tag = '';
+        <button class="btn btn-primary " type="button " id="run_test">æµ‹è¯•</button>
 
-    $task_id = trim($_REQUEST['task_id']);
-
-    if ($task_id !== '') {
-
-        include_once('conn_db.php');
-
-        $sql = 'select * from list where id = ' . $task_id;
-        $taskResult = mysql_query($sql);
-
-        if (mysql_num_rows($taskResult) > 0) {
-            $result_item = mysql_fetch_assoc($taskResult);
-            $task_name = $result_item['task_name'];
-            $task_inject_uri = $result_item['task_inject_uri'];
-            $creator = $result_item['creator'];
-            $createtime = $result_item['createtime'];
-            $result = $result_item['task_result'];
-
-            //Êı¾İ¿âÖĞÊÇUTF8, ×ª»»ÎªGBK, ÓÃÓÚÒ³ÃæÏÔÊ¾
-            $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
-
-
-            $modify_tag = 'modify';
-        }
-    }
-    ?>
-    <div class="page-header">
-        <h2><?php echo $result_item['task_name'] ?></h2>
     </div>
 
-    <div id="detail-info">
-        <ul>
-            <li>²úÆ·Ïß: <span id="productline" data-id="<?php echo $productline ?>"></span>
-            <li>´´½¨ÈË: <span><?php echo $creator  ?></span>
-            <li>²âÊÔÓÃÀıµØÖ·: <?php echo $task_inject_uri  ?>
-            <li>»Ø¹éÊ±¼ä: <span id="weeks" data-id="<?php echo $week  ?>"></span>
-            <li>»Ø¹éÆµÂÊ: <?php echo $duration / 60  ?>Ğ¡Ê±
-            <li>´´½¨Ê±¼ä: <?php echo $createtime  ?>
-        </ul>
-    </div>
+    <div class="result-report">
 
-    <ul class="nav nav-tabs" id="myTab">
-        <li class="active"><a href="#chrome">chrome</a></li>
-        <li><a href="#ie9">IE9</a></li>
-        <li><a href="#ie8">IE8</a></li>
-        <li><a href="#ie7">IE7</a></li>
-        <li><a href="#ie6">IE6</a></li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane active" id="home"></div>
-        <div class="tab-pane" id="ie9"></div>
-        <div class="tab-pane" id="ie8"></div>
-        <div class="tab-pane" id="ie7"></div>
-        <div class="tab-pane" id="ie6"></div>
     </div>
 
 
     <script>
-        jQuery(function () {
-            jQuery('#myTab a:last').tab('show');
+        $("#run_test").on("click", function () {
+            jasmine._newEnv = true;
+            eval($("#test_text").val());
+            UT.execute(function (data) {
+                var jsonReporter = new jasmine.JsonReporter();
+                jsonReporter.renderHTML(data, jQuery(".result-report"));
+            })
         })
+
+
     </script>
 
 
-    <div id="output" class="result-report"></div>
 
     <?php include_once('./common/footer.php'); ?>
-
-
-    <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
-    <script>
-
-        jQuery(document).ready(function () {
-
-            var result = <?php echo $result ?>;
-            //var json = S.JSON.parse(result.replace(/^.*{/g,'{').replace(/}.*$/g,'}'));
-
-            var jsonReporter = new jasmine.JsonReporter();
-            jQuery.each(result, function (value, key) {
-
-                jsonReporter.renderHTML(value, jQuery("#"+key));
-            });
-        });
-
-    </script>
 
 
 </div>

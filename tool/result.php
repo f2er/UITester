@@ -153,7 +153,7 @@
 
                         jQuery("#myModal .modal-body").html("正在测试....");
                         $('#myModal').modal('show');
-                        socket.emit("remote:task_start", {"task_inject_uri":<?php echo $task_inject_uri  ?>})
+                        socket.emit("remote:task_start", {"task_inject_uri":"<?php echo $task_inject_uri  ?>"})
                     }
                     else {
                         alert("未能成功连接")

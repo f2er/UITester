@@ -36,6 +36,8 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 		<ul class="nav">
 		  <li class="active"><a href="list.php">查看用例</a></li>
             <li><a href="http://uitest.taobao.net/tool/create.php">回归测试</a></li>
+            <li><a href="http://uitest.taobao.net/tool/remote-test.php">远程测试</a></li>
+            <li><a href="http://uitest.taobao.net/tool/local-test.php">本地测试</a></li>
 		  <li><a href="record/record.html?">录制工具</a></li>
 		  <li><a href="https://github.com/taobao-sns-fed/uitest/">帮助中心</a></li>
 		</ul>
