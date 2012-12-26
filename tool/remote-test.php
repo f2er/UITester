@@ -2,16 +2,16 @@
 <script src="assets/form.js"></script>
 <style>
     #input_test {
-        margin: 50px 0 0 ;
+        margin: 200px 0 0 ;
     }
 
 </style>
 
 <div class="container" style="width: 920">
 
-    <div id ="input_test" class="input-append" style="text-align: center">
-        <input class="input-xlarge" placeholder=" ‰»Î≤‚ ‘¥˙¬Îµƒµÿ÷∑" id="test_src" type="text"><br>
-        <button class="btn btn-primary " type="button " id="run_test">≤‚ ‘</button>
+    <div id ="input_test"  style="text-align: center">
+        <input class="input-xxlarge" placeholder=" ‰»Î≤‚ ‘¥˙¬Îµƒµÿ÷∑" id="test_src" type="text"><br>
+        <button class="btn  btn-large btn-primary " type="button " id="run_test">≤‚ ‘</button>
 
     </div>
 

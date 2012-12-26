@@ -9,15 +9,19 @@
 
 <div class="container" style="width: 920">
 
-    <div id="input_test" class="input-append" style="text-align: center">
-        <div class="alert alert-info">
-            需要手动引入<a href="http://http://assets.daily.taobao.net/p/uitest/build/uitest-jquery.js">uitest测试框架</a>，
+    <div id="input_test"  style="text-align: center">
+        <div class="alert alert-info" style="margin: auto;text-align: left;width: 500px">
+            <strong>测试方式</strong>
+           <p> 1.需要手动引入<a href="http://http://assets.daily.taobao.net/p/uitest/build/uitest-jquery.js">uitest测试框架</a>，
             或者安装UITester浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a>
             <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/IESetup/Debug/IESetup.msi">ie</a>
-        </div>
-        <textarea id="test_text" rows="3"></textarea>
+            </p>
+            <p>2.在下面的文本框架中输入你的测试代码</p>
 
-        <button class="btn btn-primary " type="button " id="run_test">测试</button>
+        </div>
+        <textarea id="test_text" rows="100"  style="width: 500px"></textarea>
+
+        <button class=""btn  btn-large btn-primary  " type="button " id="run_test">测试</button>
 
     </div>
 
