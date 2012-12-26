@@ -19,9 +19,9 @@
             <p>2.在下面的文本框架中输入你的测试代码</p>
 
         </div>
-        <textarea id="test_text" rows="6"  style="width: 500px"></textarea>
+        <textarea id="test_text" rows="6"  style="width: 500px"></textarea><br>
 
-        <button class=""btn  btn-large btn-primary  " type="button " id="run_test">测试</button>
+        <button class=""btn   " type="button " id="run_test">测试</button>
 
     </div>
 
