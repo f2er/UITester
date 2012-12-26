@@ -16,12 +16,12 @@
                 或者安装UITester浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a>
                 <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/IESetup/Debug/IESetup.msi">ie</a>
             </p>
-            <p>2.在下面的文本框架中输入你的测试代码</p>
+            <p>2.在下面的文本框架中输入你的测试源码或地址</p>
 
         </div>
         <textarea id="test_text" rows="6"  style="width: 500px"></textarea><br>
 
-        <button class=""btn   " type="button " id="run_test">测试</button>
+        <button class="btn" type="button " id="run_test">测试</button>
 
     </div>
 
@@ -33,11 +33,24 @@
     <script>
         $("#run_test").on("click", function () {
             jasmine._newEnv = true;
-            eval($("#test_text").val());
-            UT.execute(function (data) {
-                var jsonReporter = new jasmine.JsonReporter();
-                jsonReporter.renderHTML(data, jQuery(".result-report"));
-            })
+            var value = $.trim($("#test_text").val());
+            if(value&&value.match(/^http:\/\//)){
+                $.getScript(value, function(){
+                    UT.execute(function (data) {
+                        var jsonReporter = new jasmine.JsonReporter();
+                        jsonReporter.renderHTML(data, jQuery(".result-report"));
+                    })
+                })
+            }
+            else{
+                eval(value);
+                UT.execute(function (data) {
+                    var jsonReporter = new jasmine.JsonReporter();
+                    jsonReporter.renderHTML(data, jQuery(".result-report"));
+                })
+            }
+
+
         })
 
 

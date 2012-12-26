@@ -11,7 +11,7 @@
 
     <div id ="input_test"  style="text-align: center">
         <input class="input-xxlarge" placeholder=" ‰»Î≤‚ ‘¥˙¬Îµƒµÿ÷∑" id="test_src" type="text"><br>
-        <button class="btn  " type="button " id="run_test">≤‚ ‘</button>
+        <button class="btn" type="button" id="run_test">≤‚ ‘</button>
 
     </div>
 
