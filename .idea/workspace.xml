@@ -26,16 +26,16 @@
       <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="0" selection-start="2507" selection-end="2507" vertical-scroll-proportion="-10.678572">
+            <state line="90" column="0" selection-start="2507" selection-end="2507" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="detail.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/detail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="0" selection-start="1920" selection-end="1920" vertical-scroll-proportion="-14.071428">
+            <state line="81" column="0" selection-start="1920" selection-end="1920" vertical-scroll-proportion="0.6348485">
               <folding />
             </state>
           </provider>
@@ -81,16 +81,16 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="13" selection-start="1957" selection-end="1960" vertical-scroll-proportion="-0.6785714">
+            <state line="52" column="13" selection-start="1957" selection-end="1960" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="21" selection-start="973" selection-end="973" vertical-scroll-proportion="0.5857558">
+            <state line="94" column="17" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -229,8 +229,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -266,14 +266,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12697273" sideWeight="0.87296414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12840746" sideWeight="0.87296414" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12703583" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -355,30 +355,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="87" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="73" column="87" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="44" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="72" column="44" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../uitest/jasmine-html.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="538" column="0" selection-start="16861" selection-end="16867" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="538" column="0" selection-start="16861" selection-end="16867" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="55" selection-start="3458" selection-end="3458" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="133" column="55" selection-start="3458" selection-end="3458" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/create.php">
@@ -433,30 +425,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="0" selection-start="1920" selection-end="1920" vertical-scroll-proportion="-14.071428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="2507" selection-end="2507" vertical-scroll-proportion="-10.678572">
+        <state line="90" column="0" selection-start="2507" selection-end="2507" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="13" selection-start="1957" selection-end="1960" vertical-scroll-proportion="-0.6785714">
+        <state line="52" column="13" selection-start="1957" selection-end="1960" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="21" selection-start="973" selection-end="973" vertical-scroll-proportion="0.5857558">
+        <state line="94" column="17" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/detail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="1920" selection-end="1920" vertical-scroll-proportion="0.6348485">
           <folding />
         </state>
       </provider>
