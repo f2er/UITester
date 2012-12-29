@@ -21,6 +21,7 @@
 
 <script>
     (function () {
+        UT.configs.windowType = "window";
         var timer = null;
         var isRunning = false;
         var isConnected = false
@@ -83,6 +84,7 @@
                     var win = window.open("about:blank", "", 'height=400, width=600, top=100 , left=100 , toolbar=no, menubar=no, status=no')
                     win.location.href = "run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
                     callback[id] = function (data) {
+                        console.log("result",data)
                         socket.emit('console:task_finish', data);
                         win.close();
                     }

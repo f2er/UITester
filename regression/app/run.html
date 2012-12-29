@@ -9,11 +9,12 @@
 
 <script>
     UT.configs.windowType = "window";
+    UT._setForceClose(true);
     var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
     var id = location.href.match(/id=(.*)$/)[1];
     jQuery.getScript(url,function(){
-        UT.report(function(report){
-            console&& console.log("report")
+        UT.execute(function(report){
+
             UT.postmsg.send({
                 target:opener||parent,
 
