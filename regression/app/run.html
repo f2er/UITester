@@ -35,7 +35,7 @@
             loaded = true;
 
         var defaultResult = UT.defaultResult;
-        defaultResult.errors.push({
+        defaultResult.reports.errors.push({
             message:url + "加载失败"
         })
         UT.postmsg.send({
@@ -46,7 +46,7 @@
                 report:defaultResult
             }
         })
-       
+
 
     },1000*60)
 

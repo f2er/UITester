@@ -75,7 +75,7 @@
                 timer = setTimeout(function () {
                     // 三分钟没有完成，
                     var defaultResult = UT.defaultResult;
-                    defaultResult.errors.push({
+                    defaultResult.reports.errors.push({
                         message:"超时"
                     })
                     if (callback[id]) {
