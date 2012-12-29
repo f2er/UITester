@@ -114,7 +114,7 @@ if ($task_id !== '') {
             for (var p in result) {
                 var name = p.replace(/\./g,"_")
 
-                navHtml += '<li class=""><a href="#' + name + '">' + name + '</a></li>'
+                navHtml += '<li class=""><a href="#' + name + '">' + p + '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
 
             }
@@ -125,11 +125,12 @@ if ($task_id !== '') {
 
             var i = 1;
             jQuery.each(result, function (key, value) {
+                var name = key.replace(/\./g,"_")
                 if (i) {
-                    $('.nav-tabs a[href="#' + key + '"]',c[0]).tab('show');
+                    $('.nav-tabs a[href="#' + name + '"]',c[0]).tab('show');
                     i = 0;
                 }
-                var name = key.replace(/\./g,"_")
+
                 jsonReporter.renderHTML(value, jQuery("#" + name));
             });
 
