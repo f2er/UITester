@@ -106,7 +106,9 @@ if ($task_id !== '') {
     </div>
     <?php include_once('./common/footer.php'); ?>
     <script>
+        var random =1;
         var renderResult = function (el, result) {
+            random ++;
             var c = $(el);
             var jsonReporter = new jasmine.JsonReporter();
             var navHtml = '<ul class="nav nav-tabs" >'
@@ -120,7 +122,7 @@ if ($task_id !== '') {
                     var passed = "Í¨¹ý"
                 }
 
-                var name = p.replace(/\./g,"_")
+                var name = p.replace(/\./g,"_")+random
 
                 navHtml += '<li class=""><a href="#' + name + '">' + p + passed+ '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
@@ -133,7 +135,7 @@ if ($task_id !== '') {
 
             var i = 1;
             jQuery.each(result, function (key, value) {
-                var name = key.replace(/\./g,"_")
+                var name = key.replace(/\./g,"_")+random;
                 if (i) {
                     $('.nav-tabs a[href="#' + name + '"]',c[0]).tab('show');
                     i = 0;
