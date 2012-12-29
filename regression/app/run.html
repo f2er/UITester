@@ -13,8 +13,8 @@
     UT._setForceClose(true);
     var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
     var id = location.href.match(/id=(.*)$/)[1];
-    jQuery.getScript(url).done(function () {
-        if(loaded)true;
+    jQuery.getScript(url,function () {
+        if(loaded)return;
         loaded = true;
         UT.execute(function (report) {
 
@@ -30,9 +30,10 @@
     })
 
     window.setTimeout(function () {
-        if(!loaded){
+        if(loaded) return;
+
             loaded = true;
-        }
+
         var defaultResult = UT.defaultResult;
         defaultResult.errors.push({
             message:url + "加载失败"
@@ -45,6 +46,8 @@
                 report:defaultResult
             }
         })
+       
+
     },1000*60)
 
 
