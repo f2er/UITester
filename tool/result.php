@@ -111,8 +111,8 @@ if ($task_id !== '') {
             var jsonReporter = new jasmine.JsonReporter();
             var navHtml = '<ul class="nav nav-tabs" >'
             var bodyHtml = '<div class="tab-content result-report">'
-            for (var p in data.task_result) {
-                console.log(data.task_result[p])
+            for (var p in result) {
+                
                 navHtml += '<li class=""><a href="#' + p + '">' + p + '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + p + '"></div>'
 
