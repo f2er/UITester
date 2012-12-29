@@ -11,7 +11,8 @@
         padding: 10px;
         min-width: 200px;
     }
-    #detail-info{
+
+    #detail-info {
         border: solid 1px #CCC;
         padding: 10px;
         border-radius: 4px;
@@ -21,92 +22,81 @@
     }
 
 
-
 </style>
 
 <div class="container" style="width: 920px">
 
 
-    <?php
-    $task_name = '';
-    $task_target_uri = '';
-    $task_inject_uri = '';
-    $modify_tag = '';
+<?php
+$task_name = '';
+$task_target_uri = '';
+$task_inject_uri = '';
+$modify_tag = '';
 
-    $task_id = trim($_REQUEST['task_id']);
+$task_id = trim($_REQUEST['task_id']);
 
-    if ($task_id !== '') {
+if ($task_id !== '') {
 
-        include_once('conn_db.php');
+    include_once('conn_db.php');
 
-        $sql = 'select * from list where id = ' . $task_id;
-        $taskResult = mysql_query($sql);
+    $sql = 'select * from list where id = ' . $task_id;
+    $taskResult = mysql_query($sql);
 
-        if (mysql_num_rows($taskResult) > 0) {
-            $result_item = mysql_fetch_assoc($taskResult);
-            $task_name = $result_item['task_name'];
-            $productline = $result_item['productline'];
-            $week = $result_item['week'];
-            $task_inject_uri = $result_item['task_inject_uri'];
-            $creator = $result_item['creator'];
-            $createtime = $result_item['createtime'];
-            $result = $result_item['task_result'];
-            $duration = $result_item['duration'];
-            //数据库中是UTF8, 转换为GBK, 用于页面显示
-            $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
-            $modify_tag = 'modify';
-           $prev_time =  $result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time'];
-        }
+    if (mysql_num_rows($taskResult) > 0) {
+        $result_item = mysql_fetch_assoc($taskResult);
+        $task_name = $result_item['task_name'];
+        $productline = $result_item['productline'];
+        $week = $result_item['week'];
+        $task_inject_uri = $result_item['task_inject_uri'];
+        $creator = $result_item['creator'];
+        $createtime = $result_item['createtime'];
+        $result = $result_item['task_result'];
+        $duration = $result_item['duration'];
+        //数据库中是UTF8, 转换为GBK, 用于页面显示
+        $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
+        $modify_tag = 'modify';
+        $prev_time = $result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time'];
     }
-    ?>
-    <div style="margin: 10px 0;">
-        <span style="line-height: 20px; font-size: 24.5px;font-weight: bold"><?php echo $result_item['task_name'] ?></span>
+}
+?>
+<div style="margin: 10px 0;">
+    <span style="line-height: 20px; font-size: 24.5px;font-weight: bold"><?php echo $result_item['task_name'] ?></span>
 
-        <div style="float: right">
-            <a id="go_test" target="_blank" class="btn btn-small" href="#">立即测试</a>
-            <a class="btn btn-small" href="modify.php?id=<?php $result_item['id'] ?>">修改</a>
-            <a target="_self" class="btn btn-small" href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">删除</a>
-        </div>
+    <div style="float: right">
+        <a id="go_test" target="_blank" class="btn btn-small" href="#">立即测试</a>
+        <a class="btn btn-small" href="modify.php?id=<?php $result_item['id'] ?>">修改</a>
+        <a target="_self" class="btn btn-small"
+           href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">删除</a>
     </div>
+</div>
 
 
-    <div id="detail-info">
-        <ul class="unstyled">
-            <li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
-            <li>创建人: <span><?php echo $creator  ?></span></li>
-            <li>测试用例地址: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
-            <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
-            <li>回归频率: <?php echo $duration / 60  ?>小时</li>
-            <li>创建时间: <?php echo $createtime  ?></li>
-            <li>上次回归时间:<?php echo $prev_time ?></li>
-        </ul>
-    </div>
-
-
-
-
-    <ul class="nav nav-tabs" id="myTab">
-        <li class="active"><a href="#chrome">chrome</a></li>
-        <li><a href="#ie9">IE9</a></li>
-        <li><a href="#ie8">IE8</a></li>
-        <li><a href="#ie7">IE7</a></li>
-        <li><a href="#ie6">IE6</a></li>
+<div id="detail-info">
+    <ul class="unstyled">
+        <li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
+        <li>创建人: <span><?php echo $creator  ?></span></li>
+        <li>测试用例地址: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
+        <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
+        <li>回归频率: <?php echo $duration / 60  ?>小时</li>
+        <li>创建时间: <?php echo $createtime  ?></li>
+        <li>上次回归时间:<?php echo $prev_time ?></li>
     </ul>
+</div>
 
-    <div class="tab-content result-report">
-        <div class="tab-pane active" id="chrome"></div>
-        <div class="tab-pane" id="ie9"></div>
-        <div class="tab-pane" id="ie8"></div>
-        <div class="tab-pane" id="ie7"></div>
-        <div class="tab-pane" id="ie6"></div>
+<div>
+
+
+    <div id="result-report">
+
     </div>
     <!-- Modal -->
-    <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">测试结果</h3>
         </div>
-        <div class="modal-body result-report">
+        <div class="modal-body " id="m-result-report">
 
         </div>
         <div class="modal-footer">
@@ -116,22 +106,45 @@
     </div>
     <?php include_once('./common/footer.php'); ?>
     <script>
-        $('#myTab a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-        })
-        jQuery(document).ready(function () {
-            var result = <?php echo $result ?>;
-            //var json = S.JSON.parse(result.replace(/^.*{/g,'{').replace(/}.*$/g,'}'));
+        var renderResult = function (el, result) {
+            var c = $(el);
             var jsonReporter = new jasmine.JsonReporter();
+            var navHtml = '<ul class="nav nav-tabs" >'
+            var bodyHtml = '<div class="tab-content result-report">'
+            for (var p in data.task_result) {
+                console.log(data.task_result[p])
+                navHtml += '<li class=""><a href="#' + p + '">' + p + '</a></li>'
+                bodyHtml += '<div class="tab-pane " id="' + p + '"></div>'
+
+            }
+            navHtml += "</ul>";
+            bodyHtml += "</div>";
+            c.html(navHtml + bodyHtml);
+
+
             var i = 1;
             jQuery.each(result, function (key, value) {
                 if (i) {
-                    $('#myTab a[href="#' + key + '"]').tab('show');
+                    $('.nav-tabs a[href="#' + key + '"]',c[0]).tab('show');
                     i = 0;
                 }
                 jsonReporter.renderHTML(value, jQuery("#" + key));
             });
+
+
+            $('.nav-tabs', c[0]).click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            })
+
+
+        }
+
+
+
+        jQuery(document).ready(function () {
+            var result = <?php echo $result ?>;
+            renderResult("#result-report", result);
         });
     </script>
 
@@ -177,18 +190,15 @@
                     console.info("connect");
                     if (isConnected)return;
                     isConnected = true;
-                    var jsonReporter = new jasmine.JsonReporter();
+
                     $('#myModal').modal({show:false})
                     socket.on("remote:task_finish", function (data) {
+
+
                         $('#myModal').modal('show');
-                        for(var p in data.task_result){
-                            console.log(data.task_result[p])
-                            jQuery("#myModal .modal-body").html("")
-                            jsonReporter.renderHTML(data.task_result[p], jQuery("#myModal .modal-body"));
-                        }
+                        renderResult("#m-result-report", data)
 
 
-                        console.log("remote:task_finish", data)
                     })
 
 
