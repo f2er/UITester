@@ -12,11 +12,11 @@
     UT._setForceClose(true);
     var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
     var id = location.href.match(/id=(.*)$/)[1];
-    jQuery.getScript(url,function(){
-        UT.execute(function(report){
+    jQuery.getScript(url,function () {
+        UT.execute(function (report) {
 
             UT.postmsg.send({
-                target:opener||parent,
+                target:opener || parent,
 
                 data:{
                     id:id,
@@ -24,7 +24,21 @@
                 }
             })
         })
-    })
+    }).fail(function () {
+                var defaultResult = UT.defaultResult;
+                defaultResult.errors.push({
+                    message:url+"加载失败"
+                })
+                UT.postmsg.send({
+                    target:opener || parent,
+
+                    data:{
+                        id:id,
+                        report:defaultResult
+                    }
+                })
+            })
+
 
 </script>
 

@@ -26,7 +26,7 @@
       <file leaf-file-name="jasmine-html.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="554" column="56" selection-start="16986" selection-end="17027" vertical-scroll-proportion="0.0">
+            <state line="552" column="95" selection-start="16768" selection-end="16768" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="24" selection-start="4139" selection-end="4139" vertical-scroll-proportion="0.39545456">
+            <state line="124" column="79" selection-start="4006" selection-end="4006" vertical-scroll-proportion="42.92857">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -68,7 +68,7 @@
       <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="32" selection-start="2563" selection-end="2563" vertical-scroll-proportion="-9.5">
+            <state line="79" column="22" selection-start="2398" selection-end="2544" vertical-scroll-proportion="-14.25">
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -76,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="run.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/run.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="36" selection-start="447" selection-end="447" vertical-scroll-proportion="-9.5">
+            <state line="36" column="44" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.74848485">
               <folding />
             </state>
           </provider>
@@ -88,7 +88,7 @@
       <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3199" column="20" selection-start="100521" selection-end="100521" vertical-scroll-proportion="-10.226415">
+            <state line="3298" column="28" selection-start="103612" selection-end="103612" vertical-scroll-proportion="8.3396225">
               <folding />
             </state>
           </provider>
@@ -147,11 +147,11 @@
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/TwoLoginSelectSkuAndCart.js" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/test1.html" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/simple.html" />
-        <option value="$PROJECT_DIR$/regression/app/run.html" />
-        <option value="$PROJECT_DIR$/regression/app/console.html" />
+        <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine-html.js" />
-        <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/regression/app/console.html" />
+        <option value="$PROJECT_DIR$/regression/app/run.html" />
       </list>
     </option>
   </component>
@@ -408,20 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3199" column="20" selection-start="100521" selection-end="100521" vertical-scroll-proportion="-10.226415">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="554" column="56" selection-start="16986" selection-end="17027" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="52" selection-start="2545" selection-end="2574" vertical-scroll-proportion="-6.785714">
@@ -436,9 +422,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="79" selection-start="4006" selection-end="4006" vertical-scroll-proportion="42.92857">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="552" column="95" selection-start="16768" selection-end="16768" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3298" column="28" selection-start="103612" selection-end="103612" vertical-scroll-proportion="8.3396225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="32" selection-start="2563" selection-end="2563" vertical-scroll-proportion="-9.5">
+        <state line="79" column="22" selection-start="2398" selection-end="2544" vertical-scroll-proportion="-14.25">
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -447,21 +460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/run.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="36" selection-start="447" selection-end="447" vertical-scroll-proportion="-9.5">
+        <state line="36" column="44" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.74848485">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="24" selection-start="4139" selection-end="4139" vertical-scroll-proportion="0.39545456">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

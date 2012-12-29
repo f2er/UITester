@@ -112,9 +112,17 @@ if ($task_id !== '') {
             var navHtml = '<ul class="nav nav-tabs" >'
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
+                if(result.reports.failedSpecs !== 0||result.reports.errors.length !== 0){
+                    var passed = "未通过"
+                }
+                else{
+
+                    var passed = "通过"
+                }
+
                 var name = p.replace(/\./g,"_")
 
-                navHtml += '<li class=""><a href="#' + name + '">' + p + '</a></li>'
+                navHtml += '<li class=""><a href="#' + name + '">' + p +passed+ '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
 
             }
