@@ -207,7 +207,7 @@ if ($task_id !== '') {
 
 
                         $('#myModal').modal('show');
-                        renderResult("#m-result-report", data)
+                        renderResult("#m-result-report", data.task_result)
 
 
                     })

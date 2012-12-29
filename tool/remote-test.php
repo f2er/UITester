@@ -20,7 +20,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">测试结果</h3>
         </div>
-        <div class="modal-body result-report">
+        <div class="modal-body result-report" id="m-result-report"">
 
         </div>
         <div class="modal-footer">
@@ -31,6 +31,50 @@
 
     <script>
         (function () {
+            var renderResult = function (el, result) {
+                var c = $(el);
+                var jsonReporter = new jasmine.JsonReporter();
+                var navHtml = '<ul class="nav nav-tabs" >'
+                var bodyHtml = '<div class="tab-content result-report">'
+                for (var p in result) {
+                    if(result[p].reports.failedSpecs !== 0||result[p].reports.errors.length !== 0){
+                        var passed = "未通过"
+                    }
+                    else{
+
+                        var passed = "通过"
+                    }
+
+                    var name = p.replace(/\./g,"_")
+
+                    navHtml += '<li class=""><a href="#' + name + '">' + p + passed+ '</a></li>'
+                    bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
+
+                }
+                navHtml += "</ul>";
+                bodyHtml += "</div>";
+                c.html(navHtml + bodyHtml);
+
+
+                var i = 1;
+                jQuery.each(result, function (key, value) {
+                    var name = key.replace(/\./g,"_")
+                    if (i) {
+                        $('.nav-tabs a[href="#' + name + '"]',c[0]).tab('show');
+                        i = 0;
+                    }
+
+                    jsonReporter.renderHTML(value, jQuery("#" + name));
+                });
+
+
+                $('.nav-tabs', c[0]).click(function (e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                })
+
+
+            }
             var isConnected = false;
             var http_host = location.host || "localhost";
             var url = 'http://' + http_host + ":3030" + "/socket.io/socket.io.js"
@@ -73,13 +117,9 @@
                     var jsonReporter = new jasmine.JsonReporter();
                     $('#myModal').modal({show:false})
                     socket.on("remote:task_finish", function (data) {
-                        $('#myModal').modal('show');
-                        for(var p in data.task_result){
-                            console.log(data.task_result[p])
-                            jQuery("#myModal .modal-body").html("")
-                            jsonReporter.renderHTML(data.task_result[p], jQuery("#myModal .modal-body"));
-                        }
 
+                        $('#myModal').modal('show');
+                        renderResult("#m-result-report", data.task_result)
 
                         console.log("remote:task_finish", data)
                     })
