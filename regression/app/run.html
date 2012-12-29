@@ -12,7 +12,7 @@
     UT._setForceClose(true);
     var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
     var id = location.href.match(/id=(.*)$/)[1];
-    jQuery.getScript(url,function () {
+    jQuery.getScript(url).done(function () {
         UT.execute(function (report) {
 
             UT.postmsg.send({
