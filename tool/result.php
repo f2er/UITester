@@ -112,7 +112,7 @@ if ($task_id !== '') {
             var navHtml = '<ul class="nav nav-tabs" >'
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
-                if(result.reports.failedSpecs !== 0||result.reports.errors.length !== 0){
+                if(result[p].reports.failedSpecs !== 0||result[p].reports.errors.length !== 0){
                     var passed = "Î´Í¨¹ý"
                 }
                 else{
@@ -122,7 +122,7 @@ if ($task_id !== '') {
 
                 var name = p.replace(/\./g,"_")
 
-                navHtml += '<li class=""><a href="#' + name + '">' + p +passed+ '</a></li>'
+                navHtml += '<li class=""><a href="#' + name + '">' + p + passed+ '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
 
             }
