@@ -8,11 +8,14 @@
 <body>
 
 <script>
+    var loaded = false;
     UT.configs.windowType = "window";
     UT._setForceClose(true);
     var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
     var id = location.href.match(/id=(.*)$/)[1];
     jQuery.getScript(url).done(function () {
+        if(loaded)true;
+        loaded = true;
         UT.execute(function (report) {
 
             UT.postmsg.send({
@@ -24,20 +27,25 @@
                 }
             })
         })
-    }).fail(function () {
-                var defaultResult = UT.defaultResult;
-                defaultResult.errors.push({
-                    message:url+"加载失败"
-                })
-                UT.postmsg.send({
-                    target:opener || parent,
+    })
 
-                    data:{
-                        id:id,
-                        report:defaultResult
-                    }
-                })
-            })
+    window.setTimeout(function () {
+        if(!loaded){
+            loaded = true;
+        }
+        var defaultResult = UT.defaultResult;
+        defaultResult.errors.push({
+            message:url + "加载失败"
+        })
+        UT.postmsg.send({
+            target:opener || parent,
+
+            data:{
+                id:id,
+                report:defaultResult
+            }
+        })
+    },1000*60)
 
 
 </script>
