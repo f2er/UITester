@@ -106,7 +106,9 @@ ul, p {
     background-color: #fff;
     border-top: 1px solid #CCC;
 }
-
+.case-list li .label{
+    margin-right: 10px;
+}
 .case-list li .result em {
     margin: 0 5px;
     font-style: normal;

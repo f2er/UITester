@@ -26,7 +26,16 @@
       <file leaf-file-name="jasmine-html.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="552" column="95" selection-start="16768" selection-end="16768" vertical-scroll-proportion="0.0">
+            <state line="539" column="47" selection-start="16468" selection-end="16468" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="109" column="23" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -35,16 +44,7 @@
       <file leaf-file-name="remote-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="68" selection-start="775" selection-end="835" vertical-scroll-proportion="16.464285">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/local-test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="14" selection-start="1563" selection-end="1563" vertical-scroll-proportion="-7.892857">
+            <state line="70" column="30" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -53,14 +53,8 @@
       <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="50" selection-start="4409" selection-end="4409" vertical-scroll-proportion="-12.642858">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="147" column="26" selection-start="4677" selection-end="4677" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,16 +62,34 @@
       <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="301" column="14" selection-start="8862" selection-end="8862" vertical-scroll-proportion="-66.32143">
+            <state line="237" column="17" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="remote-task.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/remote-task.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="42" selection-start="1389" selection-end="1389" vertical-scroll-proportion="-0.49775112">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client-mgr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="43" selection-start="3046" selection-end="3046" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/run.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="12" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.83484846">
+            <state line="50" column="12" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -86,25 +98,7 @@
       <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3299" column="0" selection-start="103594" selection-end="103594" vertical-scroll-proportion="-4.207547">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simple.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/simple.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="33" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.071429">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test1.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/test1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="-4.071429">
+            <state line="3299" column="0" selection-start="103594" selection-end="103594" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,10 +107,8 @@
       <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="42" selection-start="2479" selection-end="2479" vertical-scroll-proportion="-0.6785714">
-              <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="77" column="42" selection-start="2479" selection-end="2479" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -134,22 +126,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tool/local-test (2).php" />
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/tblogin.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/remote-task.js" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/TwoLoginSelectSkuAndCart.js" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/test1.html" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/simple.html" />
-        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine-html.js" />
-        <option value="$PROJECT_DIR$/tool/remote-test.php" />
-        <option value="$PROJECT_DIR$/tool/index.php" />
-        <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/regression/app/run.html" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine-html.js" />
+        <option value="$PROJECT_DIR$/tool/assets/common.css" />
+        <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/remote-test.php" />
+        <option value="$PROJECT_DIR$/tool/index.php" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/remote-task.js" />
       </list>
     </option>
   </component>
@@ -214,6 +206,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="proxy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -227,8 +273,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -271,7 +317,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.070301294" sideWeight="0.87296414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15423243" sideWeight="0.87296414" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12703583" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -341,124 +387,104 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/remote-task.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/tblogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="34" selection-start="4144" selection-end="4144" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="131" column="34" selection-start="4144" selection-end="4144" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/TwoLoginSelectSkuAndCart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="59" selection-start="3876" selection-end="3876" vertical-scroll-proportion="-12.76">
-          <folding />
-        </state>
+        <state line="98" column="59" selection-start="3876" selection-end="3876" vertical-scroll-proportion="-12.76" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="19" selection-start="209" selection-end="220" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1355708048275" expanded="false" signature="3880:3894" placeholder="..." />
-          </folding>
-        </state>
+        <state line="8" column="19" selection-start="209" selection-end="220" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/simple.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="33" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.071429">
-          <folding />
-        </state>
+        <state line="13" column="33" selection-start="278" selection-end="278" vertical-scroll-proportion="-4.071429" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/test1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="-4.071429">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="149" selection-end="149" vertical-scroll-proportion="-4.071429" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="14" selection-start="1563" selection-end="1563" vertical-scroll-proportion="-7.892857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="552" column="95" selection-start="16768" selection-end="16768" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="301" column="14" selection-start="8862" selection-end="8862" vertical-scroll-proportion="-66.32143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="50" selection-start="4409" selection-end="4409" vertical-scroll-proportion="-12.642858">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3299" column="0" selection-start="103594" selection-end="103594" vertical-scroll-proportion="-4.207547">
+        <state line="39" column="14" selection-start="1563" selection-end="1563" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="42" selection-start="2479" selection-end="2479" vertical-scroll-proportion="-0.6785714">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="68" selection-start="775" selection-end="835" vertical-scroll-proportion="16.464285">
+        <state line="77" column="42" selection-start="2479" selection-end="2479" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/run.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="12" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.83484846">
+        <state line="50" column="12" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3299" column="0" selection-start="103594" selection-end="103594" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="23" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="26" selection-start="4677" selection-end="4677" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/remote-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="30" selection-start="2416" selection-end="2416" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine-html.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="539" column="47" selection-start="16468" selection-end="16468" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="237" column="17" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="43" selection-start="3046" selection-end="3046" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/remote-task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="42" selection-start="1389" selection-end="1389" vertical-scroll-proportion="-0.49775112">
           <folding />
         </state>
       </provider>

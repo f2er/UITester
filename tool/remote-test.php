@@ -68,7 +68,7 @@
                 });
 
 
-                $('.nav-tabs', c[0]).click(function (e) {
+                $('.nav-tabs a', c[0]).click(function (e) {
                     e.preventDefault();
                     $(this).tab('show');
                 })
