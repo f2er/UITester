@@ -32,19 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data-mod.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="data-mod.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../regression/app/node_modules/data-mod.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="49" selection-start="4382" selection-end="4384" vertical-scroll-proportion="0.0">
+            <state line="157" column="6" selection-start="4558" selection-end="4558" vertical-scroll-proportion="0.7262997">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="48" selection-start="3299" selection-end="3299" vertical-scroll-proportion="0.3568075">
+            <state line="94" column="48" selection-start="3299" selection-end="3299" vertical-scroll-proportion="-49.285713">
               <folding />
             </state>
           </provider>
@@ -123,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/record/record.html" />
         <option value="$PROJECT_DIR$/../../p/webapp/SixoutStock.js" />
         <option value="$PROJECT_DIR$/../../p/uitest/docs/examples/simple.html" />
         <option value="$PROJECT_DIR$/../../p/uitest/docs/examples/test1.html" />
@@ -139,6 +138,7 @@
         <option value="$PROJECT_DIR$/../regression/app/run.html" />
         <option value="$PROJECT_DIR$/../../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../regression/app/console.html" />
+        <option value="$PROJECT_DIR$/../regression/app/node_modules/data-mod.js" />
       </list>
     </option>
   </component>
@@ -408,16 +408,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../regression/app/node_modules/data-mod.js">
+    <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="49" selection-start="4382" selection-end="4384" vertical-scroll-proportion="0.0">
+        <state line="94" column="48" selection-start="3299" selection-end="3299" vertical-scroll-proportion="-49.285713">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
+    <entry file="file://$PROJECT_DIR$/../regression/app/node_modules/data-mod.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="48" selection-start="3299" selection-end="3299" vertical-scroll-proportion="0.3568075">
+        <state line="157" column="6" selection-start="4558" selection-end="4558" vertical-scroll-proportion="0.7262997">
           <folding />
         </state>
       </provider>
