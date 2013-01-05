@@ -64,7 +64,7 @@ if ($task_id !== '') {
 
     <div style="float: right">
         <a id="go_test" target="_blank" class="btn btn-small" href="#">Á¢¼´²âÊÔ</a>
-        <a class="btn btn-small" href="modify.php?id=<?php $result_item['id'] ?>">ÐÞ¸Ä</a>
+        <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">ÐÞ¸Ä</a>
         <a target="_self" class="btn btn-small"
            href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">É¾³ý</a>
     </div>

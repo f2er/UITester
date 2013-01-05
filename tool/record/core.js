@@ -1,490 +1,3 @@
-/*
- json2.js
- 2011-10-19
-
- Public Domain.
-
- NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
-
- See http://www.JSON.org/js.html
-
-
- This code should be minified before deployment.
- See http://javascript.crockford.com/jsmin.html
-
- USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
- NOT CONTROL.
-
-
- This file creates a global JSON object containing two methods: stringify
- and parse.
-
- JSON.stringify(value, replacer, space)
- value       any JavaScript value, usually an object or array.
-
- replacer    an optional parameter that determines how object
- values are stringified for objects. It can be a
- function or an array of strings.
-
- space       an optional parameter that specifies the indentation
- of nested structures. If it is omitted, the text will
- be packed without extra whitespace. If it is a number,
- it will specify the number of spaces to indent at each
- level. If it is a string (such as '\t' or '&nbsp;'),
- it contains the characters used to indent at each level.
-
- This method produces a JSON text from a JavaScript value.
-
- When an object value is found, if the object contains a toJSON
- method, its toJSON method will be called and the result will be
- stringified. A toJSON method does not serialize: it returns the
- value represented by the name/value pair that should be serialized,
- or undefined if nothing should be serialized. The toJSON method
- will be passed the key associated with the value, and this will be
- bound to the value
-
- For example, this would serialize Dates as ISO strings.
-
- Date.prototype.toJSON = function (key) {
- function f(n) {
- // Format integers to have at least two digits.
- return n < 10 ? '0' + n : n;
- }
-
- return this.getUTCFullYear()   + '-' +
- f(this.getUTCMonth() + 1) + '-' +
- f(this.getUTCDate())      + 'T' +
- f(this.getUTCHours())     + ':' +
- f(this.getUTCMinutes())   + ':' +
- f(this.getUTCSeconds())   + 'Z';
- };
-
- You can provide an optional replacer method. It will be passed the
- key and value of each member, with this bound to the containing
- object. The value that is returned from your method will be
- serialized. If your method returns undefined, then the member will
- be excluded from the serialization.
-
- If the replacer parameter is an array of strings, then it will be
- used to select the members to be serialized. It filters the results
- such that only members with keys listed in the replacer array are
- stringified.
-
- Values that do not have JSON representations, such as undefined or
- functions, will not be serialized. Such values in objects will be
- dropped; in arrays they will be replaced with null. You can use
- a replacer function to replace those with JSON values.
- JSON.stringify(undefined) returns undefined.
-
- The optional space parameter produces a stringification of the
- value that is filled with line breaks and indentation to make it
- easier to read.
-
- If the space parameter is a non-empty string, then that string will
- be used for indentation. If the space parameter is a number, then
- the indentation will be that many spaces.
-
- Example:
-
- text = JSON.stringify(['e', {pluribus: 'unum'}]);
- // text is '["e",{"pluribus":"unum"}]'
-
-
- text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
- // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
-
- text = JSON.stringify([new Date()], function (key, value) {
- return this[key] instanceof Date ?
- 'Date(' + this[key] + ')' : value;
- });
- // text is '["Date(---current time---)"]'
-
-
- JSON.parse(text, reviver)
- This method parses a JSON text to produce an object or array.
- It can throw a SyntaxError exception.
-
- The optional reviver parameter is a function that can filter and
- transform the results. It receives each of the keys and values,
- and its return value is used instead of the original value.
- If it returns what it received, then the structure is not modified.
- If it returns undefined then the member is deleted.
-
- Example:
-
- // Parse the text. Values that look like ISO date strings will
- // be converted to Date objects.
-
- myData = JSON.parse(text, function (key, value) {
- var a;
- if (typeof value === 'string') {
- a =
- /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
- if (a) {
- return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
- +a[5], +a[6]));
- }
- }
- return value;
- });
-
- myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
- var d;
- if (typeof value === 'string' &&
- value.slice(0, 5) === 'Date(' &&
- value.slice(-1) === ')') {
- d = new Date(value.slice(5, -1));
- if (d) {
- return d;
- }
- }
- return value;
- });
-
-
- This is a reference implementation. You are free to copy, modify, or
- redistribute.
- */
-
-/*jslint evil: true, regexp: true */
-
-/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
- call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
- getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
- lastIndex, length, parse, prototype, push, replace, slice, stringify,
- test, toJSON, toString, valueOf
- */
-
-
-// Create a JSON object only if one does not already exist. We create the
-// methods in a closure to avoid creating global variables.
-
-var JSON;
-if (!JSON) {
-    JSON = {};
-}
-
-(function () {
-    'use strict';
-
-    function f(n) {
-        // Format integers to have at least two digits.
-        return n < 10 ? '0' + n : n;
-    }
-
-    if (typeof Date.prototype.toJSON !== 'function') {
-
-        Date.prototype.toJSON = function (key) {
-
-            return isFinite(this.valueOf())
-                ? this.getUTCFullYear() + '-' +
-                f(this.getUTCMonth() + 1) + '-' +
-                f(this.getUTCDate()) + 'T' +
-                f(this.getUTCHours()) + ':' +
-                f(this.getUTCMinutes()) + ':' +
-                f(this.getUTCSeconds()) + 'Z'
-                : null;
-        };
-
-        String.prototype.toJSON =
-            Number.prototype.toJSON =
-                Boolean.prototype.toJSON = function (key) {
-                    return this.valueOf();
-                };
-    }
-
-    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
-        gap,
-        indent,
-        meta = {    // table of character substitutions
-            '\b':'\\b',
-            '\t':'\\t',
-            '\n':'\\n',
-            '\f':'\\f',
-            '\r':'\\r',
-            '"' :'\\"',
-            '\\':'\\\\'
-        },
-        rep;
-
-
-    function quote(string) {
-
-// If the string contains no control characters, no quote characters, and no
-// backslash characters, then we can safely slap some quotes around it.
-// Otherwise we must also replace the offending characters with safe escape
-// sequences.
-
-        escapable.lastIndex = 0;
-        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
-            var c = meta[a];
-            return typeof c === 'string'
-                ? c
-                : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-        }) + '"' : '"' + string + '"';
-    }
-
-
-    function str(key, holder) {
-
-// Produce a string from holder[key].
-
-        var i, // The loop counter.
-            k, // The member key.
-            v, // The member value.
-            length,
-            mind = gap,
-            partial,
-            value = holder[key];
-
-// If the value has a toJSON method, call it to obtain a replacement value.
-
-        if (value && typeof value === 'object' &&
-            typeof value.toJSON === 'function') {
-            value = value.toJSON(key);
-        }
-
-// If we were called with a replacer function, then call the replacer to
-// obtain a replacement value.
-
-        if (typeof rep === 'function') {
-            value = rep.call(holder, key, value);
-        }
-
-// What happens next depends on the value's type.
-
-        switch (typeof value) {
-            case 'string':
-                return quote(value);
-
-            case 'number':
-
-// JSON numbers must be finite. Encode non-finite numbers as null.
-
-                return isFinite(value) ? String(value) : 'null';
-
-            case 'boolean':
-            case 'null':
-
-// If the value is a boolean or null, convert it to a string. Note:
-// typeof null does not produce 'null'. The case is included here in
-// the remote chance that this gets fixed someday.
-
-                return String(value);
-
-// If the type is 'object', we might be dealing with an object or an array or
-// null.
-
-            case 'object':
-
-// Due to a specification blunder in ECMAScript, typeof null is 'object',
-// so watch out for that case.
-
-                if (!value) {
-                    return 'null';
-                }
-
-// Make an array to hold the partial results of stringifying this object value.
-
-                gap += indent;
-                partial = [];
-
-// Is the value an array?
-
-                if (Object.prototype.toString.apply(value) === '[object Array]') {
-
-// The value is an array. Stringify every element. Use null as a placeholder
-// for non-JSON values.
-
-                    length = value.length;
-                    for (i = 0; i < length; i += 1) {
-                        partial[i] = str(i, value) || 'null';
-                    }
-
-// Join all of the elements together, separated with commas, and wrap them in
-// brackets.
-
-                    v = partial.length === 0
-                        ? '[]'
-                        : gap
-                        ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']'
-                        : '[' + partial.join(',') + ']';
-                    gap = mind;
-                    return v;
-                }
-
-// If the replacer is an array, use it to select the members to be stringified.
-
-                if (rep && typeof rep === 'object') {
-                    length = rep.length;
-                    for (i = 0; i < length; i += 1) {
-                        if (typeof rep[i] === 'string') {
-                            k = rep[i];
-                            v = str(k, value);
-                            if (v) {
-                                partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                            }
-                        }
-                    }
-                } else {
-
-// Otherwise, iterate through all of the keys in the object.
-
-                    for (k in value) {
-                        if (Object.prototype.hasOwnProperty.call(value, k)) {
-                            v = str(k, value);
-                            if (v) {
-                                partial.push(quote(k) + (gap ? ': ' : ':') + v);
-                            }
-                        }
-                    }
-                }
-
-// Join all of the member texts together, separated with commas,
-// and wrap them in braces.
-
-                v = partial.length === 0
-                    ? '{}'
-                    : gap
-                    ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}'
-                    : '{' + partial.join(',') + '}';
-                gap = mind;
-                return v;
-        }
-    }
-
-// If the JSON object does not yet have a stringify method, give it one.
-
-    if (typeof JSON.stringify !== 'function') {
-        JSON.stringify = function (value, replacer, space) {
-
-// The stringify method takes a value and an optional replacer, and an optional
-// space parameter, and returns a JSON text. The replacer can be a function
-// that can replace values, or an array of strings that will select the keys.
-// A default replacer method can be provided. Use of the space parameter can
-// produce text that is more easily readable.
-
-            var i;
-            gap = '';
-            indent = '';
-
-// If the space parameter is a number, make an indent string containing that
-// many spaces.
-
-            if (typeof space === 'number') {
-                for (i = 0; i < space; i += 1) {
-                    indent += ' ';
-                }
-
-// If the space parameter is a string, it will be used as the indent string.
-
-            } else if (typeof space === 'string') {
-                indent = space;
-            }
-
-// If there is a replacer, it must be a function or an array.
-// Otherwise, throw an error.
-
-            rep = replacer;
-            if (replacer && typeof replacer !== 'function' &&
-                (typeof replacer !== 'object' ||
-                    typeof replacer.length !== 'number')) {
-                throw new Error('JSON.stringify');
-            }
-
-// Make a fake root object containing our value under the key of ''.
-// Return the result of stringifying the value.
-
-            return str('', {'':value});
-        };
-    }
-
-
-// If the JSON object does not yet have a parse method, give it one.
-
-    if (typeof JSON.parse !== 'function') {
-        JSON.parse = function (text, reviver) {
-
-// The parse method takes a text and an optional reviver function, and returns
-// a JavaScript value if the text is a valid JSON text.
-
-            var j;
-
-            function walk(holder, key) {
-
-// The walk method is used to recursively walk the resulting structure so
-// that modifications can be made.
-
-                var k, v, value = holder[key];
-                if (value && typeof value === 'object') {
-                    for (k in value) {
-                        if (Object.prototype.hasOwnProperty.call(value, k)) {
-                            v = walk(value, k);
-                            if (v !== undefined) {
-                                value[k] = v;
-                            } else {
-                                delete value[k];
-                            }
-                        }
-                    }
-                }
-                return reviver.call(holder, key, value);
-            }
-
-
-// Parsing happens in four stages. In the first stage, we replace certain
-// Unicode characters with escape sequences. JavaScript handles many characters
-// incorrectly, either silently deleting them, or treating them as line endings.
-
-            text = String(text);
-            cx.lastIndex = 0;
-            if (cx.test(text)) {
-                text = text.replace(cx, function (a) {
-                    return '\\u' +
-                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
-                });
-            }
-
-// In the second stage, we run the text against regular expressions that look
-// for non-JSON patterns. We are especially concerned with '()' and 'new'
-// because they can cause invocation, and '=' because it can cause mutation.
-// But just to be safe, we want to reject all unexpected forms.
-
-// We split the second stage into 4 regexp operations in order to work around
-// crippling inefficiencies in IE's and Safari's regexp engines. First we
-// replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
-// replace all simple value tokens with ']' characters. Third, we delete all
-// open brackets that follow a colon or comma or that begin the text. Finally,
-// we look to see that the remaining characters are only whitespace or ']' or
-// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
-
-            if (/^[\],:{}\s]*$/
-                .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
-                .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
-                .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
-
-// In the third stage we use the eval function to compile the text into a
-// JavaScript structure. The '{' operator is subject to a syntactic ambiguity
-// in JavaScript: it can begin a block or an object literal. We wrap the text
-// in parens to eliminate the ambiguity.
-
-                j = eval('(' + text + ')');
-
-// In the optional fourth stage, we recursively walk the new structure, passing
-// each name/value pair to a reviver function for possible transformation.
-
-                return typeof reviver === 'function'
-                    ? walk({'':j}, '')
-                    : j;
-            }
-
-// If the text is not JSON parseable, then a SyntaxError is thrown.
-
-            throw new SyntaxError('JSON.parse');
-        };
-    }
-}());
 (function () {
     //重置setTimeout,setInterval
     // ajax等异步方法
@@ -556,297 +69,201 @@ if (!JSON) {
     };
 
     window.uitest = {};
-    uitest.jsonPath = function (obj, expr, arg) {
-        var P = {
-            resultType:arg && arg.resultType || "VALUE",
-            result    :[],
-            normalize :function (expr) {
-                var subx = [];
-                return expr.replace(/[\['](\??\(.*?\))[\]']/g, function ($0, $1) {
-                    return "[#" + (subx.push($1) - 1) + "]";
-                })
-                    .replace(/'?\.'?|\['?/g, ";")
-                    .replace(/;;;|;;/g, ";..;")
-                    .replace(/;$|'?\]|'$/g, "")
-                    .replace(/#([0-9]+)/g, function ($0, $1) {
-                        return subx[$1];
-                    });
-            },
-            asPath    :function (path) {
-                var x = path.split(";"), p = "$";
-                for (var i = 1, n = x.length; i < n; i++)
-                    p += /^[0-9*]+$/.test(x[i]) ? ("[" + x[i] + "]") : ("['" + x[i] + "']");
-                return p;
-            },
-            store     :function (p, v) {
-                if (p) P.result[P.result.length] = P.resultType == "PATH" ? P.asPath(p) : v;
-                return !!p;
-            },
-            trace     :function (expr, val, path) {
-                if (expr) {
-                    var x = expr.split(";"), loc = x.shift();
-                    x = x.join(";");
-                    if (val && val.hasOwnProperty(loc))
-                        P.trace(x, val[loc], path + ";" + loc);
-                    else if (loc === "*")
-                        P.walk(loc, x, val, path, function (m, l, x, v, p) {
-                            P.trace(m + ";" + x, v, p);
-                        });
-                    else if (loc === "..") {
-                        P.trace(x, val, path);
-                        P.walk(loc, x, val, path, function (m, l, x, v, p) {
-                            typeof v[m] === "object" && P.trace("..;" + x, v[m], p + ";" + m);
-                        });
-                    }
-                    else if (/,/.test(loc)) { // [name1,name2,...]
-                        for (var s = loc.split(/'?,'?/), i = 0, n = s.length; i < n; i++)
-                            P.trace(s[i] + ";" + x, val, path);
-                    }
-                    else if (/^\(.*?\)$/.test(loc)) // [(expr)]
-                        P.trace(P.eval(loc, val, path.substr(path.lastIndexOf(";") + 1)) + ";" + x, val, path);
-                    else if (/^\?\(.*?\)$/.test(loc)) // [?(expr)]
-                        P.walk(loc, x, val, path, function (m, l, x, v, p) {
-                            if (P.eval(l.replace(/^\?\((.*?)\)$/, "$1"), v[m], m)) P.trace(m + ";" + x, v, p);
-                        });
-                    else if (/^(-?[0-9]*):(-?[0-9]*):?([0-9]*)$/.test(loc)) // [start:end:step]  phyton slice syntax
-                        P.slice(loc, x, val, path);
-                }
-                else
-                    P.store(path, val);
-            },
-            walk      :function (loc, expr, val, path, f) {
-                if (val instanceof Array) {
-                    for (var i = 0, n = val.length; i < n; i++)
-                        if (i in val)
-                            f(i, loc, expr, val, path);
-                }
-                else if (typeof val === "object") {
-                    for (var m in val)
-                        if (val.hasOwnProperty(m))
-                            f(m, loc, expr, val, path);
-                }
-            },
-            slice     :function (loc, expr, val, path) {
-                if (val instanceof Array) {
-                    var len = val.length, start = 0, end = len, step = 1;
-                    loc.replace(/^(-?[0-9]*):(-?[0-9]*):?(-?[0-9]*)$/g, function ($0, $1, $2, $3) {
-                        start = parseInt($1 || start);
-                        end = parseInt($2 || end);
-                        step = parseInt($3 || step);
-                    });
-                    start = (start < 0) ? Math.max(0, start + len) : Math.min(len, start);
-                    end = (end < 0) ? Math.max(0, end + len) : Math.min(len, end);
-                    for (var i = start; i < end; i += step)
-                        P.trace(i + ";" + expr, val, path);
-                }
-            },
-            eval      :function (x, _v, _vname) {
-                try {
-                    return $ && _v && eval(x.replace(/@/g, "_v"));
-                }
-                catch (e) {
-                    throw new SyntaxError("jsonPath: " + e.message + ": " + x.replace(/@/g, "_v").replace(/\^/g, "_a"));
-                }
-            }
-        };
 
-        var $ = obj;
-        if (expr && obj && (P.resultType == "VALUE" || P.resultType == "PATH")) {
-            P.trace(P.normalize(expr).replace(/^\$;/, ""), obj, "$");
-            return P.result.length ? P.result : false;
-        }
+    uitest.cmd = {
+
     }
 
     uitest.configs = {
-        setInterval   :false,
+        setInterval:false,
         showSelectMark:true,
-        caseType      :"null",
+        caseType:"null",
         preventDefault:true,
-        events        :{
+        events:{
             // mouse events supported
-            click     :1,
-            dblclick  :1,
-            mouseover :0,
-            mouseout  :0,
+            click:1,
+            dblclick:1,
+            mouseover:0,
+            mouseout:0,
             mouseenter:0,
             mouseleave:0,
-            mousedown :0,
-            mouseup   :0,
-            mousemove :0,
+            mousedown:0,
+            mouseup:0,
+            mousemove:0,
             //key events supported
-            keydown   :0,
-            keyup     :0,
-            keypress  :0,
+            keydown:0,
+            keyup:0,
+            keypress:0,
             /// HTML events supported
-            blur      :1,
-            change    :1,
-            focus     :1,
-            resize    :0,
-            scroll    :0,
-            select    :0,
-            textInput :1
+            blur:1,
+            change:1,
+            focus:1,
+            resize:0,
+            scroll:0,
+            select:0,
+            textInput:1
 
 
         },
-        tags          :{
+        tags:{
             all:{value:1, label:"所有标签"},
-            a  :{value:1, label:"a"}
+            a:{value:1, label:"a"}
         },
-        position      :{
-            offset     :{
-                value :0,
+        position:{
+            offset:{
+                value:0,
                 select:[0, 0.1, 0.2, 0.5]
             },
             relatedNode:"html"
         },
-        styles        :{
+        styles:{
 
         },
-        attrs         :{
+        attrs:{
 
-            accesskey       :1,
-            class           :1,
-            contenteditable :1,
-            contextmenu     :1,
-            dir             :1,
-            draggable       :1,
-            dropzone        :1,
-            hidden          :1,
-            id              :1,
-            inert           :1,
-            itemid          :1,
-            itemprop        :1,
-            itemref         :1,
-            itemscope       :1,
-            itemtype        :1,
-            lang            :1,
-            spellcheck      :1,
-            style           :1,
-            tabindex        :1,
-            title           :1,
-            translate       :1,
+            accesskey:1,
+            class:1,
+            contenteditable:1,
+            contextmenu:1,
+            dir:1,
+            draggable:1,
+            dropzone:1,
+            hidden:1,
+            id:1,
+            inert:1,
+            itemid:1,
+            itemprop:1,
+            itemref:1,
+            itemscope:1,
+            itemtype:1,
+            lang:1,
+            spellcheck:1,
+            style:1,
+            tabindex:1,
+            title:1,
+            translate:1,
             customAttributes:1,
 
 
-            onabort         :1,
-            onblur          :1,
-            oncancel        :1,
-            oncanplay       :1,
+            onabort:1,
+            onblur:1,
+            oncancel:1,
+            oncanplay:1,
             oncanplaythrough:1,
-            onchange        :1,
-            onclick         :1,
-            onclose         :1,
-            oncontextmenu   :1,
-            oncuechange     :1,
-            ondblclick      :1,
-            ondrag          :1,
-            ondragend       :1,
-            ondragenter     :1,
-            ondragleave     :1,
-            ondragover      :1,
-            ondragstart     :1,
-            ondrop          :1,
+            onchange:1,
+            onclick:1,
+            onclose:1,
+            oncontextmenu:1,
+            oncuechange:1,
+            ondblclick:1,
+            ondrag:1,
+            ondragend:1,
+            ondragenter:1,
+            ondragleave:1,
+            ondragover:1,
+            ondragstart:1,
+            ondrop:1,
             ondurationchange:1,
-            onemptied       :1,
-            onended         :1,
-            onerror         :1,
-            onfocus         :1,
-            oninput         :1,
-            oninvalid       :1,
-            onkeydown       :1,
-            onkeypress      :1,
-            onkeyup         :1,
-            onload          :1,
-            onloadeddata    :1,
+            onemptied:1,
+            onended:1,
+            onerror:1,
+            onfocus:1,
+            oninput:1,
+            oninvalid:1,
+            onkeydown:1,
+            onkeypress:1,
+            onkeyup:1,
+            onload:1,
+            onloadeddata:1,
             onloadedmetadata:1,
-            onloadstart     :1,
-            onmousedown     :1,
-            onmousemove     :1,
-            onmouseout      :1,
-            onmouseover     :1,
-            onmouseup       :1,
-            onmousewheel    :1,
-            onpause         :1,
-            onplay          :1,
-            onplaying       :1,
-            onprogress      :1,
-            onratechange    :1,
-            onreset         :1,
-            onscroll        :1,
-            onseeked        :1,
-            onseeking       :1,
-            onselect        :1,
-            onshow          :1,
-            onstalled       :1,
-            onsubmit        :1,
-            onsuspend       :1,
-            ontimeupdate    :1,
-            onvolumechange  :1,
-            onwaiting       :1,
+            onloadstart:1,
+            onmousedown:1,
+            onmousemove:1,
+            onmouseout:1,
+            onmouseover:1,
+            onmouseup:1,
+            onmousewheel:1,
+            onpause:1,
+            onplay:1,
+            onplaying:1,
+            onprogress:1,
+            onratechange:1,
+            onreset:1,
+            onscroll:1,
+            onseeked:1,
+            onseeking:1,
+            onselect:1,
+            onshow:1,
+            onstalled:1,
+            onsubmit:1,
+            onsuspend:1,
+            ontimeupdate:1,
+            onvolumechange:1,
+            onwaiting:1,
 
 
-            href    :1,
-            target  :1,
+            href:1,
+            target:1,
             download:1,
-            ping    :1,
-            rel     :1,
-            media   :1,
+            ping:1,
+            rel:1,
+            media:1,
             hreflang:1,
-            type    :1,
-            sizes   :1,
+            type:1,
+            sizes:1,
 
-            alt        :1,
-            src        :1,
-            srcset     :1,
+            alt:1,
+            src:1,
+            srcset:1,
             crossorigin:1,
-            usemap     :1,
-            ismap      :1,
-            width      :1,
-            height     :1,
+            usemap:1,
+            ismap:1,
+            width:1,
+            height:1,
 
-            async  :1,
-            defer  :1,
+            async:1,
+            defer:1,
             charset:1,
 
-            accept        :1,
-            autocomplete  :1,
-            autofocus     :1,
-            checked       :1,
-            dirname       :1,
-            disabled      :1,
-            form          :1,
-            formaction    :1,
-            formenctype   :1,
-            formmethod    :1,
+            accept:1,
+            autocomplete:1,
+            autofocus:1,
+            checked:1,
+            dirname:1,
+            disabled:1,
+            form:1,
+            formaction:1,
+            formenctype:1,
+            formmethod:1,
             formnovalidate:1,
-            formtarget    :1,
-            list          :1,
-            max           :1,
-            maxlength     :1,
-            min           :1,
-            multiple      :1,
-            name          :1,
-            pattern       :1,
-            placeholder   :1,
-            readonly      :1,
-            required      :1,
-            size          :1,
+            formtarget:1,
+            list:1,
+            max:1,
+            maxlength:1,
+            min:1,
+            multiple:1,
+            name:1,
+            pattern:1,
+            placeholder:1,
+            readonly:1,
+            required:1,
+            size:1,
 
-            step :1,
+            step:1,
             value:1,
 
-            autofocus  :1,
-            cols       :1,
-            dirname    :1,
-            disabled   :1,
-            form       :1,
-            maxlength  :1,
+            autofocus:1,
+            cols:1,
+            dirname:1,
+            disabled:1,
+            form:1,
+            maxlength:1,
             placeholder:1,
-            readonly   :1,
-            required   :1,
-            rows       :1,
+            readonly:1,
+            required:1,
+            rows:1,
 
-            label   :1,
+            label:1,
             selected:1
 
 
@@ -860,16 +277,16 @@ if (!JSON) {
     }
 
     uitest.outter = {
-        init               :function () {
+        init:function () {
             var host = this;
 
-            this.uatest();
+            //  this.uatest();
             this.buildStyleConfigs();
             this.codeEditor();
             this.initPage();
             this.observeCall();
             this.layout();
-            this.initTabs();
+            // this.initTabs();
             this.caseTypeEvent();
 
             this.tagsConfigsView();
@@ -885,8 +302,86 @@ if (!JSON) {
             this.createEventTest();
             this.showSelectMarkEvent();
             // this.initForm();
+            this.openPage();
+
         },
-        uatest             :function () {
+        openPage:function () {
+            var host = this;
+            $("#open_page_save").on("click", function () {
+                var iframe = $("#iframe-target")[0];
+                iframe.src = $("#open_page_url").val();
+                  var win = iframe.contentWindow.
+                $('#open_page').modal('hide');
+                    var fun = function(){
+                        jQuery.getScript('http://uitest.taobao.net/tool/record/core.js');
+                    }
+                    //chrome下setTimeout里window的自定义属性失败
+                    var complete = false;
+                   UT.msgReady(win, function () {
+
+                        UT.postmsg.send({
+                            target:win,
+                            data:{
+                                type:"cmd",
+                                code:1,
+                                iframeId:windowId,
+                                id:host.id,
+
+                                source:"(" + fun.toString() + ")();"
+                            }
+                        })
+
+                        window.setTimeout(function () {
+                            alert("需要安装插件")
+                        }, 1000*60)
+
+                   });
+
+                var src = 'var win = UT.open("' + iframe.src + '",function(){\r\n' +
+                    '    describe("测试页面' + iframe.src + '", function(){\r\n' +
+                    '       it("你的测试用例"， function(){\r\n' +
+                    '           \r\n' +
+                    '       })\r\n' +
+                    '    })\r\n' +
+                    '})\r\n';
+
+                var r = host.appendCaseCode(src);
+
+                r.startLine = r.endLine = r.endLine - 4;
+                r.startColumn = r.endColumn = 10;
+
+                host.restoreSelection(r);
+
+
+            })
+
+            $("#goto_page_save").on("click", function () {
+                var iframe = $("#iframe-target")[0];
+                iframe.src = $("#goto_page_url").val();
+                $('#goto_page').modal('hide');
+
+                var src = 'win.goto("' + iframe.src + '",function(){\r\n' +
+                    '    describe("测试页面' + iframe.src + '", function(){\r\n' +
+                    '       it("你的测试用例"， function(){\r\n' +
+                    '           \r\n' +
+                    '       })\r\n' +
+                    '    })\r\n' +
+                    '})\r\n';
+
+                var r = host.appendCaseCode(src);
+
+                r.startLine = r.endLine = r.endLine - 4;
+                r.startColumn = r.endColumn = 10;
+
+                host.restoreSelection(r);
+
+
+            })
+
+
+        },
+
+        uatest:function () {
             if (!KISSY.UA.chrome) {
                 alert("非chrome浏览器部分功能可能无法使用,请下载最新版本的chrome浏览器")
             }
@@ -919,21 +414,21 @@ if (!JSON) {
             })
 
             $(document).mouseover(function () {
-                if(host.mouseoverPanel&&host.mouseoverPanel.style.display=="block"){
+                if (host.mouseoverPanel && host.mouseoverPanel.style.display == "block") {
                     host.hideMouseoverPanel();
                 }
 
             })
 
         },
-        showMouseoverPanel :function (selector, width, height, left, top) {
+        showMouseoverPanel:function (selector, width, height, left, top) {
 
             if (!this.mouseoverPanel) {
                 this.mouseoverPanel = $('<div class="mouseover-panel"></div>').get(0);
                 $("#test-page").get(0).appendChild(this.mouseoverPanel);
             }
             this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div>';
-            this.mouseoverPanel.style.display="block";
+            this.mouseoverPanel.style.display = "block";
             this.mouseoverPanel.style.position = "absolute";
             this.mouseoverPanel.style.width = width + "px";
             this.mouseoverPanel.style.height = height + "px";
@@ -941,16 +436,30 @@ if (!JSON) {
             this.mouseoverPanel.style.top = top + "px";
 
         },
-        
-        hideMouseoverPanel :function () {
-           if(this.mouseoverPanel)this.mouseoverPanel.style.display="none";
+        showSelectPanel:function (selector, width, height, left, top) {
+
+            if (!this.selectPanel) {
+                this.selectPanel = $('<div class="mouseover-panel"></div>').get(0);
+                $("#test-page").get(0).appendChild(this.selectPanel);
+            }
+            this.selectPanel.innerHTML = '<div class="selector">' + selector + '</div>';
+            this.selectPanel.style.display = "block";
+            this.selectPanel.style.position = "absolute";
+            this.selectPanel.style.width = width + "px";
+            this.selectPanel.style.height = height + "px";
+            this.selectPanel.style.left = left + "px";
+            this.selectPanel.style.top = top + "px";
+
+        },
+
+        hideMouseoverPanel:function () {
+            if (this.mouseoverPanel)this.mouseoverPanel.style.display = "none";
         },
 
         initPage:function () {
             var host = this;
 
             // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
-
 
 
             var idEl = $("#task_id")[0];
@@ -978,9 +487,9 @@ if (!JSON) {
                         iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
 
                         $.ajax({
-                            url     :buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
+                            url:buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
                             dataType:"text",
-                            success :function (txt) {
+                            success:function (txt) {
 
                                 host.textEditor.textModel.setText(null, txt)
                             }
@@ -1010,14 +519,14 @@ if (!JSON) {
 
                 var nameEl = $("#task_name")[0];
                 var task_target_url_el = $("#task_target_uri")[0];
-                
-                if(nameEl.value ===""||task_target_url_el.value ===""){
+
+                if (nameEl.value === "" || task_target_url_el.value === "") {
                     alert("用例名称或者测试地址不能为空")
                 }
-                else{
+                else {
                     $('#save-form')[0].submit();
                 }
-                
+
 
             })
 
@@ -1034,14 +543,14 @@ if (!JSON) {
 
         },
 
-        initTabs            :function () {
+        initTabs:function () {
             this.codeTabs = new KISSY.Tabs('.tabs', {
                 // aria:false 默认 true，支持 aria
-                switchTo   :0,
+                switchTo:0,
                 triggerType:"click"
             });
         },
-        showResult          :function (result) {
+        showResult:function (result) {
             this.codeTabs.switchTo(1);
             var div = this.codeTabs.panels[1];
 
@@ -1054,7 +563,7 @@ if (!JSON) {
 
 
         },
-        runTestCaseEvent    :function () {
+        runTestCaseEvent:function () {
             var host = this;
             var run = false;
 
@@ -1063,7 +572,6 @@ if (!JSON) {
                 host.innerCall("setBeforeunloadWarning")
                 var iframe = $("#iframe-target")[0];
                 $(iframe).unbind("load");
-
 
                 $(iframe).on("load", function () {
                     if (run) {
@@ -1081,7 +589,7 @@ if (!JSON) {
                 iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
             })
         },
-        showCreateBtn       :function () {
+        showCreateBtn:function () {
             /*  if (!this.actionMask) {
              this.actionMask = $('<div class="action-mask"></div>')[0];
              $("#test-page")[0].appendChild(this.actionMask)
@@ -1090,17 +598,15 @@ if (!JSON) {
              */
             var t = $(".has-test-case")[0]
             t.style.display = "inline-block";
-            
-
 
 
         },
-        hideCreateBtn       :function () {
+        hideCreateBtn:function () {
             $(".has-test-case")[0].style.display = "none"
             /*  this.actionMask.style.display = "none";
              */
         },
-        createEventTest     :function () {
+        createEventTest:function () {
             /*  var host = this;
              $(".create-test").on("click", function () {
              host.innerCall("createEventTypeTestCase")
@@ -1110,7 +616,7 @@ if (!JSON) {
              })
              */
         },
-        attrConfigsView     :function () {
+        attrConfigsView:function () {
             var host = this;
             var configs = $(".configs")[0];
             var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试" data-type="attr">属性<a class="status">记录</a></h3></li>';
@@ -1173,7 +679,7 @@ if (!JSON) {
 
 
         },
-        eventConfigsView    :function () {
+        eventConfigsView:function () {
             var host = this;
             var configs = $(".configs")[0];
             var html = '<li class="cfg-item hide"><h3 class="tag" title="用户交互事件测试" data-type="event">事件<a class="status">记录</a></h3></li>';
@@ -1236,7 +742,7 @@ if (!JSON) {
 
 
         },
-        tagsConfigsView     :function () {
+        tagsConfigsView:function () {
             var host = this;
             var configs = document.querySelector(".configs");
             var tools = document.querySelector(".change-tools");
@@ -1261,7 +767,7 @@ if (!JSON) {
 
 
         },
-        positionConfigsView :function () {
+        positionConfigsView:function () {
             var host = this;
             var configs = $(".configs")[0];
             var tools = document.querySelector(".change-tools");
@@ -1316,7 +822,7 @@ if (!JSON) {
             //  uitest.synConfigs()
 
         },
-        buildStyleConfigs   :function () {
+        buildStyleConfigs:function () {
             var styles = window.getComputedStyle(document.documentElement);
 
             for (var i = 0; i < styles.length; i++) {
@@ -1325,18 +831,18 @@ if (!JSON) {
             }
 
         },
-        fetchCSS            :function (url) {
+        fetchCSS:function (url) {
             var host = this;
             $.get("http://uitest.taobao.net/tool/fetch_css.php", {cssurl:url}, function (data) {
                 host.innerCall("appendStyle", [data])
             })
         },
 
-        centerConfigsView   :function () {
+        centerConfigsView:function () {
 
 
         },
-        styleConfigsView    :function () {
+        styleConfigsView:function () {
 
             var host = this;
             var configs = $(".configs")[0];
@@ -1411,45 +917,27 @@ if (!JSON) {
             configs.appendChild(e);
 
         },
-        subTreeConfigsView  :function () {
+        subTreeConfigsView:function () {
 
         },
 
         caseTypeEvent:function () {
             var host = this;
-            $(".configs").on("click", function (e) {
-                var target = e.target;
-                if (e.target.tagName.toLowerCase() !== "h3")   return;
-                if ($(target).parent("li").hasClass("active")) {
-                    host.innerCall("setConfig", ["caseType", "null"])
-                    $(target).parent("li").removeClass("active");
-                    return;
-                }
-                else {
-                    var all = $("h3", ".configs");
-                    for (var i = 0; i < all.length; i++) {
-                        $(all[i]).parent("li").removeClass("active");
-                    }
-                    $(target).parent("li").addClass('active');
-                    caseTest = $(target).attr("data-type");
-                    uitest.configs.caseType = caseTest;
-                    host.showConfigs(caseTest);
-                    host.innerCall("setAllConfigs", [ uitest.configs ])
 
+            $(document).on("click", function (e) {
+                var t = e.target;
+                if (t.className.indexOf("cmd") != -1) {
+                    host.innerCall(t.className)
                 }
 
             })
+        },
 
-            $(".configs").delegate("click", ".status", function (e) {
-                e.halt();
-                var target = $(e.target).parent("li")
-                $(target).toggleClass("hide")
+        "open_page_save":function () {
 
-
-            })
 
         },
-        showConfigs  :function (type) {
+        showConfigs:function (type) {
             var changeConfig = $(".change-tools li");
             changeConfig.hide();
             $("#configs-" + type).show();
@@ -1460,16 +948,9 @@ if (!JSON) {
         layout:function () {
             KISSY.use("node, button, resizable", function (S, Node, Button, Resizable) {
                 var r = new Resizable({
-                    node    :".page",
+                    node:".page",
                     // 指定可拖动的位置
                     handlers:["b"]
-
-
-                });
-                var r = new Resizable({
-                    node    :".sub",
-                    // 指定可拖动的位置
-                    handlers:["r"]
 
 
                 });
@@ -1478,7 +959,7 @@ if (!JSON) {
             });
         },
 
-        codeEditor    :function () {
+        codeEditor:function () {
             var editor = document.getElementById("test-case");
             var source = "";
             var textModel = new WebInspector.TextEditorModel();
@@ -1487,22 +968,130 @@ if (!JSON) {
             textEditor.readOnly = false;
             textEditor.mimeType = "text/javascript";
             textModel.setText(null, source);
-            this.textEditor = textEditor
+            this.textEditor = textEditor;
+            var inner = $(".text-editor-editable");
+            inner.on("focus", function () {
+
+
+            })
+            inner.on("blur", function () {
+
+                var selection = window.getSelection();
+                var range = selection.getRangeAt(0);
+
+                window._code_range = range;
+
+            })
 
         },
+        getAllTextNode:function (el) {
+            var host = this;
+            var node = [];
+            var child = el.childNodes;
+            for (var i = 0; i < child.length; i++) {
+                if (child[i].nodeType == 3) {
+                    node.push(child[i]);
+                }
+                else {
+                    node = node.concat(host.getAllTextNode(child[i]));
+                }
+            }
+            return node;
+
+        },
+        DOMRangeToRange:function (range) {
+
+            var line = $(range.startContainer).closest(".webkit-line-content");
+            if (!line[0])return;
+            var startLine = 1;
+            var allLine = $(".webkit-line-content");
+            allLine.each(function (index, value) {
+                if ($(value).is(line)) {
+                    startLine = index;
+                }
+            })
+
+            var startColumn = 0;
+            var childNodes = this.getAllTextNode(line[0]);
+            console.log("childNodes", childNodes)
+            for (var i = 0; i < childNodes.length; i++) {
+
+                if (childNodes[i] == range.startContainer) {
+                    startColumn += range.startOffset;
+                    break;
+                }
+                else if (childNodes[i].nodeType == 3) {
+                    startColumn += childNodes[i].nodeValue.length;
+                }
+            }
+            var r = new WebInspector.TextRange(startLine, startColumn, startLine, startColumn);
+
+            return r
+
+        },
+
+
+        insertCode:function (src) {
+            var inner = $(".text-editor-editable");
+            inner.focus();
+            var selection = window.getSelection();
+            var range = selection.getRangeAt(0);
+            if (range) {
+
+                range.insertNode(document.createTextNode(src));
+            }
+
+        },
+        restoreSelection:function (r) {
+            this.textEditor._mainPanel._restoreSelection(r);
+        },
+        insertCaseCode:function (src) {
+            var host = this;
+            var inner = $(".text-editor-editable");
+            inner.focus();
+            console.log("rel", this.textEditor._mainPanel._getSelection());
+            if (window._code_range) {
+
+
+                var r = this.DOMRangeToRange(window._code_range);
+                console.log("setTest in", r)
+                /*  var space = "";
+                 for(var i =0;i< r.startColumn;i++){
+                 space += " ";
+                 }
+                 var srcArray = src.split("\r\n");
+                 for(var i = 0;i<srcArray.length;i++){
+                 srcArray[i]=space+srcArray[i]
+                 }
+                 src = srcArray.concat("\r\n");
+                 */
+                var r = this.textEditor.textModel.setText(r, src);
+                r.startColumn = r.endColumn;
+                r.startLine = r.endLine;
+
+                console.log("setTest after", r)
+
+                this.textEditor._mainPanel._restoreSelection(r);
+                return r;
+            }
+        },
         appendCaseCode:function (src) {
-            this.codeTabs.switchTo(0);
-            this.textEditor.textModel.appendText(src)
+
+
+
+            //   this.codeTabs.switchTo(0);
+            var r = this.textEditor.textModel.appendText(src)
             var lines = $(".webkit-line-content");
             var lastLines = lines[lines.length - 1];
             lastLines.scrollIntoView();
-            uitest.synConfigs();
+            return r;
+
 
         },
-        synConfigs    :function () {
+        synConfigs:function () {
 
         },
-        observeCall   :function () {
+        observeCall:function () {
             var host = this;
             postmsg.bind(function (data) {
 
@@ -1512,15 +1101,15 @@ if (!JSON) {
                 }
             })
         },
-        innerCall     :function (funName, args) {
+        innerCall:function (funName, args) {
             args = args || [];
 
             postmsg.send({
                 target:$("#iframe-target")[0].contentWindow,
-                data  :{funName:funName, args:args}
+                data:{funName:funName, args:args}
             })
         },
-        setAllConfigs :function (configs) {
+        setAllConfigs:function (configs) {
             uitest.configs = configs;
 
         }
@@ -1537,23 +1126,268 @@ if (!JSON) {
             this.observeCall();
             this.selectorChangeEvent();
             this.beforeunloadWarning = true;
-            window.onbeforeunload = function () {
-                if (host.beforeunloadWarning) {
-                    return '';
-                }
-                else {
-                    host.beforeunloadWarning = true;
-                }
-            }
+            /*   window.onbeforeunload = function () {
+             if (host.beforeunloadWarning) {
+             return '';
+             }
+             else {
+             host.beforeunloadWarning = true;
+             }
+             }
+             */
             this.initMouseoverPanel();
 
 
         },
+        cmd_toExist:function () {
+            var host = this;
+            if (host.selectTarget) {
+                var src = 'expect("' + host.elToSelector(host.selectTarget) + '").toExist();\r\n';
+                host.outterCall("insertCaseCode", [src])
 
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_atPosition:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+                var offset = $(selector).offset();
+
+
+                testCase += 'expect("' + selector + '").atPosition(' + (offset.left) + ', ' + (offset.top) + '");\r\n';
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toHaveComputedStyle:function () {
+            var host = this;
+            var filterStyles = function (styles) {
+                var tempArray = [];
+                for (var p in  styles) {
+                    if (uitest.configs.styles[p]) {
+                        tempArray.push(styles[p])
+                    }
+                }
+                return tempArray;
+            }
+
+            var mergeCSSRules = function (CSSRules, target) {
+                var merged = {};
+                if (!CSSRules)CSSRules = [];
+
+                for (var i = 0; i < CSSRules.length; i++) {
+                    var s = CSSRules[i].style;
+                    for (var j = 0; j < s.length; j++) {
+                        var sname = s.getPropertyShorthand(s[j]) || s[j]
+
+                        if (uitest.configs.styles[sname]) {
+                            merged[sname] = $(target).css(sname);
+                        }
+
+                    }
+                }
+                return merged;
+
+            }
+            if (host.selectTarget) {
+
+
+                var target = host.selectTarget;
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+                var styles = mergeCSSRules(window.getMatchedCSSRules(target), target)
+                if (Object.getOwnPropertyNames(styles).length == 0) {
+
+                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义样式"])
+
+                    return;
+                }
+                //window.getMatchedCSSRules
+                // mergeCSSRules(window.getMatchedCSSRules(target))
+
+
+                var testCase = '';
+
+                var expects = []
+
+
+                for (var p in  styles) {
+
+
+                    var name = p;
+                    var value = styles[p];
+                    if (value) {
+                        expects.push('    expect("' + selector + '").toHaveComputedStyle("' + name + '","' + value + '");\r\n');
+                    }
+
+                }
+                if (expects.length == 0) {
+                    uitest.inner.outterCall("appendCaseCode", ["//" + selector + " 没有定义样式"])
+                    return;
+                }
+
+                for (var i = 0; i < expects.length; i++) {
+                    testCase += expects[i];
+                }
+
+
+                //所有事件都要停止，避免影响测试结果，
+                // 包括hover的处理
+
+
+                //showMsg(123);
+
+                uitest.inner.outterCall("insertCaseCode", [testCase])
+
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toHaveValue:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+
+                testCase += 'expect("' + selector + '").toHaveValue(' + $(host.selectTarget).val() + '");\r\n';
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toHaveText:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+
+                testCase += 'expect("' + selector + '").toHaveText(' + $(host.selectTarget).text() + '");\r\n';
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toHaveAttr:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+                var attrs = $(host.selectTarget)[0].attributes;
+
+
+                var testCase = '';
+
+
+                for (var i = 0; i < attrs.length; i++) {
+
+
+                    var name = attrs[i].name;
+                    var value = attrs[i].value;
+                    testCase += 'expect("' + selector + '").toHaveAttr("' + name + '","' + value + '");\r\n';
+                }
+
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toHaveClass:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+                var
+                    trimmedClasses = elem.className,
+                    classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
+                    i = 0,
+                    len = classes.length;
+                var testCase = '';
+                for (; i < len; i++) {
+                    testCase += 'expect("' + selector + '").toHaveClass("' + classes[i] + '");\r\n';
+                }
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toBeVisible:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+
+                testCase += 'expect("' + selector + '").toBeVisible();\r\n';
+
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toBeHidden:function () {
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+
+                testCase += 'expect("' + selector + '").toBeHidden();\r\n';
+
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_toBeChecked:function(){
+            var host = this;
+            if (host.selectTarget) {
+
+                var testCase = '';
+                var selector = uitest.inner.elToSelector(host.selectTarget);
+
+
+                testCase += 'expect("' + selector + '").toBeChecked();\r\n';
+
+
+                host.outterCall("insertCaseCode", [testCase])
+
+            } else {
+                alert("请选择元素")
+            }
+        },
         setBeforeunloadWarning:function () {
             this.beforeunloadWarning = false;
         },
-        initProxy             :function () {
+        initProxy:function () {
             var host = this;
             var fireEventCallback;
             var setInterval = window.setInterval;
@@ -1684,9 +1518,7 @@ if (!JSON) {
                     var target = e.target;
                     if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
-
                             if (!/^#/.test(target.getAttribute("href"))) {
-
                                 e.preventDefault()
                             }
                             ;
@@ -1699,14 +1531,13 @@ if (!JSON) {
 
 
         },
-        initMouseoverPanel    :function () {
+        initMouseoverPanel:function () {
             var host = this;
             window.setTimeout(function () {
-
                 document.addEventListener("mouseover", function (e) {
                     var target = e.target;
 
-                    if (uitest.configs.showSelectMark && uitest.configs.caseType != "null") {
+                    if (uitest.configs.showSelectMark) {
 
                         host.outterCall("showMouseoverPanel", [
                             host.elToSelector(target),
@@ -1716,15 +1547,10 @@ if (!JSON) {
                             $(target).offset().top - $(document.body).scrollTop()
                         ]
                         )
-
                     }
-
-
                 }, true, true)
 
                 document.addEventListener("mouseleave", function (e) {
-
-
                     host.outterCall("showMouseoverPanel", [
                         "",
                         0,
@@ -1733,8 +1559,24 @@ if (!JSON) {
                         -999
                     ]
                     )
+                }, true, true)
+            }, 10)
 
-
+            this.initSelectPanel();
+        },
+        initSelectPanel:function () {
+            var host = this;
+            window.setTimeout(function () {
+                document.addEventListener("click", function (e) {
+                    var target = e.target;
+                    host.selectTarget = target;
+                    host.outterCall("showSelectPanel", [
+                        host.elToSelector(target),
+                        $(target).width(),
+                        $(target).height(),
+                        $(target).offset().left - $(document.body).scrollLeft(),
+                        $(target).offset().top - $(document.body).scrollTop()
+                    ])
                 }, true, true)
             }, 10)
         },
@@ -1742,7 +1584,7 @@ if (!JSON) {
         createEventTestCase:function () {
 
         },
-        runTestCase        :function (src) {
+        runTestCase:function (src) {
             var old = uitest.configs.caseType
             uitest.configs.caseType = "test"
             var host = this;
@@ -1775,15 +1617,15 @@ if (!JSON) {
 
 
         },
-        setConfig          :function (key, value) {
+        setConfig:function (key, value) {
             uitest.configs[key] = value;
         },
-        supportConfig      :function (name, key, value) {
+        supportConfig:function (name, key, value) {
 
             uitest.configs[name][key] = value;
 
         },
-        setAllConfigs      :function (configs) {
+        setAllConfigs:function (configs) {
             uitest.configs = configs;
             if (configs.caseType == "style") {
                 this.fetchCSS();
@@ -1792,12 +1634,12 @@ if (!JSON) {
 
 
         },
-        _getHasClassParent :function (node) {
+        _getHasClassParent:function (node) {
             var parent = el.parentNode;
 
         },
 
-        elToSelector              :function (el) {
+        elToSelector:function (el) {
 
 
             if (!el)return "";
@@ -1965,7 +1807,7 @@ if (!JSON) {
 
 
         },
-        selectorChangeEvent       :function () {
+        selectorChangeEvent:function () {
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 
 
@@ -1987,7 +1829,7 @@ if (!JSON) {
             });
 
         },
-        nodeAddEvent              :function () {
+        nodeAddEvent:function () {
             var host = this;
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 
@@ -2012,7 +1854,7 @@ if (!JSON) {
 
             observer.observe(document, {
                 childList:true,
-                subtree  :true
+                subtree:true
 
             });
 
@@ -2049,10 +1891,10 @@ if (!JSON) {
             }
 
         },
-        synOutterConfigs :function () {
+        synOutterConfigs:function () {
             this.outterCall("setAllConfigs", [uitest.configs])
         },
-        fetchCSS         :function () {
+        fetchCSS:function () {
             var links = document.querySelectorAll("link");
             for (var i = 0; i < links.length; i++) {
                 if (links[i].rel == "stylesheet") {
@@ -2062,10 +1904,10 @@ if (!JSON) {
             }
 
         },
-        appendStyle      :function (data) {
+        appendStyle:function (data) {
             $("head").append("<style>" + data + "</style>");
         },
-        observeCall      :function () {
+        observeCall:function () {
             var host = this;
 
             postmsg.bind(function (data) {
@@ -2077,12 +1919,12 @@ if (!JSON) {
                 }
             })
         },
-        outterCall       :function (funName, args) {
+        outterCall:function (funName, args) {
 
             args = args || [];
             postmsg.send({
                 target:parent,
-                data  :{funName:funName, args:args}
+                data:{funName:funName, args:args}
             })
         }
     }

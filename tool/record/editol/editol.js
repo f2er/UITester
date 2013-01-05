@@ -8166,6 +8166,9 @@ WebInspector.TextEditorModel.prototype = {
             this._changeListener(range, newRange, command.text, text);
         return newRange;
     },
+    setRange:function(){
+
+   },
     appendText: function(text)
     {
         text = text || "";
@@ -9788,7 +9791,7 @@ WebInspector.TextEditorMainPanel.prototype = {
         WebInspector.TextEditorChunkedPanel.prototype._expandChunks.call(this, fromIndex, toIndex);
         
         this._adjustPaintLinesOperationsRefreshValue();
-        return;
+
         this._restoreSelection(selection);
     },
 
@@ -10332,8 +10335,11 @@ WebInspector.TextEditorMainPanel.prototype = {
             var oldRange = new WebInspector.TextRange(startLine - 1, this._textModel.lineLength(startLine - 1), endLine - 1, this._textModel.lineLength(endLine - 1));
         else
             var oldRange = new WebInspector.TextRange(startLine, startColumn, endLine - 1, endColumn);
-        
+
+
+
         var newRange = this._setText(oldRange, lines.join("\n"));
+
 
         this._paintScheduledLines(true);
         this._restoreSelection(selection);
@@ -10343,7 +10349,7 @@ WebInspector.TextEditorMainPanel.prototype = {
 
     textChanged: function(oldRange, newRange)
     {
-        console.log("change")
+
      
         this.beginDomUpdates();
         this._removeDecorationsInRange(oldRange);

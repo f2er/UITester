@@ -17,6 +17,7 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="tool" />
   </component>
@@ -25,16 +26,31 @@
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="402" column="52" selection-start="8677" selection-end="8677" vertical-scroll-proportion="-11.730769">
+            <state line="3" column="24" selection-start="64" selection-end="64" vertical-scroll-proportion="-0.35849056">
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/result.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="63" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.4318182">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testiframe.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/record/testiframe.html">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="56" selection-start="1030" selection-end="1030" vertical-scroll-proportion="63.846153">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="52.42857">
               <folding />
             </state>
           </provider>
@@ -43,8 +59,10 @@
       <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="105.6">
-              <folding />
+            <state line="10" column="26" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1354790871974" expanded="false" signature="4475:4489" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +70,7 @@
       <file leaf-file-name="attrs.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/attrs.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0">
+            <state line="71" column="13" selection-start="1634" selection-end="2067" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -61,52 +79,48 @@
       <file leaf-file-name="position.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/position.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0">
+            <state line="23" column="9" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="399" column="69" selection-start="13626" selection-end="13683" vertical-scroll-proportion="0.8742038">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sns.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://D:/workspace/trunk/p/snsdk/src/core/sns.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="9" selection-start="3896" selection-end="4225" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/record/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="340" column="0" selection-start="10998" selection-end="10998" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jasmine-html.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lib/jasmine-html.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="434" column="4" selection-start="13410" selection-end="15205" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="315" column="89" selection-start="7248" selection-end="7248" vertical-scroll-proportion="-15.924528">
+              <folding>
+                <marker date="1357358082599" expanded="true" signature="18170:18182" placeholder="..." />
+                <marker date="1357358082599" expanded="true" signature="20177:20189" placeholder="..." />
+                <marker date="1357358082599" expanded="true" signature="23028:23040" placeholder="..." />
+                <marker date="1357358082599" expanded="true" signature="25454:25466" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../lib/jasmine.js">
+        <entry file="file://$PROJECT_DIR$/../../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2189" column="66" selection-start="62392" selection-end="62447" vertical-scroll-proportion="0.0">
+            <state line="2998" column="31" selection-start="94704" selection-end="94713" vertical-scroll-proportion="-9.4">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/styles.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="7" selection-start="994" selection-end="2546" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editol.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/editol/editol.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8116" column="13" selection-start="305425" selection-end="305425" vertical-scroll-proportion="27.84">
               <folding />
             </state>
           </provider>
@@ -119,38 +133,34 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
-  <component name="Git.Settings">
-    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
-    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
-    <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="D:/workspace/trunk/p/snsdk/src/widget/like.js" />
-        <option value="D:/workspace/trunk/p/snsdk/src/timestamp.js" />
-        <option value="D:/workspace/trunk/p/snsdk/src/widget/share.js" />
-        <option value="D:/workspace/trunk/p/snsdk/core.js" />
-        <option value="$PROJECT_DIR$/record/subtree.js" />
-        <option value="$PROJECT_DIR$/record/innerhtml.js" />
         <option value="$PROJECT_DIR$/../lib/jasmine.js" />
         <option value="$PROJECT_DIR$/../lib/jasmine-html.js" />
         <option value="$PROJECT_DIR$/record/testiframe.html" />
         <option value="$PROJECT_DIR$/record/events.js" />
         <option value="$PROJECT_DIR$/record/attrs.js" />
-        <option value="$PROJECT_DIR$/record/tags.js" />
         <option value="$PROJECT_DIR$/record/position.js" />
         <option value="$PROJECT_DIR$/../lib/matcher.js" />
-        <option value="$PROJECT_DIR$/record/record.html" />
+        <option value="$PROJECT_DIR$/record/common.css" />
+        <option value="$PROJECT_DIR$/record/tags.js" />
+        <option value="$PROJECT_DIR$/record/code_edit.js" />
+        <option value="$PROJECT_DIR$/../../p/uitest/plugin/ie/ie_plugin/IE/BHO.cpp" />
+        <option value="$PROJECT_DIR$/record/editol/editol.js" />
+        <option value="$PROJECT_DIR$/../../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/record/core.js" />
+        <option value="$PROJECT_DIR$/record/record.html" />
+        <option value="$PROJECT_DIR$/result.php" />
       </list>
     </option>
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="776" />
+    <option name="width" value="1452" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -166,7 +176,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -177,14 +187,26 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tool" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="web.server" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
@@ -224,20 +246,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
+    <frame x="-8" y="-8" width="1452" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.041434262" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12302158" sideWeight="0.6512605" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12302158" sideWeight="0.33893558" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -268,7 +291,6 @@
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
@@ -278,8 +300,10 @@
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -298,96 +322,127 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/share.js">
+    <entry file="file://$PROJECT_DIR$/record/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="629" column="36" selection-start="25071" selection-end="25071" vertical-scroll-proportion="-0.8" />
+        <state line="340" column="0" selection-start="8379" selection-end="8379" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/widget/like.js">
+    <entry file="file://$PROJECT_DIR$/common/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="263" column="22" selection-start="6726" selection-end="6736" vertical-scroll-proportion="-11.2" />
+        <state line="12" column="0" selection-start="240" selection-end="847" vertical-scroll-proportion="0.34545454">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/innerhtml.js">
+    <entry file="file://$PROJECT_DIR$/record/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="93" selection-start="577" selection-end="577" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/subtree.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="80" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../test/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="45" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0" />
+        <state line="32" column="0" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/record/tags.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="30" selection-start="173" selection-end="175" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lib/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2189" column="66" selection-start="62392" selection-end="62447" vertical-scroll-proportion="0.0">
+        <state line="12" column="51" selection-start="492" selection-end="506" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../lib/jasmine-html.js">
+    <entry file="file://$PROJECT_DIR$/../../p/uitest/plugin/ie/ie_plugin/IE/BHO.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="434" column="4" selection-start="13410" selection-end="15205" vertical-scroll-proportion="0.0">
+        <state line="84" column="0" selection-start="2125" selection-end="2175" vertical-scroll-proportion="0.17151164">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/events.js">
+    <entry file="file://$PROJECT_DIR$/record/code_edit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="340" column="0" selection-start="10998" selection-end="10998" vertical-scroll-proportion="0.0" />
+        <state line="1" column="0" selection-start="13" selection-end="13" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://D:/workspace/trunk/p/snsdk/src/core/sns.js">
+    <entry file="file://$PROJECT_DIR$/record/editol/editol.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="9" selection-start="3896" selection-end="4225" vertical-scroll-proportion="0.0">
+        <state line="8116" column="13" selection-start="305425" selection-end="305425" vertical-scroll-proportion="27.84">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/record/attrs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0" />
+        <state line="71" column="13" selection-start="1634" selection-end="2067" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../lib/matcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="105.6">
-          <folding />
+        <state line="10" column="26" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1354790871974" expanded="false" signature="4475:4489" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/record.html">
+    <entry file="file://$PROJECT_DIR$/record/styles.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="402" column="52" selection-start="8677" selection-end="8677" vertical-scroll-proportion="-11.730769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/testiframe.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="56" selection-start="1030" selection-end="1030" vertical-scroll-proportion="63.846153">
+        <state line="39" column="7" selection-start="994" selection-end="2546" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/record/position.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" />
+        <state line="23" column="9" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="52.42857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2998" column="31" selection-start="94704" selection-end="94713" vertical-scroll-proportion="-9.4">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/record/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="69" selection-start="13626" selection-end="13683" vertical-scroll-proportion="0.8742038">
+        <state line="315" column="89" selection-start="7248" selection-end="7248" vertical-scroll-proportion="-15.924528">
+          <folding>
+            <marker date="1357358082599" expanded="true" signature="18170:18182" placeholder="..." />
+            <marker date="1357358082599" expanded="true" signature="20177:20189" placeholder="..." />
+            <marker date="1357358082599" expanded="true" signature="23028:23040" placeholder="..." />
+            <marker date="1357358082599" expanded="true" signature="25454:25466" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="24" selection-start="64" selection-end="64" vertical-scroll-proportion="-0.35849056">
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="63" selection-start="1914" selection-end="1914" vertical-scroll-proportion="0.4318182">
           <folding />
         </state>
       </provider>
