@@ -78,7 +78,7 @@
             <div class="result">
             <script>
             try{
-              var result ='.$result_item['task_result']." ".';
+              var result ='.$result_item['task_result'].';
               if(result){
                 for(var  p in result){
                    var fs = result[p].reports.failedSpecs;
