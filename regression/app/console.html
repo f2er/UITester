@@ -69,7 +69,7 @@
                 var isRunning = true;
                 var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
                 var win;
-              /*  if (timer) {
+                if (timer) {
                     window.clearTimeout(timer);
                     timer = null;
                 }
@@ -82,8 +82,8 @@
                     if (callback[id]) {
                         callback[id](defaultResult)
                     }
-                }, 1000 * 60 * 5)
-                */
+                }, 1000 * 60 * 10)
+
 
                 if (data && data.task_inject_uri) {
                     //创建一个独立的环境
@@ -112,7 +112,7 @@
             //等结果
             UT.postmsg.bind(function (data) {
                 if (data.id && callback[data.id]) {
-                    console.log("收到结果")
+
                     callback[data.id](data.report);
                     delete callback[data.id];
                 }
