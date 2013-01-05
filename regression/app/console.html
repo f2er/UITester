@@ -68,7 +68,7 @@
                 var isRunning = true;
                 var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
                 var win;
-                if (timer) {
+              /*  if (timer) {
                     window.clearTimeout(timer);
                     timer = null;
                 }
@@ -82,10 +82,11 @@
                         callback[id](defaultResult)
                     }
                 }, 1000 * 60 * 5)
+                */
 
                 if (data && data.task_inject_uri) {
                     //创建一个独立的环境
-                    var win = window.open("about:blank", "", 'height=400, width=600, top=100 , left=100 , toolbar=no, menubar=no, status=no')
+                    var win = window.open("about:blank", "", 'height=10, width=10, top=0 , left=0 ,  top=0, left=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
                     win.location.href = "run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
                     callback[id] = function (data) {
                         console.log("result",data)
