@@ -21,7 +21,7 @@
 
 <script>
     (function () {
-        UT.configs.windowType = "window";
+
         var timer = null;
         var isRunning = false;
         var isConnected = false
@@ -62,6 +62,7 @@
             // will be triggered
             var callback = {};
             var runWindow;
+            var runIframe;
             socket.on('console:task_start', function (data) {
                 console.log("console:task_start", data);
 
@@ -86,12 +87,22 @@
 
                 if (data && data.task_inject_uri) {
                     //创建一个独立的环境
-                    var win = window.open("about:blank", "", 'height=10, width=10, top=0 , left=0 ,  top=0, left=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-                    win.location.href = "run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
+                   // var win = window.open("about:blank", "", 'height=10, width=10, top=0 , left=0 ,  top=0, left=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                    //win.location.href = "run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
+                    if(!runIframe){
+                        var iframe = document.createElement("iframe");
+                        iframe.style.width = "600px"
+                        iframe.style.height = "400px"
+                        iframe.src = "about:blank";
+                        document.body.appendChild(iframe);
+                        runWindow = iframe.contentWindow;
+                        runIframe = iframe;
+                    }
+                    runIframe.src = "run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
+
                     callback[id] = function (data) {
                         console.log("result",data)
                         socket.emit('console:task_finish', data);
-                        win.close();
                     }
                 }
 
@@ -112,10 +123,7 @@
         })
 
 
-        var runScriptFromUrl = function (url, callback) {
 
-
-        };
 
 
     })();
