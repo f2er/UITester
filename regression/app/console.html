@@ -12,8 +12,8 @@
 <div class="alert alert-info">
     <h3>安装：</h3>
 
-    <p> 1.安装UITester浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a>
-        <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/IESetup/Debug/IESetup.msi">ie</a>
+    <p> 1.安装UITester浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>
+        <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/setup/setup.rar">ie</a>
     </p>
 
     <p>2.设置浏览器允许窗口打开</p>
@@ -58,28 +58,7 @@
     }
     var testTimer;
     var test_n = 0;
-    var waitReady = function (check, success, error) {
-        //等60s;
-        if (test_n > 600) {
-            error & error();
-            return;
-        }
-        if (check()) {
-            if (testTimer) {
-                window.clearTimeout(testTimer);
-                testTimer = null;
-            }
-            success && success();
-            return;
-        }
-        else {
-            testTimer = setTimeout(function () {
-                test_n++;
-                waitReady(check, success, error);
-            }, 100)
-        }
 
-    }
     var start = function () {
         if (socket) {
             jQuery("#info").html("链接已经建立");
