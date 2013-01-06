@@ -78,12 +78,11 @@
             <div class="result">
             <script>
             try{
-              var result ='.$result_item['task_result'].';
+              var result ='.$result_item['browser_result'].';
               if(result){
                 for(var  p in result){
-                   var fs = result[p].reports.failedSpecs;
-                   var ts = result[p].reports.totalSpecs;
-                   if(fs|| !ts){
+
+                   if(result[p]){
                      var cl = "label label-important";
                      var msg = "Î´Í¨¹ý"
                    }else{
