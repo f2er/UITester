@@ -82,7 +82,7 @@
               if(result){
                 for(var  p in result){
 
-                   if(result[p]){
+                   if(!result[p]){
                      var cl = "label label-important";
                      var msg = "Î´Í¨¹ý"
                    }else{
