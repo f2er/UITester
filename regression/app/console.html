@@ -30,6 +30,8 @@
     <p id="info" style="color: red"></p>
 
     <p style="color: red" id="browser_info"></p>
+
+    <p style="color: red" id="test_number"></p>
 </div>
 
 
@@ -39,8 +41,11 @@
     var isRunning = false;
     var isConnected = false
     var http_host = location.host;
+    var run_timer;
     var socket;
-    var win;
+    var run_win;
+    var test_number = 0;
+    var callback =[];
     if (!window.console) {
         window.console = {
             log:function () {
@@ -85,18 +90,19 @@
 
 
         socket.on("connect", function () {
+            if (run_win && run_win.close)run_win.close();
             jQuery("#info").html("链接建立成功");
 
 
             jQuery("#info").html("正在打开运行窗口");
 
 
-            var test_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+            var test_run_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
             var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            test_win.location.href = "run.html?id=" + id;
+            test_run_win.location.href = 'http://' + http_host + "/run.html?id=" + id;
 
 
-            if (test_win) {
+            if (test_run_win) {
 
                 jQuery("#info").html("打开运行窗口成功");
 
@@ -107,18 +113,18 @@
             }
             jQuery("#info").html("测试脚本注入...");
 
-            waitReady(
+            UT._msgReady(test_run_win,
                     function () {
-                        return test_win.UT;
-                    },
-                    function () {
-                        test_win.close();
+                        test_run_win.close();
                         jQuery("#info").html("脚本注入成功");
                         socket.emit('console:register', {
                             'userAgent':window.navigator.userAgent
                         });
                         socket.on('disconnect', function () {
-                            //
+                            jQuery("#info").html("失去连接，5秒后重新链接")
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 5000)
                         });
                         socket.on('console:reload', function (data) {
                             window.location.reload();
@@ -130,46 +136,40 @@
 
 
                         socket.on('console:task_start', function (data) {
-                            jQuery("#info").html("任务开始");
-                            if (!win) {
-                                win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                            if (data && data.task_inject_uri) {
+                                //创建一个独立的环境
+                                var runing = true;
+                                jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.task_inject_uri);
+                                if (!run_win) {
+                                    run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                                }
+
+
+                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                run_win.location.href = 'http://' + http_host + "/run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
+                                callback[id] = function (data) {
+                                    jQuery("#info").html("任务完成");
+                                    runing = false;
+                                    if(run_timer){
+                                        window.clearTimeout(run_timer);
+                                        run_timer = null;
+                                    }
+                                    socket.emit('console:task_finish', data);
+
+                                }
+
+
+                                run_timer = setTimeout(function () {
+                                    // 三分钟没有完成，
+                                    if(!runing) return;
+                                    var defaultResult = UT.defaultResult;
+                                    defaultResult.reports.errors.push({
+                                        message:"超时"
+                                    })
+                                    socket.emit('console:task_finish', defaultResult);
+
+                                }, 1000 * 60 * 10)
                             }
-
-                            var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                            win.location.href = "run.html?id=" + id;
-
-
-                            jQuery(win).ready(function () {
-                                waitReady(
-                                        function () {
-                                            return win.test_start
-                                        },
-                                        function () {
-                                            win.test_start(data.task_inject_uri)
-                                        },
-                                        function () {
-                                            jQuery("#info").html("运行失败，未能获取运行方法");
-                                        }
-                                )
-
-                            })
-
-
-                            var run_timer;
-
-                            if (run_timer) {
-                                window.clearTimeout(run_timer);
-                                run_timer = null;
-                            }
-                            run_timer = setTimeout(function () {
-                                // 三分钟没有完成，
-                                var defaultResult = UT.defaultResult;
-                                defaultResult.reports.errors.push({
-                                    message:"超时"
-                                })
-                                socket.emit('console:task_finish', defaultResult);
-
-                            }, 1000 * 60 * 10)
 
 
                         });
@@ -182,20 +182,28 @@
                     }
             );
 
-            window.task_complete = function (report) {
-                jQuery("#info").html("任务完成");
-                socket.emit('console:task_finish', report);
-            }
-
 
         })
 
 
     };
 
-    $("#start").on("click", start);
-    jQuery(window).unload(function(e) {
-        if(win&&win.close)win.close();
+    start();
+    //等结果
+    UT.postmsg.bind(function (data) {
+        if (data.id && callback[data.id]) {
+            callback[data.id](data.report);
+            delete callback[data.id];
+        }
+
+
+    })
+
+    $("#start").on("click", function () {
+        window.location.reload();
+    });
+    jQuery(window).on("beforeunload", function (e) {
+        if (run_win && run_win.close)run_win.close();
     })
 
 

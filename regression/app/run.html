@@ -3,71 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>UITester run</title>
-    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/src/jquery-1.7.2.min.js"></script>
+    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
 </head>
 <body>
 <h3>UITester 运行页面</h3>
-<p id="info"></p>
+
 
 <script>
-    var isRuning = false;
-    jQuery("#info").html("空闲")
-    jQuery(window).unload(function(e) {
-
-
-
-        if(window.UT&&isRuning){
-            UT.execute(function (report) {
-                report.reports.errors.push({
-                    message:url + "父页面异常跳转"
-                })
-                window.opener.socket.emit('console:task_finish', report);
-            })
-        }
-        window.opener.win=null;
-
-    });
-
-
+    var timeout = false;
+    var isloading = false;
+    UT._setForceClose(true);
+    var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
+    var id = location.href.match(/id=(.*)$/)[1];
+    var task_complete = function (report) {
+        UT.postmsg.send({
+            target:opener,
+            data:{
+                code:"111",
+                id:id,
+                report:report
+            }
+        })
+    }
     var test_start = function (url) {
-        jQuery("#info").html("正在运行："+url)
-        var loaded = false;
-        isRuning = true;
-
+        isloading =true;
         jQuery.getScript(url, function () {
-            if (loaded)return;
-            loaded = true;
+            isloading = false;
+            if (timeout) {
+                window.clearTimeout(timeout);
+                timeout = null;
+            }
             UT.execute(function (report) {
 
-                window.opener.task_complete( report);
-                isRuning = false;
-                jQuery("#info").html("空闲")
+
+                task_complete(report)
             })
         })
 
-        window.setTimeout(function () {
-            if (loaded) return;
+        timeout = window.setTimeout(function () {
+            if(!isloading)return;
+            isloading=true;
 
-            loaded = true;
-
-            var defaultResult = UT.defaultResult;
-            defaultResult.reports.errors.push({
+            var report = UT.defaultResult;
+            report.reports.errors.push({
                 message:url + "加载失败"
             })
-
-            window.opener.task_complete(defaultResult);
-            isRuning = false;
-            jQuery("#info").html("空闲")
+            task_complete(report)
 
 
         }, 1000 * 10);
 
 
-
-
-
     }
 
+    jQuery(window).on("beforeunload",function (e) {
+
+
+        if (window.UT && isRuning) {
+            UT.execute(function (report) {
+                report.reports.errors.push({
+                    message:url + "父页面异常跳转"
+                })
+                task_complete(report)
+                isRuning = false;
+            })
+        }
+
+
+    });
+    test_start(url);
 
 
 </script>

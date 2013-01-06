@@ -45,7 +45,7 @@
         $('#myModal').modal({show:false})
         $("#run_test").on("click", function () {
             jasmine._newEnv = true;
-            UT.configs.windowType = "window";
+
             var value = $.trim($("#test_text").val());
             if(value&&value.match(/^http:\/\//)){
                 $.getScript(value, function(){
