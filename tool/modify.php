@@ -96,7 +96,7 @@ if ($task_id !== ''){
 						<input type="checkbox" name="timers" value="4" />星期四 
 						<input type="checkbox" name="timers" value="5" />星期五 
 						<input type="checkbox" name="timers" value="6" />星期六 
-						<input type="checkbox" name="timers" value="7" />星期日
+						<input type="checkbox" name="timers" value="0" />星期日
 							<br/><br/>	
 						每天回归的时间点: <input type="text" name="start" value="' . $start . '" size="5" placeholder="mm:ss" style="width:40px"> &nbsp;&nbsp;
 						间隔时间: <select class="duration" name="duration" data-value="'.$duration.'">

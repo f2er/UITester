@@ -49,7 +49,7 @@ $modify_tag = '';
                 <input type="checkbox" name="timers" value="4" />星期四
                 <input type="checkbox" name="timers" value="5" />星期五
                 <input type="checkbox" name="timers" value="6" />星期六
-                <input type="checkbox" name="timers" value="7" />星期日
+                <input type="checkbox" name="timers" value="0" />星期日
             </div>
         </div>
         <div class="control-group">
