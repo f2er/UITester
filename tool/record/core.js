@@ -280,7 +280,7 @@
         init:function () {
             var host = this;
 
-            //  this.uatest();
+            this.uatest();
             this.buildStyleConfigs();
             this.codeEditor();
 
@@ -289,17 +289,9 @@
             // this.initTabs();
             this.caseTypeEvent();
 
-            this.tagsConfigsView();
-            this.positionConfigsView();
-            this.styleConfigsView();
-            //this.centerConfigsView();
 
-            this.innerHTMLConfigsView();
-            //this.subTreeConfigsView();
-            this.attrConfigsView();
-            this.eventConfigsView();
             this.runTestCaseEvent()
-            this.createEventTest();
+
             this.showSelectMarkEvent();
             // this.initForm();
             this.openPage();
@@ -314,7 +306,7 @@
                 var win = iframe.contentWindow;
 
                 var fun = function () {
-                    jQuery.getScript('http://uitest.taobao.net/tool/record/core.js',function(){
+                    jQuery.getScript('http://uitest.taobao.net/tool/record/core.js', function () {
                         uitest.inner.init();
                     });
 
@@ -383,7 +375,32 @@
 
 
         },
+        appendMutations:function (recods) {
 
+            $("#mutations").show();
+            var s = '<div style="padding: 0px 30px 0px 10px;margin: 1px" class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>';
+            for (var i = 0; i < recods.length; i++) {
+                s += '' +
+                    '<a href="#" class="cmd_out_createCase" title="生成断言">' + recods[i].desc + '<i class="icon-chevron-right"  ></i>' +
+                    '<textarea  style="display: none">' + recods[i].expect + '</textarea></a>' +
+                    '';
+
+            }
+            s += ' </div>';
+            $("#mutations").html($("#mutations").html() + s);
+
+        },
+        cmd_out_createCase:function (t) {
+            var r = this.appendCaseCode($(t).find("textarea").val());
+            var parent = $(t).parent()
+            $(t).remove();
+
+            if(parent.find("a").length==0){
+                
+                parent.remove();
+            }
+
+        },
         uatest:function () {
             if (!KISSY.UA.chrome) {
                 alert("非chrome浏览器部分功能可能无法使用,请下载最新版本的chrome浏览器")
@@ -460,285 +477,16 @@
         },
 
 
-        initTabs:function () {
-            this.codeTabs = new KISSY.Tabs('.tabs', {
-                // aria:false 默认 true，支持 aria
-                switchTo:0,
-                triggerType:"click"
-            });
-        },
-        showResult:function (result) {
-            this.codeTabs.switchTo(1);
-            var div = this.codeTabs.panels[1];
-
-            var jsonReporter = new jasmine.JsonReporter;
-
-            KISSY.use("template", function (S, Template) {
-                div.innerHTML = "<div class='result-report'>" + jsonReporter.renderHTML(result);
-                +"</div>"
-            });
-
-
-        },
         runTestCaseEvent:function () {
             var host = this;
             var run = false;
 
             $(".run-test").on("click", function (e) {
-                run = true;
-                host.innerCall("setBeforeunloadWarning")
-                var iframe = $("#iframe-target")[0];
-                $(iframe).unbind("load");
-
-                $(iframe).on("load", function () {
-                    if (run) {
-                        run = false;
-                        window.setTimeout(function () {
-                            host.innerCall("runTestCase", [host.textEditor.textModel.text])
-                        }, 2000)
-                    }
-
-                })
-                var task_target_url_el = $("#task_target_uri")[0];
-                var iframe = $("#iframe-target")[0];
-                var usernameEl = $("#username")[0];
-                var passwordEl = $("#password")[0];
-                iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
-            })
-        },
-        showCreateBtn:function () {
-            /*  if (!this.actionMask) {
-             this.actionMask = $('<div class="action-mask"></div>')[0];
-             $("#test-page")[0].appendChild(this.actionMask)
-             }
-             this.actionMask.style.display = "block";
-             */
-            var t = $(".has-test-case")[0]
-            t.style.display = "inline-block";
-
-
-        },
-        hideCreateBtn:function () {
-            $(".has-test-case")[0].style.display = "none"
-            /*  this.actionMask.style.display = "none";
-             */
-        },
-        createEventTest:function () {
-            /*  var host = this;
-             $(".create-test").on("click", function () {
-             host.innerCall("createEventTypeTestCase")
-             })
-             $(".cancel-test").on("click", function () {
-             host.innerCall("removeEventTypeTestCase")
-             })
-             */
-        },
-        attrConfigsView:function () {
-            var host = this;
-            var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="event" title="标签属性测试" data-type="attr">属性<a class="status">记录</a></h3></li>';
-            var tools = document.querySelector(".change-tools");
-            html += '</ul></li>';
-            var e = $(html)[0];
-            configs.appendChild(e);
-
-
-            var configsHTML = '<li id="configs-attr" class="hide" style="display:none">选择属性类型：<span class="jiao"></span><div class="item">';
-
-
-            for (var p in uitest.configs.attrs) {
-                var checked = "checked";
-                if (!uitest.configs.attrs[p]) {
-                    checked = ""
-                }
-
-                configsHTML += '<div><span><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</span></div>'
-            }
-
-
-            configsHTML += "</div></li>";
-            var e = $(configsHTML)[0];
-            tools.appendChild(e);
-
-
-            $("input", e).on("change", function (e) {
-
-                    var t = e.target;
-                    if (t.checked) {
-                        uitest.configs.attrs[t.value] = 1
-
-                        host.innerCall("supportConfig", ["events", t.value, 1])
-                        // uitest.synConfigs();
-                    }
-                    else {
-                        uitest.configs.attrs[t.value] = 0;
-
-                        uitest.synConfigs();
-                        //  host.innerCall("supportConfig", ["events", t.value, 0]);
-                    }
-
-
-                }
-            )
-
-
-            $(document).click(function (e) {
-                var target = e.target;
-                if (!$(target).closest("#configs-attr")[0]) {
-                    $("#configs-attr").addClass("hide")
-                }
 
             })
-
-            $("#configs-attr .jiao").click(function () {
-                $("#configs-attr").toggleClass("hide")
-            })
-
-
         },
-        eventConfigsView:function () {
-            var host = this;
-            var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="tag" title="用户交互事件测试" data-type="event">事件<a class="status">记录</a></h3></li>';
-            var tools = document.querySelector(".change-tools");
-            html += '</ul></li>';
-            var e = $(html)[0];
-            configs.appendChild(e);
 
 
-            var configsHTML = '<li id="configs-event" class="hide" style="display:none">选择事件类型：<span class="jiao"></span><div class="item">';
-
-
-            for (var p in uitest.configs.events) {
-                var checked = "checked";
-                if (!uitest.configs.events[p]) {
-                    checked = ""
-                }
-
-                configsHTML += '<div><span><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</span></div>'
-            }
-
-
-            configsHTML += "</div></li>";
-            var e = $(configsHTML)[0];
-            tools.appendChild(e);
-
-
-            $("input", e).on("change", function (e) {
-
-                    var t = e.target;
-                    if (t.checked) {
-                        uitest.configs.events[t.value] = 1
-
-                        host.innerCall("supportConfig", ["events", t.value, 1])
-                        // uitest.synConfigs();
-                    }
-                    else {
-                        uitest.configs.events[t.value] = 0;
-
-                        uitest.synConfigs();
-                        //  host.innerCall("supportConfig", ["events", t.value, 0]);
-                    }
-
-
-                }
-            )
-
-
-            $(document).click(function (e) {
-                var target = e.target;
-                if (!$(target).closest("#configs-event")[0]) {
-                    $("#configs-event").addClass("hide")
-                }
-
-            })
-
-            $("#configs-event .jiao").click(function () {
-                $("#configs-event").toggleClass("hide")
-            })
-
-
-        },
-        tagsConfigsView:function () {
-            var host = this;
-            var configs = document.querySelector(".configs");
-            var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="event" title="页面完整测试" data-type="tags">标签</h3></li>';
-
-
-            var e = $(html)[0];
-            configs.appendChild(e);
-            /*
-
-             var configHtml = '<li id="configs-tags" style="display:none"><label>标签：<select>'
-             //  configHtml += '<optgroup label="242">'
-             for (var p in uitest.configs.tags) {
-             configHtml += '<option value="'+p+'">'+uitest.configs.tags[p].label+'</option>'
-             }
-             // configHtml += '</optgroup>'
-             configHtml += '</select></label></li>';
-             tools.appendChild($(configHtml)[0])
-
-
-             */
-
-
-        },
-        positionConfigsView:function () {
-            var host = this;
-            var configs = $(".configs")[0];
-            var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="" title="节点位置测试" data-type="position">位置<a class="status">记录</a></h3></li>';
-
-            var e = $(html)[0];
-
-            configs.appendChild(e);
-            //offset
-
-            var offsetHTML = '<li style="display:none" id="configs-position">' +
-                '<label>偏移量：<select>' +
-                '{{#each offset.select as value index}}' +
-                '<option value="{{value}}">{{value}}</option>' +
-                '{{/each}}' +
-                '</select></label>' +
-                '<laber>相对于：<input id="related-node" type="text"  value="{{relatedNode}}"/><a href="#" id="select-related-node">选择</a></laber>' +
-                '' +
-                '</li>'
-
-
-            offsetHTML = KISSY.Template(offsetHTML).render(uitest.configs.position);
-
-
-            var tag = $(offsetHTML)[0];
-
-            tools.appendChild(tag);
-            $("select", tag).change(function (e) {
-                uitest.configs.position.offset.value = $("select", tag).val();
-
-                host.innerCall("setAllConfigs", [uitest.configs])
-
-            })
-
-
-            $("#select-related-node").click(function () {
-                uitest.configs.caseType = "select-related-node";
-                $("#select-related-node").css("color", "red");
-
-                uitest.synConfigs()
-
-
-            })
-
-
-        },
-        setSelectRelatedNode:function (selector) {
-            uitest.configs.position.relatedNode = selector;
-            $("#related-node").val(selector);
-            $("#select-related-node").css("color", "");
-
-            //  uitest.synConfigs()
-
-        },
         buildStyleConfigs:function () {
             var styles = window.getComputedStyle(document.documentElement);
 
@@ -755,95 +503,19 @@
             })
         },
 
-        centerConfigsView:function () {
-
-
-        },
-        styleConfigsView:function () {
-
-            var host = this;
-            var configs = $(".configs")[0];
-            var html = '<li class="cfg-item hide"><h3 class="tag" title="元素样式测试" data-type="style">css<a class="status">记录</a></h3></li>';
-            var tools = document.querySelector(".change-tools");
-            html += '</ul></li>';
-            var e = $(html)[0];
-            configs.appendChild(e);
-
-
-            var configsHTML = '<li id="configs-style" class="hide" style="display:none">选择样式类型：<span class="jiao"></span><div class="item">';
-
-
-            for (var p in uitest.configs.styles) {
-                var checked = "checked";
-                if (!uitest.configs.styles[p]) {
-                    checked = ""
-                }
-
-                configsHTML += '<div><span><input value="' + p + '"  type="checkbox" ' + checked + ' />' + p + '</span></div>'
-            }
-
-
-            configsHTML += "</div></li>";
-            var e = $(configsHTML)[0];
-            tools.appendChild(e);
-
-
-            $("input", e).on("change", function (e) {
-
-                    var t = e.target;
-                    if (t.checked) {
-                        uitest.configs.styles[t.value] = 1
-
-                        host.innerCall("supportConfig", ["styles", t.value, 1])
-                        // uitest.synConfigs();
-                    }
-                    else {
-                        uitest.configs.styles[t.value] = 0;
-
-                        uitest.synConfigs();
-                        //  host.innerCall("supportConfig", ["events", t.value, 0]);
-                    }
-
-
-                }
-            )
-
-
-            $(document).click(function (e) {
-                var target = e.target;
-                if (!$(target).closest("#configs-style")[0]) {
-                    $("#configs-style").addClass("hide")
-                }
-
-            })
-
-            $("#configs-style .jiao").click(function () {
-                $("#configs-style").toggleClass("hide")
-            })
-
-
-        },
-        innerHTMLConfigsView:function () {
-            var host = this;
-            var configs = $(".configs")[0];
-            var tools = document.querySelector(".change-tools");
-            var html = '<li class="cfg-item hide"><h3 class="" title="节点innerHTMl，value值测试" data-type="innerhtml">内容<a class="status">记录</a></h3></li>';
-
-            var e = $(html)[0];
-
-            configs.appendChild(e);
-
-        },
-        subTreeConfigsView:function () {
-
-        },
 
         caseTypeEvent:function () {
             var host = this;
 
             $(document).on("click", function (e) {
                 var t = e.target;
-                if (t.className.indexOf("cmd") != -1) {
+                if (t.className.indexOf("cmd_out") != -1) {
+                    host[t.className] && host[t.className](t);
+                }
+                else if (t.className.indexOf("cmd_simulate") != -1) {
+                    host.innerCall("cmd_simulate", [$(t).attr("data-type")])
+                }
+                else if (t.className.indexOf("cmd") != -1) {
                     host.innerCall(t.className)
                 }
 
@@ -1005,9 +677,7 @@
 
 
         },
-        synConfigs:function () {
 
-        },
         observeCall:function () {
             var host = this;
             UT.postmsg.bind(function (data) {
@@ -1042,18 +712,133 @@
             this.initProxy();
             this.observeCall();
             this.selectorChangeEvent();
-            this.beforeunloadWarning = true;
-            /*   window.onbeforeunload = function () {
-             if (host.beforeunloadWarning) {
-             return '';
-             }
-             else {
-             host.beforeunloadWarning = true;
-             }
-             }
-             */
-            this.initMouseoverPanel();
+            this.beforeunloadWarning = false;
+            this.canObserverMutation = false;
+            jQuery(window).on("beforeunload", function () {
+                if (host.beforeunloadWarning) {
+                    return '';
+                }
+                else {
+                    host.beforeunloadWarning = true;
+                }
+            })
 
+            this.initMouseoverPanel();
+            this.observerMutation();
+
+
+        },
+        observerMutation:function () {
+            var host = this;
+
+            var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+            var createTimer;
+
+            var observer = new MutationObserver(function (mutations) {
+                if (!host.canObserverMutation)return;
+                console.log(mutations)
+                var records = [];
+                var toSP = uitest.inner.elToSelectorRelativeParent;
+                mutations.forEach(function (mutation) {
+                    if (mutation.type == "attributes") {
+                        //被删除
+                        if (!mutation.target.parentNode || !mutation.target.ownerDocument) {
+                            return;
+                        }
+                        var oldValue = mutation.oldValue;
+                        var selector = uitest.inner.elToSelector(mutation.target);
+                        var newValue = $(selector).attr(mutation.attributeName);
+                        if (!newValue) {
+                            var expect = 'expect("' + selector + '").not.toHaveAttr("' + mutation.attributeName + '");\n'
+                            records.push({
+                                desc:selector + "元素删除了属性" + mutation.attributeName,
+                                target:selector,
+                                expect:expect,
+                                value:mutation.attributeName
+                            });
+                        }
+                        if (newValue) {
+                            var expect = 'expect("' + selector + '").toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n'
+                            records.push({
+                                desc:selector + "元素将属性" + mutation.attributeName + "的值修改为" + newValue,
+                                target:selector,
+                                expect:expect,
+                                value:mutation.attributeName
+                            });
+                        }
+                    }
+                    if (mutation.type == "characterData") {
+                        var target = mutation.target.parentNode;
+                        var newValue = target.innerHTML;
+                        var selector = uitest.inner.elToSelector(target)
+                        newValue = newValue.replace(/"/ig, '\\"')
+                        var expect = 'expect("' + selector + '").toHaveHtml("' + newValue + '");\n';
+                        records.push({
+                            desc:selector + "元素innerHTML被修改为" + newValue,
+                            target:selector,
+                            expect:expect,
+                            value:newValue
+                        });
+                    }
+
+                    if (mutation.type == "childList") {
+                        var tag = mutation.target.tagName.toLowerCase();
+                        //难以预测，暂时不支持
+                        var addedNodes = mutation.addedNodes;
+                        var removedNodes = mutation.removedNodes;
+                        //分析
+                        var selector = uitest.inner.elToSelector(mutation.target);
+                        for (var i = 0; i < addedNodes.length; i++) {
+                            if (!addedNodes[i] || !addedNodes[i].tagName)continue;
+                            if (addedNodes[i].ownerDocument) {
+                                var se = toSP(addedNodes[i]);
+                                if (!se)continue;
+                                var expect = 'expect("' + selector + '").toHaveChild("' + se + '");\r\n';
+                                records.push({
+                                    desc:selector + "元素增加了一个子元素" + se,
+                                    target:selector,
+                                    expect:expect,
+                                    value:se
+                                });
+                            }
+                        }
+                        for (var i = 0; i < removedNodes.length; i++) {
+                            var se = toSP(removedNodes[i]);
+                            if (se) {
+                                var expect = 'expect("' + selector + '").not.toHaveChild("' + se + '");\r\n';
+                                records.push({
+                                    desc:selector + "元素删除了一个子元素" + se,
+                                    target:selector,
+                                    expect:expect,
+                                    value:se
+                                });
+                            }
+                        }
+                    }
+
+
+                });
+                console.log(mutations)
+                uitest.inner.outterCall("appendMutations", [records]);
+            });
+
+            observer.observe(document, {
+                attributes:true,
+                childList:true,
+                characterData:true,
+                subtree:true,
+                attributeOldValue:true,
+                characterDataOldValue:true
+            });
+        },
+        cmd_simulate:function (type) {
+            var host = this;
+            if (host.selectTarget) {
+                this.canObserverMutation = true;
+                jasmine.simulate(host.selectTarget, type);
+            } else {
+                alert("请选择元素")
+            }
 
         },
         cmd_toExist:function () {
@@ -1075,7 +860,7 @@
                 var offset = $(selector).offset();
 
 
-                testCase += 'expect("' + selector + '").atPosition(' + (offset.left) + ', ' + (offset.top) + '");\r\n';
+                testCase += 'expect("' + selector + '").atPosition("' + (offset.left) + ', ' + (offset.top) + '","html");\r\n';
 
                 host.outterCall("insertCaseCode", [testCase])
 
@@ -1122,7 +907,7 @@
                 var styles = mergeCSSRules(window.getMatchedCSSRules(target), target)
                 if (Object.getOwnPropertyNames(styles).length == 0) {
 
-                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义样式"])
+                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义样式\r\n"])
 
                     return;
                 }
@@ -1146,7 +931,7 @@
 
                 }
                 if (expects.length == 0) {
-                    uitest.inner.outterCall("appendCaseCode", ["//" + selector + " 没有定义样式"])
+                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义样式"])
                     return;
                 }
 
@@ -1176,7 +961,7 @@
                 var selector = uitest.inner.elToSelector(host.selectTarget);
 
 
-                testCase += 'expect("' + selector + '").toHaveValue(' + $(host.selectTarget).val() + '");\r\n';
+                testCase += 'expect("' + selector + '").toHaveValue("' + $(host.selectTarget).val() + '");\r\n';
 
                 host.outterCall("insertCaseCode", [testCase])
 
@@ -1192,7 +977,7 @@
                 var selector = uitest.inner.elToSelector(host.selectTarget);
 
 
-                testCase += 'expect("' + selector + '").toHaveText(' + $(host.selectTarget).text() + '");\r\n';
+                testCase += 'expect("' + selector + '").toHaveText("' + $(host.selectTarget).text() + '");\r\n';
 
                 host.outterCall("insertCaseCode", [testCase])
 
@@ -1235,14 +1020,19 @@
                 var selector = uitest.inner.elToSelector(host.selectTarget);
 
                 var
-                    trimmedClasses = elem.className,
+                    trimmedClasses = host.selectTarget.className,
                     classes = trimmedClasses ? trimmedClasses.split(/\s+/) : [],
                     i = 0,
                     len = classes.length;
+                if (len == 0) {
+                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义class\r\n"])
+                    return;
+                }
                 var testCase = '';
                 for (; i < len; i++) {
                     testCase += 'expect("' + selector + '").toHaveClass("' + classes[i] + '");\r\n';
                 }
+
 
                 host.outterCall("insertCaseCode", [testCase])
 

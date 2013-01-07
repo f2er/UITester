@@ -2,6 +2,7 @@
 <html>
 <head>
     <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+    <script src="core.js"></script>
     <link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
 </head>
 <body>
@@ -11,7 +12,12 @@
     <li>uitest</li>
 </ul>
 
+<script>uitest.inner.init()</script><script>
+    $("li").on("click", function(){
+        $("li").attr("class","click")
+    })
 
+</script>
 </body>
 </html>
 
