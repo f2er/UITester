@@ -58,20 +58,7 @@
             <a id="open_page_save" class="btn btn-primary">打开</a>
         </div>
     </div>
-    <div id="goto_page" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3>页面跳转</h3>
-        </div>
-        <div class="modal-body">
-            <input id="goto_page_url" class="input-xlarge" type="text" placeholder="请输入页面地址">
-        </div>
-        <div class="modal-footer">
 
-            <a id="goto_page_save" class="btn btn-primary">打开</a>
-        </div>
-    </div>
 
 
     <div id="nav" class="navbar navbar-inverse" style="margin-bottom: 0px">
@@ -84,8 +71,8 @@
                                 class="caret"></b></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
                             <li><a tabindex="-1" href="#open_page" data-toggle="modal">打开</a></li>
-                            <li><a tabindex="-1" href="#goto_page" data-toggle="modal">跳转</a></li>
-                            <li><a tabindex="-1" href="#cmd_reload" >刷新</a></li>
+
+
 
                         </ul>
                     </li>
@@ -176,6 +163,9 @@
             <div class="page">
 
                 <div id="page-tools">
+                    <a href="#" class="cmd_back" title="后退"><span class="icon-arrow-left"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="cmd_forward" title="前进"><span class="icon-arrow-right"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="cmd_reload" title="刷新"><span class="icon-repeat"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <ul class="fix-tools" style="display: none">
                         <li><a href="#" id="show-select-mark">显示标记</a></li>

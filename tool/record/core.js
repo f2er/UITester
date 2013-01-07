@@ -296,19 +296,27 @@
             // this.initForm();
             this.openPage();
 
+
+        },
+
+        cmd_out_reload:function(){
+            var iframe = $("#iframe-target")[0];
+            iframe.src = buildUrl(iframe.src,"t="+new Date().getTime())
         },
         openPage:function () {
             var host = this;
-            $("#open_page_save").on("click", function () {
-                jQuery('#open_page').modal('hide');
-                var iframe = $("#iframe-target")[0];
-                iframe.src = $("#open_page_url").val();
-                var win = iframe.contentWindow;
-
+            var iframe = $("#iframe-target")[0];
+            var win = iframe.contentWindow;
+            iframe.onload = function(){
                 var fun = function () {
-                    jQuery.getScript('http://uitest.taobao.net/tool/record/core.js', function () {
+                    var script = document.createElement('script');
+                    script.src="http://uitest.taobao.net/tool/record/core.js";
+                    script.charset ="utf-8"
+                    script.onload = function(){
                         uitest.inner.init();
-                    });
+                    }
+                    document.body.appendChild(script);
+
 
                 }
                 //chrome下setTimeout里window的自定义属性失败
@@ -331,6 +339,14 @@
 
 
                 });
+            }
+            $("#open_page_save").on("click", function () {
+                jQuery('#open_page').modal('hide');
+                var iframe = $("#iframe-target")[0];
+                iframe.src = $("#open_page_url").val();
+
+
+
 
                 var src = 'var win = UT.open("' + iframe.src + '",function(){\r\n' +
                     '    describe("测试页面' + iframe.src + '", function(){\r\n' +
@@ -396,7 +412,7 @@
             $(t).remove();
 
             if(parent.find("a").length==0){
-                
+
                 parent.remove();
             }
 
@@ -447,7 +463,7 @@
                 this.mouseoverPanel = $('<div class="mouseover-panel"></div>').get(0);
                 $("#test-page").get(0).appendChild(this.mouseoverPanel);
             }
-            this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div>';
+            this.mouseoverPanel.innerHTML = '<div class="selector">' + selector + '</div><a class="cmd_select" href="#"  title="选择"><span class="icon-ok"></span></a>';
             this.mouseoverPanel.style.display = "block";
             this.mouseoverPanel.style.position = "absolute";
             this.mouseoverPanel.style.width = width + "px";
@@ -725,8 +741,18 @@
 
             this.initMouseoverPanel();
             this.observerMutation();
+            this.preventDefault();
 
 
+        },
+        preventDefault:function(){
+            $(document).on("click", function(e){
+                var target = e.target;
+                if(target.tagName.toLowerCase()=="a"&&(!target.href.test(/^#/))){
+                    e.preventDefault();
+                }
+
+            })
         },
         observerMutation:function () {
             var host = this;
@@ -834,12 +860,24 @@
         cmd_simulate:function (type) {
             var host = this;
             if (host.selectTarget) {
-                this.canObserverMutation = true;
+
                 jasmine.simulate(host.selectTarget, type);
+                var src = 'simulate("' + host.elToSelector(host.selectTarget) + '","'+type+'")\r\n';
+                host.outterCall("insertCaseCode", [src])
             } else {
                 alert("请选择元素")
             }
 
+        },
+        cmd_reload:function (type) {
+           window.location.reload();
+
+        },
+        cmd_back:function(){
+            window.history.back();
+        },
+        cmd_forward:function(){
+            window.history.forward()
         },
         cmd_toExist:function () {
             var host = this;
