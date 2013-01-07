@@ -45,7 +45,7 @@
     var socket;
     var run_win;
     var test_number = 0;
-    var callback =[];
+    var callback = [];
     if (!window.console) {
         window.console = {
             log:function () {
@@ -71,6 +71,7 @@
         socket.on("connect", function () {
             if (run_win && run_win.close)run_win.close();
             jQuery("#info").html("链接建立成功");
+            isConnected = true;
 
 
             jQuery("#info").html("正在打开运行窗口");
@@ -100,10 +101,8 @@
                             'userAgent':window.navigator.userAgent
                         });
                         socket.on('disconnect', function () {
-                            jQuery("#info").html("失去连接，5秒后重新链接")
-                            setTimeout(function () {
-                                window.location.reload();
-                            }, 5000)
+                            isConnected = false;
+
                         });
                         socket.on('console:reload', function (data) {
                             window.location.reload();
@@ -129,7 +128,7 @@
                                 callback[id] = function (data) {
                                     jQuery("#info").html("任务完成");
                                     runing = false;
-                                    if(run_timer){
+                                    if (run_timer) {
                                         window.clearTimeout(run_timer);
                                         run_timer = null;
                                     }
@@ -140,7 +139,7 @@
 
                                 run_timer = setTimeout(function () {
                                     // 三分钟没有完成，
-                                    if(!runing) return;
+                                    if (!runing) return;
                                     var defaultResult = UT.defaultResult;
                                     defaultResult.reports.errors.push({
                                         message:"超时"
@@ -181,6 +180,15 @@
     $("#start").on("click", function () {
         window.location.reload();
     });
+    window.setInterval(function () {
+        if (!isConnected) {
+            jQuery("#info").html("失去连接，5秒后重新链接")
+
+            window.location.reload();
+
+        }
+
+    }, 1000 * 60 * 2)
     jQuery(window).on("beforeunload", function (e) {
         if (run_win && run_win.close)run_win.close();
     })

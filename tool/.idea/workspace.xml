@@ -41,33 +41,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data-mod.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../regression/app/node_modules/data-mod.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="123" selection-start="3531" selection-end="3531" vertical-scroll-proportion="-15.28">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="taobao.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../p/uitest/src/taobao.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="402" column="25" selection-start="12095" selection-end="12095" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="95" selection-start="439" selection-end="439" vertical-scroll-proportion="0.10869565">
+            <state line="169" column="9" selection-start="5452" selection-end="5452" vertical-scroll-proportion="-0.5283019">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/record.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="-8.071428">
+              <folding>
+                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/record/core.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1829" column="26" selection-start="53838" selection-end="53849" vertical-scroll-proportion="-45.08">
+              <folding>
+                <marker date="1357538005380" expanded="false" signature="15168:15180" placeholder="..." />
+                <marker date="1357538005380" expanded="false" signature="17175:17187" placeholder="..." />
+                <marker date="1357538005380" expanded="false" signature="20026:20038" placeholder="..." />
+                <marker date="1357538005380" expanded="false" signature="22452:22464" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/record/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="5" selection-start="235" selection-end="235" vertical-scroll-proportion="0.17701863">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,15 +128,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client-mgr.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../regression/app/node_modules/client-mgr.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="40" selection-start="5487" selection-end="5487" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -127,9 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="D:/fed/2013/chunchun/TwoLoginSelectSkuAndCart.js" />
-        <option value="D:/fed/2013/chunchun/test123.js" />
-        <option value="D:/fed/2013/chunchun/TwoLoginSelectSkuAndCart_utf8.js" />
         <option value="$PROJECT_DIR$/../regression/app/node_modules/remote-task.js" />
         <option value="$PROJECT_DIR$/../regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/list.php" />
@@ -143,6 +151,9 @@
         <option value="$PROJECT_DIR$/../regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/../../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../regression/app/console.html" />
+        <option value="$PROJECT_DIR$/record/core.js" />
+        <option value="$PROJECT_DIR$/record/home.html" />
+        <option value="$PROJECT_DIR$/record/record.html" />
       </list>
     </option>
   </component>
@@ -236,7 +247,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="860" extended-state="1" />
+    <frame x="0" y="0" width="1440" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -312,27 +323,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/fed/2013/chunchun/TwoLoginSelectSkuAndCart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="109" selection-start="0" selection-end="7693" vertical-scroll-proportion="0.058103975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/fed/2013/chunchun/SevenNologinNoSelectSkuAndCart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="41" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/fed/2013/chunchun/TwoLoginSelectSkuAndCart_utf8.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="65" selection-start="2376" selection-end="2376" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84" column="23" selection-start="2581" selection-end="2581" vertical-scroll-proportion="-8.142858">
@@ -419,12 +409,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="95" selection-start="439" selection-end="439" vertical-scroll-proportion="0.10869565">
+        <state line="169" column="9" selection-start="5452" selection-end="5452" vertical-scroll-proportion="-0.5283019">
           <folding>
             <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="-8.071428">
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1829" column="26" selection-start="53838" selection-end="53849" vertical-scroll-proportion="-45.08">
+          <folding>
+            <marker date="1357538005380" expanded="false" signature="15168:15180" placeholder="..." />
+            <marker date="1357538005380" expanded="false" signature="17175:17187" placeholder="..." />
+            <marker date="1357538005380" expanded="false" signature="20026:20038" placeholder="..." />
+            <marker date="1357538005380" expanded="false" signature="22452:22464" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="5" selection-start="235" selection-end="235" vertical-scroll-proportion="0.17701863">
+          <folding />
         </state>
       </provider>
     </entry>

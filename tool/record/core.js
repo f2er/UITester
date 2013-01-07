@@ -283,7 +283,7 @@
             //  this.uatest();
             this.buildStyleConfigs();
             this.codeEditor();
-            this.initPage();
+
             this.observeCall();
             this.layout();
             // this.initTabs();
@@ -308,34 +308,37 @@
         openPage:function () {
             var host = this;
             $("#open_page_save").on("click", function () {
+                jQuery('#open_page').modal('hide');
                 var iframe = $("#iframe-target")[0];
                 iframe.src = $("#open_page_url").val();
-                  var win = iframe.contentWindow.
-                $('#open_page').modal('hide');
-                    var fun = function(){
-                        jQuery.getScript('http://uitest.taobao.net/tool/record/core.js');
-                    }
-                    //chrome下setTimeout里window的自定义属性失败
-                    var complete = false;
-                   UT.msgReady(win, function () {
+                var win = iframe.contentWindow;
 
-                        UT.postmsg.send({
-                            target:win,
-                            data:{
-                                type:"cmd",
-                                code:1,
-                                iframeId:windowId,
-                                id:host.id,
+                var fun = function () {
+                    jQuery.getScript('http://uitest.taobao.net/tool/record/core.js',function(){
+                        uitest.inner.init();
+                    });
 
-                                source:"(" + fun.toString() + ")();"
-                            }
-                        })
+                }
+                //chrome下setTimeout里window的自定义属性失败
+                var complete = false;
+                UT._msgReady(win, function () {
 
-                        window.setTimeout(function () {
-                            alert("需要安装插件")
-                        }, 1000*60)
+                    UT.postmsg.send({
+                        target:win,
+                        data:{
+                            type:"cmd",
+                            code:1,
+                            source:"(" + fun.toString() + ")();"
+                        }
+                    })
 
-                   });
+
+                }, function () {
+
+                    alert("需要安装插件")
+
+
+                });
 
                 var src = 'var win = UT.open("' + iframe.src + '",function(){\r\n' +
                     '    describe("测试页面' + iframe.src + '", function(){\r\n' +
@@ -456,92 +459,6 @@
             if (this.mouseoverPanel)this.mouseoverPanel.style.display = "none";
         },
 
-        initPage:function () {
-            var host = this;
-
-            // http://uitest.taobao.net/UITester/tool/query.php?task_id=7
-
-
-            var idEl = $("#task_id")[0];
-            var nameEl = $("#task_name")[0];
-            var task_target_url_el = $("#task_target_uri")[0];
-            var iframe = $("#iframe-target")[0];
-            var usernameEl = $("#username")[0];
-            var passwordEl = $("#password")[0];
-
-            var id = unparam(location.search.slice(1)).id;
-
-            if (id) {
-
-                $.getJSON("http://uitest.taobao.net/tool/query.php?t=" + new Date().getTime(),
-                    {task_id:id},
-
-                    function (result) {
-                        idEl.value = result.id;
-                        usernameEl.value = result.username;
-                        passwordEl.value = result.password
-                        nameEl.value = result.task_name;
-                        task_target_url_el.value = result.task_target_uri;
-                        host.innerCall("setBeforeunloadWarning")
-
-                        iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
-
-                        $.ajax({
-                            url:buildUrl(result.task_inject_uri, "t=" + new Date().getTime()),
-                            dataType:"text",
-                            success:function (txt) {
-
-                                host.textEditor.textModel.setText(null, txt)
-                            }
-                        })
-
-
-                    })
-
-            }
-
-
-            var host = this;
-            $(".show-login").click(function () {
-                var t = $(".login-info")[0];
-
-                if (t.style.display === "none") {
-                    t.style.display = "inline"
-                }
-                else {
-                    t.style.display = "none"
-                }
-            })
-
-            $("#save-test").on("click", function () {
-                host.innerCall("setBeforeunloadWarning")
-                $("#task_script")[0].value = host.textEditor.textModel.text;
-
-                var nameEl = $("#task_name")[0];
-                var task_target_url_el = $("#task_target_uri")[0];
-
-                if (nameEl.value === "" || task_target_url_el.value === "") {
-                    alert("用例名称或者测试地址不能为空")
-                }
-                else {
-                    $('#save-form')[0].submit();
-                }
-
-
-            })
-
-            $("#reload").on("click", function () {
-                host.innerCall("setBeforeunloadWarning")
-                $(iframe).unbind("load");
-
-                $(iframe).on("load", function () {
-                    uitest.synConfigs();
-                })
-                iframe.src = build(task_target_url_el.value, usernameEl.value, passwordEl.value);
-            })
-
-
-        },
 
         initTabs:function () {
             this.codeTabs = new KISSY.Tabs('.tabs', {
@@ -1093,7 +1010,7 @@
         },
         observeCall:function () {
             var host = this;
-            postmsg.bind(function (data) {
+            UT.postmsg.bind(function (data) {
 
                 if (data.funName && data.args) {
                     host[data.funName] && host[data.funName].apply(host, data.args)
@@ -1104,7 +1021,7 @@
         innerCall:function (funName, args) {
             args = args || [];
 
-            postmsg.send({
+            UT.postmsg.send({
                 target:$("#iframe-target")[0].contentWindow,
                 data:{funName:funName, args:args}
             })
@@ -1367,7 +1284,7 @@
                 alert("请选择元素")
             }
         },
-        cmd_toBeChecked:function(){
+        cmd_toBeChecked:function () {
             var host = this;
             if (host.selectTarget) {
 
@@ -1910,7 +1827,7 @@
         observeCall:function () {
             var host = this;
 
-            postmsg.bind(function (data) {
+            UT.postmsg.bind(function (data) {
 
 
                 if (data.funName && data.args) {
@@ -1922,7 +1839,7 @@
         outterCall:function (funName, args) {
 
             args = args || [];
-            postmsg.send({
+            UT.postmsg.send({
                 target:parent,
                 data:{funName:funName, args:args}
             })
