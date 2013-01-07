@@ -475,7 +475,7 @@
         showSelectPanel:function (selector, width, height, left, top) {
 
             if (!this.selectPanel) {
-                this.selectPanel = $('<div class="mouseover-panel"></div>').get(0);
+                this.selectPanel = $('<div class="select-panel"></div>').get(0);
                 $("#test-page").get(0).appendChild(this.selectPanel);
             }
             this.selectPanel.innerHTML = '<div class="selector">' + selector + '</div>';
@@ -741,7 +741,7 @@
 
             this.initMouseoverPanel();
             this.observerMutation();
-            this.preventDefault();
+          //  this.preventDefault();
 
 
         },
@@ -1261,14 +1261,14 @@
             $(document).ready(function () {
                 document.body.addEventListener("click", function (e) {
                     var target = e.target;
-                    if (uitest.configs.caseType && (uitest.configs.caseType !== "null")) {
+
                         if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
                             if (!/^#/.test(target.getAttribute("href"))) {
                                 e.preventDefault()
                             }
                             ;
                         }
-                    }
+
                     // e.halt();
 
                 }, true, true)

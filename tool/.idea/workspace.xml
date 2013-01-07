@@ -44,7 +44,7 @@
       <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="0" selection-start="5636" selection-end="5636" vertical-scroll-proportion="-3.7547169">
+            <state line="171" column="43" selection-start="5534" selection-end="5534" vertical-scroll-proportion="-1.245283">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -54,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="record.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="166" column="50" selection-start="6382" selection-end="6382" vertical-scroll-proportion="0.35248446">
+            <state line="158" column="17" selection-start="6092" selection-end="6092" vertical-scroll-proportion="-0.9433962">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -85,22 +85,22 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="878" column="19" selection-start="26579" selection-end="26579" vertical-scroll-proportion="-19.04">
+            <state line="477" column="50" selection-start="12601" selection-end="12613" vertical-scroll-proportion="-13.16">
               <folding>
                 <element signature="e#96#579#0" expanded="false" />
                 <element signature="e#635#872#0" expanded="false" />
                 <element signature="e#907#1535#0" expanded="false" />
-                <marker date="1357554764717" expanded="true" signature="9471:9509" placeholder="..." />
-                <marker date="1357554764717" expanded="true" signature="9863:9876" placeholder="..." />
+                <marker date="1357555199723" expanded="true" signature="9471:9509" placeholder="..." />
+                <marker date="1357555199723" expanded="true" signature="9863:9876" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/record/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="450" column="17" selection-start="9255" selection-end="9255" vertical-scroll-proportion="-19.04">
+            <state line="463" column="3" selection-start="9494" selection-end="9494" vertical-scroll-proportion="0.8238022">
               <folding />
             </state>
           </provider>
@@ -156,9 +156,9 @@
         <option value="$PROJECT_DIR$/../../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../regression/app/console.html" />
         <option value="$PROJECT_DIR$/record/home.html" />
-        <option value="$PROJECT_DIR$/record/common.css" />
-        <option value="$PROJECT_DIR$/record/core.js" />
         <option value="$PROJECT_DIR$/record/record.html" />
+        <option value="$PROJECT_DIR$/record/core.js" />
+        <option value="$PROJECT_DIR$/record/common.css" />
       </list>
     </option>
   </component>
@@ -408,9 +408,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2711" column="22" selection-start="86229" selection-end="86229" vertical-scroll-proportion="275.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="0" selection-start="5636" selection-end="5636" vertical-scroll-proportion="-3.7547169">
+        <state line="171" column="43" selection-start="5534" selection-end="5534" vertical-scroll-proportion="-1.245283">
           <folding>
             <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -419,36 +426,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/record/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="450" column="17" selection-start="9255" selection-end="9255" vertical-scroll-proportion="-19.04">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2711" column="22" selection-start="86229" selection-end="86229" vertical-scroll-proportion="275.88">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="878" column="19" selection-start="26579" selection-end="26579" vertical-scroll-proportion="-19.04">
-          <folding>
-            <element signature="e#96#579#0" expanded="false" />
-            <element signature="e#635#872#0" expanded="false" />
-            <element signature="e#907#1535#0" expanded="false" />
-            <marker date="1357554764717" expanded="true" signature="9471:9509" placeholder="..." />
-            <marker date="1357554764717" expanded="true" signature="9863:9876" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/record/record.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="50" selection-start="6382" selection-end="6382" vertical-scroll-proportion="0.35248446">
+        <state line="158" column="17" selection-start="6092" selection-end="6092" vertical-scroll-proportion="-0.9433962">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -457,6 +437,26 @@
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="477" column="50" selection-start="12601" selection-end="12613" vertical-scroll-proportion="-13.16">
+          <folding>
+            <element signature="e#96#579#0" expanded="false" />
+            <element signature="e#635#872#0" expanded="false" />
+            <element signature="e#907#1535#0" expanded="false" />
+            <marker date="1357555199723" expanded="true" signature="9471:9509" placeholder="..." />
+            <marker date="1357555199723" expanded="true" signature="9863:9876" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="463" column="3" selection-start="9494" selection-end="9494" vertical-scroll-proportion="0.8238022">
+          <folding />
         </state>
       </provider>
     </entry>

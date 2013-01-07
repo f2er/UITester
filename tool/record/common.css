@@ -450,6 +450,29 @@ body{
     pointer-events:auto;
     display: none;
 }
+.select-panel{
+    background-color:rgba(0, 0, 250, 0.4);
+    pointer-events:none;
+    color:#000;
+    overflow:visible;;
+}
+.select-panel .selector{
+    position:absolute;;
+    top:-20px;
+    left:0px;
+    border:1px solid #FBCE67;
+   
+    background-color:#FEE195;
+    color:#3F4537;
+    height:20px;
+    line-height:20px;
+    white-space:nowrap;
+    padding:0px 1px;
+}
+.select-panel .cmd_select{
+    pointer-events:auto;
+    display: none;
+}
 
 
 .action-mask{
