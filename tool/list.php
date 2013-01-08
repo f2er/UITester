@@ -1,4 +1,12 @@
 <?php include_once('./common/header.php'); ?>
+<?php
+
+//配置
+$num = 10;			//列表区, 每页显示的数量
+
+?>
+
+<link rel="stylesheet" href="assets/list.css">
 
 <div class="container" style="width: 920px">
 <div class="sub-nav">
@@ -34,18 +42,30 @@
         <?php
         include_once('conn_db.php');
 
-        $sql = 'select * from list where 1=1 ';
+        $sql = ' where 1=1 ';
 		if ($_GET['productline']) {
 			$sql = $sql.' and productline = '.$_GET['productline'];
 		}
 		if ($_GET['project']) {
 			$sql = $sql.' and project = '.$_GET['project'];
 		}
-        $query_list_result = mysql_query($sql);
+		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+		$start = $page < 1 ? 0 : ($page*$num-$num);
+		$sort = ' order by createtime desc';
+		$limit = ' limit '. $start .', '. ($num+1);		//多取一个判断是不是有下一页
 
+		$querySql = 'select * from list '.$sql.$sort.$limit;
+		$coutSql = 'select count(*) c from list '.$sql;
+
+		$query_count_result = mysql_query($coutSql);
+		$result_count = (mysql_fetch_assoc($query_count_result));		//见分页处
+		$result_count = intval($result_count['c']);
+
+        $query_list_result = mysql_query($querySql);
         $result_num = mysql_num_rows($query_list_result);
+		
 
-        for ($idx = 0; $idx < $result_num; $idx++) {
+        for ($idx = 0; $idx < min($result_num, $num); $idx++) {
             $result_item = mysql_fetch_assoc($query_list_result);
             $className = "";
             if ($result_item['total_specs'] == 0) {
@@ -118,6 +138,23 @@
 
 
     </ul>
+
+	<p class="pagination">
+<?php
+
+	$query = $_GET['productline'] ? '?productline='.$_GET['productline'].'&' : '?';
+
+	if($start !== 0) {
+		echo '<a href="' . $query . 'page='. ($page - 1) .'">上一页</a>';
+	}
+	if($result_num === ($num + 1)) {
+		echo '<a href="' . $query . 'page='. ($page + 1) .'">下一页</a>';
+	}
+
+	echo ' <span>第' . ($page) . '页</span> <span>共'.(ceil($result_count / $num)).'页</span>';
+?>
+
+	</p>
 
 
 </div>
