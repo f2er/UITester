@@ -4,6 +4,40 @@
 //配置
 $num = 10;			//列表区, 每页显示的数量
 
+include_once('conn_db.php');
+
+$sql = ' where 1=1 ';
+if ($_GET['productline']) {
+	$sql = $sql.' and productline = '.$_GET['productline'];
+}
+if ($_GET['project']) {
+	$sql = $sql.' and project = '.$_GET['project'];
+}
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$start = $page < 1 ? 0 : ($page*$num-$num);
+$sort = ' order by createtime desc';
+$limit = ' limit '. $start .', '. ($num+1);		//多取一个判断是不是有下一页
+
+
+//查询总数
+$coutSql = 'select count(*) c from list '.$sql;
+$query_count_result = mysql_query($coutSql);
+$result_count = (mysql_fetch_assoc($query_count_result));		//见分页处
+$result_count = intval($result_count['c']);
+
+//查询数据
+$querySql = 'select * from list '.$sql.$sort.$limit;
+$query_list_result = mysql_query($querySql);
+
+
+//查询产品线
+$productlineSql = 'select productline from list group by productline order by productline';
+$productline_result = mysql_query($productlineSql);
+
+
+
+
+
 ?>
 
 <link rel="stylesheet" href="assets/list.css">
@@ -12,8 +46,14 @@ $num = 10;			//列表区, 每页显示的数量
 <div class="sub-nav">
      产品线: <select id="productline" name="productline" required>
 		<option value="">全部</option>
+<?php 
+	$productline_num = mysql_num_rows($productline_result);
+	for ($idx = 0; $idx < $productline_num; $idx++) {
+		$result_item = mysql_fetch_assoc($productline_result);
+		echo '<option value="'.$result_item['productline'].'"></option>';
+	};
+?>
 <!--
-		<option value="84">基础业务</option>
 		<option value="86">商品平台</option>
 		<option value="87">业务安全</option>
 		<option value="94">开放平台</option>
@@ -40,30 +80,8 @@ $num = 10;			//列表区, 每页显示的数量
 <div class="case-list">
     <ul>
         <?php
-        include_once('conn_db.php');
 
-        $sql = ' where 1=1 ';
-		if ($_GET['productline']) {
-			$sql = $sql.' and productline = '.$_GET['productline'];
-		}
-		if ($_GET['project']) {
-			$sql = $sql.' and project = '.$_GET['project'];
-		}
-		$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-		$start = $page < 1 ? 0 : ($page*$num-$num);
-		$sort = ' order by createtime desc';
-		$limit = ' limit '. $start .', '. ($num+1);		//多取一个判断是不是有下一页
-
-		$querySql = 'select * from list '.$sql.$sort.$limit;
-		$coutSql = 'select count(*) c from list '.$sql;
-
-		$query_count_result = mysql_query($coutSql);
-		$result_count = (mysql_fetch_assoc($query_count_result));		//见分页处
-		$result_count = intval($result_count['c']);
-
-        $query_list_result = mysql_query($querySql);
-        $result_num = mysql_num_rows($query_list_result);
-		
+		$result_num = mysql_num_rows($query_list_result);
 
         for ($idx = 0; $idx < min($result_num, $num); $idx++) {
             $result_item = mysql_fetch_assoc($query_list_result);

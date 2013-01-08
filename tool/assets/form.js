@@ -6,9 +6,16 @@ jQuery(document).ready(function() {
 
 	//是个select, 放option
 	if($('#productline').length && $('#productline')[0].tagName == 'SELECT') {
-		$.each(productlines, function(line, key) {
-			$('#productline').append('<option value="'+line+'">'+key+'</option>')
-		});
+		if($('#productline option').length > 1) {		//仅仅填充
+			$.each($('#productline option'), function(key, option) {
+				var key = $(option).attr('value');
+				key && $(option).html(productlines[key]);
+			});
+		} else {
+			$.each(productlines, function(line, key) {
+				$('#productline').append('<option value="'+line+'">'+key+'</option>')
+			});
+		}
 		$('#productline').val($('#productline').val('data-value'));
 	}
 
