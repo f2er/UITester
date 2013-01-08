@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="0" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.6950241">
+            <state line="94" column="0" selection-start="2358" selection-end="2358" vertical-scroll-proportion="-9.357142">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
                 <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="false" />
@@ -116,19 +116,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="54" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_run.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/regression/app/test_run.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="28" selection-start="95" selection-end="95" vertical-scroll-proportion="-2.7142856">
+            <state line="34" column="62" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.6220238">
               <folding />
             </state>
           </provider>
@@ -170,8 +161,8 @@
         <option value="$PROJECT_DIR$/tool/index.php" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/remote-task.js" />
         <option value="$PROJECT_DIR$/regression/app/test_run.html" />
-        <option value="$PROJECT_DIR$/regression/app/server.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
+        <option value="$PROJECT_DIR$/regression/app/server.js" />
       </list>
     </option>
   </component>
@@ -500,23 +491,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/test_run.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="28" selection-start="95" selection-end="95" vertical-scroll-proportion="-2.7142856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="54" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="0" selection-start="2358" selection-end="2358" vertical-scroll-proportion="0.6950241">
+        <state line="94" column="0" selection-start="2358" selection-end="2358" vertical-scroll-proportion="-9.357142">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
             <element signature="tag#div#0;tag#body#0;tag#html#0" expanded="false" />
@@ -548,6 +525,13 @@
             <element signature="e#5801#5901#0" expanded="false" />
             <element signature="e#5976#6037#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="62" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.6220238">
+          <folding />
         </state>
       </provider>
     </entry>

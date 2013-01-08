@@ -32,7 +32,7 @@ function handler(req, res) {
         fs.readFile(__dirname + '/run_test.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
-                return res.end('Error loading run.html');
+                return res.end('Error loading run_test.html');
             }
             res.writeHead(200);
             res.end(data);
