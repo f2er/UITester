@@ -79,7 +79,7 @@
 
             var test_run_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
             var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            test_run_win.location.href = 'http://' + http_host + "/run.html?id=" + id;
+            test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
 
 
             if (test_run_win) {

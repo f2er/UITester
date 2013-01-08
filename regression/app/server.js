@@ -22,7 +22,17 @@ function handler(req, res) {
         fs.readFile(__dirname + '/run.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
-                return res.end('Error loading console.html');
+                return res.end('Error loading run.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        })
+    }
+   else  if(req.url.indexOf("run_test.html")!=-1){
+        fs.readFile(__dirname + '/run_test.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading run.html');
             }
             res.writeHead(200);
             res.end(data);
