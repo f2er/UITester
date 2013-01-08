@@ -124,7 +124,7 @@
 
 
                                 var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                run_win.location.href = 'http://' + http_host + "/run.html?url=" + encodeURIComponent(data.task_inject_uri) + "&id=" + id;
+                                run_win.location.href = 'http://' + http_host + "/run.html?url=" +jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
                                 callback[id] = function (data) {
                                     jQuery("#info").html("任务完成");
                                     runing = false;
