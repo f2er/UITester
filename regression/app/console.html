@@ -132,6 +132,8 @@
                                         window.clearTimeout(run_timer);
                                         run_timer = null;
                                     }
+                                    test_number++;
+                                    jQuery("#test_number").html(test_number);
                                     socket.emit('console:task_finish', data);
 
                                 }
@@ -144,6 +146,8 @@
                                     defaultResult.reports.errors.push({
                                         message:"超时"
                                     })
+                                    test_number++;
+                                    jQuery("#test_number").html(test_number);
                                     socket.emit('console:task_finish', defaultResult);
 
                                 }, 1000 * 60 * 10)
