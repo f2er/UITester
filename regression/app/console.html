@@ -127,6 +127,7 @@
                                 run_win.location.href = 'http://' + http_host + "/run.html?url=" +jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
                                 callback[id] = function (data) {
                                     jQuery("#info").html("任务完成");
+
                                     runing = false;
                                     if (run_timer) {
                                         window.clearTimeout(run_timer);
@@ -134,6 +135,7 @@
                                     }
                                     test_number++;
                                     jQuery("#test_number").html(test_number);
+                                    console.log(data)
                                     socket.emit('console:task_finish', data);
 
                                 }
@@ -195,8 +197,14 @@
     }, 1000 * 60 * 2)
     jQuery(window).on("beforeunload", function (e) {
         if (run_win && run_win.close)run_win.close();
-    })
+        e.preventDefault();
+        console.log("before");
 
+        location.reload();
+    })
+jQuery(window).unload(function(e){
+    e.preventDefault();
+})
 
 </script>
 
