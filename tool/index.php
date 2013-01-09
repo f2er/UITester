@@ -121,8 +121,59 @@
         </ul>
     </div>
 </div>
+<style>
+    .bs-docs-social {
+        padding: 15px 0;
+        text-align: center;
+        background-color: whiteSmoke;
+        border-top: 1px solid white;
+        border-bottom: 1px solid #DDD;
+    }
+    .bs-docs-social-buttons {
+        margin-left: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        list-style: none;
+    }
+    .bs-docs-social-buttons li {
+        display: inline-block;
+        padding: 5px 8px;
+        line-height: 1;
+    }
+    .marketing {
+        text-align: center;
+        color: #5A5A5A;
+    }
+    .marketing h1 {
+        margin: 60px 0 10px;
+        font-size: 60px;
+        font-weight: 200;
+        line-height: 1;
+        letter-spacing: -1px;
+    }
+    .marketing h2 {
+        font-weight: 200;
+        margin-bottom: 5px;
+    }
+    .marketing p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</style>
+<div class="bs-docs-social">
+    <div class="container">
+        <ul class="bs-docs-social-buttons">
+            <li>
+                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=tb-sns-fed&amp;repo=UITester&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+            </li>
+            <li>
+                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=tb-sns-fed&amp;repo=UITester&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+            </li>
 
 
+        </ul>
+    </div>
+</div>
 <div class="container">
 
     <div class="marketing">
@@ -155,6 +206,30 @@
         </div>
 
         <hr class="soften">
+        <div class="row-fluid">
+            <div class="span4">
+
+                <h2></h2>
+
+                <p>UT测试框架是基于javascript和jasmine之上的webpage测试框架。UT使你可以自由操控web页面；使用丰富的断言语句进行测试；
+                    强大的异步支持，可以更简单的测试异步功能，加快测试效率</p>
+            </div>
+            <div class="span4">
+
+                <h2>高效率编写测试用例</h2>
+
+                <p>录制工具帮助你更快更准备的编写测试代码。让编写测试代码成为一件简单轻松的事情</p>
+            </div>
+            <div class="span4">
+                <img class="marketing-img" src="assets/img/bs-docs-bootstrap-features.png">
+
+                <h2>集成化的在线测试系统</h2>
+
+                <p>回归测试可以时时监控web功能是否正常，并及时报告结果。
+                    远程测试，只需要你准备好测试代码的url，就可以立即进行测试，并反馈结果。
+                    本地测试，可以帮助你现场调试你的测试代码。</p>
+            </div>
+        </div>
 
     </div>
 
