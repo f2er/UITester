@@ -107,12 +107,10 @@
         </p>
         <ul class="masthead-links">
             <li>
-                <a href="http://github.com/twitter/bootstrap"
-                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">»Á∫Œ±‡–¥≤‚ ‘¥˙¬Î</a>
+                <a href="https://github.com/taobao-sns-fed/UITester/wiki">∞Ô÷˙</a>
             </li>
             <li>
-                <a href="./getting-started.html#examples"
-                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">GitHub</a>
+                <a href="https://github.com/taobao-sns-fed/UITester/">GitHub</a>
             </li>
 
             <li>
@@ -205,7 +203,7 @@
             </div>
         </div>
 
-     
+
 
     </div>
 
