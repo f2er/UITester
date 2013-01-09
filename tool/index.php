@@ -108,7 +108,7 @@
         </p>
         <ul class="masthead-links">
             <li>
-                <a href="http://uitest.taobao.net/tool/list.php">Examples</a>
+                <a href="https://github.com/taobao-sns-fed/UITester/wiki">Examples</a>
             </li>
             <li>
                 <a href="https://github.com/taobao-sns-fed/UITester/">GitHub</a>
