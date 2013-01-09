@@ -22,6 +22,9 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<style>
+
+</style>
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
 	<div class="container">

@@ -67,6 +67,7 @@
             font-size: 35px;
             font-weight: 200;
             line-height: 1.25;
+            font-family: "ya";
         }
 
         .masthead {
@@ -157,9 +158,10 @@
         margin-bottom: 5px;
     }
     .marketing p {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 1.5;
         text-align: left;
+        font-family: "ya";
     }
 </style>
 <div class="bs-docs-social">
@@ -178,9 +180,9 @@
 </div>
 <div style="margin-bottom: 70px" class="container">
 
-    <div class="marketing">
+    <div class="marketing" style="margin-top: 60px; ">
 
-        <h1>UITestΩÈ…‹</h1>
+
 
         <div class="row-fluid">
             <div class="span4">
