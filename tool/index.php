@@ -64,13 +64,13 @@
         }
 
         .masthead p {
-            font-size: 40px;
+            font-size: 35px;
             font-weight: 200;
             line-height: 1.25;
         }
 
         .masthead {
-            padding: 70px 0 80px;
+            padding: 80px 0 80px;
             margin-bottom: 0;
             color: white;
         }
@@ -99,7 +99,7 @@
 
         <p>
 
-        <div class="input-append">
+        <div class="input-append" style="margin-top: 70px">
             <input class="input-xlarge" placeholder="«Î ‰»Î≤‚ ‘¥˙¬Îµƒµÿ÷∑" id="test_src" type="text">
             <button class="btn btn-primary " type="button " id="run_test">≤‚ ‘</button>
 
@@ -107,7 +107,7 @@
         </p>
         <ul class="masthead-links">
             <li>
-                <a href="https://github.com/taobao-sns-fed/UITester/wiki">∞Ô÷˙</a>
+                <a href="https://github.com/taobao-sns-fed/UITester/wiki">Examples</a>
             </li>
             <li>
                 <a href="https://github.com/taobao-sns-fed/UITester/">GitHub</a>
@@ -173,7 +173,7 @@
         </ul>
     </div>
 </div>
-<div class="container">
+<div style="margin-bottom: 70px" class="container">
 
     <div class="marketing">
 
