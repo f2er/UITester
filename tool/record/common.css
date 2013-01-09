@@ -84,7 +84,7 @@ body{
     height:20px;
 }
 #content .main .page{
-    height:350px;
+    height:500px;
     background-color:#fff;
     display:-webkit-box;
     -webkit-box-orient:vertical;
@@ -429,7 +429,7 @@ body{
 #test-page{
 }
 .mouseover-panel{
-    background-color:rgba(0, 0, 250, 0.4);
+    background-color:rgba(0, 0, 250, 0.1);
     pointer-events:none;
     color:#000;
     overflow:visible;;
@@ -451,7 +451,7 @@ body{
     display: none;
 }
 .select-panel{
-    background-color:rgba(0, 0, 250, 0.4);
+    background-color:rgba(0, 0, 250, 0.2);
     pointer-events:none;
     color:#000;
     overflow:visible;;

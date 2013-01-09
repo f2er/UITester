@@ -315,7 +315,7 @@
                     script.onload = function(){
                         uitest.inner.init();
                     }
-                    document.body.appendChild(script);
+                 //   document.body.appendChild(script);
 
 
                 }
@@ -745,15 +745,7 @@
 
 
         },
-        preventDefault:function(){
-            $(document).on("click", function(e){
-                var target = e.target;
-                if(target.tagName.toLowerCase()=="a"&&(!target.href.test(/^#/))){
-                    e.preventDefault();
-                }
 
-            })
-        },
         observerMutation:function () {
             var host = this;
 
@@ -761,12 +753,17 @@
             var createTimer;
 
             var observer = new MutationObserver(function (mutations) {
-                if (!host.canObserverMutation)return;
-                console.log(mutations)
+                if (!host.observerEl)return;
+
                 var records = [];
                 var toSP = uitest.inner.elToSelectorRelativeParent;
                 mutations.forEach(function (mutation) {
+                    console.log("in")
+                    if(!$(mutation.target).closest(host.observerEl))return;
+                    console.log("go",mutations)
                     if (mutation.type == "attributes") {
+
+
                         //被删除
                         if (!mutation.target.parentNode || !mutation.target.ownerDocument) {
                             return;
@@ -844,8 +841,8 @@
 
 
                 });
-                console.log(mutations)
-                uitest.inner.outterCall("appendMutations", [records]);
+
+               if(records.length) uitest.inner.outterCall("appendMutations", [records]);
             });
 
             observer.observe(document, {
@@ -856,6 +853,15 @@
                 attributeOldValue:true,
                 characterDataOldValue:true
             });
+        },
+        cmd_observer:function(){
+            var host = this;
+            if (host.selectTarget) {
+
+              host.observerEl = host.selectTarget;
+            } else {
+                alert("请选择元素")
+            }
         },
         cmd_simulate:function (type) {
             var host = this;
