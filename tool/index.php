@@ -95,7 +95,7 @@
     <div class="container">
         <h1>UITest</h1>
 
-        <p>一个高效，快速前端web页面测试平台，可以在真实的浏览器里面测试web页面的样式、功能、javascript</p>
+        <p>一个自动化前端UI测试平台，在真实的浏览器里面测试web页面的样式、功能和javascript</p>
 
         <p>
 
@@ -107,7 +107,7 @@
         </p>
         <ul class="masthead-links">
             <li>
-                <a href="https://github.com/taobao-sns-fed/UITester/wiki">Examples</a>
+                <a href="https://github.com/taobao-sns-fed/UITester/wiki/examples">Examples</a>
             </li>
             <li>
                 <a href="https://github.com/taobao-sns-fed/UITester/">GitHub</a>
