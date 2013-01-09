@@ -95,9 +95,8 @@
       <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="35" selection-start="3240" selection-end="3240" vertical-scroll-proportion="0.42313787">
+            <state line="158" column="25" selection-start="4441" selection-end="4441" vertical-scroll-proportion="0.24247226">
               <folding>
-                <element signature="tag#div#0;tag#div#0;tag#div#2" expanded="false" />
                 <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -573,9 +572,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="35" selection-start="3240" selection-end="3240" vertical-scroll-proportion="0.42313787">
+        <state line="158" column="25" selection-start="4441" selection-end="4441" vertical-scroll-proportion="0.24247226">
           <folding>
-            <element signature="tag#div#0;tag#div#0;tag#div#2" expanded="false" />
             <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
           </folding>
         </state>

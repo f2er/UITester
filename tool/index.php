@@ -156,6 +156,7 @@
     .marketing p {
         font-size: 16px;
         line-height: 1.5;
+        text-align: left;
     }
 </style>
 <div class="bs-docs-social">
@@ -193,7 +194,6 @@
                 <p>录制工具帮助你更快更准备的编写测试代码。让编写测试代码成为一件简单轻松的事情</p>
             </div>
             <div class="span4">
-                <img class="marketing-img" src="assets/img/bs-docs-bootstrap-features.png">
 
                 <h2>集成化的在线测试系统</h2>
 
