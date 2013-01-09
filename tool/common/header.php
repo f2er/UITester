@@ -31,7 +31,7 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </a>
-	  <a class="brand" href="index.php">UITester</a>
+	  <a class="brand" href="index.php">UITest</a>
 	  <div class="nav-collapse collapse">
 		<ul class="nav">
 		  <li class="active"><a href="list.php">²é¿´ÓÃÀý</a></li>

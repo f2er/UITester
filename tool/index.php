@@ -93,14 +93,14 @@
         }
     </style>
     <div class="container">
-        <h1>UITester</h1>
+        <h1>UITest</h1>
 
-        <p>Sleek, intuitive, and powerful front-end framework for faster and easier web development.</p>
+        <p>一个高效，快速前端web页面测试平台，可以在真实的浏览器里面测试web页面的样式、功能、javascript</p>
 
         <p>
 
         <div class="input-append">
-            <input class="input-xlarge" placeholder="输入测试代码的地址" id="test_src" type="text">
+            <input class="input-xlarge" placeholder="请输入测试代码的地址" id="test_src" type="text">
             <button class="btn btn-primary " type="button " id="run_test">测试</button>
 
         </div>
@@ -108,22 +108,56 @@
         <ul class="masthead-links">
             <li>
                 <a href="http://github.com/twitter/bootstrap"
-                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub
-                    project</a>
+                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">如何编写测试代码</a>
             </li>
             <li>
                 <a href="./getting-started.html#examples"
-                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
+                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">GitHub</a>
             </li>
+
             <li>
-                <a href="./extend.html"
-                   onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Extend']);">Extend</a>
-            </li>
-            <li>
-                Version 2.2.2
+                Version 2.0.0
             </li>
         </ul>
     </div>
+</div>
+
+
+<div class="container">
+
+    <div class="marketing">
+
+        <h1>UITest介绍</h1>
+
+        <div class="row-fluid">
+            <div class="span4">
+
+                <h2>UT测试框架</h2>
+
+                <p>UT测试框架是基于javascript和jasmine之上的webpage测试框架。UT使你可以自由操控web页面；使用丰富的断言语句进行测试；
+                    强大的异步支持，可以更简单的测试异步功能，加快测试效率</p>
+            </div>
+            <div class="span4">
+
+                <h2>高效率编写测试用例</h2>
+
+                <p>录制工具帮助你更快更准备的编写测试代码。让编写测试代码成为一件简单轻松的事情</p>
+            </div>
+            <div class="span4">
+                <img class="marketing-img" src="assets/img/bs-docs-bootstrap-features.png">
+
+                <h2>集成化的在线测试系统</h2>
+
+                <p>回归测试可以时时监控web功能是否正常，并及时报告结果。
+                    远程测试，只需要你准备好测试代码的url，就可以立即进行测试，并反馈结果。
+                   本地测试，可以帮助你现场调试你的测试代码。</p>
+            </div>
+        </div>
+
+        <hr class="soften">
+
+    </div>
+
 </div>
 
 <footer>
@@ -187,12 +221,13 @@
 </div>
 
 <!-- Modal -->
-<div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">测试结果</h3>
     </div>
-    <div class="modal-body result-report"  id="m-result-report">
+    <div class="modal-body result-report" id="m-result-report">
 
     </div>
     <div class="modal-footer">
@@ -210,17 +245,17 @@
             var navHtml = '<ul class="nav nav-tabs" >'
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
-                if(result[p].reports.failedSpecs !== 0||result[p].reports.errors.length !== 0){
+                if (result[p].reports.failedSpecs !== 0 || result[p].reports.errors.length !== 0) {
                     var passed = "未通过"
                 }
-                else{
+                else {
 
                     var passed = "通过"
                 }
 
-                var name = p.replace(/\./g,"_")
+                var name = p.replace(/\./g, "_")
 
-                navHtml += '<li class=""><a href="#' + name + '">' + p + passed+ '</a></li>'
+                navHtml += '<li class=""><a href="#' + name + '">' + p + passed + '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
 
             }
@@ -231,9 +266,9 @@
 
             var i = 1;
             jQuery.each(result, function (key, value) {
-                var name = key.replace(/\./g,"_")
+                var name = key.replace(/\./g, "_")
                 if (i) {
-                    $('.nav-tabs a[href="#' + name + '"]',c[0]).tab('show');
+                    $('.nav-tabs a[href="#' + name + '"]', c[0]).tab('show');
                     i = 0;
                 }
 
