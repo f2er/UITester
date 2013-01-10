@@ -23,10 +23,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="0" selection-start="6343" selection-end="6343" vertical-scroll-proportion="0.6187291">
+            <state line="201" column="0" selection-start="6343" selection-end="6343" vertical-scroll-proportion="-6.981132">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
                 <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
@@ -113,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="header.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/common/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="5" selection-start="922" selection-end="922" vertical-scroll-proportion="-18.321428">
+            <state line="25" column="12" selection-start="878" selection-end="878" vertical-scroll-proportion="0.57945424">
               <folding />
             </state>
           </provider>
@@ -125,7 +125,7 @@
       <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="213" selection-start="2259" selection-end="2259" vertical-scroll-proportion="-4.821429">
+            <state line="69" column="213" selection-start="2259" selection-end="2259" vertical-scroll-proportion="98.32143">
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -173,8 +173,8 @@
         <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/tool/create.php" />
-        <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
+        <option value="$PROJECT_DIR$/tool/common/header.php" />
       </list>
     </option>
   </component>
@@ -513,19 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="213" selection-start="2259" selection-end="2259" vertical-scroll-proportion="-4.821429">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="8" selection-start="202" selection-end="202" vertical-scroll-proportion="-9.5">
@@ -535,16 +522,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/common/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="5" selection-start="922" selection-end="922" vertical-scroll-proportion="-18.321428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="0" selection-start="6343" selection-end="6343" vertical-scroll-proportion="0.6187291">
+        <state line="201" column="0" selection-start="6343" selection-end="6343" vertical-scroll-proportion="-6.981132">
           <folding>
             <element signature="tag#head#0;tag#html#0" expanded="false" />
             <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
@@ -566,6 +546,26 @@
             <element signature="e#5997#6038#0" expanded="false" />
             <element signature="e#6104#6204#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="213" selection-start="2259" selection-end="2259" vertical-scroll-proportion="98.32143">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/common/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="12" selection-start="878" selection-end="878" vertical-scroll-proportion="0.57945424">
+          <folding />
         </state>
       </provider>
     </entry>

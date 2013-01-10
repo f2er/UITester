@@ -23,7 +23,7 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 </head>
 <body>
 <style>
-    footer {
+    footer,#footer {
         background-color: whiteSmoke;
     }
 </style>
