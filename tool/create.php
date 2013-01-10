@@ -13,7 +13,7 @@ $modify_tag = '';
 
     }
 </style>
-<div class="container" style="width: 920px; padding-top:40px ;">
+<div class="container" style="width: 920px; padding-top:40px ;height: 530px">
 
 
     <form class="form-horizontal" method="POST" action="handle.php">

@@ -23,7 +23,9 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 </head>
 <body>
 <style>
-
+    footer {
+        background-color: whiteSmoke;
+    }
 </style>
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
