@@ -46,7 +46,7 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 		  		  <li <?php if($nav==='me' || isset($_GET['me']))echo 'class="active"' ?>><a href="list.php?me">我的用例</a></li>
 		  <li <?php if($nav==='list' && !isset($_GET['me']))echo 'class="active"' ?>><a href="list.php">全部用例</a></li>
           <li <?php if($nav==='create')echo 'class="active"' ?>><a href="http://uitest.taobao.net/tool/create.php">回归测试</a></li>
-            <li <?php if($nav==='create')echo 'class="active"' ?>><a href="http://uitest.taobao.net/tool/local-test.php">本地调试</a></li>
+            <li <?php if($nav==='local-test')echo 'class="active"' ?>><a href="http://uitest.taobao.net/tool/local-test.php">本地调试</a></li>
 
 		  <li <?php if($nav==='record')echo 'class="active"' ?>><a href="record/record.html?">录制工具</a></li>
 		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="https://github.com/taobao-sns-fed/UITester/wiki">帮助</a></li>

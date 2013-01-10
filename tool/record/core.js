@@ -315,6 +315,7 @@
                     script.onload = function(){
                         uitest.inner.init();
                     }
+
                     document.body.appendChild(script);
 
 
