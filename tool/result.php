@@ -182,8 +182,10 @@ if ($task_id !== '') {
                 var isLoad = false;
                 jQuery.getScript("<?php echo $task_inject_uri  ?>", function () {
                     isLoad = true;
+                    $('#myModal').modal('show');
                     UT.execute(function (data) {
                         var jsonReporter = new jasmine.JsonReporter();
+
                         jsonReporter.renderHTML(data, jQuery("#m-result-report"));
                     })
                 })

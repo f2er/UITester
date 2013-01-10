@@ -556,3 +556,7 @@ body{
 .text-editor{
     line-height:18px;
 }
+#mutations{
+    position: fixed;top:100px;right:25px;
+    overflow:auto;
+}

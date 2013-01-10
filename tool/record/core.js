@@ -299,20 +299,40 @@
 
         },
 
-        cmd_out_reload:function(){
+        cmd_out_reload:function () {
             var iframe = $("#iframe-target")[0];
-            iframe.src = buildUrl(iframe.src,"t="+new Date().getTime())
+            iframe.src = buildUrl(iframe.src, "t=" + new Date().getTime())
+        },
+        cmd_out_test:function () {
+
+            try {
+
+                jasmine._newEnv = true;
+                var isLoad = false;
+                $('#myModal').modal('show');
+                eval(this.textEditor.textModel.text)
+                UT.execute(function (data) {
+                    var jsonReporter = new jasmine.JsonReporter();
+                    jsonReporter.renderHTML(data, jQuery("#m-result-report"));
+                })
+
+
+            } catch (e) {
+                alert(e.message)
+            }
+
+
         },
         openPage:function () {
             var host = this;
             var iframe = $("#iframe-target")[0];
             var win = iframe.contentWindow;
-            iframe.onload = function(){
+            iframe.onload = function () {
                 var fun = function () {
                     var script = document.createElement('script');
-                    script.src="http://uitest.taobao.net/tool/record/core.js";
-                    script.charset ="utf-8"
-                    script.onload = function(){
+                    script.src = "http://uitest.taobao.net/tool/record/core.js";
+                    script.charset = "utf-8"
+                    script.onload = function () {
                         uitest.inner.init();
                     }
 
@@ -345,8 +365,6 @@
                 jQuery('#open_page').modal('hide');
                 var iframe = $("#iframe-target")[0];
                 iframe.src = $("#open_page_url").val();
-
-
 
 
                 var src = 'var win = UT.open("' + iframe.src + '",function(){\r\n' +
@@ -412,7 +430,7 @@
             var parent = $(t).parent()
             $(t).remove();
 
-            if(parent.find("a").length==0){
+            if (parent.find("a").length == 0) {
 
                 parent.remove();
             }
@@ -742,7 +760,7 @@
 
             this.initMouseoverPanel();
             this.observerMutation();
-          //  this.preventDefault();
+            //  this.preventDefault();
 
 
         },
@@ -760,8 +778,8 @@
                 var toSP = uitest.inner.elToSelectorRelativeParent;
                 mutations.forEach(function (mutation) {
                     console.log("in")
-                    if(!($(mutation.target).closest(host.observerEl)[0]))return;
-                    console.log("go",mutations)
+                    if (!($(mutation.target).closest(host.observerEl)[0]))return;
+                    console.log("go", mutations)
                     if (mutation.type == "attributes") {
 
 
@@ -843,7 +861,7 @@
 
                 });
 
-               if(records.length) uitest.inner.outterCall("appendMutations", [records]);
+                if (records.length) uitest.inner.outterCall("appendMutations", [records]);
             });
 
             observer.observe(document, {
@@ -855,30 +873,31 @@
                 characterDataOldValue:true
             });
         },
-        cmd_observer:function(){
+        cmd_observer:function () {
             var host = this;
             if (host.selectTarget) {
 
-              host.observerEl = host.selectTarget;
+                host.observerEl = host.selectTarget;
             } else {
                 alert("请选择元素")
             }
         },
-        cmd_stopObserver:function(){
+        cmd_stopObserver:function () {
             var host = this;
             if (host.selectTarget) {
 
-                host.observerEl=null;
+                host.observerEl = null;
             } else {
                 alert("请选择元素")
             }
         },
+
         cmd_simulate:function (type) {
             var host = this;
             if (host.selectTarget) {
 
                 jasmine.simulate(host.selectTarget, type);
-                var src = 'simulate("' + host.elToSelector(host.selectTarget) + '","'+type+'")\r\n';
+                var src = 'simulate("' + host.elToSelector(host.selectTarget) + '","' + type + '")\r\n';
                 host.outterCall("insertCaseCode", [src])
             } else {
                 alert("请选择元素")
@@ -886,13 +905,13 @@
 
         },
         cmd_reload:function (type) {
-           window.location.reload();
+            window.location.reload();
 
         },
-        cmd_back:function(){
+        cmd_back:function () {
             window.history.back();
         },
-        cmd_forward:function(){
+        cmd_forward:function () {
             window.history.forward()
         },
         cmd_toExist:function () {
@@ -1278,12 +1297,12 @@
                 document.body.addEventListener("click", function (e) {
                     var target = e.target;
 
-                        if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
-                            if (!/^#/.test(target.getAttribute("href"))) {
-                                e.preventDefault()
-                            }
-                            ;
+                    if (target.tagName.toLowerCase() == "a" || $(target).parent("a")[0]) {
+                        if (!/^#/.test(target.getAttribute("href"))) {
+                            e.preventDefault()
                         }
+                        ;
+                    }
 
                     // e.halt();
 
