@@ -305,6 +305,7 @@
         },
         cmd_out_clearObserver:function () {
             $("#mutations").html("")
+            $("#mutations").hide();
         },
         cmd_out_test:function () {
 
@@ -416,15 +417,17 @@
         appendMutations:function (recods) {
 
             $("#mutations").show();
-            var s = '<div style="padding: 0px 30px 0px 10px;margin: 1px" class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>';
             for (var i = 0; i < recods.length; i++) {
+            var s = '<div style="padding: 0px 30px 0px 10px;margin: 1px" class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button>';
+
                 s += '' +
                     '<a href="#" class="cmd_out_createCase" title="生成断言">' + recods[i].desc + '<i class="icon-chevron-right"  ></i>' +
                     '<textarea  style="display: none">' + recods[i].expect + '</textarea></a>' +
                     '';
 
-            }
+
             s += ' </div>';
+            }
             $("#mutations").html($("#mutations").html() + s);
 
         },

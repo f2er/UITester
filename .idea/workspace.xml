@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="31" selection-start="5583" selection-end="5583" vertical-scroll-proportion="0.59570956">
+            <state line="179" column="31" selection-start="5583" selection-end="5583" vertical-scroll-proportion="-6.811321">
               <folding>
                 <element signature="tag#div#1;tag#div#2;tag#div#0" expanded="false" />
               </folding>
@@ -82,13 +82,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="29" selection-start="6599" selection-end="6620" vertical-scroll-proportion="82.0">
+            <state line="391" column="58" selection-start="9275" selection-end="9275" vertical-scroll-proportion="-0.20247295">
               <folding>
-                <marker date="1357825802039" expanded="true" signature="10101:10139" placeholder="..." />
-                <marker date="1357825802039" expanded="true" signature="10493:10506" placeholder="..." />
+                <marker date="1357826781798" expanded="true" signature="10191:10229" placeholder="..." />
+                <marker date="1357826781798" expanded="true" signature="10530:10543" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -97,7 +97,7 @@
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="-6.178571">
+            <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="58.964287">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -144,10 +144,10 @@
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
         <option value="$PROJECT_DIR$/tool/create.php" />
-        <option value="$PROJECT_DIR$/tool/record/core.js" />
         <option value="$PROJECT_DIR$/tool/record/record.html" />
         <option value="$PROJECT_DIR$/tool/record/common.css" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/record/core.js" />
       </list>
     </option>
   </component>
@@ -435,30 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="-6.178571">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="29" selection-start="6599" selection-end="6620" vertical-scroll-proportion="82.0">
-          <folding>
-            <marker date="1357825802039" expanded="true" signature="10101:10139" placeholder="..." />
-            <marker date="1357825802039" expanded="true" signature="10493:10506" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="562" column="16" selection-start="11489" selection-end="11489" vertical-scroll-proportion="-21.32">
@@ -478,9 +454,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="31" selection-start="5583" selection-end="5583" vertical-scroll-proportion="0.59570956">
+        <state line="179" column="31" selection-start="5583" selection-end="5583" vertical-scroll-proportion="-6.811321">
           <folding>
             <element signature="tag#div#1;tag#div#2;tag#div#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="58.964287">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="391" column="58" selection-start="9275" selection-end="9275" vertical-scroll-proportion="-0.20247295">
+          <folding>
+            <marker date="1357826781798" expanded="true" signature="10191:10229" placeholder="..." />
+            <marker date="1357826781798" expanded="true" signature="10530:10543" placeholder="..." />
           </folding>
         </state>
       </provider>
