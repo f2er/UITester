@@ -36,7 +36,7 @@ $modify_tag = '';
         <div class="control-group">
             <label class="control-label" for="task_inject_uri">脚本地址</label>
             <div class="controls">
-                <input type="text" name="task_inject_uri" class="input-box" required/>
+                <input type="text" name="task_inject_uri" class="input-box" required/><span class="help-inline">请确定地址无需权限也能正常访问</span>
             </div>
         </div>
         <div class="control-group">

@@ -760,7 +760,7 @@
                 var toSP = uitest.inner.elToSelectorRelativeParent;
                 mutations.forEach(function (mutation) {
                     console.log("in")
-                    if(!$(mutation.target).closest(host.observerEl))return;
+                    if(!($(mutation.target).closest(host.observerEl)[0]))return;
                     console.log("go",mutations)
                     if (mutation.type == "attributes") {
 
@@ -860,6 +860,15 @@
             if (host.selectTarget) {
 
               host.observerEl = host.selectTarget;
+            } else {
+                alert("请选择元素")
+            }
+        },
+        cmd_stopObserver:function(){
+            var host = this;
+            if (host.selectTarget) {
+
+                host.observerEl=null;
             } else {
                 alert("请选择元素")
             }

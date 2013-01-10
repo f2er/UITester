@@ -23,32 +23,28 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="create.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="33" selection-start="251" selection-end="251" vertical-scroll-proportion="-8.142858">
-              <folding>
-                <element signature="e#2206#2224#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="24" selection-start="1087" selection-end="1087" vertical-scroll-proportion="-0.6785714">
-              <folding>
-                <element signature="tag#div#1;tag#div#0" expanded="false" />
-              </folding>
+            <state line="62" column="40" selection-start="1654" selection-end="1654" vertical-scroll-proportion="-0.6785714">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/index.php">
+      <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="55" selection-start="2935" selection-end="2979" vertical-scroll-proportion="-8.821428">
+            <state line="171" column="22" selection-start="5509" selection-end="5509" vertical-scroll-proportion="-0.35849056">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tool/create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="127" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.5310559">
               <folding />
             </state>
           </provider>
@@ -72,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taobao.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="taobao.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="356" column="44" selection-start="10610" selection-end="10610" vertical-scroll-proportion="0.4940476">
+            <state line="356" column="44" selection-start="10610" selection-end="10610" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -105,20 +101,26 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="309" column="39" selection-start="6778" selection-end="6778" vertical-scroll-proportion="0.0">
+            <state line="743" column="36" selection-start="20576" selection-end="20576" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1357807592739" expanded="false" signature="9472:9510" placeholder="..." />
-                <marker date="1357807592739" expanded="false" signature="9864:9877" placeholder="..." />
+                <marker date="1357823687757" expanded="false" signature="9472:9510" placeholder="..." />
+                <marker date="1357823687757" expanded="false" signature="9864:9877" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+      <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2710" column="19" selection-start="86190" selection-end="86201" vertical-scroll-proportion="386.0">
-              <folding />
+            <state line="145" column="98" selection-start="6975" selection-end="6975" vertical-scroll-proportion="-16.964285">
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,22 +138,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tool/record/record.html" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/run_test.html" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
-        <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
-        <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/tool/list.php" />
         <option value="$PROJECT_DIR$/tool/index.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tool/common/header.php" />
-        <option value="$PROJECT_DIR$/tool/record/core.js" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
+        <option value="$PROJECT_DIR$/tool/record/core.js" />
+        <option value="$PROJECT_DIR$/tool/record/record.html" />
+        <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/tool/create.php" />
       </list>
     </option>
   </component>
@@ -345,13 +347,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="25" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/handle.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="16" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.0">
@@ -362,13 +357,6 @@
     <entry file="file://$PROJECT_DIR$/tool/local-test (2).php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="35" selection-start="1099" selection-end="1124" vertical-scroll-proportion="0.43524417">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/result.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="0" selection-start="7095" selection-end="7095" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -404,28 +392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="251" selection-end="251" vertical-scroll-proportion="-8.142858">
-          <folding>
-            <element signature="e#2206#2224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2710" column="19" selection-start="86190" selection-end="86201" vertical-scroll-proportion="386.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="24" selection-start="1087" selection-end="1087" vertical-scroll-proportion="-0.6785714">
-          <folding>
-            <element signature="tag#div#1;tag#div#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -450,16 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="309" column="39" selection-start="6778" selection-end="6778" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1357807592739" expanded="false" signature="9472:9510" placeholder="..." />
-            <marker date="1357807592739" expanded="false" signature="9864:9877" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="68" selection-start="539" selection-end="539" vertical-scroll-proportion="-4.214286">
@@ -479,7 +439,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="356" column="44" selection-start="10610" selection-end="10610" vertical-scroll-proportion="0.4940476">
+        <state line="356" column="44" selection-start="10610" selection-end="10610" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="743" column="36" selection-start="20576" selection-end="20576" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1357823687757" expanded="false" signature="9472:9510" placeholder="..." />
+            <marker date="1357823687757" expanded="false" signature="9864:9877" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="145" column="98" selection-start="6975" selection-end="6975" vertical-scroll-proportion="-16.964285">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="40" selection-start="1654" selection-end="1654" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/result.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="22" selection-start="5509" selection-end="5509" vertical-scroll-proportion="-0.35849056">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="127" selection-start="1274" selection-end="1274" vertical-scroll-proportion="0.5310559">
           <folding />
         </state>
       </provider>

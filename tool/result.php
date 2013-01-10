@@ -64,11 +64,11 @@ if ($task_id !== '') {
 
     <div style="float: right">
 
+
+        <a id="go_local_test" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
+           data-original-title="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
         <a id="go_test" target="_blank" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
            data-original-title="通过后台浏览器运行测试用例">远程测试</a>
-        <a id="go_local_test" target="_blank" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
-           data-original-title="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
-
 <?php if($creator === $userName) { ?>
         <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">修改</a>
         <a target="_self" class="btn btn-small"
@@ -113,6 +113,7 @@ if ($task_id !== '') {
     </div>
     <?php include_once('./common/footer.php'); ?>
     <script>
+
         var random = 1;
         var renderResult = function (el, result) {
             random++;
@@ -169,15 +170,27 @@ if ($task_id !== '') {
 
     <script>
         (function () {
-
+            $("#go_local_test").tooltip({
+                html:true
+            })
+            $("#go_test").tooltip({
+                html:true
+            })
             jQuery("#go_local_test").on("click", function (e) {
+                e.preventDefault();
                 jasmine._newEnv = true;
+                var isLoad = false;
                 jQuery.getScript("<?php echo $task_inject_uri  ?>", function () {
+                    isLoad = true;
                     UT.execute(function (data) {
                         var jsonReporter = new jasmine.JsonReporter();
                         jsonReporter.renderHTML(data, jQuery("#m-result-report"));
                     })
                 })
+                setTimeout(function(){
+                    if(!isLoad)alert("js未能加载成功")
+
+                },1000*5)
 
             })
         })();
@@ -216,10 +229,7 @@ if ($task_id !== '') {
 
                             socket.on("remote:task_finish", function (data) {
                                 jQuery("#myModal .modal-body").html("正在测试....");
-
-
                                 renderResult("#m-result-report", data.task_result)
-
 
                             })
 
