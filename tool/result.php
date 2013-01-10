@@ -65,10 +65,9 @@ if ($task_id !== '') {
     <div style="float: right">
 
 
-        <a id="go_local_test" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
-           data-original-title="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
-        <a id="go_test" target="_blank" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
-           data-original-title="通过后台浏览器运行测试用例">远程测试</a>
+        <a id="go_local_test" class="btn btn-small" href="#" rel="popover"  data-original-title="提示" data-placement="bottom"
+           data-content="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
+
 <?php if($creator === $userName) { ?>
         <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">修改</a>
         <a target="_self" class="btn btn-small"
@@ -170,11 +169,15 @@ if ($task_id !== '') {
 
     <script>
         (function () {
-            $("#go_local_test").tooltip({
-                html:true
+
+            $("#go_local_test").popover({
+                html:true,
+                trigger:"hover"
+
             })
-            $("#go_test").tooltip({
-                html:true
+            $("#go_test").popover({
+                html:true,
+                trigger:"hover"
             })
             jQuery("#go_local_test").on("click", function (e) {
                 e.preventDefault();
@@ -196,60 +199,7 @@ if ($task_id !== '') {
 
             })
         })();
-        (function () {
-            var isConnected = false;
-            var socket;
-            var http_host = location.host || "localhost";
-            var url = 'http://' + http_host + ":3030" + "/socket.io/socket.io.js"
 
-            $('#myModal').modal({show:false})
-
-            jQuery("#go_test").on("click", function (e) {
-                e.preventDefault();
-                $('#myModal').modal('show');
-                if (isConnected) {
-
-                    jQuery("#myModal .modal-body").html("正在测试....");
-
-                    socket.emit("remote:task_start", {"task_inject_uri":"<?php echo $task_inject_uri  ?>"})
-
-                }
-                else {
-                    jQuery.getScript(url, function () {
-
-                        socket = io.connect('http://' + http_host + ":3030");
-
-
-                        socket.on("connect", function () {
-
-
-                            isConnected = true;
-                            jQuery("#myModal .modal-body").html("正在测试....");
-
-                            socket.emit("remote:task_start", {"task_inject_uri":"<?php echo $task_inject_uri  ?>"})
-
-
-                            socket.on("remote:task_finish", function (data) {
-                                jQuery("#myModal .modal-body").html("正在测试....");
-                                renderResult("#m-result-report", data.task_result)
-
-                            })
-
-
-                            // Send task report to server through Socket.IO
-                            // by trigger method of emit of socket object
-                            // socket.emit('console:task_finish', jasmineData);
-                        })
-
-
-                    })
-                }
-
-
-            })
-
-
-        })();
     </script>
 
 
