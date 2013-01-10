@@ -11,13 +11,15 @@
 
     <div id="input_test" >
       <div><span>请输入测试代码或地址</span><span style="color: #ccc">（需要先安装浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>，<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>）</span></div>
-      <div class="text"> <textarea id="test_text" >
+      <div class="text"> <textarea id="test_text"  spellcheck="false">
           //example
-          //测试本地调试页面功能正常
-          UT.configs.windowWidth =600;
-          UT.configs.windowHeight=300;
-          var win =UT.open("http://uitest.taobao.net/tool/local-test.php", function(){
-
+          //测试本地调试导航菜单选中
+          UT.open("http://uitest.taobao.net/tool/local-test.php", function(){
+                describe("打开页面", function(){
+                     it("测试导航选中", function(){
+                         expect(".nav .acitve").toHaveAttr("href","http://uitest.taobao.net/tool/local-test.php")
+                     })
+                 })
           })
       </textarea></div>
 

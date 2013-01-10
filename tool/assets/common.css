@@ -153,6 +153,8 @@ ul, p {
 #runlocal textarea{
     width: 1000px;
     height:400px;
+    color: #777;
+
 }
 #runlocal .info .setup{
  float: left;;
