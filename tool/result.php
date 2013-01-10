@@ -63,7 +63,11 @@ if ($task_id !== '') {
     <span style="line-height: 20px; font-size: 24.5px;font-weight: bold"><?php echo $result_item['task_name'] ?></span>
 
     <div style="float: right">
-        <a id="go_test" target="_blank" class="btn btn-small" href="#">立即测试</a>
+
+        <a id="go_test" target="_blank" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
+           data-original-title="通过后台浏览器运行测试用例">远程测试</a>
+        <a id="go_local_test" target="_blank" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
+           data-original-title="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
         <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">修改</a>
         <a target="_self" class="btn btn-small"
            href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">删除</a>
@@ -106,25 +110,25 @@ if ($task_id !== '') {
     </div>
     <?php include_once('./common/footer.php'); ?>
     <script>
-        var random =1;
+        var random = 1;
         var renderResult = function (el, result) {
-            random ++;
+            random++;
             var c = $(el);
             var jsonReporter = new jasmine.JsonReporter();
             var navHtml = '<ul class="nav nav-tabs" >'
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
-                if(result[p].reports.failedSpecs !== 0||result[p].reports.errors.length !== 0){
+                if (result[p].reports.failedSpecs !== 0 || result[p].reports.errors.length !== 0) {
                     var passed = "未通过"
                 }
-                else{
+                else {
 
                     var passed = "通过"
                 }
 
-                var name = p.replace(/\./g,"_")+random
+                var name = p.replace(/\./g, "_") + random
 
-                navHtml += '<li class=""><a href="#' + name + '">' + p + passed+ '</a></li>'
+                navHtml += '<li class=""><a href="#' + name + '">' + p + passed + '</a></li>'
                 bodyHtml += '<div class="tab-pane " id="' + name + '"></div>'
 
             }
@@ -135,9 +139,9 @@ if ($task_id !== '') {
 
             var i = 1;
             jQuery.each(result, function (key, value) {
-                var name = key.replace(/\./g,"_")+random;
+                var name = key.replace(/\./g, "_") + random;
                 if (i) {
-                    $('.nav-tabs a[href="#' + name + '"]',c[0]).tab('show');
+                    $('.nav-tabs a[href="#' + name + '"]', c[0]).tab('show');
                     i = 0;
                 }
 
@@ -154,7 +158,6 @@ if ($task_id !== '') {
         }
 
 
-
         jQuery(document).ready(function () {
             var result = <?php echo $result ?>;
             renderResult("#result-report", result);
@@ -163,62 +166,69 @@ if ($task_id !== '') {
 
     <script>
         (function () {
+
+            jQuery("#go_local_test").on("click", function (e) {
+                jasmine._newEnv = true;
+                jQuery.getScript("<?php echo $task_inject_uri  ?>", function () {
+                    UT.execute(function (data) {
+                        var jsonReporter = new jasmine.JsonReporter();
+                        jsonReporter.renderHTML(data, jQuery("#m-result-report"));
+                    })
+                })
+
+            })
+        })();
+        (function () {
             var isConnected = false;
+            var socket;
             var http_host = location.host || "localhost";
             var url = 'http://' + http_host + ":3030" + "/socket.io/socket.io.js"
 
+            $('#myModal').modal({show:false})
 
-            jQuery.getScript(url, function () {
+            jQuery("#go_test").on("click", function (e) {
+                e.preventDefault();
+                $('#myModal').modal('show');
+                if (isConnected) {
 
-                var socket = io.connect('http://' + http_host + ":3030");
+                    jQuery("#myModal .modal-body").html("正在测试....");
 
-                if (!window.console) {
-                    window.console = {
-                        log:function () {
-                        },
-                        info:function () {
-                        },
-                        debug:function () {
-                        }
-                    }
+                    socket.emit("remote:task_start", {"task_inject_uri":"<?php echo $task_inject_uri  ?>"})
+
                 }
+                else {
+                    jQuery.getScript(url, function () {
+
+                        socket = io.connect('http://' + http_host + ":3030");
 
 
-                jQuery("#go_test").on("click", function (e) {
-                    e.preventDefault();
-                    if (isConnected) {
-                        var src = jQuery("#test_src").val();
-
-                        jQuery("#myModal .modal-body").html("正在测试....");
-                        $('#myModal').modal('show');
-                        socket.emit("remote:task_start", {"task_inject_uri":"<?php echo $task_inject_uri  ?>"})
-                    }
-                    else {
-                        alert("未能成功连接")
-                    }
-
-                })
-
-                socket.on("connect", function () {
-                    console.info("connect");
-                    if (isConnected)return;
-                    isConnected = true;
-
-                    $('#myModal').modal({show:false})
-                    socket.on("remote:task_finish", function (data) {
+                        socket.on("connect", function () {
 
 
-                        $('#myModal').modal('show');
-                        renderResult("#m-result-report", data.task_result)
+                            isConnected = true;
+                            jQuery("#myModal .modal-body").html("正在测试....");
+
+                            socket.emit("remote:task_start", {"task_inject_uri":"<?php echo $task_inject_uri  ?>"})
+
+
+                            socket.on("remote:task_finish", function (data) {
+                                jQuery("#myModal .modal-body").html("正在测试....");
+
+
+                                renderResult("#m-result-report", data.task_result)
+
+
+                            })
+
+
+                            // Send task report to server through Socket.IO
+                            // by trigger method of emit of socket object
+                            // socket.emit('console:task_finish', jasmineData);
+                        })
 
 
                     })
-
-
-                    // Send task report to server through Socket.IO
-                    // by trigger method of emit of socket object
-                    // socket.emit('console:task_finish', jasmineData);
-                })
+                }
 
 
             })
