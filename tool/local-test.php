@@ -10,11 +10,11 @@
 <div class="container" id="runlocal">
 
     <div id="input_test" >
-
+      <div><span>请输入测试代码或地址</span><span style="color: #ccc">（需要先安装浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>，<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>）</span></div>
       <div class="text"> <textarea id="test_text" ></textarea></div>
 
         <div clsss="info">
-           <p class="setup"></p><button class="btn" type="button " id="run_test">测试</button>
+          <button class="btn" type="button " id="run_test">测试</button>
        </div>
 
     </div>

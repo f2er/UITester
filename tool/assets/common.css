@@ -131,6 +131,10 @@ ul, p {
     min-height: 550px;
     _height:550px;
 }
+#list .case-list{
+    min-height: 550px;
+    _height:550px;
+}
 #create{
     width: 1024px;
     padding-top:40px ;

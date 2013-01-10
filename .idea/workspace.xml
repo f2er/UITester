@@ -26,7 +26,7 @@
       <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="0" selection-start="3804" selection-end="3804" vertical-scroll-proportion="-59.714287">
+            <state line="15" column="90" selection-start="369" selection-end="542" vertical-scroll-proportion="-6.785714">
               <folding>
                 <element signature="tag#head#0;tag#html#0" expanded="false" />
                 <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
@@ -36,8 +36,6 @@
                 <element signature="e#1175#1190#0" expanded="false" />
                 <element signature="e#1222#1237#0" expanded="false" />
                 <element signature="e#1344#1419#0" expanded="false" />
-                <element signature="e#2130#2197#0" expanded="false" />
-                <element signature="e#2215#2304#0" expanded="false" />
                 <element signature="e#2584#2678#0" expanded="false" />
                 <element signature="e#2741#2818#0" expanded="false" />
                 <element signature="e#2889#2971#0" expanded="false" />
@@ -100,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="157" column="16" selection-start="2835" selection-end="2835" vertical-scroll-proportion="0.8020833">
+            <state line="135" column="18" selection-start="2512" selection-end="2512" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,11 +116,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="local-test.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/local-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="25" selection-start="218" selection-end="218" vertical-scroll-proportion="-2.7142856">
+            <state line="12" column="154" selection-start="374" selection-end="374" vertical-scroll-proportion="0.36133122">
               <folding>
+                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -165,8 +164,8 @@
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/tool/list.php" />
-        <option value="$PROJECT_DIR$/tool/local-test.php" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
+        <option value="$PROJECT_DIR$/tool/local-test.php" />
       </list>
     </option>
   </component>
@@ -436,41 +435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="251" selection-end="251" vertical-scroll-proportion="-8.142858">
-          <folding>
-            <element signature="e#2206#2224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="0" selection-start="3804" selection-end="3804" vertical-scroll-proportion="-59.714287">
-          <folding>
-            <element signature="tag#head#0;tag#html#0" expanded="false" />
-            <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="e#1072#1253#0" expanded="false" />
-            <element signature="e#1099#1247#0" expanded="false" />
-            <element signature="e#1129#1144#0" expanded="false" />
-            <element signature="e#1175#1190#0" expanded="false" />
-            <element signature="e#1222#1237#0" expanded="false" />
-            <element signature="e#1344#1419#0" expanded="false" />
-            <element signature="e#2130#2197#0" expanded="false" />
-            <element signature="e#2215#2304#0" expanded="false" />
-            <element signature="e#2584#2678#0" expanded="false" />
-            <element signature="e#2741#2818#0" expanded="false" />
-            <element signature="e#2889#2971#0" expanded="false" />
-            <element signature="e#3043#3164#0" expanded="false" />
-            <element signature="e#5314#5406#0" expanded="false" />
-            <element signature="e#5856#5935#0" expanded="false" />
-            <element signature="e#6221#6262#0" expanded="false" />
-            <element signature="e#6328#6428#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="33" selection-start="1215" selection-end="1215" vertical-scroll-proportion="-18.25">
@@ -487,19 +451,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/local-test.php">
+    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="25" selection-start="218" selection-end="218" vertical-scroll-proportion="-2.7142856">
+        <state line="135" column="18" selection-start="2512" selection-end="2512" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="90" selection-start="369" selection-end="542" vertical-scroll-proportion="-6.785714">
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="tag#head#0;tag#html#0" expanded="false" />
+            <element signature="tag#p#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="e#1072#1253#0" expanded="false" />
+            <element signature="e#1099#1247#0" expanded="false" />
+            <element signature="e#1129#1144#0" expanded="false" />
+            <element signature="e#1175#1190#0" expanded="false" />
+            <element signature="e#1222#1237#0" expanded="false" />
+            <element signature="e#1344#1419#0" expanded="false" />
+            <element signature="e#2584#2678#0" expanded="false" />
+            <element signature="e#2741#2818#0" expanded="false" />
+            <element signature="e#2889#2971#0" expanded="false" />
+            <element signature="e#3043#3164#0" expanded="false" />
+            <element signature="e#5314#5406#0" expanded="false" />
+            <element signature="e#5856#5935#0" expanded="false" />
+            <element signature="e#6221#6262#0" expanded="false" />
+            <element signature="e#6328#6428#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+    <entry file="file://$PROJECT_DIR$/tool/create.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="16" selection-start="2835" selection-end="2835" vertical-scroll-proportion="0.8020833">
-          <folding />
+        <state line="15" column="33" selection-start="251" selection-end="251" vertical-scroll-proportion="-8.142858">
+          <folding>
+            <element signature="e#2206#2224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/local-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="154" selection-start="374" selection-end="374" vertical-scroll-proportion="0.36133122">
+          <folding>
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
