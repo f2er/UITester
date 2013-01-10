@@ -1,8 +1,9 @@
 <?php
-session_start();
-require '../auth/AuthBoot.php';
-$user = $ArkAuth->getAppUser();
-$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
+//session_start();
+//require '../auth/AuthBoot.php';
+//$user = $ArkAuth->getAppUser();
+//$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
+$userName = '道璘';
 ?>
 
 <!doctype html>
@@ -36,14 +37,15 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </a>
-	  <a class="brand" href="index.php">UITest</a>
+	  <a class="brand" href="index.php" <?php if($nav==='index')echo 'style="color:#FFF"' ?>>UITest</a>
 	  <div class="nav-collapse collapse">
 		<ul class="nav">
-		  <li class="active"><a href="list.php">查看用例</a></li>
-            <li><a href="http://uitest.taobao.net/tool/create.php">回归测试</a></li>
+		  		  <li <?php if($nav==='me' || isset($_GET['me']))echo 'class="active"' ?>><a href="list.php?me">我的用例</a></li>
+		  <li <?php if($nav==='list' && !isset($_GET['me']))echo 'class="active"' ?>><a href="list.php">全部用例</a></li>
+          <li <?php if($nav==='create')echo 'class="active"' ?>><a href="http://uitest.taobao.net/tool/create.php">回归测试</a></li>
 
-		  <li><a href="record/record.html?">录制工具</a></li>
-		  <li><a href="https://github.com/taobao-sns-fed/UITester/wiki">帮助</a></li>
+		  <li <?php if($nav==='record')echo 'class="active"' ?>><a href="record/record.html?">录制工具</a></li>
+		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="https://github.com/taobao-sns-fed/UITester/wiki">帮助</a></li>
 		</ul>
 	  </div><!--/.nav-collapse -->
 	</div>

@@ -1,4 +1,4 @@
-<?php include_once('./common/header.php'); ?>
+<?php $nav='list'; include_once('./common/header.php'); ?>
 <?php
 
 //配置
@@ -12,6 +12,9 @@ if ($_GET['productline']) {
 }
 if ($_GET['project']) {
 	$sql = $sql.' and project = '.$_GET['project'];
+}
+if (isset($_GET['me'])) {
+	$sql = $sql.' and creator = "'.$userName.'"';
 }
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $start = $page < 1 ? 0 : ($page*$num-$num);
@@ -35,6 +38,8 @@ $productlineSql = 'select productline from list group by productline order by pr
 $productline_result = mysql_query($productlineSql);
 
 
+//为了在URL加上参数, 以选中我的用例子导航
+$me = isset($_GET['me']) ? 'me&' : '';
 
 
 
@@ -139,7 +144,7 @@ $productline_result = mysql_query($productlineSql);
 
 
                 <div class="bottom-action">
-                <a class="btn btn-link" href="result.php?task_id=' . $result_item['id'] .'">查看详情</a>
+                <a class="btn btn-link" href="result.php?'.$me.'task_id=' . $result_item['id'] .'">查看详情</a>
      <!--                <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
                    <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>
                     <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>

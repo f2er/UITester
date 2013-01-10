@@ -1,4 +1,4 @@
-<?php include_once('./common/header.php'); ?>
+<?php $nav='list'; include_once('./common/header.php'); ?>
 <script src="assets/form.js" xmlns="http://www.w3.org/1999/html"></script>
 <style>
     .other {
@@ -68,9 +68,12 @@ if ($task_id !== '') {
            data-original-title="通过后台浏览器运行测试用例">远程测试</a>
         <a id="go_local_test" target="_blank" class="btn btn-small" href="#" rel="tooltip" data-placement="top"
            data-original-title="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
+
+<?php if($creator === $userName) { ?>
         <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">修改</a>
         <a target="_self" class="btn btn-small"
            href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">删除</a>
+<?php } ?>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-<?php include_once('./common/header.php'); ?>
+<?php $nav='create'; include_once('./common/header.php'); ?>
 
 <link rel="stylesheet" href="assets/form.css">
 

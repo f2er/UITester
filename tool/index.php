@@ -1,4 +1,4 @@
-<?php include 'common/header.php' ?>
+<?php $nav='index'; include 'common/header.php' ?>
 
 <style>
     .navbar {
