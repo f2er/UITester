@@ -36,7 +36,7 @@
 
 
 <script>
-
+try{
 
     var isRunning = false;
     var isConnected = false
@@ -118,7 +118,7 @@
                                 //创建一个独立的环境
                                 var runing = true;
                                 jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.task_inject_uri);
-                                if (!run_win) {
+                                if (!run_win||!run_win.location) {
                                     run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
                                 }
 
@@ -144,6 +144,10 @@
                                 run_timer = setTimeout(function () {
                                     // 三分钟没有完成，
                                     if (!runing) return;
+                                    if (run_win) {
+                                        run_win.close();
+                                        run_win= null;
+                                    }
                                     var defaultResult = UT.defaultResult;
                                     defaultResult.reports.errors.push({
                                         message:"超时"
@@ -200,7 +204,10 @@
 
     })
 
-
+}catch (e){
+    if (run_win && run_win.close)run_win.close();
+    window.location.reload();
+}
 </script>
 
 </body>
