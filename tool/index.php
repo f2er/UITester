@@ -96,7 +96,7 @@
     <div class="container">
         <h1>UITest</h1>
 
-        <p>一个自动化前端UI测试平台，在真实的浏览器里面测试web页面的样式、功能和javascript</p>
+        <p>一个自动化前端UI测试平台，让测试web页面的样式、功能和javascript简单而高效</p>
 
         <p>
 
