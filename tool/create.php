@@ -13,7 +13,7 @@ $modify_tag = '';
 
     }
 </style>
-<div class="container" style="width: 920px; padding-top:40px ;height: 530px">
+<div class="container" id="create" style="">
 
 
     <form class="form-horizontal" method="POST" action="handle.php">
@@ -146,7 +146,7 @@ $modify_tag = '';
 
 </form>
 
-<?php include_once('./common/footer.php'); ?>
+
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script src="assets/form.js"></script>
@@ -167,3 +167,4 @@ KISSY.use('sizzle', function(S) {
 
 
 </div>
+<?php include_once('./common/footer.php'); ?>

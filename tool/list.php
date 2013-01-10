@@ -47,7 +47,7 @@ $me = isset($_GET['me']) ? 'me&' : '';
 
 <link rel="stylesheet" href="assets/list.css">
 
-<div class="container" style="width: 920px">
+<div class="container" id="list" >
 <div class="sub-nav">
      产品线: <select id="productline" name="productline" required>
 		<option value="">全部</option>
@@ -144,7 +144,7 @@ $me = isset($_GET['me']) ? 'me&' : '';
 
 
                 <div class="bottom-action">
-                <a class="btn btn-link" href="result.php?'.$me.'task_id=' . $result_item['id'] .'">查看详情</a>
+                <a class="btn btn-link" href="result.php?'.$me.'task_id=' . $result_item['id'] .'">详细结果</a>
      <!--                <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">修改</a>
                    <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">测试</a>
                     <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">删除</a>
@@ -183,7 +183,7 @@ $me = isset($_GET['me']) ? 'me&' : '';
 </div>
 
 
-<?php include_once('./common/footer.php'); ?>
+
 
 <script src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
 <script src="assets/form.js"></script>
@@ -213,3 +213,4 @@ KISSY.ready(function(S) {
 
 
 </div>
+<?php include_once('./common/footer.php'); ?>

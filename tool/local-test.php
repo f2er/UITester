@@ -7,22 +7,15 @@
 
 </style>
 
-<div class="container" style="width: 920">
+<div class="container" id="runlocal">
 
-    <div id="input_test"  style="text-align: center">
-        <div class="alert alert-info" style="margin: 10px auto;padding:8px;text-align: left;width: 500px; ">
-            <strong>测试方式</strong>
-            <p> 1.需要手动引入<a href="http://http://assets.daily.taobao.net/p/uitest/build/uitest-jquery.js">uitest测试框架</a>，
-                或者安装UITester浏览器插件.(<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.crx">chrome</a>,
-                <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/ie_plugin/IESetup/Debug/IESetup.msi">ie</a>)
-            </p>
-            <p>2.设置浏览器允许窗口打开</p>
-            <p>3.在下面的文本框中输入你的测试代码或地址</p>
+    <div id="input_test" >
 
-        </div>
-        <textarea id="test_text" rows="6"  style="width: 500px"></textarea><br>
+      <div class="text"> <textarea id="test_text" ></textarea></div>
 
-        <button class="btn" type="button " id="run_test">测试</button>
+        <div clsss="info">
+           <p class="setup"></p><button class="btn" type="button " id="run_test">测试</button>
+       </div>
 
     </div>
 

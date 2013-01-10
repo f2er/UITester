@@ -1,7 +1,7 @@
 /*! Taobao Style Platform Copyright(c) 2008-2100, Taobao.com Inc. Some rights reserved. */
 
 body {
-    Tahoma, Helvetica, Arial, '瀹嬩綋', sans-serif;
+   font-family:  Tahoma, Helvetica, Arial, '瀹嬩綋', sans-serif;
 }
 
 ul, p {
@@ -126,3 +126,34 @@ ul, p {
     float: right;
 }
 
+#list{
+    width: 1024px;
+    min-height: 550px;
+    _height:550px;
+}
+#create{
+    width: 1024px;
+    padding-top:40px ;
+    min-height: 550px;
+    _height:550px;
+}
+#create form{
+    position: relative;
+    left: -80px;
+}
+#runlocal{
+    width: 1024px;
+    min-height: 550px;
+    _height:550px;
+}
+#runlocal textarea{
+    width: 1024px;
+    height:400px;
+}
+#runlocal .info .setup{
+ float: left;;
+    width: 70%;
+}
+#runlocal .info button{
+    float: right;
+}
