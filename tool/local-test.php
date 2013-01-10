@@ -11,7 +11,15 @@
 
     <div id="input_test" >
       <div><span>请输入测试代码或地址</span><span style="color: #ccc">（需要先安装浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>，<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>）</span></div>
-      <div class="text"> <textarea id="test_text" ></textarea></div>
+      <div class="text"> <textarea id="test_text" >
+          //example
+          //测试本地调试页面功能正常
+          UT.configs.windowWidth =600;
+          UT.configs.windowHeight=300;
+          var win =UT.open("http://uitest.taobao.net/tool/local-test.php", function(){
+
+          })
+      </textarea></div>
 
         <div clsss="info">
           <button class="btn" type="button " id="run_test">测试</button>
@@ -36,6 +44,7 @@
 
     <script>
         $('#myModal').modal({show:false})
+
         $("#run_test").on("click", function () {
             jasmine._newEnv = true;
 
