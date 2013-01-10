@@ -197,14 +197,9 @@
     }, 1000 * 60 * 2)
     jQuery(window).on("beforeunload", function (e) {
         if (run_win && run_win.close)run_win.close();
-        e.preventDefault();
-        console.log("before");
 
-        location.reload();
     })
-jQuery(window).unload(function(e){
-    e.preventDefault();
-})
+
 
 </script>
 
