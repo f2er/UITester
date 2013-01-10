@@ -85,10 +85,10 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="305" column="20" selection-start="6599" selection-end="6611" vertical-scroll-proportion="-7.08">
+            <state line="305" column="29" selection-start="6599" selection-end="6620" vertical-scroll-proportion="82.0">
               <folding>
-                <marker date="1357824811083" expanded="true" signature="10009:10047" placeholder="..." />
-                <marker date="1357824811083" expanded="true" signature="10401:10414" placeholder="..." />
+                <marker date="1357825802039" expanded="true" signature="10101:10139" placeholder="..." />
+                <marker date="1357825802039" expanded="true" signature="10493:10506" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -97,11 +97,10 @@
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="250" column="32" selection-start="10293" selection-end="10293" vertical-scroll-proportion="-12.214286">
+            <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="-6.178571">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="tag#div#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -114,7 +113,7 @@
       <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/record/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="560" column="18" selection-start="11453" selection-end="11453" vertical-scroll-proportion="0.76506954">
+            <state line="562" column="16" selection-start="11489" selection-end="11489" vertical-scroll-proportion="0.8238022">
               <folding />
             </state>
           </provider>
@@ -441,16 +440,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="20" selection-start="6599" selection-end="6611" vertical-scroll-proportion="-7.08">
-          <folding>
-            <marker date="1357824811083" expanded="true" signature="10009:10047" placeholder="..." />
-            <marker date="1357824811083" expanded="true" signature="10401:10414" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="130" column="22" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0">
@@ -467,11 +456,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/record.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="32" selection-start="10293" selection-end="10293" vertical-scroll-proportion="-12.214286">
+        <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="-6.178571">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#2;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -480,9 +468,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="305" column="29" selection-start="6599" selection-end="6620" vertical-scroll-proportion="82.0">
+          <folding>
+            <marker date="1357825802039" expanded="true" signature="10101:10139" placeholder="..." />
+            <marker date="1357825802039" expanded="true" signature="10493:10506" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="560" column="18" selection-start="11453" selection-end="11453" vertical-scroll-proportion="0.76506954">
+        <state line="562" column="16" selection-start="11489" selection-end="11489" vertical-scroll-proportion="0.8238022">
           <folding />
         </state>
       </provider>

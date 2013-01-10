@@ -303,6 +303,9 @@
             var iframe = $("#iframe-target")[0];
             iframe.src = buildUrl(iframe.src, "t=" + new Date().getTime())
         },
+        cmd_out_clearObserver:function () {
+            $("#mutations").html("")
+        },
         cmd_out_test:function () {
 
             try {
@@ -882,6 +885,7 @@
                 alert("请选择元素")
             }
         },
+
         cmd_stopObserver:function () {
             var host = this;
             if (host.selectTarget) {

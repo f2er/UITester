@@ -559,4 +559,6 @@ body{
 #mutations{
     position: fixed;top:100px;right:25px;
     overflow:auto;
+    height: 300px;
+    width: 300px;
 }
