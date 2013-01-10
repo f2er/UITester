@@ -151,13 +151,13 @@ ul, p {
     _height:630px;
 }
 #runlocal textarea{
-    width: 1000px;
+    width: 1020px;
     height:400px;
     color: #777;
 
 }
-#runlocal .info .setup{
- float: left;;
+#runlocal .info{
+ float: right;;
     width: 70%;
 }
 #runlocal .info button{
