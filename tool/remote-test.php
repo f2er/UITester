@@ -7,7 +7,7 @@
 
 </style>
 
-<div class="container" style="width: 920">
+<div id="content" class="container" style="width: 920">
 
     <div id ="input_test"  style="text-align: center">
         <input class="input-xxlarge" placeholder="输入测试代码的地址" id="test_src" type="text"><br>

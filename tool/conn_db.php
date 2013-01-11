@@ -11,4 +11,6 @@ if (!$conn) {
 }
 
 $database = mysql_select_db('uitest', $conn);
+
+mysql_query('set names latin1');		//得用latin1, 而非utf8
 ?>

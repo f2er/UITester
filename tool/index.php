@@ -1,67 +1,9 @@
 <?php $nav='index'; include 'common/header.php' ?>
 
-<style>
-    .navbar {
-        margin-bottom: 0;
-    }
-</style>
-
-
-
-
 <div class="jumbotron masthead">
     <style>
 
-        .jumbotron {
-            position: relative;
-            padding: 40px 0;
-            color: white;
-            text-align: center;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 0, 0, .075);
-            background: #020031;
-            background: -moz-linear-gradient(45deg, #020031 0%, #6D3353 100%);
-            background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #020031), color-stop(100%, #6D3353));
-            background: -webkit-linear-gradient(45deg, #020031 0%, #6D3353 100%);
-            background: -o-linear-gradient(45deg, #020031 0%, #6D3353 100%);
-            background: -ms-linear-gradient(45deg, #020031 0%, #6D3353 100%);
-            background: linear-gradient(45deg, #020031 0%, #6D3353 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#020031', endColorstr = '#6d3353', GradientType = 1);
-            -webkit-box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
-            -moz-box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
-            box-shadow: inset 0 3px 7px rgba(0, 0, 0, .2), inset 0 -3px 7px rgba(0, 0, 0, .2);
-        }
-
-        .jumbotron a {
-            color: white;
-            color: rgba(255, 255, 255, .5);
-            -webkit-transition: all .2s ease-in-out;
-            -moz-transition: all .2s ease-in-out;
-            transition: all .2s ease-in-out;
-        }
-
-        .jumbotron .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .jumbotron p {
-            font-size: 24px;
-            font-weight: 300;
-            line-height: 1.25;
-            margin-bottom: 30px;
-        }
-
-        .jumbotron::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: url(assets/bootstrap/img/bs-docs-masthead-pattern.png) repeat center center;
-            opacity: .4;
-        }
+        
 
         .masthead p {
             font-size: 35px;

@@ -1,32 +1,4 @@
 <?php $nav='list'; include_once('./common/header.php'); ?>
-<script src="assets/form.js" xmlns="http://www.w3.org/1999/html"></script>
-<style>
-    .other {
-        position: absolute;
-        top: 70px;
-        right: 161px;
-        font-size: 14px;
-        line-height: 2.5;
-        border: 1px solid #eee;
-        padding: 10px;
-        min-width: 200px;
-    }
-
-    #detail-info {
-        border: solid 1px #CCC;
-        padding: 10px;
-        border-radius: 4px;
-        background-color: #FAFAFA;
-        margin: 30px 0;
-
-    }
-
-
-</style>
-
-<div class="container" style="width: 920px">
-
-
 <?php
 $task_name = '';
 $task_target_uri = '';
@@ -58,8 +30,42 @@ if ($task_id !== '') {
     }
 }
 ?>
-<div style="margin: 10px 0;">
-    <span style="line-height: 20px; font-size: 24.5px;font-weight: bold"><?php echo $result_item['task_name'] ?></span>
+
+
+<script charset="utf8" src="assets/form.js"></script>
+<style>
+    .other {
+        position: absolute;
+        top: 70px;
+        right: 161px;
+        font-size: 14px;
+        line-height: 2.5;
+        border: 1px solid #eee;
+        padding: 10px;
+        min-width: 200px;
+    }
+
+    #detail-info {
+        border: solid 1px #CCC;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #FAFAFA;
+        margin: 30px 0;
+
+    }
+
+
+</style>
+
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>测试详情: <?php echo $result_item['task_name'] ?></h1>
+  </div>
+</header>
+
+<div id="content" class="container">
+
+<div style="margin: 10px 0;; height: 10px">
 
     <div style="float: right">
 
@@ -88,12 +94,10 @@ if ($task_id !== '') {
     </ul>
 </div>
 
-<div>
 
 
-    <div id="result-report">
+ <div id="result-report">
 
-    </div>
     <!-- Modal -->
     <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
@@ -109,7 +113,8 @@ if ($task_id !== '') {
 
         </div>
     </div>
-    <?php include_once('./common/footer.php'); ?>
+ </div>
+
     <script>
 
         var random = 1;
@@ -203,3 +208,6 @@ if ($task_id !== '') {
 
 
 </div>
+
+
+<?php include_once('./common/footer.php'); ?>

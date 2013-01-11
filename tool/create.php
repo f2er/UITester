@@ -1,19 +1,13 @@
 <?php $nav='create'; include_once('./common/header.php'); ?>
-
 <link rel="stylesheet" href="assets/form.css">
 
-<?php
-$task_name = '';
-$task_inject_uri = '';
-$modify_tag = '';
-?>
-<style>
-    .container{
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>创建测试用例</h1>
+  </div>
+</header>
 
-
-    }
-</style>
-<div class="container" id="create" style="">
+<div id="content" class="container" id="create" style="">
 
 
     <form class="form-horizontal" method="POST" action="handle.php">

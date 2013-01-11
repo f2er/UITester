@@ -18,7 +18,7 @@
 </style>
 
 
-<div class="container">
+<div id="content" class="container">
 
 <h1>任务详情</h1>
 

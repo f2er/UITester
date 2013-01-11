@@ -1,16 +1,25 @@
 /*! Taobao Style Platform Copyright(c) 2008-2100, Taobao.com Inc. Some rights reserved. */
 
 body {
-   font-family:  Tahoma, Helvetica, Arial, '瀹嬩綋', sans-serif;
+   font-family:  Tahoma, Helvetica, Arial, '宋体', sans-serif;
 }
 
 ul, p {
     margin: 0;
     padding: 0;
 }
-
+.navbar {
+	margin-bottom: 0;
+}
 .navbar-inner {
     border-radius: 0;
+}
+.jumbotron {
+	padding: 20px 0;
+	margin-bottom: 20px;
+}
+.jumbotron h1 {
+	font-size: 32px;
 }
 
 .login-info {
@@ -32,16 +41,17 @@ ul, p {
 }
 
 #content {
-    position: relative;
-    width: 950px;
-    text-align: left;
-    margin: auto;
+	width: 960px;
+	margin: 0 auto;
+    min-height: 540px;
 }
 
 #footer {
-    text-align: center;
-    margin: 30px;
-    padding: 20px
+	margin-top: 40px;
+	padding: 10px 0;
+	width: 100%;
+	text-align: center;
+	background-color: #DCDCDC;
 }
 
 

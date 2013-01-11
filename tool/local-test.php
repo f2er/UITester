@@ -7,7 +7,14 @@
 
 </style>
 
-<div class="container" id="runlocal">
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>本地调试工具</h1>
+  </div>
+</header>
+
+<div id="content" class="container">
+<div id="runlocal">
 
     <div id="input_test" >
       <div><span>请输入测试代码或地址</span><span style="color: #ccc">（需要先安装浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>，<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>）</span></div>
@@ -79,7 +86,10 @@
 
 
 
-    <?php include_once('./common/footer.php'); ?>
 
 
 </div>
+</div>
+
+
+<?php include_once('./common/footer.php'); ?>
