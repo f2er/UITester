@@ -63,7 +63,7 @@
 
         <p>
 
-        <div class="input-append" style="margin-top: 70px">
+        <div  style="margin-top: 70px">
         <a href="https://github.com/taobao-sns-fed/UITester/wiki" class="btn btn-primary btn-large" >学习使用</a>
 
         </div>
