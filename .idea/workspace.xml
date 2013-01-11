@@ -63,15 +63,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/record/events.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="57" selection-start="0" selection-end="4997" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/home.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,14 +108,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/local-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="5" selection-start="148" selection-end="148" vertical-scroll-proportion="0.030110935">
+            <state line="8" column="5" selection-start="185" selection-end="185" vertical-scroll-proportion="-2.0357144">
               <folding>
                 <element signature="e#436#455#0" expanded="true" />
                 <element signature="e#1236#1256#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="147" column="14" selection-start="2646" selection-end="2646" vertical-scroll-proportion="0.57589287">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -146,7 +146,6 @@
         <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/tool/record/common.css" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
-        <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/record/home.html" />
         <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
         <option value="$PROJECT_DIR$/tool/record/core.js" />
@@ -158,6 +157,7 @@
         <option value="$PROJECT_DIR$/tool/assets/header.css" />
         <option value="$PROJECT_DIR$/tool/index.php" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
+        <option value="$PROJECT_DIR$/tool/assets/common.css" />
       </list>
     </option>
   </component>
@@ -390,13 +390,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="0" selection-start="2721" selection-end="2721" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="232" column="9" selection-start="7534" selection-end="7534" vertical-scroll-proportion="0.0">
@@ -491,11 +484,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="5" selection-start="148" selection-end="148" vertical-scroll-proportion="0.030110935">
+        <state line="8" column="5" selection-start="185" selection-end="185" vertical-scroll-proportion="-2.0357144">
           <folding>
             <element signature="e#436#455#0" expanded="true" />
             <element signature="e#1236#1256#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="14" selection-start="2646" selection-end="2646" vertical-scroll-proportion="0.57589287">
+          <folding />
         </state>
       </provider>
     </entry>
