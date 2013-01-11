@@ -105,7 +105,7 @@ if ($task_id !== '') {
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">测试结果</h3>
         </div>
-        <div class="modal-body " id="m-result-report">
+        <div class="modal-body result-report" id="m-result-report">
 
         </div>
         <div class="modal-footer">
@@ -189,11 +189,12 @@ if ($task_id !== '') {
                 var isLoad = false;
                 jQuery.getScript("<?php echo $task_inject_uri  ?>", function () {
                     isLoad = true;
-                    $('#myModal').modal('show');
+
                     UT.execute(function (data) {
                         var jsonReporter = new jasmine.JsonReporter();
 
                         jsonReporter.renderHTML(data, jQuery("#m-result-report"));
+                        $('#myModal').modal('show');
                     })
                 })
                 setTimeout(function(){

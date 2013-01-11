@@ -26,10 +26,8 @@
       <file leaf-file-name="result.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/result.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="31" selection-start="5583" selection-end="5583" vertical-scroll-proportion="-4.264151">
-              <folding>
-                <element signature="tag#div#1;tag#div#2;tag#div#0" expanded="false" />
-              </folding>
+            <state line="196" column="52" selection-start="6048" selection-end="6048" vertical-scroll-proportion="-14.821428">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,7 +35,7 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="14" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.0">
+            <state line="156" column="0" selection-start="2721" selection-end="2721" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -57,16 +55,16 @@
       <file leaf-file-name="run.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/run.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="33" selection-start="1325" selection-end="1325" vertical-scroll-proportion="-10.178572">
+            <state line="15" column="77" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="73" selection-start="3244" selection-end="3244" vertical-scroll-proportion="3.4928684">
+            <state line="116" column="73" selection-start="3244" selection-end="3244" vertical-scroll-proportion="-0.6785714">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -79,11 +77,8 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="848" column="71" selection-start="25170" selection-end="25170" vertical-scroll-proportion="-23.6">
-              <folding>
-                <marker date="1357887301425" expanded="true" signature="10224:10262" placeholder="..." />
-                <marker date="1357887301425" expanded="true" signature="10563:10576" placeholder="..." />
-              </folding>
+            <state line="848" column="71" selection-start="25170" selection-end="25170" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,20 +86,7 @@
       <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="119" column="0" selection-start="0" selection-end="4997" vertical-scroll-proportion="-1.52">
-              <folding>
-                <element signature="e#365#1136#0" expanded="false" />
-                <element signature="e#1192#2520#0" expanded="false" />
-                <element signature="e#2584#4480#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/local-test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="36" selection-start="2231" selection-end="2231" vertical-scroll-proportion="-0.6785714">
+            <state line="114" column="57" selection-start="0" selection-end="4997" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -113,16 +95,25 @@
       <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="43" selection-start="2459" selection-end="2459" vertical-scroll-proportion="-7.392857">
+            <state line="67" column="22" selection-start="2317" selection-end="2317" vertical-scroll-proportion="-1.2857143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="record_1.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/record/record_1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="0" selection-end="14659" vertical-scroll-proportion="-3.392857">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="record.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="98" selection-start="5025" selection-end="5034" vertical-scroll-proportion="-11.607142">
+            <state line="3" column="24" selection-start="64" selection-end="64" vertical-scroll-proportion="-7.5947204">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -153,17 +144,17 @@
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/tool/create.php" />
         <option value="$PROJECT_DIR$/tool/record/common.css" />
-        <option value="$PROJECT_DIR$/tool/result.php" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
-        <option value="$PROJECT_DIR$/regression/app/run.html" />
-        <option value="$PROJECT_DIR$/tool/record/record.html" />
         <option value="$PROJECT_DIR$/tool/record/home.html" />
         <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
         <option value="$PROJECT_DIR$/tool/record/core.js" />
         <option value="$PROJECT_DIR$/tool/record/events.js" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
+        <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/regression/app/run.html" />
+        <option value="$PROJECT_DIR$/tool/record/record.html" />
       </list>
     </option>
   </component>
@@ -198,7 +189,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -231,16 +221,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -280,14 +289,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="860" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="860" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15892598" sideWeight="0.8739255" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16110305" sideWeight="0.8739255" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1260745" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -359,16 +368,12 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tool/common/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="43" selection-start="2018" selection-end="2018" vertical-scroll-proportion="-12.892858">
-          <folding />
-        </state>
+        <state line="48" column="43" selection-start="2018" selection-end="2018" vertical-scroll-proportion="-12.892858" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="40" selection-start="1654" selection-end="1654" vertical-scroll-proportion="-0.6785714">
-          <folding />
-        </state>
+        <state line="62" column="40" selection-start="1654" selection-end="1654" vertical-scroll-proportion="-0.6785714" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/create.php">
@@ -378,18 +383,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="0" selection-start="3102" selection-end="3102" vertical-scroll-proportion="0.8238022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="562" column="16" selection-start="11489" selection-end="11489" vertical-scroll-proportion="-21.32">
-          <folding />
-        </state>
+        <state line="562" column="16" selection-start="11489" selection-end="11489" vertical-scroll-proportion="-21.32" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
@@ -403,14 +399,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="14" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/run.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="33" selection-start="1325" selection-end="1325" vertical-scroll-proportion="-10.178572">
+        <state line="156" column="0" selection-start="2721" selection-end="2721" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -426,26 +415,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="848" column="71" selection-start="25170" selection-end="25170" vertical-scroll-proportion="-23.6">
+        <state line="848" column="71" selection-start="25170" selection-end="25170" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="73" selection-start="3244" selection-end="3244" vertical-scroll-proportion="-0.6785714">
           <folding>
-            <marker date="1357887301425" expanded="true" signature="10224:10262" placeholder="..." />
-            <marker date="1357887301425" expanded="true" signature="10563:10576" placeholder="..." />
+            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/local-test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="36" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.50237715">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="57" selection-start="0" selection-end="4997" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="31" selection-start="5583" selection-end="5583" vertical-scroll-proportion="-4.264151">
-          <folding>
-            <element signature="tag#div#1;tag#div#2;tag#div#0" expanded="false" />
-          </folding>
+        <state line="196" column="52" selection-start="6048" selection-end="6048" vertical-scroll-proportion="-14.821428">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/run.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="77" selection-start="406" selection-end="406" vertical-scroll-proportion="-3.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="22" selection-start="2317" selection-end="2317" vertical-scroll-proportion="-1.2857143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/record_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="0" selection-end="14659" vertical-scroll-proportion="-3.392857">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/record.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="98" selection-start="5025" selection-end="5034" vertical-scroll-proportion="-11.607142">
+        <state line="3" column="24" selection-start="64" selection-end="64" vertical-scroll-proportion="-7.5947204">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -453,42 +483,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="43" selection-start="2459" selection-end="2459" vertical-scroll-proportion="-7.392857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="0" selection-start="0" selection-end="4997" vertical-scroll-proportion="-1.52">
-          <folding>
-            <element signature="e#365#1136#0" expanded="false" />
-            <element signature="e#1192#2520#0" expanded="false" />
-            <element signature="e#2584#4480#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/local-test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="36" selection-start="2231" selection-end="2231" vertical-scroll-proportion="-0.6785714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/console.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="73" selection-start="3244" selection-end="3244" vertical-scroll-proportion="3.4928684">
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

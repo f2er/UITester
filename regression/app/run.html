@@ -13,7 +13,7 @@
     var timeout = false;
     var isloading = false;
     UT._setForceClose(true);
-    var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
+    var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
    if(url.indexOf("?")!=-1){
        url=url+"&t="+new Date().getTime();
    }

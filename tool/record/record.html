@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="gbk">
+    <meta charset="utf-8">
     <title>UI Tester </title>
 
 
@@ -28,272 +28,272 @@
 
 </head>
 <body>
-<!-- 测试用例生成器
- 分为下面几种类型：
- 1. 效互事件类型
- 2. 静态布局类型
- 3. 页面大小
- 4. 位置
- 5. 样式
- 6.可选择自动生成常规测试用例
- 9.遍历事件自动生成交运
-  。。。。
+<!-- 娴嬭瘯鐢ㄤ緥鐢熸垚鍣�
+ 鍒嗕负涓嬮潰鍑犵绫诲瀷锛�
+ 1. 鏁堜簰浜嬩欢绫诲瀷
+ 2. 闈欐�佸竷灞�绫诲瀷
+ 3. 椤甸潰澶у皬
+ 4. 浣嶇疆
+ 5. 鏍峰紡
+ 6.鍙�夋嫨鑷姩鐢熸垚甯歌娴嬭瘯鐢ㄤ緥
+ 9.閬嶅巻浜嬩欢鑷姩鐢熸垚浜よ繍
+  銆傘�傘�傘��
 -->
 
 
 
 <div id="page">
 
-    <div id="open_page" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="">打开页面</h3>
-        </div>
-        <div class="modal-body">
-            <input id="open_page_url" class="input-xlarge" type="text" placeholder="请输入页面地址">
-        </div>
-        <div class="modal-footer">
-
-            <a id="open_page_save" class="btn btn-primary">打开</a>
-        </div>
+<div id="open_page" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">脳</button>
+        <h3 id="">鎵撳紑椤甸潰</h3>
     </div>
-    <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">测试结果</h3>
-        </div>
-        <div class="modal-body " id="m-result-report">
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-
-        </div>
+    <div class="modal-body">
+        <input id="open_page_url" class="input-xlarge" type="text" placeholder="璇疯緭鍏ラ〉闈㈠湴鍧�">
     </div>
+    <div class="modal-footer">
 
-
-
-    <div id="nav" class="navbar navbar-inverse" style="margin-bottom: 0px">
-        <div class="navbar-inner" style=" border-radius: 0px;">
-            <div class="container" style="width: auto;">
-                <a class="brand" href="http://uitest.taobao.net">UITest</a>
-                <ul class="nav" role="navigation">
-                    <li class="dropdown">
-                        <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">页面 <b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                            <li><a tabindex="-1" href="#open_page" data-toggle="modal">打开</a></li>
-
-
-
-                        </ul>
-                    </li>
-
-
-                    <li class="dropdown">
-                        <a href="#" id="drop222" role="button" class="dropdown-toggle" data-toggle="dropdown">断言<b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-                            <li><a tabindex="-1" href="#" class="cmd_toExist">toExist</a></li>
-
-                            <li class="dropdown-submenu"><a tabindex="-1" href="#">toHaveCSS</a>
-                                <ul class="dropdown-menu" >
-
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="margin">margin</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="padding">padding</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="border">border</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="width">width</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="height">height</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="display">display</a></li>
-
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font">font</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-family">font-family</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-style">font-style</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-size">font-size</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-weight">font-weight</a></li>
-
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="color">color</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="color">background</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-color">background-color</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-image">background-image</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-repeat">background-repeat</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-attachment">background-attachment</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-position">background-position</a></li>
-
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="word-spacing">word-spacing</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="letter-spacing">letter-spacing</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-decoration">text-decoration</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="vertical-align">vertical-align</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-transform">text-transform</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-align">text-align</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-indent">text-indent</a></li>
-                                    <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="line-height">line-height</a></li>
-
-
-
-
-                                </ul>
-
-                            </li>
-
-                            <li><a tabindex="-1" href="#" class="cmd_toHaveValue">toHaveValue</a></li>
-                            <li><a tabindex="-1" href="#" class="cmd_toHaveText">toHaveText</a></li>
-                            <li><a tabindex="-1" href="#" class="cmd_toHaveAttr">toHaveAttr</a></li>
-                            <li><a tabindex="-1" href="#" class="cmd_toHaveClass">toHaveClass</a></li>
-
-
-                            <li><a tabindex="-1" href="#" class="cmd_atPosition">atPosition</a></li>
-
-                            <li><a tabindex="-1" href="#" class="cmd_toBeVisible">toBeVisible</a></li>
-                            <li><a tabindex="-1" href="#" class="cmd_toBeHidden">toBeHidden</a></li>
-
-
-
-                            <li><a tabindex="-1" href="#" class="cmd_toBeChecked">toBeChecked</a></li>
-
-                            <li class="divider"></li>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" id="drop2223" role="button" class="dropdown-toggle" data-toggle="dropdown">模拟事件<b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-                            <li><a tabindex="-1" href="#" class="cmd_simulate" data-type="click">click</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="dblclick">dblclick</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="blur">blur</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="focus">focus</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="keydown">keydown</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="keyup">keyup</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="keypress">keypress</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseover">mouseover</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseout">mouseout</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseenter">mouseenter</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseleave">mouseleave</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mousedown">mousedown</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseup">mouseup</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mousemove">mousemove</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="select">select</a></li>
-                            <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="change">change</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" id="dropee2223" role="button" class="dropdown-toggle" data-toggle="dropdown">记录变化<b
-                                class="caret"></b></a>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-                            <li><a tabindex="-1" href="#cmd_observer" class="cmd_observer">记录</a></li>
-                             <li><a tabindex="-1" href="#cmd_stopObserver" class="cmd_stopObserver">停止</a></li>
-                              <li><a tabindex="-1" href="#cmd_out_clearObserver" class="cmd_out_clearObserver">清空</a></li>
-
-
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" id="drope223" role="button" class="dropdown-toggle" data-toggle="dropdown">测试<b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-                            <li><a tabindex="-1" href="#cmd_out_test" class="cmd_out_test">测试</a></li>
-                        </ul>
-                    </li>
-
-                  <!--  <li class="dropdown">
-                        <a href="#" id="drop22234" role="button" class="dropdown-toggle" data-toggle="dropdown">保存<b
-                                class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-                            <li><a tabindex="-1" href="#source-save" class="">保存</a></li>
-
-
-                        </ul>
-                    </li>
-                    -->
-
-
-                </ul>
-               <!-- <ul class="nav pull-right">
-                    <li id="fat-menu" class="dropdown">
-                        <a href="#" id="drop3" role="button" >帮助<b class="caret"></b></a>
-
-                    </li>
-                </ul>
-                -->
-            </div>
-        </div>
+        <a id="open_page_save" class="btn btn-primary">鎵撳紑</a>
     </div>
-    <div id="content">
-        <div class="sub" style="position: fixed; top:20%;right:20px;z-index: 100;display: none" draggable="true">
-            <ul class="configs">
-
-
-            </ul>
-
-        </div>
-        <div class="main">
-            <div class="page">
-
-                <div id="page-tools">
-                    <a href="#" class="cmd_back" title="后退"><span class="icon-arrow-left"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="cmd_forward" title="前进"><span class="icon-arrow-right"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="cmd_reload" title="刷新"><span class="icon-repeat"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <ul class="fix-tools" style="display: none">
-                        <li><a href="#" id="show-select-mark">显示标记</a></li>
-
-
-                    </ul>
-
-
-                    <ul class="change-tools">
-
-
-                    </ul>
-
-                </div>
-                <div id="test-page">
-                    <iframe id="iframe-target" src="./index.html" width="100%"></iframe>
-                </div>
-
-
-            </div>
-            <div class="code">
-                <div id="test-case"></div>
-                <!-- <div class="tabs">
-                     <ul class="ks-switchable-nav">
-                         <li><a href="#test-case-panel">测试用例</a></li>
-                         <li><a href="#test-result">测试结果</a></li>
-                     </ul>
-                     <div class="ks-switchable-content">
-                         <div id="test-case-panel" class="test-case" style="position:relative;">
-
-
-
-                         </div>
-                         <div id="test-result"></div>
-                     </div>
-
-
-                 </div>  -->
-
-
-            </div>
-        </div>
-        <div class="aside">
-
-
-        </div>
-
+</div>
+<div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">脳</button>
+        <h3 id="myModalLabel">娴嬭瘯缁撴灉</h3>
+    </div>
+    <div class="modal-body " id="m-result-report">
 
     </div>
-    <div id="mutations"  style="">
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 
     </div>
 </div>
 
 
-<!-- 编辑器--->
+
+<div id="nav" class="navbar navbar-inverse" style="margin-bottom: 0px">
+    <div class="navbar-inner" style=" border-radius: 0px;">
+        <div class="container" style="width: auto;">
+            <a class="brand" href="http://uitest.taobao.net">UITest</a>
+            <ul class="nav" role="navigation">
+                <li class="dropdown">
+                    <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">椤甸潰 <b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                        <li><a tabindex="-1" href="#open_page" data-toggle="modal">鎵撳紑</a></li>
+
+
+
+                    </ul>
+                </li>
+
+
+                <li class="dropdown">
+                    <a href="#" id="drop222" role="button" class="dropdown-toggle" data-toggle="dropdown">鏂█<b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li><a tabindex="-1" href="#" class="cmd_toExist">toExist</a></li>
+
+                        <li class="dropdown-submenu"><a tabindex="-1" href="#">toHaveCSS</a>
+                            <ul class="dropdown-menu" >
+
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="margin">margin</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="padding">padding</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="border">border</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="width">width</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="height">height</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="display">display</a></li>
+
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font">font</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-family">font-family</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-style">font-style</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-size">font-size</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="font-weight">font-weight</a></li>
+
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="color">color</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="color">background</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-color">background-color</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-image">background-image</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-repeat">background-repeat</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-attachment">background-attachment</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="background-position">background-position</a></li>
+
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="word-spacing">word-spacing</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="letter-spacing">letter-spacing</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-decoration">text-decoration</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="vertical-align">vertical-align</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-transform">text-transform</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-align">text-align</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="text-indent">text-indent</a></li>
+                                <li><a tabindex="-1" href="#" class="cmd_toHaveComputedStyle" data-args="line-height">line-height</a></li>
+
+
+
+
+                            </ul>
+
+                        </li>
+
+                        <li><a tabindex="-1" href="#" class="cmd_toHaveValue">toHaveValue</a></li>
+                        <li><a tabindex="-1" href="#" class="cmd_toHaveText">toHaveText</a></li>
+                        <li><a tabindex="-1" href="#" class="cmd_toHaveAttr">toHaveAttr</a></li>
+                        <li><a tabindex="-1" href="#" class="cmd_toHaveClass">toHaveClass</a></li>
+
+
+                        <li><a tabindex="-1" href="#" class="cmd_atPosition">atPosition</a></li>
+
+                        <li><a tabindex="-1" href="#" class="cmd_toBeVisible">toBeVisible</a></li>
+                        <li><a tabindex="-1" href="#" class="cmd_toBeHidden">toBeHidden</a></li>
+
+
+
+                        <li><a tabindex="-1" href="#" class="cmd_toBeChecked">toBeChecked</a></li>
+
+                        <li class="divider"></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="drop2223" role="button" class="dropdown-toggle" data-toggle="dropdown">妯℃嫙浜嬩欢<b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li><a tabindex="-1" href="#" class="cmd_simulate" data-type="click">click</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="dblclick">dblclick</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="blur">blur</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="focus">focus</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="keydown">keydown</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="keyup">keyup</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="keypress">keypress</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseover">mouseover</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseout">mouseout</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseenter">mouseenter</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseleave">mouseleave</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mousedown">mousedown</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mouseup">mouseup</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="mousemove">mousemove</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="select">select</a></li>
+                        <li><a tabindex="-1" href="#"  class="cmd_simulate" data-type="change">change</a></li>
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="dropee2223" role="button" class="dropdown-toggle" data-toggle="dropdown">璁板綍鍙樺寲<b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li><a tabindex="-1" href="#cmd_observer" class="cmd_observer">璁板綍</a></li>
+                        <li><a tabindex="-1" href="#cmd_stopObserver" class="cmd_stopObserver">鍋滄</a></li>
+                        <li><a tabindex="-1" href="#cmd_out_clearObserver" class="cmd_out_clearObserver">娓呯┖</a></li>
+
+
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" id="drope223" role="button" class="dropdown-toggle" data-toggle="dropdown">娴嬭瘯<b
+                            class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                        <li><a tabindex="-1" href="#cmd_out_test" class="cmd_out_test">娴嬭瘯</a></li>
+                    </ul>
+                </li>
+
+                <!--  <li class="dropdown">
+                      <a href="#" id="drop22234" role="button" class="dropdown-toggle" data-toggle="dropdown">淇濆瓨<b
+                              class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+                          <li><a tabindex="-1" href="#source-save" class="">淇濆瓨</a></li>
+
+
+                      </ul>
+                  </li>
+                  -->
+
+
+            </ul>
+            <!-- <ul class="nav pull-right">
+                 <li id="fat-menu" class="dropdown">
+                     <a href="#" id="drop3" role="button" >甯姪<b class="caret"></b></a>
+
+                 </li>
+             </ul>
+             -->
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div class="sub" style="position: fixed; top:20%;right:20px;z-index: 100;display: none" draggable="true">
+        <ul class="configs">
+
+
+        </ul>
+
+    </div>
+    <div class="main">
+        <div class="page">
+
+            <div id="page-tools">
+                <a href="#" class="cmd_back" title="鍚庨��"><span class="icon-arrow-left"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" class="cmd_forward" title="鍓嶈繘"><span class="icon-arrow-right"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#" class="cmd_reload" title="鍒锋柊"><span class="icon-repeat"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <ul class="fix-tools" style="display: none">
+                    <li><a href="#" id="show-select-mark">鏄剧ず鏍囪</a></li>
+
+
+                </ul>
+
+
+                <ul class="change-tools">
+
+
+                </ul>
+
+            </div>
+            <div id="test-page">
+                <iframe id="iframe-target" src="./index.html" width="100%"></iframe>
+            </div>
+
+
+        </div>
+        <div class="code">
+            <div id="test-case"></div>
+            <!-- <div class="tabs">
+                 <ul class="ks-switchable-nav">
+                     <li><a href="#test-case-panel">娴嬭瘯鐢ㄤ緥</a></li>
+                     <li><a href="#test-result">娴嬭瘯缁撴灉</a></li>
+                 </ul>
+                 <div class="ks-switchable-content">
+                     <div id="test-case-panel" class="test-case" style="position:relative;">
+
+
+
+                     </div>
+                     <div id="test-result"></div>
+                 </div>
+
+
+             </div>  -->
+
+
+        </div>
+    </div>
+    <div class="aside">
+
+
+    </div>
+
+
+</div>
+<div id="mutations"  style="">
+
+</div>
+</div>
+
+
+<!-- 缂栬緫鍣�--->
 
 <script src="../../lib/jasmine.js" charset="utf-8"></script>
 <script src="../../lib/jasmine-html.js" charset="utf-8"></script>
