@@ -34,6 +34,27 @@
             padding: 0 10px;
             color: rgba(255, 255, 255, .25);
         }
+        .masthead .btn {
+            padding: 19px 24px;
+            font-size: 24px;
+            font-weight: 200;
+            color: white;
+            border: 0;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 5px rgba(0, 0, 0, .25);
+            -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 5px rgba(0, 0, 0, .25);
+            -webkit-transition: none;
+            -moz-transition: none;
+            transition: none;
+        }
+        .masthead .btn:hover {
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 5px rgba(0, 0, 0, .25);
+            -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1), 0 1px 5px rgba(0, 0, 0, .25);
+        }
     </style>
     <div class="container">
         <h1>UITest</h1>
