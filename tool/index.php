@@ -43,8 +43,7 @@
         <p>
 
         <div class="input-append" style="margin-top: 70px">
-            <input class="input-xlarge" placeholder="请输入测试代码的地址" id="test_src" type="text">
-            <button class="btn btn-primary " type="button " id="run_test">测试</button>
+        <a href="https://github.com/taobao-sns-fed/UITester/wiki" class="btn btn-primary btn-large" >学习使用</a>
 
         </div>
         </p>
