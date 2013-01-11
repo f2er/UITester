@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+    <script src="core.js"></script>
+    <link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap-responsive.min.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row" id="123">
+
+        <div class="span9">
+
+
+            <!-- Typography
+            ================================================== -->
+            <section id="typography">
+                <style>
+                    h3{
+                        border-bottom: solid 1px #ccc;
+                    }
+                </style>
+
+                <h3>简介</h3>
+
+                <p>
+                    UITester录制工具是一个编辑测试用例的辅助工具，它可以自动生成元素选择器，断言和模拟事件，帮助测试人员更快的完成测试用例。
+                </p>
+
+                <h3>安装</h3>
+
+                <p>录制工具只支持chrome浏览器，并安装<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">插件</a></p>
+
+                <h3>使用</h3>
+                <h4>1.打开页面</h4>
+                <p>选择顶部导航上的 页面->打开 按钮，在弹出对话框里，填写对应的地址如（http://www.taobao.com）并确定。页面会打开相应页面，并生成打开页面的测试</p>
+                <pre class="prettyprint linenums">
+var win = UT.open("http://www.taobao.com/",function(){
+    describe("测试页面http://www.taobao.com/", function(){
+       it("你的测试用例"， function(){
+
+       })
+    })
+})
+
+                </pre>
+                <p>打开页面后，可以通过  后退<span class="icon-arrow-left"></span>  前进<span class="icon-arrow-right"></span>  刷新<span class="icon-repeat"></span>当前页面</p>
+                <h4>2.选择元素</h4>
+                <p>很功能都需要先选择对应的元素。通过点击对应元素，可以将此元素先中。选中的元素会被标记，并显示选择器</p>
+                <h4>3.生成断言</h4>
+                <p>点击顶部导航上的“断言” 下拉菜单，并在下拉单断言类型（如toExist）,会自动生成些断言的测试代码</p>
+                 <pre class="prettyprint linenums">
+expect("#typography").toExist();
+                </pre>
+
+                <h4>3.模拟事件</h4>
+                <p>选择顶部导航上的 模拟事件按钮，并选择相应的事件类型，,会对选中的元素触发此事件，自动生成模拟事件的代码</p>
+                 <pre class="prettyprint linenums">
+simulate("#typography","click")
+                </pre>
+                <h4>4.记录变化</h4>
+                <p>用户动作往往会触发DOM的变化，记录变化功能会帮助你记录这些变化，并可生成测试代码。</p>
+                <p>选择一个元素作为记录的范围，选择的范围尽量准确。选择 记录变化->记录 ，当选择的元素包括子元素，发生变化的时候，会被显示右则区域，点选某个记录就会测试用例</p>
+                 <pre class="prettyprint linenums">
+expect(".row").toHaveAttr("data-class","click");
+                </pre>
+
+            </section>
+
+
+        </div>
+    </div>
+
+</div>
+<script>
+    uitest.inner.init();
+    $("body").on("click", function(){
+        $("#123").attr("data-class","click")
+    })
+</script>
+
+</body>
+</html>
+
+
