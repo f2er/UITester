@@ -36,7 +36,7 @@
 
 
 <script>
-try{
+try {
 
     var isRunning = false;
     var isConnected = false
@@ -113,51 +113,85 @@ try{
                         });
 
 
+
                         socket.on('console:task_start', function (data) {
-                            if (data && data.task_inject_uri) {
-                                //创建一个独立的环境
-                                var runing = true;
-                                jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.task_inject_uri);
-                                if (!run_win||!run_win.location) {
-                                    run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-                                }
+                            var tryNum = 0;
+                            var isComplete = false;
+                            jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.task_inject_uri);
+                            var run = function (data) {
+                                if (data && data.task_inject_uri) {
+                                    //创建一个独立的环境
 
 
-                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                run_win.location.href = 'http://' + http_host + "/run.html?url=" +jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
-                                callback[id] = function (data) {
-                                    jQuery("#info").html("任务完成");
+                                    if (!run_win) {
 
-                                    runing = false;
-                                    if (run_timer) {
-                                        window.clearTimeout(run_timer);
-                                        run_timer = null;
+                                        run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
                                     }
-                                    test_number++;
-                                    jQuery("#test_number").html(test_number);
-                                    console.log(data)
-                                    socket.emit('console:task_finish', data);
+
+                                    UT._msgReady(run_win,
+                                            function () {
+                                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                                run_win.location.href = 'http://' + http_host + "/run.html?url=" + jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
+                                                callback[id] = function (data) {
+                                                    jQuery("#info").html("任务完成");
+
+                                                    isComplete = false;
+                                                    if (run_timer) {
+                                                        window.clearTimeout(run_timer);
+                                                        run_timer = null;
+                                                    }
+                                                    test_number++;
+                                                    jQuery("#test_number").html(test_number);
+
+                                                    socket.emit('console:task_finish', data);
+
+                                                }
+
+
+                                                run_timer = setTimeout(function () {
+                                                    // 三分钟没有完成，
+                                                    if (!isComplete) return;
+                                                    if (run_win) {
+                                                        run_win.close();
+                                                        run_win = null;
+                                                    }
+                                                    var defaultResult = UT.defaultResult;
+                                                    defaultResult.reports.errors.push({
+                                                        message:"运行超时"
+                                                    })
+                                                    test_number++;
+                                                    jQuery("#test_number").html(test_number);
+                                                    socket.emit('console:task_finish', defaultResult);
+
+                                                }, 1000 * 60 * 10)
+
+                                            },
+                                            function () {
+                                                run_win&&run_win.close&&run_win.close();
+                                                run_win =null;
+                                                tryNum++;
+                                                if(tryNum>100){
+                                                    var defaultResult = UT.defaultResult;
+                                                    defaultResult.reports.errors.push({
+                                                        message:"打开窗口超时"
+                                                    })
+                                                    test_number++;
+                                                    jQuery("#test_number").html(test_number);
+                                                    socket.emit('console:task_finish', defaultResult);
+                                                }
+                                                else{
+                                                    run(data);
+                                                }
+
+
+
+                                            })
+
+
 
                                 }
-
-
-                                run_timer = setTimeout(function () {
-                                    // 三分钟没有完成，
-                                    if (!runing) return;
-                                    if (run_win) {
-                                        run_win.close();
-                                        run_win= null;
-                                    }
-                                    var defaultResult = UT.defaultResult;
-                                    defaultResult.reports.errors.push({
-                                        message:"超时"
-                                    })
-                                    test_number++;
-                                    jQuery("#test_number").html(test_number);
-                                    socket.emit('console:task_finish', defaultResult);
-
-                                }, 1000 * 60 * 10)
                             }
+                            run();
 
 
                         });
@@ -165,10 +199,12 @@ try{
 
 
                     },
-                    function () {
+                    function
+                            () {
                         jQuery("#info").html("脚本注入失败");
                     }
-            );
+            )
+            ;
 
 
         })
@@ -204,7 +240,9 @@ try{
 
     })
 
-}catch (e){
+}
+catch
+        (e) {
     if (run_win && run_win.close)run_win.close();
     window.location.reload();
 }

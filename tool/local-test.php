@@ -78,7 +78,7 @@
                         $('#myModal').modal('show');
                     })
                 } catch (e){
-                    
+
                     jQuery("#myModal .modal-body").html(e.message)
                 }
 
