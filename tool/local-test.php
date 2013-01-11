@@ -2,9 +2,11 @@
 <script src="assets/form.js"></script>
 <style>
     #input_test {
-        margin: 50px 0 0;
+        margin: 20px 0 0;
     }
-
+    #run_test{
+        float: right;
+    }
 </style>
 
 <header class="jumbotron subhead" id="overview">
@@ -30,9 +32,9 @@
           })
       </textarea></div>
 
-        <div clsss="info">
+
           <button class="btn" type="button " id="run_test">测试</button>
-       </div>
+
 
     </div>
 
