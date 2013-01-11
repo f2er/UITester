@@ -88,7 +88,7 @@
 <style>
     .bs-docs-social {
         padding: 15px 0;
-        text-align: center;
+
         background-color: whiteSmoke;
         border-top: 1px solid white;
         border-bottom: 1px solid #DDD;
@@ -105,7 +105,7 @@
         line-height: 1;
     }
     .marketing {
-        text-align: center;
+
         color: #5A5A5A;
     }
     .marketing h1 {
@@ -151,9 +151,11 @@
 
                 <h2>UT测试框架</h2>
 
-                <p>UT测试框架是基于javascript和jasmine之上的web UI测试框架。</p>
-                 <p>UT使你可以自由操控web页面；使用丰富的断言语句进行测试</p>
+                <p>UT使你可以自由操控web页面；</p>
+                <p>使用丰富的断言语句进行测试；</p>
                 <p>强大的异步支持，可以更简单的测试异步功能，加快测试效率</p>
+                <p>UT整合了jquery,可以使用jquery的语法</p>
+                
             </div>
             <div class="span4">
 
