@@ -33,6 +33,7 @@
     }
     var test_start = function (url) {
         isloading =true;
+        try{
         jQuery.getScript(url, function () {
             isloading = false;
             if (timeout) {
@@ -40,11 +41,16 @@
                 timeout = null;
             }
             UT.execute(function (report) {
-
-
                 task_complete(report)
             })
         })
+        }catch(e){
+            var report = UT.defaultResult;
+            report.reports.errors.push({
+                message:e.message
+            })
+            task_complete(report)
+        }
 
         timeout = window.setTimeout(function () {
             if(!isloading)return;

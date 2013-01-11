@@ -295,6 +295,7 @@
             this.showSelectMarkEvent();
             // this.initForm();
             this.openPage();
+            uitest.synConfigs();
 
 
         },
@@ -557,7 +558,7 @@
                     host.innerCall("cmd_simulate", [$(t).attr("data-type")])
                 }
                 else if (t.className.indexOf("cmd") != -1) {
-                    host.innerCall(t.className)
+                    host.innerCall(t.className,[$(t).attr("data-args")])
                 }
 
             })
@@ -766,6 +767,7 @@
 
             this.initMouseoverPanel();
             this.observerMutation();
+           // this.fetchCSS();
             //  this.preventDefault();
 
 
@@ -788,7 +790,6 @@
                     console.log("go", mutations)
                     if (mutation.type == "attributes") {
 
-
                         //被删除
                         if (!mutation.target.parentNode || !mutation.target.ownerDocument) {
                             return;
@@ -799,19 +800,16 @@
                         if (!newValue) {
                             var expect = 'expect("' + selector + '").not.toHaveAttr("' + mutation.attributeName + '");\n'
                             records.push({
-                                desc:selector + "元素删除了属性" + mutation.attributeName,
-                                target:selector,
-                                expect:expect,
-                                value:mutation.attributeName
+                                desc:"<span>"+selector + "</span>属性改变",
+                                expect:expect
                             });
                         }
                         if (newValue) {
                             var expect = 'expect("' + selector + '").toHaveAttr("' + mutation.attributeName + '","' + newValue + '");\n'
                             records.push({
-                                desc:selector + "元素将属性" + mutation.attributeName + "的值修改为" + newValue,
-                                target:selector,
-                                expect:expect,
-                                value:mutation.attributeName
+                                desc:"<span>"+selector + "</span>属性改变",
+                                expect:expect
+
                             });
                         }
                     }
@@ -822,10 +820,8 @@
                         newValue = newValue.replace(/"/ig, '\\"')
                         var expect = 'expect("' + selector + '").toHaveHtml("' + newValue + '");\n';
                         records.push({
-                            desc:selector + "元素innerHTML被修改为" + newValue,
-                            target:selector,
-                            expect:expect,
-                            value:newValue
+                            desc:"<span>"+selector + "</span>innerHTML变化",
+                            expect:expect
                         });
                     }
 
@@ -841,24 +837,23 @@
                             if (addedNodes[i].ownerDocument) {
                                 var se = toSP(addedNodes[i]);
                                 if (!se)continue;
-                                var expect = 'expect("' + selector + '").toHaveChild("' + se + '");\r\n';
+
+                                var expect = 'expect("' + selector + '").toHaveChildren("' + se + ','+ $(mutation.target).children(se)+'");\r\n';
                                 records.push({
-                                    desc:selector + "元素增加了一个子元素" + se,
-                                    target:selector,
-                                    expect:expect,
-                                    value:se
+                                    desc:"<span>"+selector + "</span>子元素变化",
+                                    expect:expect
+
                                 });
                             }
                         }
                         for (var i = 0; i < removedNodes.length; i++) {
                             var se = toSP(removedNodes[i]);
+                            if (!se)continue;
                             if (se) {
-                                var expect = 'expect("' + selector + '").not.toHaveChild("' + se + '");\r\n';
+                                var expect = 'expect("' + selector + '").toHaveChildren("' + se + ','+ $(mutation.target).children(se)+'");\r\n';
                                 records.push({
-                                    desc:selector + "元素删除了一个子元素" + se,
-                                    target:selector,
-                                    expect:expect,
-                                    value:se
+                                    desc:"<span>"+selector + "</span>子元素变化",
+                                    expect:expect
                                 });
                             }
                         }
@@ -948,83 +943,19 @@
                 alert("请选择元素")
             }
         },
-        cmd_toHaveComputedStyle:function () {
+        cmd_toHaveComputedStyle:function (name) {
             var host = this;
-            var filterStyles = function (styles) {
-                var tempArray = [];
-                for (var p in  styles) {
-                    if (uitest.configs.styles[p]) {
-                        tempArray.push(styles[p])
-                    }
-                }
-                return tempArray;
-            }
 
-            var mergeCSSRules = function (CSSRules, target) {
-                var merged = {};
-                if (!CSSRules)CSSRules = [];
 
-                for (var i = 0; i < CSSRules.length; i++) {
-                    var s = CSSRules[i].style;
-                    for (var j = 0; j < s.length; j++) {
-                        var sname = s.getPropertyShorthand(s[j]) || s[j]
-
-                        if (uitest.configs.styles[sname]) {
-                            merged[sname] = $(target).css(sname);
-                        }
-
-                    }
-                }
-                return merged;
-
-            }
             if (host.selectTarget) {
 
 
                 var target = host.selectTarget;
                 var selector = uitest.inner.elToSelector(host.selectTarget);
 
-                var styles = mergeCSSRules(window.getMatchedCSSRules(target), target)
-                if (Object.getOwnPropertyNames(styles).length == 0) {
 
-                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义样式\r\n"])
+                 var testCase ='expect("' + selector + '").toHaveCSS("' + name + '","' + $(target).css(name) + '");\r\n';
 
-                    return;
-                }
-                //window.getMatchedCSSRules
-                // mergeCSSRules(window.getMatchedCSSRules(target))
-
-
-                var testCase = '';
-
-                var expects = []
-
-
-                for (var p in  styles) {
-
-
-                    var name = p;
-                    var value = styles[p];
-                    if (value) {
-                        expects.push('    expect("' + selector + '").toHaveComputedStyle("' + name + '","' + value + '");\r\n');
-                    }
-
-                }
-                if (expects.length == 0) {
-                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义样式"])
-                    return;
-                }
-
-                for (var i = 0; i < expects.length; i++) {
-                    testCase += expects[i];
-                }
-
-
-                //所有事件都要停止，避免影响测试结果，
-                // 包括hover的处理
-
-
-                //showMsg(123);
 
                 uitest.inner.outterCall("insertCaseCode", [testCase])
 
@@ -1075,7 +1006,10 @@
 
 
                 var testCase = '';
-
+                if (attrs.length == 0) {
+                    uitest.inner.outterCall("insertCaseCode", ["//" + selector + " 没有定义任务属性"])
+                    return;
+                }
 
                 for (var i = 0; i < attrs.length; i++) {
 
@@ -1190,7 +1124,7 @@
                 var old = args[0];
                 var fun = function () {
                     window._setIntervalRun = true;
-                    if (uitest.configs.caseType == "event" && !uitest.configs.setInterval) {
+                    if (!uitest.configs.setInterval) {
 
                     }
                     else {
@@ -1204,9 +1138,7 @@
             }
 
 
-            $(document).ready(function () {
 
-            })
 
 
             var realAdd = window.Node.prototype.addEventListener;
@@ -1235,8 +1167,10 @@
                         var newFun = function () {
 
 
-                            window.eventObserver && window.eventObserver.apply(host, arguments)
-                            if (!(uitest.configs.events[type] === 0 && uitest.configs.caseType == "event"))  oldFun.apply(host, arguments)
+                          if(!uitest.configs.stopEvent){
+                              oldFun.apply(host, arguments)
+                          }
+
                         }
                         arrays[1] = newFun;
                     }
@@ -1249,26 +1183,7 @@
             $(document).ready(function () {
                 host.nodeAddEvent()
                 var all = document.querySelectorAll("*");
-                //事件
-                for (var i = 0; i < all.length; i++) {
-                    for (var p in uitest.configs.events) {
-                        (function (type, target) {
-                            var oldFun = target["on" + type]
-                            if (oldFun) {
-                                var newFun = function () {
 
-
-                                    if (!(!uitest.configs.events[type] === 0 && uitest.configs.caseType == "event")) {
-                                        window.eventObserver && window.eventObserver(target, type)
-                                        oldFun.apply(target, arguments)
-                                    }
-                                }
-                                target["on" + type] = newFun;
-                            }
-                        })(p, all[i]);
-
-                    }
-                }
 
                 //添加elToSelector
                 for (var j = 0; j < all.length; j++) {
@@ -1287,16 +1202,11 @@
 
 
                 el._elToSelector = host.elToSelector(el);
+               el._elToSelectorRelativeParent=host.elToSelectorRelativeParent(t);
                 return  removeChild.apply(this, arguments)
             }
 
-            var stopPropagation = window.Event.prototype.stopPropagation;
 
-            window.Event.prototype.stopPropagation = function () {
-
-                window.stopPropagationProxy && window.stopPropagationProxy(this);
-                stopPropagation.apply(this, arguments);
-            }
 
 
             //附上跳转
@@ -1414,10 +1324,8 @@
         },
         setAllConfigs:function (configs) {
             uitest.configs = configs;
-            if (configs.caseType == "style") {
-                this.fetchCSS();
 
-            }
+
 
 
         },
@@ -1600,9 +1508,9 @@
 
             var observer = new MutationObserver(function (mutations) {
 
-                if (uitest.configs.caseType == "null") {
+
                     uitest.inner.hasSelectorChange(mutations);
-                }
+
 
 
             });

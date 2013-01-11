@@ -34,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="159" column="14" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.74553573">
+            <state line="159" column="14" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -57,21 +57,9 @@
       <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="201" column="13" selection-start="6326" selection-end="6326" vertical-scroll-proportion="0.0">
+            <state line="232" column="9" selection-start="7534" selection-end="7534" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1357873868398" expanded="false" signature="3859:3873" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="local-test.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/local-test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="-2.0357144">
-              <folding>
-                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <marker date="1357885669926" expanded="false" signature="3859:3873" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -80,7 +68,7 @@
       <file leaf-file-name="run.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/run.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="10" selection-start="497" selection-end="497" vertical-scroll-proportion="-7.464286">
+            <state line="49" column="33" selection-start="1325" selection-end="1325" vertical-scroll-proportion="-10.178572">
               <folding />
             </state>
           </provider>
@@ -100,14 +88,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="406" column="56" selection-start="9899" selection-end="9899" vertical-scroll-proportion="-6.16">
+            <state line="848" column="71" selection-start="25170" selection-end="25170" vertical-scroll-proportion="0.5595054">
               <folding>
-                <marker date="1357826781798" expanded="true" signature="10191:10229" placeholder="..." />
-                <marker date="1357826781798" expanded="true" signature="10530:10543" placeholder="..." />
+                <marker date="1357887301425" expanded="true" signature="10224:10262" placeholder="..." />
+                <marker date="1357887301425" expanded="true" signature="10563:10576" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/record/events.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="33" selection-start="278" selection-end="278" vertical-scroll-proportion="-5.32">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tool/record/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="43" selection-start="2459" selection-end="2459" vertical-scroll-proportion="-7.392857">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,7 +121,7 @@
       <file leaf-file-name="record.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/record.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="58.964287">
+            <state line="116" column="98" selection-start="5025" selection-end="5034" vertical-scroll-proportion="-11.607142">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -124,15 +130,6 @@
                 <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/record/common.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="562" column="16" selection-start="11489" selection-end="11489" vertical-scroll-proportion="-21.32">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -150,22 +147,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/tool/list.php" />
         <option value="$PROJECT_DIR$/tool/index.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/tool/create.php" />
-        <option value="$PROJECT_DIR$/tool/record/record.html" />
         <option value="$PROJECT_DIR$/tool/record/common.css" />
         <option value="$PROJECT_DIR$/tool/result.php" />
-        <option value="$PROJECT_DIR$/tool/record/core.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
-        <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
-        <option value="$PROJECT_DIR$/regression/app/run.html" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
+        <option value="$PROJECT_DIR$/regression/app/run.html" />
+        <option value="$PROJECT_DIR$/tool/record/record.html" />
+        <option value="$PROJECT_DIR$/tool/record/home.html" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
+        <option value="$PROJECT_DIR$/tool/record/core.js" />
       </list>
     </option>
   </component>
@@ -359,20 +356,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tool/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="55" selection-start="2935" selection-end="2979" vertical-scroll-proportion="-8.821428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="44" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/common/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="43" selection-start="2018" selection-end="2018" vertical-scroll-proportion="-12.892858">
@@ -408,45 +391,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="109" selection-start="7194" selection-end="7194" vertical-scroll-proportion="58.964287">
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="406" column="56" selection-start="9899" selection-end="9899" vertical-scroll-proportion="-6.16">
-          <folding>
-            <marker date="1357826781798" expanded="true" signature="10191:10229" placeholder="..." />
-            <marker date="1357826781798" expanded="true" signature="10530:10543" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="0" selection-start="1685" selection-end="1685" vertical-scroll-proportion="-2.0357144">
           <folding>
             <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="13" selection-start="6326" selection-end="6326" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1357873868398" expanded="false" signature="3859:3873" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -469,10 +419,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="14" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/run.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="10" selection-start="497" selection-end="497" vertical-scroll-proportion="-7.464286">
+        <state line="49" column="33" selection-start="1325" selection-end="1325" vertical-scroll-proportion="-10.178572">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="98" selection-start="5025" selection-end="5034" vertical-scroll-proportion="-11.607142">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="43" selection-start="2459" selection-end="2459" vertical-scroll-proportion="-7.392857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="232" column="9" selection-start="7534" selection-end="7534" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1357885669926" expanded="false" signature="3859:3873" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -488,10 +475,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
+    <entry file="file://$PROJECT_DIR$/tool/record/events.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="14" selection-start="2849" selection-end="2849" vertical-scroll-proportion="0.74553573">
+        <state line="16" column="33" selection-start="278" selection-end="278" vertical-scroll-proportion="-5.32">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="848" column="71" selection-start="25170" selection-end="25170" vertical-scroll-proportion="0.5595054">
+          <folding>
+            <marker date="1357887301425" expanded="true" signature="10224:10262" placeholder="..." />
+            <marker date="1357887301425" expanded="true" signature="10563:10576" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
