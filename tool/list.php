@@ -53,7 +53,7 @@ $me = isset($_GET['me']) ? 'me&' : '';
 
 <link rel="stylesheet" href="assets/list.css">
 
-<div id="content" class="container" id="list">
+<div id="content" class="container">
 <div class="sub-nav">
      产品线: <select id="productline" name="productline" required>
 		<option value="">全部</option>

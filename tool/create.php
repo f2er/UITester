@@ -7,10 +7,9 @@
   </div>
 </header>
 
-<div id="content" class="container" id="create" style="">
+<div id="content" class="container">
 
-
-    <form class="form-horizontal" method="POST" action="handle.php">
+    <form id="create-form" class="form-horizontal" method="POST" action="handle.php">
         <fieldset>
           <!--  <legend>创建回归任务</legend> -->
         <div class="control-group">

@@ -41,7 +41,6 @@ ul, p {
 }
 
 #content {
-	width: 960px;
 	margin: 0 auto;
     min-height: 540px;
 }
@@ -136,32 +135,17 @@ ul, p {
     float: right;
 }
 
-#list{
-    width: 1024px;
-    min-height: 550px;
-    _height:550px;
-}
-#list .case-list{
-    min-height: 630px;
-    _height:630px;
-}
-#create{
-    width: 1024px;
-    padding-top:40px ;
-    min-height: 630px;
-    _height:630px;
-}
-#create form{
+
+#create-form {
     position: relative;
     left: -80px;
 }
 #runlocal{
-    width: 1024px;
     min-height: 630px;
     _height:630px;
 }
 #runlocal textarea{
-    width: 1020px;
+	width: 95%;
     height:400px;
     color: #777;
 
