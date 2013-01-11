@@ -69,13 +69,18 @@
                 })
             }
             else{
-                eval(value);
-                UT.execute(function (data) {
-                    var jsonReporter = new jasmine.JsonReporter();
-                    jQuery("#myModal .modal-body").html("")
-                    jsonReporter.renderHTML(data, jQuery("#myModal .modal-body"));
-                    $('#myModal').modal('show');
-                })
+                try{
+                    eval(value);
+                    UT.execute(function (data) {
+                        var jsonReporter = new jasmine.JsonReporter();
+                        jQuery("#myModal .modal-body").html("")
+                        jsonReporter.renderHTML(data, jQuery("#myModal .modal-body"));
+                        $('#myModal').modal('show');
+                    })
+                } catch (e){
+                    jQuery("#myModal .modal-body").html(e.message)
+                }
+
             }
 
 
