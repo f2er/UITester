@@ -14,6 +14,12 @@
     var isloading = false;
     UT._setForceClose(true);
     var url = decodeURIComponent(location.href.match(/url=(.*)&/)[1]);
+   if(url.indexOf("?")!=-1){
+       url=url+"&t="+new Date().getTime();
+   }
+    else{
+       url=url+"?t="+new Date().getTime();
+   }
     var id = location.href.match(/id=(.*)$/)[1];
     var task_complete = function (report) {
         UT.postmsg.send({

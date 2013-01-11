@@ -167,9 +167,6 @@ ul, p {
 
 }
 #runlocal .info{
- float: right;;
-    width: 70%;
-}
-#runlocal .info button{
-    float: right;
+ float: right;
+
 }
