@@ -1,3 +1,126 @@
+//宝贝ID分别对应：无SKU、多SKU、自动充值、家装服务、3C服务、区域限售
+var item_sku = [12280425478, 14747655233, 13056524067, 16528243657, 10711246376, 16725177098];
+UT.taobao.login("c测试账号195","taobao1234");
+for (var ii = 0; ii < item_sku.length; ii++) {
+    var win = UT.open("http://detail.tmall.com/item.htm?id="+item_sku[ii], function () {
+        describe("登录用户点击立即购买,跳转到交易下单", function () {
+            var sku_num = $("div.tb-sku dl[class^='tb-prop']").length;
+            //var delayTime = 2000;
+            if (sku_num > 0) {
+                select_sku(sku_num);
+                it("未登录购买宝贝",
+                    function () {
+                        buyatnow();
+                        buyto();
+                    });
+            }
+            else if (sku_num > 0) {
+                it("sku浮层购买",
+                    function () {
+                        select_sku_layout(sku_num);
+                        buyto();
+                    });
+            }
+            else {
+                it("无SKU购买宝贝",
+                    function () {
+                        buyatnow();
+                        buyto();
+                    });
+            }
+        });
+
+        //sku选择
+        function select_sku(skunum) {
+            $(document).ready(function () {
+                for (i = 0; i < skunum; i++) {
+                    var sku_pv = $("div[class='tb-skin\\ tb-naked'] div[class='tb-sku'] ul[class^='tb-clearfix\\ J_TSaleProp']:eq(" + i + ") li a");
+                    var sku = $("div[class='tb-skin\\ tb-naked'] div[class='tb-sku'] ul[class^='tb-clearfix\\ J_TSaleProp']:eq(" + i + ") li");
+                    if (sku.length == 1) {
+                        //alert(!$(sku[0]).hasClass("tb-selected"));
+                        if (!$(sku[0]).hasClass("tb-selected")) {
+                            expect("sku值唯一时未被选中").toBe("");
+                            jasmine.simulate(sku_pv[0], 'click');
+                        }
+                    } else if (sku.length == 0) {
+                        expect("没有获取sku值").toBe();
+                    } else {
+                        //alert(sku.length);
+                        for (j = 0; j < sku.length; j++) {
+                            if ($(sku[j]).hasClass("tb-out-of-stock")) {
+                                continue;
+                            }
+                            jasmine.simulate(sku_pv[j], 'click');
+                            // alert(j);
+                            break;
+                        }
+                    }
+                }
+            });
+        }
+
+        //sku 浮层选择
+        function select_sku_layout(skunum) {
+            $(document).ready(function () {
+                //取消sku选中
+                for (i = 0; i < skunum; i++) {
+                    //div[class='tb-key\\ tb-key-sku']  tb-skin tb-naked
+                    var sku_pv = $("div[class='tb-skin\\ tb-naked'] div[class='tb-sku'] ul[class^='tb-clearfix\\ J_TSaleProp']:eq(" + i + ") li a");
+                    var sku = $("div[class='tb-skin\\ tb-naked'] div[class='tb-sku'] ul[class^='tb-clearfix\\ J_TSaleProp']:eq(" + i + ") li");
+                    for (j = 0; j < sku.length; j++) {
+                        if ($(sku[j]).hasClass("tb-selected")) {
+                            jasmine.simulate(sku_pv[j], 'click');
+                            break;
+                        }
+                    }
+                }
+                //立即购买
+                jasmine.simulate($("a#J_LinkBuy.tb-act"), 'click');
+                //sku浮层,选择sku
+                for (i = 0; i < skunum; i++) {
+                    //alert("i2  "+i);//div[class='tb-key\\ tb-key-sku']
+                    var sku_pv = $("ul[class^='tb-clearfix\\ J_TSaleProp']:eq(" + i + ") li a");
+                    var sku = $("ul[class^='tb-clearfix\\ J_TSaleProp']:eq(" + i + ") li");
+                    if (sku.length === 0) {
+                        expect("没有获取sku值").toBe();
+                    } else {
+                        for (j = 0; j < sku.length; j++) {
+                            if ($(sku[j]).hasClass("tb-out-of-stock")) {
+                                continue;
+                            }
+                            jasmine.simulate(sku_pv[j], 'click');
+                            break;
+                        }
+                    }
+                }
+                //点击确定按钮
+                var tbn_ok = $("a#J_LinkBuy.tb-act tb-btn-inbox");
+                jasmine.simulate($(tbn_ok), 'click');
+                waits(50);
+            });
+
+        }
+
+        // 点击立即购买按钮，等待加载，延迟2s点击
+        function buyatnow() {
+            $(document).ready(function () {
+                jasmine.simulate($("div[class$=tb-btn-sku] a[id=J_LinkBuy]"), 'click');
+                waits(50);
+            });
+        }
+    });
+    win.go("http://buy.tmall.com/order/confirm_order.htm", function () {
+        describe("跳转至提交订单页面", function () {
+            it("显示提交订单页面", function () {
+                expect(".current span").toHaveText("2. 确认订单信息");
+
+            })
+        })
+    })
+
+
+}
+
 (function () {
 
 
