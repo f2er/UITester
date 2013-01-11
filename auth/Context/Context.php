@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ÉÏÏÂÎÄ»·¾³
+ * ä¸Šä¸‹æ–‡çŽ¯å¢ƒ
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>

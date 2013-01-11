@@ -2,7 +2,7 @@
 
 /**
  * 
- * arkÈÏÖ¤»ùÀà£¬Ä£°å·½·¨£¬¶¨ÒåSSOÈÏÖ¤µÄ»ù±¾²½×Ó¾Û
+ * arkè®¤è¯åŸºç±»ï¼Œæ¨¡æ¿æ–¹æ³•ï¼Œå®šä¹‰SSOè®¤è¯çš„åŸºæœ¬æ­¥å­èš
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -44,7 +44,7 @@ abstract class ArkAuth {
 		if (isset($_COOKIE[self::COOKIENAME])) 
 			$httpcookie = strtr($_COOKIE[self::COOKIENAME], '|', '=');
 		
-		//×¢ÏúµÇÂ¼µÄÃüÁîµÄÊ¶±ğ
+		//æ³¨é”€ç™»å½•çš„å‘½ä»¤çš„è¯†åˆ«
 		if (isset($_GET[Config::get(LOGOUTPARAM)])) {
 			$logout = $_GET[Config::get(LOGOUTPARAM)];
 			if ($logout && preg_match("/$logout/i", Config::get(LOGOUTVALUE))) {
@@ -52,42 +52,42 @@ abstract class ArkAuth {
 			}
 		}
 		
-		//´æÔÚCookieÔòÖ±½ÓÔö¼ÓHttpContext¶ÔÏóµÄÓÃ»§ĞÅÏ¢£¬Èç¹û²»´æÔÚÔòĞèÒªÅĞ¶Ï×ÓÆ¾¾İÊÇ·ñ´æÔÚ
+		//å­˜åœ¨Cookieåˆ™ç›´æ¥å¢åŠ HttpContextå¯¹è±¡çš„ç”¨æˆ·ä¿¡æ¯ï¼Œå¦‚æœä¸å­˜åœ¨åˆ™éœ€è¦åˆ¤æ–­å­å‡­æ®æ˜¯å¦å­˜åœ¨
 		if (!empty($httpcookie)) {
-			//»ùÓÚ´æÔÚ×ÓÆ¾¾İ
+			//åŸºäºå­˜åœ¨å­å‡­æ®
 			$secretid = self::getCookieValue($httpcookie, self::COOKIEGUID);
 			
 			if (!empty($secretid)) $secretid = IdEncryptService::Decrypt($secretid);
 			
-			//¶Ô½âÃÜºóµÄsecretidµÄÓĞĞ§ĞÔ½øĞĞÅĞ¶Ï,Èç¹û½âÃÜºó·µ»ØÖµÎª¿ÕµÄ»°£¬ËµÃ÷×ÓÆ¾¾İ±»ÒâÍâÇÖÈë£¬Ö±½Ó×ªÏò´íÎó
+			//å¯¹è§£å¯†åçš„secretidçš„æœ‰æ•ˆæ€§è¿›è¡Œåˆ¤æ–­,å¦‚æœè§£å¯†åè¿”å›å€¼ä¸ºç©ºçš„è¯ï¼Œè¯´æ˜å­å‡­æ®è¢«æ„å¤–ä¾µå…¥ï¼Œç›´æ¥è½¬å‘é”™è¯¯
 			if (empty($secretid)) $this->processSecretError(1013);
 			
-			//´Ó»º´æ(session)¸ù¾İsecretIDµÄÈë¿ÚÈ¡ÓÃ»§ÃÜ³×
+			//ä»ç¼“å­˜(session)æ ¹æ®secretIDçš„å…¥å£å–ç”¨æˆ·å¯†åŒ™
 			$secretkeyiv = $this->getSecretKeyIv($context, $secretid);
-			//²»´æÔÚÉí·İĞÅÏ¢£¬Ïò·şÎñÆ÷·¢ÆğÇëÇó
+			//ä¸å­˜åœ¨èº«ä»½ä¿¡æ¯ï¼Œå‘æœåŠ¡å™¨å‘èµ·è¯·æ±‚
 			if (empty($secretkeyiv)) {
 				$secretkeyiv = $this->requestSecretKeyIv($secretid);
 				
 				if ($secretkeyiv  && $secretkeyiv['ErrorCode'] == 0) {
-					//ÇëÇó³É¹¦,ÉèÖÃÓ¦ÓÃ»º´æÖĞµÄÃÜÔ¿Àà
+					//è¯·æ±‚æˆåŠŸ,è®¾ç½®åº”ç”¨ç¼“å­˜ä¸­çš„å¯†é’¥ç±»
 					$this->_setSecretKeyIv($context, $secretid, $secretkeyiv);
 				} else if ($secretkeyiv && $secretkeyiv['ErrorCode'] == 1011) {
-					//¿Í»§¶ËÔÚÌØ¶¨µÄÇëÇó´úÂëÏÂÖØ¶¨Ïòµ½Ark½øĞĞµÇÂ¼
+					//å®¢æˆ·ç«¯åœ¨ç‰¹å®šçš„è¯·æ±‚ä»£ç ä¸‹é‡å®šå‘åˆ°Arkè¿›è¡Œç™»å½•
 					$this->processLogin(true);
 				} else {
-					//Çå³ıCookie£¬Í¬Ê±ÖØ¶¨Ïòµ½´íÎó
+					//æ¸…é™¤Cookieï¼ŒåŒæ—¶é‡å®šå‘åˆ°é”™è¯¯
 					$this->processSecretError($secretkeyiv == NULL ? 1015 : $secretkeyiv['ErrorCode']);
 				}
 			}
-			//½âÃÜÓÃ»§ĞÅÏ¢£¬´æÈësession
+			//è§£å¯†ç”¨æˆ·ä¿¡æ¯ï¼Œå­˜å…¥session
 			return $this->decryptUserAddContext($context, $secretkeyiv, $httpcookie);
 		} else {
-			//×ÓÆ¾¾İ²»´æÔÚµÄÇé¿öÏÂ£¬ÒªÅĞ¶ÏgenericCodeÊÇ·ñ´æÔÚ
+			//å­å‡­æ®ä¸å­˜åœ¨çš„æƒ…å†µä¸‹ï¼Œè¦åˆ¤æ–­genericCodeæ˜¯å¦å­˜åœ¨
 			$genericCode = $this->getGenericCode($context);
 			if (empty($genericCode)) {
 				$this->processLogin(true);
 			} else {
-				//¸ù¾İCodeÈ¡Profile»òÕß×öºóĞøµÄÊÂÇé
+				//æ ¹æ®Codeå–Profileæˆ–è€…åšåç»­çš„äº‹æƒ…
 				$this->processGenericCode($context, $genericCode);
 			}
 		}
@@ -113,10 +113,10 @@ abstract class ArkAuth {
 	}
 
 	/**
-	 * ´ÓÓ¦ÓÃ»º´æÖĞ»ñµÃÃÜÔ¿Àà(Ó¦ÓÃ»º´æ¿ÉÄÜÊÇSession¡¢memcachedµÈ)
+	 * ä»åº”ç”¨ç¼“å­˜ä¸­è·å¾—å¯†é’¥ç±»(åº”ç”¨ç¼“å­˜å¯èƒ½æ˜¯Sessionã€memcachedç­‰)
 	 * 
-	 * @param string $secretId ÃÜÔ¿ÀàId
-	 * @param Context $context Ó¦ÓÃÉÏÏÂÎÄ
+	 * @param string $secretId å¯†é’¥ç±»Id
+	 * @param Context $context åº”ç”¨ä¸Šä¸‹æ–‡
 	 * @return array|NULL
 	 */
 	public function getSecretKeyIv(Context $context, $secretId) {
@@ -124,24 +124,24 @@ abstract class ArkAuth {
 	}
 
 	/**
-	 * ÉèÖÃÓ¦ÓÃ»º´æÖĞÃÜÔ¿Àà
+	 * è®¾ç½®åº”ç”¨ç¼“å­˜ä¸­å¯†é’¥ç±»
 	 * 
-	 * @param Context $context Ó¦ÓÃ»º´æÉÏÏÂÎÄ£¨Ó¦ÓÃ»º´æÊÇÖ¸session¡¢cookie¡¢memcachedµÈ£©
-	 * @param string $secretId ÃÜÔ¿ÀàId
-	 * @param array $secret ÃÜÔ¿Àà
+	 * @param Context $context åº”ç”¨ç¼“å­˜ä¸Šä¸‹æ–‡ï¼ˆåº”ç”¨ç¼“å­˜æ˜¯æŒ‡sessionã€cookieã€memcachedç­‰ï¼‰
+	 * @param string $secretId å¯†é’¥ç±»Id
+	 * @param array $secret å¯†é’¥ç±»
 	 */
 	public function _setSecretKeyIv(Context $context, $secretId, array $secret) {
 		$context->insert($secretId, $secret);
 	}
 
 	/**
-	 * ÉèÖÃÓ¦ÓÃ»º´æÖĞÃÜÔ¿Àà
+	 * è®¾ç½®åº”ç”¨ç¼“å­˜ä¸­å¯†é’¥ç±»
 	 * 
-	 * @param Context $context Ó¦ÓÃ»º´æÉÏÏÂÎÄ£¨Ó¦ÓÃ»º´æÊÇÖ¸session»òÕßcookie£©
-	 * @param string $secretId ÃÜÔ¿ÀàId
-	 * @param string $key ÃÜÔ¿ÀàKey
-	 * @param string $iv  ÃÜÔ¿ÀàIv
-	 * @param int $expitime ÃÜÔ¿Àà¹ıÆÚÊ±¼ä
+	 * @param Context $context åº”ç”¨ç¼“å­˜ä¸Šä¸‹æ–‡ï¼ˆåº”ç”¨ç¼“å­˜æ˜¯æŒ‡sessionæˆ–è€…cookieï¼‰
+	 * @param string $secretId å¯†é’¥ç±»Id
+	 * @param string $key å¯†é’¥ç±»Key
+	 * @param string $iv  å¯†é’¥ç±»Iv
+	 * @param int $expitime å¯†é’¥ç±»è¿‡æœŸæ—¶é—´
 	 */
 	public function setSecretKeyIv(Context $context, $secretId, $key, $iv, $expitime) {
 		
@@ -152,8 +152,8 @@ abstract class ArkAuth {
 	}
 
 	/**
-	 * Ïò·şÎñ¶ËÇëÇóÃÜÔ¿ÀàĞÅÏ¢
-	 * @param string $secretId ÃÜÔ¿ÀàId
+	 * å‘æœåŠ¡ç«¯è¯·æ±‚å¯†é’¥ç±»ä¿¡æ¯
+	 * @param string $secretId å¯†é’¥ç±»Id
 	 * @return array
 	 */
 	public function requestSecretKeyIv($secretId,$isExpired = NULL) {
@@ -181,16 +181,16 @@ abstract class ArkAuth {
 	public abstract function processGenericCode(Context $context, $genericcode);
 
 	/**
-	 * ½âÃÜÓÃ»§ĞÅÏ¢²¢Ìí¼Óµ½Ó¦ÓÃÖĞ
+	 * è§£å¯†ç”¨æˆ·ä¿¡æ¯å¹¶æ·»åŠ åˆ°åº”ç”¨ä¸­
 	 * 
-	 * @param Context $context Ó¦ÓÃ»º´æÉÏÏÂÎÄ
-	 * @param unknown_type $secretkeyiv ÃÜÔ¿
-	 * @param unknown_type $httpcookie ÈÏÖ¤Cookie
+	 * @param Context $context åº”ç”¨ç¼“å­˜ä¸Šä¸‹æ–‡
+	 * @param unknown_type $secretkeyiv å¯†é’¥
+	 * @param unknown_type $httpcookie è®¤è¯Cookie
 	 */
 	public abstract function decryptUserAddContext(Context $context, $secretkeyiv, $httpcookie);
 
 	/**
-	 * È¡µÃappµÄ ÈÏÖ¤µÄÓÃ»§ĞÅÏ¢
+	 * å–å¾—appçš„ è®¤è¯çš„ç”¨æˆ·ä¿¡æ¯
 	 * @return array
 	 */
 	public function getAppUser(){
@@ -198,7 +198,7 @@ abstract class ArkAuth {
 	}
 	
 	/**
-	 * È¡µÃapiµÄ ÈÏÖ¤µÄÓÃ»§ĞÅÏ¢
+	 * å–å¾—apiçš„ è®¤è¯çš„ç”¨æˆ·ä¿¡æ¯
 	 * @return array
 	 */
 	public function getApiUser(){
@@ -206,7 +206,7 @@ abstract class ArkAuth {
 	}
 	
 	/**
-	 * ½âÎöSSO ÈÏÖ¤¹ı³ÌÖĞµÄcookie
+	 * è§£æSSO è®¤è¯è¿‡ç¨‹ä¸­çš„cookie
 	 * @param unknown_type $cookie
 	 * @param unknown_type $value
 	 * @return string
@@ -214,21 +214,21 @@ abstract class ArkAuth {
 	protected function getCookieValue($cookie, $value) {
 		
 		$cookieArray = array();
-		//cookieÓÃ&±êÊ¶µÄ²ğ·Öµ½Êı×éÀïÃæÈ¥,ºóÃæ²»´øÊı×éµÄÇé¿ö»á°ÑÒ³ÃæÏàÓ¦µÄ±äÁ¿¸Ä±ä£¬ÓĞ³åÍ»·çÏÕ
+		//cookieç”¨&æ ‡è¯†çš„æ‹†åˆ†åˆ°æ•°ç»„é‡Œé¢å»,åé¢ä¸å¸¦æ•°ç»„çš„æƒ…å†µä¼šæŠŠé¡µé¢ç›¸åº”çš„å˜é‡æ”¹å˜ï¼Œæœ‰å†²çªé£é™©
 		parse_str($cookie, $cookieArray);
-		//¿Õ¸ñ´¦Àí³É¼ÓºÅÊÇÎªÁË½â¾öPHP¿Í»§¶ËÔÚIISÏÂÊ¹ÓÃµÄÊ±ºò,¿ÉÄÜÔì³ÉµÄ¿Õ¸ñ·ûºÏÎŞ·¨±»½âÎöµÄÇé¿ö£¬Ìæ»»³É+£¨Windows + IISÌØ¶¨£©
+		//ç©ºæ ¼å¤„ç†æˆåŠ å·æ˜¯ä¸ºäº†è§£å†³PHPå®¢æˆ·ç«¯åœ¨IISä¸‹ä½¿ç”¨çš„æ—¶å€™,å¯èƒ½é€ æˆçš„ç©ºæ ¼ç¬¦åˆæ— æ³•è¢«è§£æçš„æƒ…å†µï¼Œæ›¿æ¢æˆ+ï¼ˆWindows + IISç‰¹å®šï¼‰
 		return $cookieArray[$value] !== NULL ? strtr($cookieArray[$value], ' ', '+') : false;
 	}
 
 	/**
-	 * ÉèÖÃAPPÓÃ»§ĞÅÏ¢
+	 * è®¾ç½®APPç”¨æˆ·ä¿¡æ¯
 	 * 
 	 * @param Context $context
 	 * @param array $user
 	 * @return array
 	 */
 	protected function setAppLocalUserInfo(Context $context, array $user,$ifOauth = false) {
-		//ÍùÉÏÏÂÎÄÇëÇóÖĞÌí¼ÓÓÃ»§µÄÉí·İĞÅÏ¢
+		//å¾€ä¸Šä¸‹æ–‡è¯·æ±‚ä¸­æ·»åŠ ç”¨æˆ·çš„èº«ä»½ä¿¡æ¯
 		$newUser = array(
 			'WorkId' => $user['WorkId'], 
 			'Email' => $user['Email'], 
@@ -253,7 +253,7 @@ abstract class ArkAuth {
 	 * @return array
 	 */
 	protected function setApiLocalUserInfo(Context $context, array $user){
-		//ÍùÉÏÏÂÎÄÇëÇóÖĞÌí¼ÓÓÃ»§µÄÉí·İĞÅÏ¢
+		//å¾€ä¸Šä¸‹æ–‡è¯·æ±‚ä¸­æ·»åŠ ç”¨æˆ·çš„èº«ä»½ä¿¡æ¯
 		$newUser = array(
 			'WorkId' => $user['WorkId'], 
 			'AppUrl' => $user['AppUrl'], 
@@ -268,7 +268,7 @@ abstract class ArkAuth {
 	
 	
 	/**
-	 * ÉèÖÃÈÏÖ¤ºóµÄAPP cookie
+	 * è®¾ç½®è®¤è¯åçš„APP cookie
 	 * @param array $user
 	 */
 	protected function setAppLocalCookieInfo(array $user,$jsonResult = ''){

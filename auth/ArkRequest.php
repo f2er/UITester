@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ÏòArk ServerÇëÇó
+ * å‘Ark Serverè¯·æ±‚
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -36,7 +36,7 @@ final class ArkRequest {
 		return $result;
 	}
 	
-	//TODO£ºÌí¼ÓÒì³£´¦Àí
+	//TODOï¼šæ·»åŠ å¼‚å¸¸å¤„ç†
 	public static function requestUrl($url, $cookie){
 		return self::httpsRequest($url);
 	}
@@ -59,7 +59,7 @@ final class ArkRequest {
 	}
 	
 	/**
-	 * Ä£Äâ·½·¨ÖØÔÔ
+	 * æ¨¡æ‹Ÿæ–¹æ³•é‡æ ½
 	 * 
 	 * @param string $param
 	 * @param string $version

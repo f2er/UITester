@@ -3,7 +3,7 @@
 require_once ('ArkAuth.php');
 
 /**
- * ÌÔ±¦ÄÚ²¿SSO
+ * æ·˜å®å†…éƒ¨SSO
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -26,23 +26,23 @@ class TaobaoArk extends ArkAuth {
 	 */
 	public function processGenericCode(Context $context, $genericcode) {
 		
-		//ÇëÇóÓÃ»§Éí·İµÄProfile
+		//è¯·æ±‚ç”¨æˆ·èº«ä»½çš„Profile
 		$jsonResult = ArkRequest::requestUrl(ArkRequest::processProfileUrl($genericcode), NULL);
 		$user = NULL;
 		if (!empty($jsonResult))
-			$user = json_decode($jsonResult, true);//·µ»ØÒ»¸öÊı×é£¬´íÎóÊ±·µ»ØNULL
+			$user = json_decode($jsonResult, true);//è¿”å›ä¸€ä¸ªæ•°ç»„ï¼Œé”™è¯¯æ—¶è¿”å›NULL
 
-		//json½âÎöÕıÈ·£¬ÇÒ·şÎñÆ÷²»³ö´í
+		//jsonè§£ææ­£ç¡®ï¼Œä¸”æœåŠ¡å™¨ä¸å‡ºé”™
 		if (isset($user['ErrorCode']) && $user['ErrorCode'] == 0){
-			//ÉèÖÃÃÜÔ¿ÀàµÄ»º´æĞÅÏ¢
+			//è®¾ç½®å¯†é’¥ç±»çš„ç¼“å­˜ä¿¡æ¯
 			$this->setSecretKeyIv($context,$user['SecretId'], $user['SecretKey'], $user['SecretIV'], $user['SecretExp']);
-			//ÍùÉÏÏÂÎÄÇëÇóÖĞÌí¼ÓÓÃ»§µÄÉí·İĞÅÏ¢
+			//å¾€ä¸Šä¸‹æ–‡è¯·æ±‚ä¸­æ·»åŠ ç”¨æˆ·çš„èº«ä»½ä¿¡æ¯
 			$this->setAppLocalUserInfo($context, $user);
-			//Ğ´µ½ClientµÄCookieÖĞÈ¥
+			//å†™åˆ°Clientçš„Cookieä¸­å»
 			$this->setAppLocalCookieInfo($user);
 		}else{
-			//Ê¹ÓÃÁËÒÑ¾­Ê¹ÓÃ¹ıµÄTicket£¬µ¼ÖÂÇëÇóUserProfileµÄÊ±ºò·µ»Ø1001´íÎó,Õâ¸öÊ±ºòĞèÒªÖØĞÂÇëÇóArkServerÀ´»ñµÃTicket
-			//Èç¹ûÒÔÉÏ²¿·ÖÊ¼ÖÕÎŞ·¨ÄÃµ½Éí·İ£¬¿ÉÄÜ»á´æÔÚËÀÑ­»·µÄÖØ¸´ÇëÇó
+			//ä½¿ç”¨äº†å·²ç»ä½¿ç”¨è¿‡çš„Ticketï¼Œå¯¼è‡´è¯·æ±‚UserProfileçš„æ—¶å€™è¿”å›1001é”™è¯¯,è¿™ä¸ªæ—¶å€™éœ€è¦é‡æ–°è¯·æ±‚ArkServeræ¥è·å¾—Ticket
+			//å¦‚æœä»¥ä¸Šéƒ¨åˆ†å§‹ç»ˆæ— æ³•æ‹¿åˆ°èº«ä»½ï¼Œå¯èƒ½ä¼šå­˜åœ¨æ­»å¾ªç¯çš„é‡å¤è¯·æ±‚
 			$this->processLogin();
 		}
 	}
@@ -60,12 +60,12 @@ class TaobaoArk extends ArkAuth {
 			
 		$decryptjson = EncryptService::Decrypt($encryptjson, $secretkeyiv['SecretKey'], $secretkeyiv['SecretIV']);
 
-		//Èç¹ûJSON´®²»Îª¿ÕÊ±ÔòÌí¼ÓÓÃ»§ĞÅÏ¢µ½Ó¦ÓÃÖĞÈ¥,·ñÔòÖ±½Ó²»×öÈÎºÎ²Ù×÷
+		//å¦‚æœJSONä¸²ä¸ä¸ºç©ºæ—¶åˆ™æ·»åŠ ç”¨æˆ·ä¿¡æ¯åˆ°åº”ç”¨ä¸­å»,å¦åˆ™ç›´æ¥ä¸åšä»»ä½•æ“ä½œ
 		if (!empty($decryptjson)){
 			$user = json_decode($decryptjson, true);
 			$this->setAppLocalUserInfo($context, $user);
 		}else{
-			//Èç¹û³ö´í£¬Õâ¸öÊ±ºòÖ±½ÓÇå³ıÓÃ»§µÄCookieĞÅÏ¢
+			//å¦‚æœå‡ºé”™ï¼Œè¿™ä¸ªæ—¶å€™ç›´æ¥æ¸…é™¤ç”¨æˆ·çš„Cookieä¿¡æ¯
 			self::processSecretError(1100);
 		}
 		return $decryptjson;

@@ -42,7 +42,7 @@ class OauthArk extends ArkAuth {
 	 */
 	public function processGenericCode(Context $context, $genericcode) {
 		
-		// ¸ù¾İauthcode»ñÈ¡accesstoken£¬²¢Ğ´ÈëcookieÖĞ
+		// æ ¹æ®authcodeè·å–accesstokenï¼Œå¹¶å†™å…¥cookieä¸­
         $appcode = Config::get(APPCODE);
         $version = $this->getClientVersion();
         $clientType = Config::get(CLIENTTYPE);
@@ -55,15 +55,15 @@ class OauthArk extends ArkAuth {
 
         if ($accessTokenValue) {
            if ($accessTokenValue['IsSuccess']){
-              //ÑéÖ¤token
+              //éªŒè¯token
               $accessResultJsonResult = '';
               $accessResult = $this->validateAccessToken($accessTokenValue['AccessToken'], $appcode, $clientType, $version, $accessResultJsonResult);
               if ($accessResult){
-                  //ÉèÖÃÃÜÔ¿ÀàµÄ»º´æĞÅÏ¢
+                  //è®¾ç½®å¯†é’¥ç±»çš„ç¼“å­˜ä¿¡æ¯
 				  $this->setSecretKeyIv($context,$accessResult['SecretId'], $accessResult['SecretKey'], $accessResult['SecretIV'], $accessResult['SecretExp']);
-				  //ÍùÉÏÏÂÎÄÇëÇóÖĞÌí¼ÓÓÃ»§µÄÉí·İĞÅÏ¢
+				  //å¾€ä¸Šä¸‹æ–‡è¯·æ±‚ä¸­æ·»åŠ ç”¨æˆ·çš„èº«ä»½ä¿¡æ¯
                   $this->setAppLocalUserInfo($context, $accessResult,true);
-                  //Ğ´µ½ClientµÄCookieÖĞÈ¥
+                  //å†™åˆ°Clientçš„Cookieä¸­å»
 				  $this->setAppLocalCookieInfo($accessResult, $accessResultJsonResult);
 				  
 				   $contextUrl = preg_replace('/[&*|\?*]authcode=[^&]*/i', '', ArkRequest::getContextUrl());
@@ -91,7 +91,7 @@ class OauthArk extends ArkAuth {
 			
 		$decryptjson = EncryptService::Decrypt($encryptjson, $secretkeyiv['SecretKey'], $secretkeyiv['SecretIV']);
 
-		//Èç¹ûJSON´®²»Îª¿ÕÊ±ÔòÌí¼ÓÓÃ»§ĞÅÏ¢µ½Ó¦ÓÃÖĞÈ¥,·ñÔòÖ±½Ó²»×öÈÎºÎ²Ù×÷
+		//å¦‚æœJSONä¸²ä¸ä¸ºç©ºæ—¶åˆ™æ·»åŠ ç”¨æˆ·ä¿¡æ¯åˆ°åº”ç”¨ä¸­å»,å¦åˆ™ç›´æ¥ä¸åšä»»ä½•æ“ä½œ
 		if (!empty($decryptjson)){
 			$user = json_decode($decryptjson, true);
 			if(!isset($user['AccessToken']) || empty($user['AccessToken']))
@@ -107,11 +107,11 @@ class OauthArk extends ArkAuth {
 					if($newResult){
 						
 						  $this->clear($context, $newResult['SecretKey']);
-						  //ÉèÖÃÃÜÔ¿ÀàµÄ»º´æĞÅÏ¢
+						  //è®¾ç½®å¯†é’¥ç±»çš„ç¼“å­˜ä¿¡æ¯
 				 		  $this->setSecretKeyIv($context,$newResult['SecretId'], $newResult['SecretKey'], $newResult['SecretIV'], $newResult['SecretExp']);
-				 		  //ÍùÉÏÏÂÎÄÇëÇóÖĞÌí¼ÓÓÃ»§µÄÉí·İĞÅÏ¢
+				 		  //å¾€ä¸Šä¸‹æ–‡è¯·æ±‚ä¸­æ·»åŠ ç”¨æˆ·çš„èº«ä»½ä¿¡æ¯
                  		  $this->setAppLocalUserInfo($context, $newResult,true);
-                  		  //Ğ´µ½ClientµÄCookieÖĞÈ¥
+                  		  //å†™åˆ°Clientçš„Cookieä¸­å»
 				  		  $this->setAppLocalCookieInfo($newResult, $newjsonresult);
 					}else{
 						$this->processLogin(true);
@@ -119,7 +119,7 @@ class OauthArk extends ArkAuth {
 				}
 			}
 		}else{
-			//Èç¹û³ö´í£¬Õâ¸öÊ±ºòÖ±½ÓÇå³ıÓÃ»§µÄCookieĞÅÏ¢
+			//å¦‚æœå‡ºé”™ï¼Œè¿™ä¸ªæ—¶å€™ç›´æ¥æ¸…é™¤ç”¨æˆ·çš„Cookieä¿¡æ¯
 			$this->processSecretError(1100);
 		}
 		return $decryptjson;
@@ -145,7 +145,7 @@ class OauthArk extends ArkAuth {
 	}
 	
 	/**
-	 * È¡µÃ·ÃÎÊÁîÅÆ
+	 * å–å¾—è®¿é—®ä»¤ç‰Œ
 	 * 
 	 * @return string
 	 */
@@ -154,7 +154,7 @@ class OauthArk extends ArkAuth {
 	}
 	
 	/**
-	 * ÑéÖ¤·ÃÎÊÁîÅÆµÄÓĞĞ§ĞÔ
+	 * éªŒè¯è®¿é—®ä»¤ç‰Œçš„æœ‰æ•ˆæ€§
 	 * 
 	 * @param string $accessToken
 	 * @param string $appCode
@@ -176,7 +176,7 @@ class OauthArk extends ArkAuth {
             return null;
         }
 
-        //È¥·şÎñ¶ËÑéÖ¤AccessToken, ·µ»ØAccessResult
+        //å»æœåŠ¡ç«¯éªŒè¯AccessToken, è¿”å›AccessResult
         $jsonResult = ArkRequest::requestUrl(ArkRequest::processValidateAccessTokenUrl($accessToken, $appCode, strtolower($arkClientType), $clientVersion),null);
         $accessResult = null;
         if ($jsonResult)
@@ -196,7 +196,7 @@ class OauthArk extends ArkAuth {
     }
     
 	/**
-	 * È¡µÃ¿Í»§¶Ë°æ±¾ºÅ
+	 * å–å¾—å®¢æˆ·ç«¯ç‰ˆæœ¬å·
 	 * 
 	 * @return string
 	 */

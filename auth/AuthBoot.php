@@ -2,7 +2,7 @@
 require_once 'Common.php';
 
 $context = ArkFactory::getContext();
-//¿ªÊ¼ÈÏÖ¤ÇëÇó
+//å¼€å§‹è®¤è¯è¯·æ±‚
 $ArkAuth = ArkFactory::getArkAuth();
 
 $ArkAuth->OnAuthRequest($context);

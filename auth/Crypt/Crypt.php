@@ -1,7 +1,7 @@
 <?php
 require  'AES.php';
 /**
- * Ê¹ÓÃ»ùÓÚRjindaelµÄAES¶Ô³Æ¼ÓÃÜËã·¨
+ * ä½¿ç”¨åŸºäºRjindaelçš„AESå¯¹ç§°åŠ å¯†ç®—æ³•
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -19,19 +19,19 @@ class EncryptService{
 		$mobjCryptoService->setKey(base64_decode($key));
 		$mobjCryptoService->setIV(base64_decode($iv));
 		$result = $mobjCryptoService->encrypt($source);
-		//×·¼ÓÒ»´Î·´×ª
+		//è¿½åŠ ä¸€æ¬¡åè½¬
 		$result = strrev($result);
-		//base64±àÂë£¬¿ÉÓÃÓÚÔÚ½âÂëÊ±Ğ£ÑéÍêÕûĞÔ
+		//base64ç¼–ç ï¼Œå¯ç”¨äºåœ¨è§£ç æ—¶æ ¡éªŒå®Œæ•´æ€§
 		return base64_encode($result);
 	}
-	//Ê§°ÜÊ±·µ»Ønull
+	//å¤±è´¥æ—¶è¿”å›null
 	public static function Decrypt($source, $key, $iv){
 		$mobjCryptoService = new Crypt_AES();
-		//base64½âÂë£¬Ğ£ÑéÍêÕûĞÔ
+		//base64è§£ç ï¼Œæ ¡éªŒå®Œæ•´æ€§
 		$source = base64_decode($source);
 		if($source !== false)
 		{
-			//×·¼ÓÒ»´Î·´×ª
+			//è¿½åŠ ä¸€æ¬¡åè½¬
 			$source = strrev($source);
 			$mobjCryptoService->setKey(base64_decode($key));
 			$mobjCryptoService->setIV(base64_decode($iv));
@@ -59,7 +59,7 @@ final class IdEncryptService{
 		$bytIn = strrev($source);
 		return base64_encode($bytIn);
 	}
-	//½âÂëÊ§°Ü·µ»ØNULL
+	//è§£ç å¤±è´¥è¿”å›NULL
 	static function Decrypt($source){
 		$bytIn = base64_decode($source);
 		if($bytIn === false) return NULL;
@@ -85,7 +85,7 @@ final class CodeEncryptService{
 		$chars = base64_encode($bytIn);
 		return strrev($chars);
 	}
-	//½âÂëÊ§°Ü·µ»ØNULL
+	//è§£ç å¤±è´¥è¿”å›NULL
 	public static function Decrypt($source){
 		$chars = strrev($source);
 		$chars = base64_decode($chars);

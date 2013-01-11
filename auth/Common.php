@@ -3,7 +3,7 @@ include 'ArkConfig.php';
 require 'Crypt/Crypt.php';
 require 'ArkRequest.php';
 /**
- * SSO ÈÏÖ¤ÌåÏµ¹¤³§
+ * SSO è®¤è¯ä½“ç³»å·¥å‚
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -17,7 +17,7 @@ final  class ArkFactory{
 	}
 	
 	/**
-	 * »ñÈ¡SSOÈÏÖ¤ÀàĞÍ
+	 * è·å–SSOè®¤è¯ç±»å‹
 	 * 
 	 * @throws ArkException
 	 * @return ArkAuth
@@ -37,7 +37,7 @@ final  class ArkFactory{
 	}
 	
 	/**
-	 *	»ñÈ¡ÉÏÏÂÎÄ
+	 *	è·å–ä¸Šä¸‹æ–‡
 	 *
 	 * @throws ArkException
 	 * @return Context
@@ -56,7 +56,7 @@ final  class ArkFactory{
 	}
 }
 /**
- * ¹ÜÀíPHP Ark ClientÅäÖÃ
+ * ç®¡ç†PHP Ark Clienté…ç½®
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -78,7 +78,7 @@ final  class Config{
 }
 
 /**
- * ¹ÜÀíPHP Ark ClientÈÕÖ¾
+ * ç®¡ç†PHP Ark Clientæ—¥å¿—
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>
@@ -102,7 +102,7 @@ final class ArkLog{
 
 
 /**
- * PHP Ark ClientÒì³£´¦Àí
+ * PHP Ark Clientå¼‚å¸¸å¤„ç†
  *
  * the last known user to change this file in the repository  <$LastChangedBy: suqian $>
  * @author Su Qian <aoxue.1988.su.qian@163.com>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ArkÅäÖÃÎÄ¼þ
+ * Arké…ç½®æ–‡ä»¶
  */
 define('ARKSERVER','arkserver');
 define('SECRETCACHE','secretcache');

@@ -14,9 +14,9 @@ class SessionContext implements Context {
 	
 	public function __construct(){
 		
-		//ÎªÈÏÖ¤CookieÉèÖÃÉúĞ§µÄÖ÷»úÓòÃû
+		//ä¸ºè®¤è¯Cookieè®¾ç½®ç”Ÿæ•ˆçš„ä¸»æœºåŸŸå
 		ini_set('session.cookie_domain', $_SERVER['SERVER_NAME']);
-		//ÎªÈÏÖ¤CookieÉèÖÃÉúĞ§µÄÂ·¾¶£¬IE9CookieµÄBUGÎÊÌâ
+		//ä¸ºè®¤è¯Cookieè®¾ç½®ç”Ÿæ•ˆçš„è·¯å¾„ï¼ŒIE9Cookieçš„BUGé—®é¢˜
 		ini_set('session.cookie_path', '/');
 	}
 	/* 
