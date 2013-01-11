@@ -126,12 +126,13 @@ try {
                                     if (!run_win) {
 
                                         run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                                        var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                        run_win.location.href = 'http://' + http_host + "/run.html?url=" + jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
                                     }
 
                                     UT._msgReady(run_win,
                                             function () {
-                                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                                run_win.location.href = 'http://' + http_host + "/run.html?url=" + jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
+
                                                 callback[id] = function (data) {
                                                     jQuery("#info").html("任务完成");
 
