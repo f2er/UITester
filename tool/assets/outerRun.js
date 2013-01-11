@@ -17,7 +17,7 @@ E.on(isAutoRun, "click", function () {
         }
         timer = window.setInterval(function () {
             iframe.src = iframe.src;
-            D.get("#run-result").innerHTML =="正在测试"
+            D.get("#run-result").innerHTML =="姝ｅ湪娴嬭瘯"
 
         }, longtime)
     }
@@ -37,7 +37,7 @@ E.on(longtimeEl, "change", function () {
     }
     timer = window.setInterval(function () {
         iframe.src = iframe.src
-        D.get("#run-result").innerHTML =="正在测试"
+        D.get("#run-result").innerHTML =="姝ｅ湪娴嬭瘯"
     }, longtime)
 })
 

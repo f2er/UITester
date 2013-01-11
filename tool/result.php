@@ -52,8 +52,7 @@ if ($task_id !== '') {
         $createtime = $result_item['createtime'];
         $result = $result_item['task_result'];
         $duration = $result_item['duration'];
-        //数据库中是UTF8, 转换为GBK, 用于页面显示
-        $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
+        $result = $result;
         $modify_tag = 'modify';
         $prev_time = $result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time'];
     }
