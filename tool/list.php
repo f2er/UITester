@@ -1,8 +1,8 @@
 <?php $nav='list'; include_once('./common/header.php'); ?>
 <?php
 
-//ÅäÖÃ
-$num = 10;			//ÁĞ±íÇø, Ã¿Ò³ÏÔÊ¾µÄÊıÁ¿
+//é…ç½®
+$num = 10;			//åˆ—è¡¨åŒº, æ¯é¡µæ˜¾ç¤ºçš„æ•°é‡
 
 include_once('conn_db.php');
 
@@ -19,26 +19,26 @@ if (isset($_GET['me'])) {
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $start = $page < 1 ? 0 : ($page*$num-$num);
 $sort = ' order by createtime desc';
-$limit = ' limit '. $start .', '. ($num+1);		//¶àÈ¡Ò»¸öÅĞ¶ÏÊÇ²»ÊÇÓĞÏÂÒ»Ò³
+$limit = ' limit '. $start .', '. ($num+1);		//å¤šå–ä¸€ä¸ªåˆ¤æ–­æ˜¯ä¸æ˜¯æœ‰ä¸‹ä¸€é¡µ
 
 
-//²éÑ¯×ÜÊı
+//æŸ¥è¯¢æ€»æ•°
 $coutSql = 'select count(*) c from list '.$sql;
 $query_count_result = mysql_query($coutSql);
-$result_count = (mysql_fetch_assoc($query_count_result));		//¼û·ÖÒ³´¦
+$result_count = (mysql_fetch_assoc($query_count_result));		//è§åˆ†é¡µå¤„
 $result_count = intval($result_count['c']);
 
-//²éÑ¯Êı¾İ
+//æŸ¥è¯¢æ•°æ®
 $querySql = 'select * from list '.$sql.$sort.$limit;
 $query_list_result = mysql_query($querySql);
 
 
-//²éÑ¯²úÆ·Ïß
+//æŸ¥è¯¢äº§å“çº¿
 $productlineSql = 'select productline from list group by productline order by productline';
 $productline_result = mysql_query($productlineSql);
 
 
-//ÎªÁËÔÚURL¼ÓÉÏ²ÎÊı, ÒÔÑ¡ÖĞÎÒµÄÓÃÀı×Óµ¼º½
+//ä¸ºäº†åœ¨URLåŠ ä¸Šå‚æ•°, ä»¥é€‰ä¸­æˆ‘çš„ç”¨ä¾‹å­å¯¼èˆª
 $me = isset($_GET['me']) ? 'me&' : '';
 
 
@@ -49,8 +49,8 @@ $me = isset($_GET['me']) ? 'me&' : '';
 
 <div class="container" id="list">
 <div class="sub-nav">
-     ²úÆ·Ïß: <select id="productline" name="productline" required>
-		<option value="">È«²¿</option>
+     äº§å“çº¿: <select id="productline" name="productline" required>
+		<option value="">å…¨éƒ¨</option>
 <?php 
 	$productline_num = mysql_num_rows($productline_result);
 	for ($idx = 0; $idx < $productline_num; $idx++) {
@@ -59,20 +59,20 @@ $me = isset($_GET['me']) ? 'me&' : '';
 	};
 ?>
 <!--
-		<option value="86">ÉÌÆ·Æ½Ì¨</option>
-		<option value="87">ÒµÎñ°²È«</option>
-		<option value="94">¿ª·ÅÆ½Ì¨</option>
-		<option value="105">ÉÌ»§Æ½Ì¨</option>
+		<option value="86">å•†å“å¹³å°</option>
+		<option value="87">ä¸šåŠ¡å®‰å…¨</option>
+		<option value="94">å¼€æ”¾å¹³å°</option>
+		<option value="105">å•†æˆ·å¹³å°</option>
 		<option value="106">SNS</option>
-		<option value="118">ÔËÓª·şÎñ</option>
-		<option value="206">Íâ²¿²úÆ·Ïß</option>
+		<option value="118">è¿è¥æœåŠ¡</option>
+		<option value="206">å¤–éƒ¨äº§å“çº¿</option>
 		<option value="257">UED</option>
-		<option value="336">Í¨ÓÃ²úÆ·</option>
+		<option value="336">é€šç”¨äº§å“</option>
 	</select>
 	<select id="project" name="project" required>
-		<option value="">--ÇëÑ¡Ôñ²úÆ·--</option>
-		<option value="1">ÎÒµÄÌÔ±¦</option>
-		<option value="2">ÌÔ½ğ±Ò</option>
+		<option value="">--è¯·é€‰æ‹©äº§å“--</option>
+		<option value="1">æˆ‘çš„æ·˜å®</option>
+		<option value="2">æ·˜é‡‘å¸</option>
 -->
 	</select>
 
@@ -113,8 +113,8 @@ $me = isset($_GET['me']) ? 'me&' : '';
             <div class="name"><p><a  href="result.php?task_id=' . $result_item['id'] .'">' . $result_item['task_name'] . '</a></p>
 
                 <div class="top-action">
-					<span class="">´´½¨Õß: '. $result_item['creator'] . '</span>  &nbsp;&nbsp;&nbsp;
-					<span class="">ÉÏ´Î²âÊÔÊ±¼ä: '. ($result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time']) . '</span>
+					<span class="">åˆ›å»ºè€…: '. $result_item['creator'] . '</span>  &nbsp;&nbsp;&nbsp;
+					<span class="">ä¸Šæ¬¡æµ‹è¯•æ—¶é—´: '. ($result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time']) . '</span>
                 </div>
             </div>
 
@@ -127,10 +127,10 @@ $me = isset($_GET['me']) ? 'me&' : '';
 
                    if(!result[p]){
                      var cl = "label label-important";
-                     var msg = "Î´Í¨¹ı"
+                     var msg = "æœªé€šè¿‡"
                    }else{
                     var cl = "label label-success";
-                     var msg = "Í¨¹ı"
+                     var msg = "é€šè¿‡"
                    }
                  document.write("<span class=\""+cl+"\"><span class=\"b_name\">"+p+"</span> <span class=\"b_rs\">"+msg+"</span></span>")
                 }
@@ -144,11 +144,11 @@ $me = isset($_GET['me']) ? 'me&' : '';
 
 
                 <div class="bottom-action">
-                <a class="btn btn-link" href="result.php?'.$me.'task_id=' . $result_item['id'] .'">ÏêÏ¸½á¹û</a>
-     <!--                <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">ĞŞ¸Ä</a>
-                   <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">²âÊÔ</a>
-                    <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">É¾³ı</a>
-                   <a target="_blank" class="record minibtn" href="record/record.html?id=' . $result_item['id'] . '">Â¼ÖÆ</a>
+                <a class="btn btn-link" href="result.php?'.$me.'task_id=' . $result_item['id'] .'">è¯¦ç»†ç»“æœ</a>
+     <!--                <a class="record minibtn" href="modify.php?id=' . $result_item['id'] . '">ä¿®æ”¹</a>
+                   <a target="_blank" class="url minibtn" href="apply.php?id=' . $result_item['id'] . '">æµ‹è¯•</a>
+                    <a target="_self" class="del minibtn" href="handle.php?modify_tag=remove&task_id=' . $result_item['id'] . '">åˆ é™¤</a>
+                   <a target="_blank" class="record minibtn" href="record/record.html?id=' . $result_item['id'] . '">å½•åˆ¶</a>
 -->
                 </div>
             </div>
@@ -168,13 +168,13 @@ $me = isset($_GET['me']) ? 'me&' : '';
 	$query = $_GET['productline'] ? '?productline='.$_GET['productline'].'&' : '?';
 
 	if($start !== 0) {
-		echo '<a href="' . $query . 'page='. ($page - 1) .'">ÉÏÒ»Ò³</a>';
+		echo '<a href="' . $query . 'page='. ($page - 1) .'">ä¸Šä¸€é¡µ</a>';
 	}
 	if($result_num === ($num + 1)) {
-		echo '<a href="' . $query . 'page='. ($page + 1) .'">ÏÂÒ»Ò³</a>';
+		echo '<a href="' . $query . 'page='. ($page + 1) .'">ä¸‹ä¸€é¡µ</a>';
 	}
 
-	echo ' <span>µÚ' . ($page) . 'Ò³</span> <span>¹²'.(ceil($result_count / $num)).'Ò³</span>';
+	echo ' <span>ç¬¬' . ($page) . 'é¡µ</span> <span>å…±'.(ceil($result_count / $num)).'é¡µ</span>';
 ?>
 
 	</p>

@@ -52,7 +52,7 @@ if ($task_id !== '') {
         $createtime = $result_item['createtime'];
         $result = $result_item['task_result'];
         $duration = $result_item['duration'];
-        //Êı¾İ¿âÖĞÊÇUTF8, ×ª»»ÎªGBK, ÓÃÓÚÒ³ÃæÏÔÊ¾
+        //æ•°æ®åº“ä¸­æ˜¯UTF8, è½¬æ¢ä¸ºGBK, ç”¨äºé¡µé¢æ˜¾ç¤º
         $result = mb_convert_encoding($result, 'GBK', 'UTF-8');
         $modify_tag = 'modify';
         $prev_time = $result_item['prev_time'] == '0000-00-00 00:00:00' ? '' : $result_item['prev_time'];
@@ -65,13 +65,13 @@ if ($task_id !== '') {
     <div style="float: right">
 
 
-        <a id="go_local_test" class="btn btn-small" href="#" rel="popover"  data-original-title="ÌáÊ¾" data-placement="bottom"
-           data-content="ÔÚµ±Ç°µÄä¯ÀÀÆ÷´°¿ÚÔËĞĞ²âÊÔÓÃÀı,ĞèÒª°²×°ä¯ÀÀÆ÷²å¼ş<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">±¾µØ²âÊÔ</a>
+        <a id="go_local_test" class="btn btn-small" href="#" rel="popover"  data-original-title="æç¤º" data-placement="bottom"
+           data-content="åœ¨å½“å‰çš„æµè§ˆå™¨çª—å£è¿è¡Œæµ‹è¯•ç”¨ä¾‹,éœ€è¦å®‰è£…æµè§ˆå™¨æ’ä»¶<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">æœ¬åœ°æµ‹è¯•</a>
 
 <?php if($creator === $userName) { ?>
-        <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">ĞŞ¸Ä</a>
+        <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">ä¿®æ”¹</a>
         <a target="_self" class="btn btn-small"
-           href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">É¾³ı</a>
+           href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">åˆ é™¤</a>
 <?php } ?>
     </div>
 </div>
@@ -79,13 +79,13 @@ if ($task_id !== '') {
 
 <div id="detail-info">
     <ul class="unstyled">
-        <li>²úÆ·Ïß: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
-        <li>´´½¨ÈË: <span><?php echo $creator  ?></span></li>
-        <li>²âÊÔÓÃÀıµØÖ·: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
-        <li>»Ø¹éÊ±¼ä: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
-        <li>»Ø¹éÆµÂÊ: <?php echo $duration / 60  ?>Ğ¡Ê±</li>
-        <li>´´½¨Ê±¼ä: <?php echo $createtime  ?></li>
-        <li>ÉÏ´Î»Ø¹éÊ±¼ä:<?php echo $prev_time ?></li>
+        <li>äº§å“çº¿: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
+        <li>åˆ›å»ºäºº: <span><?php echo $creator  ?></span></li>
+        <li>æµ‹è¯•ç”¨ä¾‹åœ°å€: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
+        <li>å›å½’æ—¶é—´: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
+        <li>å›å½’é¢‘ç‡: <?php echo $duration / 60  ?>å°æ—¶</li>
+        <li>åˆ›å»ºæ—¶é—´: <?php echo $createtime  ?></li>
+        <li>ä¸Šæ¬¡å›å½’æ—¶é—´:<?php echo $prev_time ?></li>
     </ul>
 </div>
 
@@ -99,8 +99,8 @@ if ($task_id !== '') {
     <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">¡Á</button>
-            <h3 id="myModalLabel">²âÊÔ½á¹û</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+            <h3 id="myModalLabel">æµ‹è¯•ç»“æœ</h3>
         </div>
         <div class="modal-body " id="m-result-report">
 
@@ -122,11 +122,11 @@ if ($task_id !== '') {
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
                 if (result[p].reports.failedSpecs !== 0 || result[p].reports.errors.length !== 0) {
-                    var passed = "Î´Í¨¹ı"
+                    var passed = "æœªé€šè¿‡"
                 }
                 else {
 
-                    var passed = "Í¨¹ı"
+                    var passed = "é€šè¿‡"
                 }
 
                 var name = p.replace(/\./g, "_") + random
@@ -193,7 +193,7 @@ if ($task_id !== '') {
                     })
                 })
                 setTimeout(function(){
-                    if(!isLoad)alert("jsÎ´ÄÜ¼ÓÔØ³É¹¦")
+                    if(!isLoad)alert("jsæœªèƒ½åŠ è½½æˆåŠŸ")
 
                 },1000*5)
 

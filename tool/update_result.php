@@ -21,6 +21,4 @@ echo ('{"code" : ' . $resultString . '}');
 
 
 
-
-
 ?>

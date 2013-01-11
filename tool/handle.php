@@ -2,7 +2,7 @@
 session_start();
 require '../auth/AuthBoot.php';
 $user = $ArkAuth->getAppUser();
-$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
+$userName = $user['DisplayName'];
 
     // include databse connector
     include_once('conn_db.php');
@@ -22,7 +22,7 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 
     //file_put_contents('../'.$task_inject_uri, $task_inject_script);
 
-    //×îÖÕ±£´æµÄÎ»ÖÃ
+    //æœ€ç»ˆä¿å­˜çš„ä½ç½®
     //$task_inject_uri = 'http://uitest.taobao.net/'.$task_inject_uri;
 
     // modify current record
@@ -77,13 +77,13 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 
 
 header('Location: list.php?result='.$result);
-    //$output = '<p>²Ù×÷' . ($result === true ? '³É¹¦' : 'Ê§°Ü') . '£¬<a href="list.php">·µ»Ø</a> ÁĞ±íÒ³</p>';
+    //$output = '<p>æ“ä½œ' . ($result === true ? 'æˆåŠŸ' : 'å¤±è´¥') . 'ï¼Œ<a href="list.php">è¿”å›</a> åˆ—è¡¨é¡µ</p>';
 
-    //print_r('ÒÑÖ´ĞĞ sql: ' . $sql);
+    //print_r('å·²æ‰§è¡Œ sql: ' . $sql);
     //print_r($output);
 
     if ($result === false){
-    //    print_r('²éÑ¯³ö´íĞÅÏ¢ [' . mysql_errno() . ']: ' . mysql_error());
+    //    print_r('æŸ¥è¯¢å‡ºé”™ä¿¡æ¯ [' . mysql_errno() . ']: ' . mysql_error());
     }
 
 ?>

@@ -15,7 +15,7 @@ KISSY.add('UITester', function (S){
             taskQueues: [
 
                 /**
-                 * Êı¾İËµÃ÷:
+                 * æ•°æ®è¯´æ˜:
                  *
                  * {
                  *   testURI: 'http://www.taobao.com/',
@@ -24,7 +24,7 @@ KISSY.add('UITester', function (S){
                  *      'http://xxx/test2.js',
                  *      'http://xxx/test3.js'
                  *      ],
-                 *   status: 'wait' // ¿ÉÈ¡µÄÖµÓĞ: waiting, testing, successed, failed
+                 *   status: 'wait' // å¯å–çš„å€¼æœ‰: waiting, testing, successed, failed
                  * }, {
                  *   testURI: 'http://www.taobao.com/',
                  *   caseURI: ['http://xxx/test4.js'],
@@ -40,30 +40,30 @@ KISSY.add('UITester', function (S){
             ]
         },
 
-        // ³õÊ¼»¯²âÊÔÄ£¿é
+        // åˆå§‹åŒ–æµ‹è¯•æ¨¡å—
         init: function (){
             //document.domain = 'taobao.com';
 
             var host = this;
 
-            // °ó¶¨ÊÂ¼ş
+            // ç»‘å®šäº‹ä»¶
             host.bindEvent();
             
         },
 
-        // ³õÊ¼»¯ postMessage ¹¦ÄÜ
+        // åˆå§‹åŒ– postMessage åŠŸèƒ½
         //_initPostMessage: function (){
         //},
 
-        // ÏòÈÎÎñ¶ÓÁĞÌí¼ÓÈÎÎñ
+        // å‘ä»»åŠ¡é˜Ÿåˆ—æ·»åŠ ä»»åŠ¡
         //_addToTaskQueue: function (){
         //},
 
-         // ´ÓÈÎÎñ¶ÓÁĞÖĞÒÆ³ıÈÎÎñ
+         // ä»ä»»åŠ¡é˜Ÿåˆ—ä¸­ç§»é™¤ä»»åŠ¡
         //_removeFromTaskQueue: function (){
         //},
 
-        // ÎªÕû¸ö²âÊÔ¿ò¼Ü°ó¶¨ÊÂ¼ş
+        // ä¸ºæ•´ä¸ªæµ‹è¯•æ¡†æ¶ç»‘å®šäº‹ä»¶
         bindEvent: function (){
             var host = this;
 
@@ -99,7 +99,7 @@ KISSY.add('UITester', function (S){
 
             var targetNode = DOM.get('.J_Task')
 
-            // ¿ËÂ¡Õû¸ö DOM ½á¹¹£¬°üÀ¨×Ó½Úµã
+            // å…‹éš†æ•´ä¸ª DOM ç»“æ„ï¼ŒåŒ…æ‹¬å­èŠ‚ç‚¹
             var neoClonedTask = DOM.clone(targetNode, true);
             var formNode = DOM.get('FORM', neoClonedTask);
             formNode.reset();
@@ -107,7 +107,7 @@ KISSY.add('UITester', function (S){
             DOM.insertBefore(neoClonedTask, targetNode);
         },
 
-        // Æô¶¯¶ÓÁĞÖĞµÄÈÎÎñ
+        // å¯åŠ¨é˜Ÿåˆ—ä¸­çš„ä»»åŠ¡
         _startTask: function (ev, target, parentNode){
             ev.preventDefault();
 
@@ -170,12 +170,12 @@ KISSY.add('UITester', function (S){
             DOM.insertBefore(neoNode, targetToBeCloned);
         },
         
-        // ×¢Èë²âÊÔ½Å±¾
+        // æ³¨å…¥æµ‹è¯•è„šæœ¬
         injectResource: function (frame, cfg){
             var host = this,
                 scriptNode;
 
-            // ×¢²áÊÂ¼ş, ÔÚ iframe onload Ê±ºòÔÙ×¢Èë½Å±¾
+            // æ³¨å†Œäº‹ä»¶, åœ¨ iframe onload æ—¶å€™å†æ³¨å…¥è„šæœ¬
             Event.on(frame, 'load', function (){
                 var scriptsInjectQueue = host.configs.defaultInjectScripts.concat(cfg.caseURIs);
 

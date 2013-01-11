@@ -20,7 +20,7 @@
 
 <div class="container">
 
-<h1>ÈÎÎñÏêÇé</h1>
+<h1>ä»»åŠ¡è¯¦æƒ…</h1>
 
 
 <?php
@@ -70,13 +70,13 @@ if ($task_id !== ''){
 <p><?php echo $description ?></p>
 <div id="detail-info">
 	<ul>
-		<li>²úÆ·Ïß: <span id="productline" data-id="<?php echo $productline ?>"></span>
-		<li>´´½¨ÈË: <?php echo $creator  ?>
-		<li>²âÊÔÓÃÀýµØÖ·: <?php echo $task_inject_uri  ?>
-		<li>»Ø¹éÊ±¼ä: <span id="weeks" data-id="<?php echo $week  ?>"></span>
-		<li>Æô¶¯Ê±¼ä: <?php echo $start_time  ?>
-		<li>»Ø¹éÆµÂÊ: <?php echo $duration / 60  ?>Ð¡Ê±
-		<li>´´½¨Ê±¼ä: <?php echo $createtime  ?>
+		<li>äº§å“çº¿: <span id="productline" data-id="<?php echo $productline ?>"></span>
+		<li>åˆ›å»ºäºº: <?php echo $creator  ?>
+		<li>æµ‹è¯•ç”¨ä¾‹åœ°å€: <?php echo $task_inject_uri  ?>
+		<li>å›žå½’æ—¶é—´: <span id="weeks" data-id="<?php echo $week  ?>"></span>
+		<li>å¯åŠ¨æ—¶é—´: <?php echo $start_time  ?>
+		<li>å›žå½’é¢‘çŽ‡: <?php echo $duration / 60  ?>å°æ—¶
+		<li>åˆ›å»ºæ—¶é—´: <?php echo $createtime  ?>
 	</ul>
 </div>
 

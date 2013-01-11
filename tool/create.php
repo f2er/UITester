@@ -18,60 +18,60 @@ $modify_tag = '';
 
     <form class="form-horizontal" method="POST" action="handle.php">
         <fieldset>
-          <!--  <legend>´´½¨»Ø¹éÈÎÎñ</legend> -->
+          <!--  <legend>åˆ›å»ºå›žå½’ä»»åŠ¡</legend> -->
         <div class="control-group">
-            <label class="control-label" for="productline">²úÆ·</label>
+            <label class="control-label" for="productline">äº§å“</label>
             <div class="controls">
                 <select id="productline" name="productline" required value="">
-                    <option value="" selected="selected">È«²¿</option>
+                    <option value="" selected="selected">å…¨éƒ¨</option>
                 </select>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="task_name">Ãû³Æ</label>
+            <label class="control-label" for="task_name">åç§°</label>
             <div class="controls">
                 <input type="text" name="task_name" class="input-box" required/>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="task_inject_uri">½Å±¾µØÖ·</label>
+            <label class="control-label" for="task_inject_uri">è„šæœ¬åœ°å€</label>
             <div class="controls">
-                <input type="text" name="task_inject_uri" class="input-box" required/><span class="help-inline">ÇëÈ·¶¨µØÖ·ÎÞÐèÈ¨ÏÞÒ²ÄÜÕý³£·ÃÎÊ</span>
+                <input type="text" name="task_inject_uri" class="input-box" required/><span class="help-inline">è¯·ç¡®å®šåœ°å€æ— éœ€æƒé™ä¹Ÿèƒ½æ­£å¸¸è®¿é—®</span>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="timers">»Ø¹éÊ±¼ä</label>
+            <label class="control-label" for="timers">å›žå½’æ—¶é—´</label>
             <div class="controls">
                 <input type="hidden" name="week">
-                <input type="checkbox" name="timers" value="1" />ÐÇÆÚÒ»
-                <input type="checkbox" name="timers" value="2" />ÐÇÆÚ¶þ
-                <input type="checkbox" name="timers" value="3" />ÐÇÆÚÈý
-                <input type="checkbox" name="timers" value="4" />ÐÇÆÚËÄ
-                <input type="checkbox" name="timers" value="5" />ÐÇÆÚÎå
-                <input type="checkbox" name="timers" value="6" />ÐÇÆÚÁù
-                <input type="checkbox" name="timers" value="0" />ÐÇÆÚÈÕ
+                <input type="checkbox" name="timers" value="1" />æ˜ŸæœŸä¸€
+                <input type="checkbox" name="timers" value="2" />æ˜ŸæœŸäºŒ
+                <input type="checkbox" name="timers" value="3" />æ˜ŸæœŸä¸‰
+                <input type="checkbox" name="timers" value="4" />æ˜ŸæœŸå››
+                <input type="checkbox" name="timers" value="5" />æ˜ŸæœŸäº”
+                <input type="checkbox" name="timers" value="6" />æ˜ŸæœŸå…­
+                <input type="checkbox" name="timers" value="0" />æ˜ŸæœŸæ—¥
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="duration">»Ø¹éÆµÂÊ</label>
+            <label class="control-label" for="duration">å›žå½’é¢‘çŽ‡</label>
             <div class="controls">
-                Ã¿Ìì»Ø¹éµÄÊ±¼äµã: <input class="duration" type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
+                æ¯å¤©å›žå½’çš„æ—¶é—´ç‚¹: <input class="duration" type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
 
-                »Ø¹éÆµÂÊ: <select class="duration" name="duration">
+                å›žå½’é¢‘çŽ‡: <select class="duration" name="duration">
                 <option value="30">0.5</option>
                 <option value="60">1</option>
                 <option value="120">2</option>
                 <option value="240">4</option>
                 <option value="480">8</option>
                 <option value="720">12</option>
-            </select>Ð¡Ê±
+            </select>å°æ—¶
             </div>
         </div>
         <div class="control-group">
             <div class="controls">
                 <input type="hidden" name="modify_tag" value="<?php echo $modify_tag ?>" />
                 <input type="hidden" name="task_id" value="<?php echo$task_id ?>" />
-                <button type="submit" class="btn  btn-success">´´½¨»Ø¹é¼¯</button>
+                <button type="submit" class="btn  btn-success">åˆ›å»ºå›žå½’é›†</button>
             </div>
         </div>
 
@@ -88,47 +88,47 @@ $modify_tag = '';
 
 			echo('
 				<tr>
-					<th>²úÆ·:</th>
+					<th>äº§å“:</th>
 					<td>
 						<select id="productline" name="productline" required value="">
-							<option value="" selected="selected">È«²¿</option>
+							<option value="" selected="selected">å…¨éƒ¨</option>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<th>Ãû³Æ:</th>
+					<th>åç§°:</th>
 					<td>
 						<input type="text" name="task_name" class="input-box" required/>
 					</td>
 				</tr>
 				<tr>
-					<th>½Å±¾µØÖ·:</th>
+					<th>è„šæœ¬åœ°å€:</th>
 					<td>
 						<input type="text" name="task_inject_uri" class="input-box"/>
 					</td>
 				</tr>
 				<tr>
-					<th>¶¨Ê±:</th>
+					<th>å®šæ—¶:</th>
 					<td>
 						<input type="hidden" name="week">
-						<input type="checkbox" name="timers" value="1" />ÐÇÆÚÒ» 
-						<input type="checkbox" name="timers" value="2" />ÐÇÆÚ¶þ 
-						<input type="checkbox" name="timers" value="3" />ÐÇÆÚÈý 
-						<input type="checkbox" name="timers" value="4" />ÐÇÆÚËÄ 
-						<input type="checkbox" name="timers" value="5" />ÐÇÆÚÎå 
-						<input type="checkbox" name="timers" value="6" />ÐÇÆÚÁù 
-						<input type="checkbox" name="timers" value="7" />ÐÇÆÚÈÕ
+						<input type="checkbox" name="timers" value="1" />æ˜ŸæœŸä¸€ 
+						<input type="checkbox" name="timers" value="2" />æ˜ŸæœŸäºŒ 
+						<input type="checkbox" name="timers" value="3" />æ˜ŸæœŸä¸‰ 
+						<input type="checkbox" name="timers" value="4" />æ˜ŸæœŸå›› 
+						<input type="checkbox" name="timers" value="5" />æ˜ŸæœŸäº” 
+						<input type="checkbox" name="timers" value="6" />æ˜ŸæœŸå…­ 
+						<input type="checkbox" name="timers" value="7" />æ˜ŸæœŸæ—¥
 							<br/><br/>	
-						Ã¿Ìì»Ø¹éµÄÊ±¼äµã: <input class="duration" type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
+						æ¯å¤©å›žå½’çš„æ—¶é—´ç‚¹: <input class="duration" type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
 
-						»Ø¹éÆµÂÊ: <select class="duration" name="duration">
+						å›žå½’é¢‘çŽ‡: <select class="duration" name="duration">
 							<option value="30">0.5</option>
 							<option value="60">1</option>
 							<option value="120">2</option>
 							<option value="240">4</option>
 							<option value="480">8</option>
 							<option value="720">12</option>
-						</select>Ð¡Ê±
+						</select>å°æ—¶
 					</td>
 				</tr>
 
@@ -136,7 +136,7 @@ $modify_tag = '';
 					<td colspan="2">
 						<input type="hidden" name="modify_tag" value="' . $modify_tag . '" />
 						<input type="hidden" name="task_id" value="' . $task_id . '" />
-						<input type="submit" value="±£´æ" />
+						<input type="submit" value="ä¿å­˜" />
 					</td>
 				</tr>
 			');

@@ -10,15 +10,15 @@
 <div class="container" style="width: 920">
 
     <div id ="input_test"  style="text-align: center">
-        <input class="input-xxlarge" placeholder="输入测试代码的地址" id="test_src" type="text"><br>
-        <button class="btn" type="button" id="run_test">测试</button>
+        <input class="input-xxlarge" placeholder="杈撳叆娴嬭瘯浠ｇ爜鐨勫湴鍧�" id="test_src" type="text"><br>
+        <button class="btn" type="button" id="run_test">娴嬭瘯</button>
 
     </div>
 
     <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">测试结果</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">脳</button>
+            <h3 id="myModalLabel">娴嬭瘯缁撴灉</h3>
         </div>
         <div class="modal-body result-report" id="m-result-report"">
 
@@ -38,11 +38,11 @@
                 var bodyHtml = '<div class="tab-content result-report">'
                 for (var p in result) {
                     if(result[p].reports.failedSpecs !== 0||result[p].reports.errors.length !== 0){
-                        var passed = "未通过"
+                        var passed = "鏈�氳繃"
                     }
                     else{
 
-                        var passed = "通过"
+                        var passed = "閫氳繃"
                     }
 
                     var name = p.replace(/\./g,"_")
@@ -100,12 +100,12 @@
                     if (isConnected) {
                         var src = jQuery("#test_src").val();
 
-                        jQuery("#myModal .modal-body").html("正在测试....");
+                        jQuery("#myModal .modal-body").html("姝ｅ湪娴嬭瘯....");
                         $('#myModal').modal('show');
                         socket.emit("remote:task_start", {"task_inject_uri":src})
                     }
                     else {
-                        alert("未能成功连接")
+                        alert("鏈兘鎴愬姛杩炴帴")
                     }
 
                 })

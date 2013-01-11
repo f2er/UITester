@@ -96,13 +96,13 @@
     <div class="container">
         <h1>UITest</h1>
 
-        <p>һ���Զ���ǰ��UI����ƽ̨���ò���webҳ�����ʽ�����ܺ�javascript�򵥶���Ч</p>
+        <p>一个自动化前端UI测试平台，让测试web页面的样式、功能和javascript简单而高效</p>
 
         <p>
 
         <div class="input-append" style="margin-top: 70px">
-            <input class="input-xlarge" placeholder="��������Դ���ĵ�ַ" id="test_src" type="text">
-            <button class="btn btn-primary " type="button " id="run_test">����</button>
+            <input class="input-xlarge" placeholder="请输入测试代码的地址" id="test_src" type="text">
+            <button class="btn btn-primary " type="button " id="run_test">测试</button>
 
         </div>
         </p>
@@ -187,24 +187,24 @@
         <div class="row-fluid">
             <div class="span4">
 
-                <h2>UT���Կ��</h2>
+                <h2>UT测试框架</h2>
 
-                <p>UT���Կ���ǻ���javascript��jasmine֮�ϵ�webpage���Կ�ܡ�UTʹ��������ɲٿ�webҳ�棻ʹ�÷ḻ�Ķ��������в��ԣ�
-                    ǿ����첽֧�֣����Ը��򵥵Ĳ����첽���ܣ��ӿ����Ч��</p>
+                <p>UT测试框架是基于javascript和jasmine之上的webpage测试框架。UT使你可以自由操控web页面；使用丰富的断言语句进行测试；
+                    强大的异步支持，可以更简单的测试异步功能，加快测试效率</p>
             </div>
             <div class="span4">
 
-                <h2>��Ч�ʱ�д��������</h2>
+                <h2>高效率编写测试用例</h2>
 
-                <p>¼�ƹ��߰���������׼���ı�д���Դ��롣�ñ�д���Դ����Ϊһ�������ɵ�����</p>
+                <p>录制工具帮助你更快更准备的编写测试代码。让编写测试代码成为一件简单轻松的事情</p>
             </div>
             <div class="span4">
 
-                <h2>���ɻ������߲���ϵͳ</h2>
+                <h2>集成化的在线测试系统</h2>
 
-                <p>�ع���Կ���ʱʱ���web�����Ƿ�����������ʱ��������
-                    Զ�̲��ԣ�ֻ��Ҫ��׼���ò��Դ����url���Ϳ����������в��ԣ������������
-                   ���ز��ԣ����԰������ֳ�������Ĳ��Դ��롣</p>
+                <p>回归测试可以时时监控web功能是否正常，并及时报告结果。
+                    远程测试，只需要你准备好测试代码的url，就可以立即进行测试，并反馈结果。
+                   本地测试，可以帮助你现场调试你的测试代码。</p>
             </div>
         </div>
 
@@ -229,7 +229,7 @@
 
 
     </style>
-    <p> �Ա�ǰ�˲��Լ���С�� 2012</p>
+    <p> 淘宝前端测试技术小组 2012</p>
     <br>
     <br>
     <br>
@@ -240,33 +240,33 @@
 
 
     <div class="summery">
-        <p>UITester��һ���Զ�����ǰ��UI����ƽ̨.</p>
+        <p>UITester是一个自动化的前端UI测试平台.</p>
 
-        <p>UITester�����������Ա�ҳ�棬ͨ��¼�ƹ��߿��ٱ༭���޸Ĳ���������������������������Զ��ع����</p>
+        <p>UITester适用于所有淘宝页面，通过录制工具快速编辑和修改测试用例，并能在所有浏览器中自动回归测试</p>
     </div>
     <div class="step-step">
         <div class="s">
-            <h3>��װ:</h3>
+            <h3>安装:</h3>
 
-            <p>��������������Զ�����<a href="http://uitest.taobao.net/proxy.pac">http://uitest.taobao.net/proxy.pac</a></p>
+            <p>在浏览器中配置自动代理<a href="http://uitest.taobao.net/proxy.pac">http://uitest.taobao.net/proxy.pac</a></p>
         </div>
         <div class="s">
-            <h3>¼��:</h3>
+            <h3>录制:</h3>
 
-            <p>������������ʹ���ֶ���д��UITester�ṩ��רҵ��¼�ƹ��ߣ�������������ı�д���޸�</p>
+            <p>测试用例不再使用手动编写。UITester提供的专业的录制工具，快速完成用例的编写和修改</p>
         </div>
         <div class="s">
-            <h3>����:</h3>
+            <h3>测试:</h3>
 
-            <p>UITester�ṩ��һ��ר�ŵ�ui���Կ��<a href="https://github.com/taobao-sns-fed/UITester">uitest</a>,���ʺϻ���HTMLҳ���UI����
+            <p>UITester提供了一套专门的ui测试框架<a href="https://github.com/taobao-sns-fed/UITester">uitest</a>,更适合基于HTML页面的UI测试
             </p>
         </div>
 
 
     </div>
     <div class="nav">
-        <a href="record/record.html">¼���²�������</a>
-        <a href="tool/list.php">�鿴���в�������</a>
+        <a href="record/record.html">录制新测试用例</a>
+        <a href="tool/list.php">查看已有测试用例</a>
 
     </div>
 
@@ -278,8 +278,8 @@
 <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">��</button>
-        <h3 id="myModalLabel">���Խ��</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">测试结果</h3>
     </div>
     <div class="modal-body result-report" id="m-result-report">
 
@@ -300,11 +300,11 @@
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
                 if (result[p].reports.failedSpecs !== 0 || result[p].reports.errors.length !== 0) {
-                    var passed = "δͨ��"
+                    var passed = "未通过"
                 }
                 else {
 
-                    var passed = "ͨ��"
+                    var passed = "通过"
                 }
 
                 var name = p.replace(/\./g, "_")
@@ -362,12 +362,12 @@
                 if (isConnected) {
                     var src = jQuery("#test_src").val();
 
-                    jQuery("#myModal .modal-body").html("���ڲ���....");
+                    jQuery("#myModal .modal-body").html("正在测试....");
                     $('#myModal').modal('show');
                     socket.emit("remote:task_start", {"task_inject_uri":src})
                 }
                 else {
-                    alert("δ�ܳɹ�����")
+                    alert("未能成功连接")
                 }
 
             })

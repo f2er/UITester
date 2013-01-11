@@ -4,7 +4,7 @@
 $task_id = trim($_REQUEST['id']);
 
 if ($task_id === '') {
-    echo('δָ������ task_id');
+    echo('未指定参数 task_id');
     exit;
 }
 
@@ -24,33 +24,33 @@ echo '<script>var taskInfo = {id:' . $result_item['id'] . ', target_uri:"'.$ifra
 
 <div class="run-case-nav">
 
-    <input type="checkbox" id="run-auto"/><a class="run-auto">��ʱִ��</a>
+    <input type="checkbox" id="run-auto"/><a class="run-auto">定时执行</a>
 
            <span class="run-auto-set" style="display:none;">
 
-               ���ʱ�䣺<select id="long-time">
-               <option value="1">1����</option>
-               <option value="2">2����</option>
-               <option value="5">5����</option>
-               <option value="10">10����</option>
-               <option value="30">30����</option>
+               间隔时间：<select id="long-time">
+               <option value="1">1分钟</option>
+               <option value="2">2分钟</option>
+               <option value="5">5分钟</option>
+               <option value="10">10分钟</option>
+               <option value="30">30分钟</option>
 
-               <option value="60">1Сʱ</option>
-               <option value="120">2Сʱ</option>
-               <option value="3600">6Сʱ</option>
-               <option value="72000">12Сʱ</option>
-               <option value="144000">24Сʱ</option>
+               <option value="60">1小时</option>
+               <option value="120">2小时</option>
+               <option value="3600">6小时</option>
+               <option value="72000">12小时</option>
+               <option value="144000">24小时</option>
            </select>
 
-            �ʼ���ַ��<input type="text" id="J_MailTo" name="to" placeholder="�����������ַ"/>
-               <span class="gray">(��ʱ����ʱ���벻Ҫ�ر�Щҳ�棬��������ͨ��ʱ���ἴʱͨ���ʼ�֪ͨ��)</span>
+            邮件地址：<input type="text" id="J_MailTo" name="to" placeholder="请输入邮箱地址"/>
+               <span class="gray">(定时测试时，请不要关闭些页面，当用例不通过时，会即时通过邮件通知您)</span>
 </span>
 
 </div>
 <div class="run-case">
 
 
-    <div id="run-result">���ڲ���......</div>
+    <div id="run-result">正在测试......</div>
 
     <iframe id="run-iframe" src="<?php echo $iframe_uri ?>" frameborder="0" width="100%"
         ></iframe>

@@ -10,13 +10,13 @@
 <div class="container" id="runlocal">
 
     <div id="input_test" >
-      <div><span>ÇëÊäÈë²âÊÔ´úÂë»òµØÖ·</span><span style="color: #ccc">£¨ĞèÒªÏÈ°²×°ä¯ÀÀÆ÷²å¼ş<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>£¬<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>£©</span></div>
+      <div><span>è¯·è¾“å…¥æµ‹è¯•ä»£ç æˆ–åœ°å€</span><span style="color: #ccc">ï¼ˆéœ€è¦å…ˆå®‰è£…æµè§ˆå™¨æ’ä»¶<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>ï¼Œ<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>ï¼‰</span></div>
       <div class="text"> <textarea id="test_text"  spellcheck="false">
           //example
-          //²âÊÔ±¾µØµ÷ÊÔµ¼º½²Ëµ¥Ñ¡ÖĞ
+          //æµ‹è¯•æœ¬åœ°è°ƒè¯•å¯¼èˆªèœå•é€‰ä¸­
           UT.open("http://uitest.taobao.net/tool/local-test.php", function(){
-                describe("´ò¿ªÒ³Ãæ", function(){
-                     it("²âÊÔµ¼º½Ñ¡ÖĞ", function(){
+                describe("æ‰“å¼€é¡µé¢", function(){
+                     it("æµ‹è¯•å¯¼èˆªé€‰ä¸­", function(){
                          expect(".nav .acitve").toHaveAttr("href","http://uitest.taobao.net/tool/local-test.php")
                      })
                  })
@@ -24,15 +24,15 @@
       </textarea></div>
 
         <div clsss="info">
-          <button class="btn" type="button " id="run_test">²âÊÔ</button>
+          <button class="btn" type="button " id="run_test">æµ‹è¯•</button>
        </div>
 
     </div>
 
     <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">¡Á</button>
-            <h3 id="myModalLabel">²âÊÔ½á¹û</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
+            <h3 id="myModalLabel">æµ‹è¯•ç»“æœ</h3>
         </div>
         <div class="modal-body result-report">
 

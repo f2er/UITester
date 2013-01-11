@@ -15,7 +15,7 @@
 
 <div class="container">
 
-<h1>ÐÞ¸ÄÈÎÎñ</h1>
+<h1>ä¿®æ”¹ä»»åŠ¡</h1>
 
 
 <?php
@@ -57,10 +57,10 @@ if ($task_id !== ''){
 
 <div id="info">
 	<ul>
-		<li>ÈÎÎñid: <?php echo $task_id  ?>
-		<li>²úÆ·Ïß: <span id="productline" data-id="<?php echo $productline ?>"></span>
-		<li>´´½¨ÈË: <?php echo $creator  ?>
-		<li>´´½¨Ê±¼ä: <?php echo $createtime  ?>
+		<li>ä»»åŠ¡id: <?php echo $task_id  ?>
+		<li>äº§å“çº¿: <span id="productline" data-id="<?php echo $productline ?>"></span>
+		<li>åˆ›å»ºäºº: <?php echo $creator  ?>
+		<li>åˆ›å»ºæ—¶é—´: <?php echo $createtime  ?>
 	</ul>
 </div>
 
@@ -75,45 +75,45 @@ if ($task_id !== ''){
 
 			echo('
 				<tr>
-					<th>Ãû³Æ</th>
+					<th>åç§°</th>
 					<td>
 						<input type="text" name="task_name" class="input-box" value="' . $task_name . '" />
 					</td>
 				</tr>
 				<tr>
-					<th>²âÊÔÓÃÀýµØÖ·</th>
+					<th>æµ‹è¯•ç”¨ä¾‹åœ°å€</th>
 					<td>
 						<input type="text" name="task_inject_uri" class="input-box" value="' . $task_inject_uri . '" />
 					</td>
 				</tr>
 				<tr>
-					<th>¶¨Ê±</th>
+					<th>å®šæ—¶</th>
 					<td>
 						<input type="hidden" name="week" value="' . $week . '" />
-						<input type="checkbox" name="timers" value="1" />ÐÇÆÚÒ» 
-						<input type="checkbox" name="timers" value="2" />ÐÇÆÚ¶þ 
-						<input type="checkbox" name="timers" value="3" />ÐÇÆÚÈý 
-						<input type="checkbox" name="timers" value="4" />ÐÇÆÚËÄ 
-						<input type="checkbox" name="timers" value="5" />ÐÇÆÚÎå 
-						<input type="checkbox" name="timers" value="6" />ÐÇÆÚÁù 
-						<input type="checkbox" name="timers" value="0" />ÐÇÆÚÈÕ
+						<input type="checkbox" name="timers" value="1" />æ˜ŸæœŸä¸€ 
+						<input type="checkbox" name="timers" value="2" />æ˜ŸæœŸäºŒ 
+						<input type="checkbox" name="timers" value="3" />æ˜ŸæœŸä¸‰ 
+						<input type="checkbox" name="timers" value="4" />æ˜ŸæœŸå›› 
+						<input type="checkbox" name="timers" value="5" />æ˜ŸæœŸäº” 
+						<input type="checkbox" name="timers" value="6" />æ˜ŸæœŸå…­ 
+						<input type="checkbox" name="timers" value="0" />æ˜ŸæœŸæ—¥
 							<br/><br/>	
-						Ã¿Ìì»Ø¹éµÄÊ±¼äµã: <input type="text" name="start" value="' . $start . '" size="5" placeholder="mm:ss" style="width:40px"> &nbsp;&nbsp;
-						¼ä¸ôÊ±¼ä: <select class="duration" name="duration" data-value="'.$duration.'">
+						æ¯å¤©å›žå½’çš„æ—¶é—´ç‚¹: <input type="text" name="start" value="' . $start . '" size="5" placeholder="mm:ss" style="width:40px"> &nbsp;&nbsp;
+						é—´éš”æ—¶é—´: <select class="duration" name="duration" data-value="'.$duration.'">
 							<option value="30">0.5</option>
 							<option value="60">1</option>
 							<option value="120">2</option>
 							<option value="240">4</option>
 							<option value="480">8</option>
 							<option value="720">12</option>
-						</select>Ð¡Ê±
+						</select>å°æ—¶
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<input type="hidden" name="modify_tag" value="' . $modify_tag . '" />
 						<input type="hidden" name="task_id" value="' . $task_id . '" />
-						<input type="submit" value="±£´æ" />
+						<input type="submit" value="ä¿å­˜" />
 					</td>
 				</tr>
 			');

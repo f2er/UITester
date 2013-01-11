@@ -2,15 +2,15 @@
 session_start();
 require '../auth/AuthBoot.php';
 $user = $ArkAuth->getAppUser();
-$userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
-//$userName = '道璘';
+$userName = $user['DisplayName'];
+//$userName = '閬撶挊';
 ?>
 
 <!doctype html>
 <html>
 <head>
-<meta charset="gbk">
-<title>测试用例列表</title>
+<meta charset="utf8">
+<title>娴嬭瘯鐢ㄤ緥鍒楄〃</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="assets/common.css" />
@@ -34,7 +34,7 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
 	<div class="container">
-	  <div class="login-info">hello: <a href="#"><?php echo $userName; ?></a>  <a charset="utf8" class="logout" href="logout.php">退出</a></div>
+	  <div class="login-info">hello: <a href="/tool/list.php?me"><?php echo $userName; ?></a>  <a charset="utf8" class="logout" href="logout.php">閫�鍑�</a></div>
 	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
@@ -43,13 +43,13 @@ $userName = mb_convert_encoding($user['DisplayName'], 'GBK', 'UTF-8');
 	  <a class="brand" href="index.php" <?php if($nav==='index')echo 'style="color:#FFF"' ?>>UITest</a>
 	  <div class="nav-collapse collapse">
 		<ul class="nav">
-		  		  <li <?php if($nav==='me' || isset($_GET['me']))echo 'class="active"' ?>><a href="list.php?me">我的用例</a></li>
-		  <li <?php if($nav==='list' && !isset($_GET['me']))echo 'class="active"' ?>><a href="list.php">全部用例</a></li>
-          <li <?php if($nav==='create')echo 'class="active"' ?>><a href="http://uitest.taobao.net/tool/create.php">回归测试</a></li>
-            <li <?php if($nav==='local-test')echo 'class="active"' ?>><a href="http://uitest.taobao.net/tool/local-test.php">本地调试</a></li>
+		  		  <li <?php if($nav==='me' || isset($_GET['me']))echo 'class="active"' ?>><a href="list.php?me">鎴戠殑鐢ㄤ緥</a></li>
+		  <li <?php if($nav==='list' && !isset($_GET['me']))echo 'class="active"' ?>><a href="list.php">鍏ㄩ儴鐢ㄤ緥</a></li>
+          <li <?php if($nav==='create')echo 'class="active"' ?>><a href="/tool/create.php">鍥炲綊娴嬭瘯</a></li>
+            <li <?php if($nav==='local-test')echo 'class="active"' ?>><a href="/tool/local-test.php">鏈湴璋冭瘯</a></li>
 
-		  <li <?php if($nav==='record')echo 'class="active"' ?>><a href="record/record.html?">录制工具</a></li>
-		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="https://github.com/taobao-sns-fed/UITester/wiki">帮助</a></li>
+		  <li <?php if($nav==='record')echo 'class="active"' ?>><a href="record/record.html?">褰曞埗宸ュ叿</a></li>
+		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="https://github.com/taobao-sns-fed/UITester/wiki">甯姪</a></li>
 		</ul>
 	  </div><!--/.nav-collapse -->
 	</div>
