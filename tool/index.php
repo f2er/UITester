@@ -64,19 +64,19 @@
         <p>
 
         <div  style="margin-top: 70px">
-        <a href="https://github.com/taobao-sns-fed/UITester/wiki" target="_blank" class="btn btn-primary btn-large" >学习使用</a>
+        <a href="http://taobao-sns-fed.github.com/UITester/" target="_blank" class="btn btn-primary btn-large" >学习使用</a>
 
         </div>
         </p>
         <ul class="masthead-links">
             <li>
-                <a href="https://github.com/taobao-sns-fed/UITester/wiki">Examples</a>
+                <a href="http://taobao-sns-fed.github.com/UITester/">Examples</a>
             </li>
             <li>
                 <a href="https://github.com/taobao-sns-fed/UITester/">GitHub</a>
             </li>
             <li>
-                <a href="https://github.com/taobao-sns-fed/UITester/wiki">wiki</a>
+                <a href="http://taobao-sns-fed.github.com/UITester/">wiki</a>
             </li>
 
             <li>

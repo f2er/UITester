@@ -42,7 +42,7 @@ $userName = $user['DisplayName'];
             <li <?php if($nav==='local-test')echo 'class="active"' ?>><a href="/tool/local-test.php">本地调试</a></li>
 
 		  <li <?php if($nav==='record')echo 'class="active"' ?>><a href="record/record.html?">录制工具</a></li>
-		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="https://github.com/taobao-sns-fed/UITester/wiki">帮助</a></li>
+		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="http://taobao-sns-fed.github.com/UITester/">帮助</a></li>
 		</ul>
 	  </div><!--/.nav-collapse -->
 	</div>

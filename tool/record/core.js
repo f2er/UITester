@@ -1202,7 +1202,7 @@
 
 
                 el._elToSelector = host.elToSelector(el);
-               el._elToSelectorRelativeParent=host.elToSelectorRelativeParent(t);
+               el._elToSelectorRelativeParent=host.elToSelectorRelativeParent(el);
                 return  removeChild.apply(this, arguments)
             }
 
