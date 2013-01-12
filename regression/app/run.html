@@ -12,6 +12,7 @@
 <script>
     var timeout = false;
     var isloading = false;
+    var isRuning = false;
     UT._setForceClose(true);
     var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
    if(url.indexOf("?")!=-1){
@@ -33,6 +34,7 @@
     }
     var test_start = function (url) {
         isloading =true;
+        isRuning = true;
         try{
         jQuery.getScript(url, function () {
             isloading = false;
@@ -41,6 +43,7 @@
                 timeout = null;
             }
             UT.execute(function (report) {
+                isRuning= false;
                 task_complete(report)
             })
         })
@@ -55,6 +58,7 @@
         timeout = window.setTimeout(function () {
             if(!isloading)return;
             isloading=true;
+            isRuning = false;
 
             var report = UT.defaultResult;
             report.reports.errors.push({
