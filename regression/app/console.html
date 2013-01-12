@@ -77,7 +77,7 @@ try {
             jQuery("#info").html("正在打开运行窗口");
 
 
-            var test_run_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+            var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
             var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
             test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
 
@@ -108,7 +108,7 @@ try {
                             window.location.reload();
 
                         });
-                        socket.on('console:summary', function (data) {
+                        socket.on('console:update', function (data) {
                             jQuery("#browser_info").html("当前浏览器信息: " + JSON.stringify(data));
                         });
 
@@ -117,18 +117,19 @@ try {
                         socket.on('console:task_start', function (data) {
                             var tryNum = 0;
                             var isComplete = false;
-                            jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.task_inject_uri);
+                            jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.url);
                             var run = function (data) {
-                                if (data && data.task_inject_uri) {
+                                if (data && data.url) {
                                     //创建一个独立的环境
 
 
-                                    if (!run_win) {
-
+                                    if (!run_win||!run_win.location) {
+                                        run_win && run_win.close&&run_win.close();
                                         run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-                                        var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                        run_win.location.href = 'http://' + http_host + "/run.html?url=" + jQuery.trim(encodeURIComponent(data.task_inject_uri)) + "&id=" + id;
+
                                     }
+                                    var id = data.id;
+                                    run_win.location.href = 'http://' + http_host + "/run.html?url=" + jQuery.trim(encodeURIComponent(data.url)) + "&id=" + data.id;
 
                                     UT._msgReady(run_win,
                                             function () {
@@ -192,7 +193,7 @@ try {
 
                                 }
                             }
-                            run();
+                            run(data);
 
 
                         });
@@ -217,7 +218,7 @@ try {
     //等结果
     UT.postmsg.bind(function (data) {
         if (data.id && callback[data.id]) {
-            callback[data.id](data.report);
+            callback[data.id](data);
             delete callback[data.id];
         }
 
