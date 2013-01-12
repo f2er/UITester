@@ -28,32 +28,114 @@
     <div id="content-wrapper">
       <div class="inner clearfix">
         <section id="main-content">
-          <h3>Welcome to GitHub Pages.</h3>
+          <h3>UITest</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p><a href="http://uitest.taobao.net">UITest</a>是一个前端UI测试平台，uitest的目的是让测试web页面中的样式，功能以及javascript，更加简单而高效。 包含多个测试工具：      </p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<ol>
+<li>基于javascript语言和jasmine之上的web页面框架UT，请你轻松控制web页面的每一个细节<br>
+</li>
+<li>一个基于chrome浏览器的测试脚本录制工具。帮助你更高效的编写测试用例<br>
+</li>
+<li>集成了回归测试和旺旺通知。时时监控页面中的问题</li>
+<li>本地调试工具。让你的测试代码准确无误</li>
+</ol><h3>什么时候使用uitest</h3>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<ol>
+<li>你熟悉javascript语言</li>
+<li>你希望测试web页面中的样式，功能以及javascript</li>
+<li>你希望在多种浏览器里同时测试</li>
+<li>你希望能够持续回归测试，并及时通知。</li>
+<li>你希望进行方便的本地调试</li>
+<li>你希望能跟快速准确的的编写测试代码</li>
+</ol><h3>测试框架</h3>
 
-<h3>Designer Templates</h3>
+<p>uitest使用专门为ui测试开发的测试框架UT。UT框架使用javascript语言，在jasmine基础上进行开发，并整合了jquery框架。</p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p><strong>打开窗口</strong></p>
 
-<h3>Rather Drive Stick?</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nx">UT</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"test.html"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+ <span class="c1">//jasmine语句</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s2">"打开test.html"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+       <span class="nx">it</span><span class="p">(</span><span class="s2">"执行测试"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+           <span class="nx">expect</span><span class="p">(</span><span class="s2">"#target"</span><span class="p">).</span><span class="nx">toHaveClass</span><span class="p">(</span><span class="s2">"uitest"</span><span class="p">);</span>
+       <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>UT.open可以打开一个测试页面，并执行回调。 在回调方法中你可以写任何javasript和jasmine语句。<br>
+上面的例子 打开了test.html页面，并在此页面中判断id为“target”的元素有一个"uitest"类名。  </p>
 
-<h3>Authors and Contributors</h3>
+<p><strong>窗口跳转</strong></p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<div class="highlight"><pre><span class="nx">win</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="s2">"test2.html"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+ <span class="c1">//jasmine语句</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="s2">"打开页面test2.html"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+       <span class="nx">it</span><span class="p">(</span><span class="s2">"执行测试"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+           <span class="nx">expect</span><span class="p">(</span><span class="s2">"#target"</span><span class="p">).</span><span class="nx">toHaveClass</span><span class="p">(</span><span class="s2">"uitest2"</span><span class="p">);</span>
+       <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
 
-<h3>Support or Contact</h3>
+<p>win.go方法将测试的页面跳转到test2.html页面，并在此页面中判断id为“target”的元素有一个"uitest2"类名。</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p><strong>注意： UT.open或者go的回调方法是运行在被打开的页面中，因此无法访问到方法外面定义的变量。但你可以使用UT.setData和UT.getData来共享数据</strong></p>
+
+<div class="highlight"><pre><span class="kd">var</span>  <span class="nx">data</span><span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nx">UT</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">"test.html"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="c1">//报错，取不到变量</span>
+<span class="p">})</span>
+</pre></div>
+
+<h3>examples</h3>
+
+<p><strong>测试淘宝登录</strong></p>
+
+<div class="highlight"><pre>  <span class="c1">//打开淘宝登录页面，填写表单，并提交进行登录。</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span><span class="s2">"http://login.daily.taobao.net/member/login.jhtml?style=minisimple&amp;from=buy&amp;full_redirect=false"</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nx">UT</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">describe</span><span class="p">(</span><span class="s2">"登录测试"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">it</span><span class="p">(</span><span class="s2">"获取数据并提交登录"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="kd">var</span> <span class="nx">doc</span> <span class="o">=</span> <span class="nb">document</span><span class="p">;</span>
+                    <span class="kd">var</span> <span class="nx">forms</span> <span class="o">=</span> <span class="nx">doc</span> <span class="o">?</span> <span class="nx">doc</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'form'</span><span class="p">)</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+                    <span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'TPL_username'</span><span class="p">].</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"xiaoju4"</span><span class="p">;</span>
+                    <span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'TPL_password'</span><span class="p">].</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">"taobao1234"</span><span class="p">;</span>
+                    <span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">submit</span><span class="p">();</span>
+                    <span class="p">})</span>
+                <span class="p">})</span>
+            <span class="p">})</span>
+        <span class="p">})</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="c1">//提交表单之后，使用go方法将窗口跳转到我的淘宝页面，判断登录成功</span>
+<span class="nx">win</span><span class="p">.</span><span class="nx">go</span><span class="p">(</span><span class="s2">"http://i.daily.taobao.net/my_taobao.htm"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">describe</span><span class="p">(</span><span class="s2">"进入我的淘宝页面测试登录成功"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">it</span><span class="p">(</span><span class="s2">"期望导航有昵称显示"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">expect</span><span class="p">(</span><span class="s2">".user-nick"</span><span class="p">).</span><span class="nx">toHaveHtml</span><span class="p">(</span><span class="s2">"xiaoju4"</span><span class="p">);</span>
+        <span class="p">})</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+</pre></div>
+
+<p><strong>其它</strong></p>
+
+<ul>
+<li><p>淘宝登录测试<a href="http://assets.daily.taobao.net/p/uitest/docs/examples/tblogin.js"> http://assets.daily.taobao.net/p/uitest/docs/examples/tblogin.js</a></p></li>
+<li><p>淘宝商品平台验证库存 <a href="http://fed.ued.taobao.net/2013/chunchun/SixoutStock.js">http://fed.ued.taobao.net/2013/chunchun/SixoutStock.js</a></p></li>
+<li><p>SNSDK alert API 测试  <a href="http://daolin.taobao.ali.com/snsdk-test/alert.js">http://daolin.taobao.ali.com/snsdk-test/alert.js</a></p></li>
+</ul><h3>UT API</h3>
+
+<p><a href="https://github.com/taobao-sns-fed/UITester/wiki/UT">UT API</a></p>
+
+<h3>对测试代码的要求</h3>
+
+<ol>
+<li><p>uitest回归系统需要测试代码在线可访问的地址。 你的代码可以使用uitest SVN（<a href="http://svn.app.taobao.net/repos/fed/trunk/fed/2013/uitest%EF%BC%89%E7%AE%A1%E7%90%86%E4%B8%AD%EF%BC%8C%E6%94%BE%E5%88%B0%E6%AD%A4SVN%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BC%9A%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AF%B9%E5%BA%94%E7%BA%BF%E4%B8%8A%E5%9C%B0%E5%9D%80">http://svn.app.taobao.net/repos/fed/trunk/fed/2013/uitest）管理中，放到此SVN的代码会自动生成对应线上地址</a> （<a href="http://fed.ued.taobao.net/2013/uitest%EF%BC%89">http://fed.ued.taobao.net/2013/uitest）</a>   </p></li>
+<li><p>测试代码中避免出现刷新顶层页面的操作</p></li>
+<li><p>测试代码请使用uft-8编码。</p></li>
+</ol>
         </section>
 
         <aside id="sidebar">
