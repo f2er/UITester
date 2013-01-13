@@ -10,20 +10,21 @@
 
 
 <script>
-   window.alert = function(){};
+    window.alert = function () {
+    };
     var timeout = false;
     var isloading = false;
     var isRuning = false;
     UT._setForceClose(true);
     var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
-   if(url.indexOf("?")!=-1){
-       url=url+"&t="+new Date().getTime();
-   }
-    else{
-       url=url+"?t="+new Date().getTime();
-   }
+    if (url.indexOf("?") != -1) {
+        url = url + "&t=" + new Date().getTime();
+    }
+    else {
+        url = url + "?t=" + new Date().getTime();
+    }
     var id = location.href.match(/id=(.*)$/)[1];
-    var task_complete = function (report,code) {
+    var task_complete = function (report, code) {
 
         UT.postmsg.send({
             target:opener,
@@ -33,41 +34,41 @@
                 report:report
             }
         })
-        console.log("complete",report,code)
+        console.log("complete", report, code)
     }
     var test_start = function (url) {
-        isloading =true;
+        isloading = true;
         isRuning = true;
-        try{
-        jQuery.getScript(url, function () {
-            isloading = false;
-            if (timeout) {
-                window.clearTimeout(timeout);
-                timeout = null;
-            }
-            UT.execute(function (report) {
-                isRuning= false;
-                task_complete(report)
+        try {
+            jQuery.getScript(url, function () {
+                isloading = false;
+                if (timeout) {
+                    window.clearTimeout(timeout);
+                    timeout = null;
+                }
+                UT.execute(function (report) {
+                    isRuning = false;
+                    task_complete(report)
+                })
             })
-        })
-        }catch(e){
+        } catch (e) {
             var report = UT.defaultResult;
             report.reports.errors.push({
                 message:e.message
             })
-            task_complete(report,222)
+            task_complete(report, 222)
         }
 
         timeout = window.setTimeout(function () {
-            if(!isloading)return;
-            isloading=true;
+            if (!isloading)return;
+            isloading = true;
             isRuning = false;
 
             var report = UT.defaultResult;
             report.reports.errors.push({
                 message:url + "加载失败"
             })
-            task_complete(report,222)
+            task_complete(report, 222)
 
 
         }, 1000 * 10);
@@ -75,15 +76,14 @@
 
     }
 
-    jQuery(window).bind("beforeunload",function (e) {
-       if(isRuning){
-           var report = UT.defaultResult;
-           report.reports.errors.push({
-               message:url + "父页面异常跳转"
-           })
-           task_complete(report,222)
-       }
-
+    jQuery(window).bind("beforeunload", function (e) {
+        if (isRuning) {
+            var report = UT.defaultResult;
+            report.reports.errors.push({
+                message:url + "父页面异常跳转"
+            })
+            task_complete(report, 222)
+        }
 
 
     });

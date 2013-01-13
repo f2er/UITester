@@ -127,7 +127,6 @@
 
                                     if (!run_win || !run_win.location) {
                                         run_win && run_win.close && run_win.close();
-                                        console.log("new  open")
                                         run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
 
                                     }
@@ -136,7 +135,7 @@
                                     callback[id] = function (report) {
                                         jQuery("#info").html("任务完成");
 
-                                        isComplete = false;
+                                        isComplete = true;
                                         if (run_timer) {
                                             window.clearTimeout(run_timer);
                                             run_timer = null;
@@ -151,7 +150,10 @@
 
                                     run_timer = setTimeout(function () {
                                         // 三分钟没有完成，
-                                        if (!isComplete) return;
+
+                                        if (isComplete) return;
+                                        delete callback[data.id];
+                                        jQuery("#info").html("任务超时");
                                         if (run_win) {
                                             run_win.close();
                                             run_win = null;
@@ -162,7 +164,7 @@
                                         })
                                         test_number++;
                                         jQuery("#test_number").html(test_number);
-                                        socket.emit('console:task_finish', defaultResult);
+                                        socket.emit('console:task_finish', {id:data.id, report:defaultResult});
 
                                     }, 1000 * 60 * 10)
 
@@ -209,7 +211,7 @@
             if (!isConnected) {
                 jQuery("#info").html("失去连接，5秒后重新链接")
 
-                window.location.reload();
+              //  window.location.reload();
 
             }
 
@@ -220,7 +222,7 @@
         })
 
     } catch (e) {
-        if (run_win && run_win.close)run_win.close();
+       // if (run_win && run_win.close)run_win.close();
         window.location.reload();
     }
 </script>
