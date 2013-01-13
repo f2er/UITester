@@ -10,7 +10,7 @@
 
 
 <script>
-
+   window.alert = function(){};
     var timeout = false;
     var isloading = false;
     var isRuning = false;
@@ -23,7 +23,8 @@
        url=url+"?t="+new Date().getTime();
    }
     var id = location.href.match(/id=(.*)$/)[1];
-    var task_complete = function (report) {
+    var task_complete = function (report,code) {
+
         UT.postmsg.send({
             target:opener,
             data:{
@@ -32,6 +33,7 @@
                 report:report
             }
         })
+        console.log("complete",report,code)
     }
     var test_start = function (url) {
         isloading =true;
@@ -53,7 +55,7 @@
             report.reports.errors.push({
                 message:e.message
             })
-            task_complete(report)
+            task_complete(report,222)
         }
 
         timeout = window.setTimeout(function () {
@@ -65,7 +67,7 @@
             report.reports.errors.push({
                 message:url + "加载失败"
             })
-            task_complete(report)
+            task_complete(report,222)
 
 
         }, 1000 * 10);
@@ -73,18 +75,15 @@
 
     }
 
-    jQuery(window).on("beforeunload",function (e) {
+    jQuery(window).bind("beforeunload",function (e) {
+       if(isRuning){
+           var report = UT.defaultResult;
+           report.reports.errors.push({
+               message:url + "父页面异常跳转"
+           })
+           task_complete(report,222)
+       }
 
-
-        if (window.UT && isRuning) {
-            UT.execute(function (report) {
-                report.reports.errors.push({
-                    message:url + "父页面异常跳转"
-                })
-                task_complete(report)
-                isRuning = false;
-            })
-        }
 
 
     });

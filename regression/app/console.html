@@ -36,218 +36,193 @@
 
 
 <script>
-try {
+    try {
 
-    var isRunning = false;
-    var isConnected = false
-    var http_host = location.host;
-    var run_timer;
-    var socket;
-    var run_win;
-    var test_number = 0;
-    var callback = [];
-    if (!window.console) {
-        window.console = {
-            log:function () {
-            },
-            info:function () {
-            },
-            debug:function () {
+        var isRunning = false;
+        var isConnected = false
+        var http_host = location.host;
+        var run_timer;
+        var socket;
+        var run_win;
+        var test_number = 0;
+        var callback = [];
+        if (!window.console) {
+            window.console = {
+                log:function () {
+                },
+                info:function () {
+                },
+                debug:function () {
+                }
             }
         }
-    }
-    var testTimer;
-    var test_n = 0;
+        var testTimer;
+        var test_n = 0;
 
-    var start = function () {
-        if (socket) {
-            jQuery("#info").html("链接已经建立");
-            return;
-        }
-        jQuery("#info").html("正在建议链接");
-        socket = io.connect('http://' + http_host);
-
-
-        socket.on("connect", function () {
-            if (run_win && run_win.close)run_win.close();
-            jQuery("#info").html("链接建立成功");
-            isConnected = true;
-
-
-            jQuery("#info").html("正在打开运行窗口");
-
-
-            var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-            var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
-
-
-            if (test_run_win) {
-
-                jQuery("#info").html("打开运行窗口成功");
-
-            }
-            else {
-                jQuery("#info").html("打开运行窗口失败");
+        var start = function () {
+            if (socket) {
+                jQuery("#info").html("链接已经建立");
                 return;
             }
-            jQuery("#info").html("测试脚本注入...");
-
-            UT._msgReady(test_run_win,
-                    function () {
-                        test_run_win.close();
-                        jQuery("#info").html("脚本注入成功");
-                        socket.emit('console:register', {
-                            'userAgent':window.navigator.userAgent
-                        });
-                        socket.on('disconnect', function () {
-                            isConnected = false;
-
-                        });
-                        socket.on('console:reload', function (data) {
-                            window.location.reload();
-
-                        });
-                        socket.on('console:update', function (data) {
-                            jQuery("#browser_info").html("当前浏览器信息: " + JSON.stringify(data));
-                        });
+            jQuery("#info").html("正在建议链接");
+            socket = io.connect('http://' + http_host);
 
 
+            socket.on("connect", function () {
+                if (run_win && run_win.close) {
+                    run_win.close();
+                    run_win = null;
+                }
+                jQuery("#info").html("链接建立成功");
+                isConnected = true;
 
-                        socket.on('console:task_start', function (data) {
-                            var tryNum = 0;
-                            var isComplete = false;
-                            jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.url);
-                            var run = function (data) {
+
+                jQuery("#info").html("正在打开运行窗口");
+
+
+                var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
+
+
+                if (test_run_win) {
+
+                    jQuery("#info").html("打开运行窗口成功");
+
+                }
+                else {
+                    jQuery("#info").html("打开运行窗口失败");
+                    return;
+                }
+                jQuery("#info").html("测试脚本注入...");
+
+                UT._msgReady(test_run_win,
+                        function () {
+                            test_run_win.close();
+                            jQuery("#info").html("脚本注入成功");
+                            socket.emit('console:register', {
+                                'userAgent':window.navigator.userAgent
+                            });
+                            socket.on('disconnect', function () {
+                                isConnected = false;
+
+                            });
+                            socket.on('console:reload', function (data) {
+                                window.location.reload();
+
+                            });
+                            socket.on('console:update', function (data) {
+                                jQuery("#browser_info").html("当前浏览器信息: " + JSON.stringify(data));
+                            });
+
+
+                            socket.on('console:task_start', function (data) {
+                                var tryNum = 0;
+                                var isComplete = false;
+                                jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.url);
+
                                 if (data && data.url) {
                                     //创建一个独立的环境
 
 
-                                    if (!run_win||!run_win.location) {
-                                        run_win && run_win.close&&run_win.close();
+                                    if (!run_win || !run_win.location) {
+                                        run_win && run_win.close && run_win.close();
+                                        console.log("new  open")
                                         run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
 
                                     }
-                                    var id = data.id;
-                                    run_win.location.href = 'http://' + http_host + "/run.html?url=" + jQuery.trim(encodeURIComponent(data.url)) + "&id=" + data.id;
+                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                    run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
+                                    callback[id] = function (report) {
+                                        jQuery("#info").html("任务完成");
 
-                                    UT._msgReady(run_win,
-                                            function () {
+                                        isComplete = false;
+                                        if (run_timer) {
+                                            window.clearTimeout(run_timer);
+                                            run_timer = null;
+                                        }
+                                        test_number++;
+                                        jQuery("#test_number").html(test_number);
 
-                                                callback[id] = function (data) {
-                                                    jQuery("#info").html("任务完成");
+                                        socket.emit('console:task_finish', {id:data.id, report:report});
 
-                                                    isComplete = false;
-                                                    if (run_timer) {
-                                                        window.clearTimeout(run_timer);
-                                                        run_timer = null;
-                                                    }
-                                                    test_number++;
-                                                    jQuery("#test_number").html(test_number);
-
-                                                    socket.emit('console:task_finish', data);
-
-                                                }
+                                    }
 
 
-                                                run_timer = setTimeout(function () {
-                                                    // 三分钟没有完成，
-                                                    if (!isComplete) return;
-                                                    if (run_win) {
-                                                        run_win.close();
-                                                        run_win = null;
-                                                    }
-                                                    var defaultResult = UT.defaultResult;
-                                                    defaultResult.reports.errors.push({
-                                                        message:"运行超时"
-                                                    })
-                                                    test_number++;
-                                                    jQuery("#test_number").html(test_number);
-                                                    socket.emit('console:task_finish', defaultResult);
+                                    run_timer = setTimeout(function () {
+                                        // 三分钟没有完成，
+                                        if (!isComplete) return;
+                                        if (run_win) {
+                                            run_win.close();
+                                            run_win = null;
+                                        }
+                                        var defaultResult = UT.defaultResult;
+                                        defaultResult.reports.errors.push({
+                                            message:"运行超时"
+                                        })
+                                        test_number++;
+                                        jQuery("#test_number").html(test_number);
+                                        socket.emit('console:task_finish', defaultResult);
 
-                                                }, 1000 * 60 * 10)
-
-                                            },
-                                            function () {
-                                                run_win&&run_win.close&&run_win.close();
-                                                run_win =null;
-                                                tryNum++;
-                                                if(tryNum>100){
-                                                    var defaultResult = UT.defaultResult;
-                                                    defaultResult.reports.errors.push({
-                                                        message:"打开窗口超时"
-                                                    })
-                                                    test_number++;
-                                                    jQuery("#test_number").html(test_number);
-                                                    socket.emit('console:task_finish', defaultResult);
-                                                }
-                                                else{
-                                                    run(data);
-                                                }
-
-
-
-                                            })
-
+                                    }, 1000 * 60 * 10)
 
 
                                 }
-                            }
-                            run(data);
 
 
-                        });
-                        jQuery("#info").html("启动完成，等待任务中...");
+                            });
+                            jQuery("#info").html("启动完成，等待任务中...");
 
 
-                    },
-                    function
-                            () {
-                        jQuery("#info").html("脚本注入失败");
-                    }
-            )
-            ;
+                        },
+                        function
+                                () {
+                            jQuery("#info").html("脚本注入失败");
+                        }
+                )
+                ;
+
+
+            })
+
+
+        };
+
+        start();
+        //等结果
+        UT.postmsg.bind(function (data) {
+
+
+            if (data.code == "111" && data.id && callback[data.id]) {
+                console.log("gogo", data.id);
+                callback[data.id](data.report);
+                delete callback[data.id];
+            }
 
 
         })
 
-
-    };
-
-    start();
-    //等结果
-    UT.postmsg.bind(function (data) {
-        if (data.id && callback[data.id]) {
-            callback[data.id](data);
-            delete callback[data.id];
-        }
-
-
-    })
-
-    $("#start").on("click", function () {
-        window.location.reload();
-    });
-    window.setInterval(function () {
-        if (!isConnected) {
-            jQuery("#info").html("失去连接，5秒后重新链接")
-
+        $("#start").bind("click", function () {
             window.location.reload();
+        });
+        window.setInterval(function () {
+            if (!isConnected) {
+                jQuery("#info").html("失去连接，5秒后重新链接")
 
-        }
+                window.location.reload();
 
-    }, 1000 * 60 * 2)
-    jQuery(window).on("beforeunload", function (e) {
+            }
+
+        }, 1000 * 60 * 2)
+        jQuery(window).bind("beforeunload", function (e) {
+            if (run_win && run_win.close)run_win.close();
+
+        })
+
+    } catch (e) {
         if (run_win && run_win.close)run_win.close();
-
-    })
-
-}
-catch
-        (e) {
-    if (run_win && run_win.close)run_win.close();
-    window.location.reload();
-}
+        window.location.reload();
+    }
 </script>
 
 </body>

@@ -1,4 +1,5 @@
-<?php $nav='list'; include_once('./common/header.php'); ?>
+<?php $nav = 'list';
+include_once('./common/header.php'); ?>
 <?php
 $task_name = '';
 $task_target_uri = '';
@@ -58,62 +59,62 @@ if ($task_id !== '') {
 </style>
 
 <header class="jumbotron subhead" id="overview">
-  <div class="container">
-    <h1>测试详情: <?php echo $result_item['task_name'] ?></h1>
-  </div>
+    <div class="container">
+        <h1>测试详情: <?php echo $result_item['task_name'] ?></h1>
+    </div>
 </header>
 
 <div id="content" class="container">
 
-<div style="margin: 10px 0;; height: 10px">
+    <div style="margin: 10px 0;; height: 10px">
 
-    <div style="float: right">
-
-
-        <a id="go_local_test" class="btn btn-small" href="#" rel="popover"  data-original-title="提示" data-placement="bottom"
-           data-content="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
-
-<?php if($creator === $userName) { ?>
-        <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">修改</a>
-        <a target="_self" class="btn btn-small"
-           href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">删除</a>
-<?php } ?>
-    </div>
-</div>
+        <div style="float: right">
 
 
-<div id="detail-info">
-    <ul class="unstyled">
-        <li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
-        <li>创建人: <span><?php echo $creator  ?></span></li>
-        <li>测试用例地址: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
-        <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
-        <li>回归频率: <?php echo $duration / 60  ?>小时</li>
-        <li>创建时间: <?php echo $createtime  ?></li>
-        <li>上次回归时间:<?php echo $prev_time ?></li>
-    </ul>
-</div>
+            <a id="go_local_test" class="btn btn-small" href="#" rel="popover" data-original-title="提示"
+               data-placement="bottom"
+               data-content="在当前的浏览器窗口运行测试用例,需要安装浏览器插件<a href='http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar'>chrome</a><a href='http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar'>ie</a>">本地测试</a>
 
-
-
- <div id="result-report">
-
-    <!-- Modal -->
-    <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">测试结果</h3>
-        </div>
-        <div class="modal-body result-report" id="m-result-report">
-
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-
+            <?php if ($creator === $userName) { ?>
+            <a class="btn btn-small" href="modify.php?id=<?php echo $result_item['id'] ?>">修改</a>
+            <a target="_self" class="btn btn-small"
+               href="handle.php?modify_tag=remove&task_id=<?php echo $result_item['id'] ?>">删除</a>
+            <?php } ?>
         </div>
     </div>
- </div>
+
+
+    <div id="detail-info">
+        <ul class="unstyled">
+            <li>产品线: <span id="productline" data-id="<?php echo $productline ?>"></span></li>
+            <li>创建人: <span><?php echo $creator  ?></span></li>
+            <li>测试用例地址: <a href="<?php echo $task_inject_uri  ?>"><?php echo $task_inject_uri  ?></a></li>
+            <li>回归时间: <span id="weeks" data-id="<?php echo $week  ?>"></span></li>
+            <li>回归频率: <?php echo $duration / 60  ?>小时</li>
+            <li>创建时间: <?php echo $createtime  ?></li>
+            <li>上次回归时间:<?php echo $prev_time ?></li>
+        </ul>
+    </div>
+
+
+    <div id="result-report">
+
+        <!-- Modal -->
+        <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">测试结果</h3>
+            </div>
+            <div class="modal-body result-report" id="m-result-report">
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+            </div>
+        </div>
+    </div>
 
     <script>
 
@@ -173,7 +174,7 @@ if ($task_id !== '') {
 
     <script>
         (function () {
-
+            $('#myModal').modal({show:false});
             $("#go_local_test").popover({
                 html:true,
                 trigger:"hover"
@@ -197,10 +198,10 @@ if ($task_id !== '') {
                         $('#myModal').modal('show');
                     })
                 })
-                setTimeout(function(){
-                    if(!isLoad)alert("js未能加载成功")
+                setTimeout(function () {
+                    if (!isLoad)alert("js未能加载成功")
 
-                },1000*5)
+                }, 1000 * 5)
 
             })
         })();
