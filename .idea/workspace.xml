@@ -35,16 +35,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="0" selection-start="2855" selection-end="2855" vertical-scroll-proportion="-63.107143">
+            <state line="33" column="19" selection-start="960" selection-end="960" vertical-scroll-proportion="-0.6785714">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home - 副本.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/record/home - 副本.html">
+      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tool/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="30" selection-start="0" selection-end="2855" vertical-scroll-proportion="-11.535714">
+            <state line="132" column="93" selection-start="3621" selection-end="3621" vertical-scroll-proportion="0.36133122">
               <folding />
             </state>
           </provider>
@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jasmine.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3341" column="44" selection-start="104867" selection-end="104867" vertical-scroll-proportion="0.46394983">
+            <state line="3341" column="44" selection-start="104867" selection-end="104867" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../p/uitest/docs/examples/redirect.html" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jquery-1.8.3.js" />
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine-html.js" />
@@ -155,6 +154,7 @@
         <option value="D:/fed/2013/uitest/bofei/tblogout.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
+        <option value="$PROJECT_DIR$/tool/index.php" />
       </list>
     </option>
   </component>
@@ -290,7 +290,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1429" height="860" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -366,13 +366,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/regression/app/run.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="2488" selection-end="2488" vertical-scroll-proportion="-17.571428">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="251" column="36" selection-start="8067" selection-end="8067" vertical-scroll-proportion="-83.77358">
@@ -422,13 +415,6 @@
     <entry file="file://$PROJECT_DIR$/tool/record/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="26" selection-start="0" selection-end="2855" vertical-scroll-proportion="-2.0357144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="0" selection-start="2855" selection-end="2855" vertical-scroll-proportion="-63.107143">
           <folding />
         </state>
       </provider>
@@ -490,7 +476,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3341" column="44" selection-start="104867" selection-end="104867" vertical-scroll-proportion="0.46394983">
+        <state line="3341" column="44" selection-start="104867" selection-end="104867" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="19" selection-start="960" selection-end="960" vertical-scroll-proportion="-0.6785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="93" selection-start="3621" selection-end="3621" vertical-scroll-proportion="0.36133122">
           <folding />
         </state>
       </provider>

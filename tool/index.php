@@ -130,10 +130,10 @@
     <div class="container">
         <ul class="bs-docs-social-buttons">
             <li>
-                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=tb-sns-fed&amp;repo=UITester&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=taobao-sns-fed&amp;repo=UITester&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
             </li>
             <li>
-                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=tb-sns-fed&amp;repo=UITester&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+                <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=taobao-sns-fed&amp;repo=UITester&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
             </li>
 
 
