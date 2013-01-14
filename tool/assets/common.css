@@ -141,8 +141,8 @@ ul, p {
     left: -80px;
 }
 #runlocal{
-    min-height: 630px;
-    _height:630px;
+    min-height: 520px;
+    _height:520px;
 }
 #runlocal textarea{
 	width: 100%;
