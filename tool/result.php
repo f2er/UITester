@@ -100,19 +100,21 @@ if ($task_id !== '') {
     <div id="result-report">
 
         <!-- Modal -->
-        <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="myModalLabel">测试结果</h3>
-            </div>
-            <div class="modal-body result-report" id="m-result-report">
 
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
 
-            </div>
+    <div id="myModal" style="width: 700px" class="modal hide fade" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">测试结果</h3>
+        </div>
+        <div class="modal-body result-report" id="m-result-report">
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
         </div>
     </div>
 
@@ -184,7 +186,7 @@ if ($task_id !== '') {
                 html:true,
                 trigger:"hover"
             })
-            jQuery("#go_local_test").on("click", function (e) {
+            jQuery("#go_local_test").bind("click", function (e) {
                 e.preventDefault();
                 jasmine._newEnv = true;
                 var isLoad = false;
