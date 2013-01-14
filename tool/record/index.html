@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="gbk">
+    <meta charset="UTF-8">
     <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
     <script src="core.js"></script>
     <link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
@@ -29,46 +29,46 @@
                     }
                 </style>
 
-                <h3>���</h3>
+                <h3>简介</h3>
 
                 <p>
-                    UITester¼�ƹ�����һ���༭���������ĸ������ߣ��������Զ�����Ԫ��ѡ���������Ժ�ģ���¼�������������Ա�������ɲ���������
+                    UITester录制工具是一个编辑测试用例的辅助工具，它可以自动生成元素选择器，断言和模拟事件，帮助测试人员更快的完成测试用例。
                 </p>
 
-                <h3>��װ</h3>
+                <h3>安装</h3>
 
-                <p>¼�ƹ���ֻ֧��chrome�����������װ<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">���</a></p>
+                <p>录制工具只支持chrome浏览器，并安装<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">插件</a></p>
 
-                <h3>ʹ��</h3>
-                <h4>1.��ҳ��</h4>
-                <p>ѡ�񶥲������ϵ� ҳ��->�� ��ť���ڵ����Ի������д��Ӧ�ĵ�ַ�磨http://www.taobao.com����ȷ����ҳ������Ӧҳ�棬�����ɴ�ҳ��Ĳ���</p>
+                <h3>使用</h3>
+                <h4>1.打开页面</h4>
+                <p>选择顶部导航上的 页面->打开 按钮，在弹出对话框里，填写对应的地址如（http://www.taobao.com）并确定。页面会打开相应页面，并生成打开页面的测试</p>
                 <pre class="prettyprint linenums">
 var win = UT.open("http://www.taobao.com/",function(){
-    describe("����ҳ��http://www.taobao.com/", function(){
-       it("��Ĳ�������"�� function(){
+    describe("测试页面http://www.taobao.com/", function(){
+       it("你的测试用例"， function(){
 
        })
     })
 })
 
                 </pre>
-                <p>��ҳ��󣬿���ͨ��  ����<span class="icon-arrow-left"></span>  ǰ��<span class="icon-arrow-right"></span>  ˢ��<span class="icon-repeat"></span>��ǰҳ��</p>
-                <h4>2.ѡ��Ԫ��</h4>
-                <p>�ܹ��ܶ���Ҫ��ѡ���Ӧ��Ԫ�ء�ͨ�������ӦԪ�أ����Խ���Ԫ�����С�ѡ�е�Ԫ�ػᱻ��ǣ�����ʾѡ����</p>
-                <h4>3.���ɶ���</h4>
-                <p>������������ϵġ����ԡ� �����˵��������������������ͣ���toExist��,���Զ�����Щ���ԵĲ��Դ���</p>
+                <p>打开页面后，可以通过  后退<span class="icon-arrow-left"></span>  前进<span class="icon-arrow-right"></span>  刷新<span class="icon-repeat"></span>当前页面</p>
+                <h4>2.选择元素</h4>
+                <p>很功能都需要先选择对应的元素。通过点击对应元素，可以将此元素先中。选中的元素会被标记，并显示选择器</p>
+                <h4>3.生成断言</h4>
+                <p>点击顶部导航上的“断言” 下拉菜单，并在下拉单断言类型（如toExist）,会自动生成些断言的测试代码</p>
                  <pre class="prettyprint linenums">
 expect("#typography").toExist();
                 </pre>
 
-                <h4>3.ģ���¼�</h4>
-                <p>ѡ�񶥲������ϵ� ģ���¼���ť����ѡ����Ӧ���¼����ͣ�,���ѡ�е�Ԫ�ش������¼����Զ�����ģ���¼��Ĵ���</p>
+                <h4>3.模拟事件</h4>
+                <p>选择顶部导航上的 模拟事件按钮，并选择相应的事件类型，,会对选中的元素触发此事件，自动生成模拟事件的代码</p>
                  <pre class="prettyprint linenums">
 simulate("#typography","click")
                 </pre>
-                <h4>4.��¼�仯</h4>
-                <p>�û����������ᴥ��DOM�ı仯����¼�仯���ܻ�������¼��Щ�仯�������ɲ��Դ��롣</p>
-                <p>ѡ��һ��Ԫ����Ϊ��¼�ķ�Χ��ѡ�� ��¼�仯->ȫ���仯 ����ѡ���Ԫ�ذ�����Ԫ�أ������仯��ʱ�򣬻ᱻ��ʾ�������򣬵�ѡĳ����¼�ͻ��������</p>
+                <h4>4.记录变化</h4>
+                <p>用户动作往往会触发DOM的变化，记录变化功能会帮助你记录这些变化，并可生成测试代码。</p>
+                <p>选择一个元素作为记录的范围，选择的范围尽量准确。选择 记录变化->记录 ，当选择的元素包括子元素，发生变化的时候，会被显示右则区域，点选某个记录就会测试用例</p>
                  <pre class="prettyprint linenums">
 expect(".row").toHaveAttr("data-class","click");
                 </pre>
