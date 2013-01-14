@@ -39,10 +39,11 @@ $userName = $user['DisplayName'];
 		  		  <li <?php if($nav==='me' || isset($_GET['me']))echo 'class="active"' ?>><a href="list.php?me">我的用例</a></li>
 		  <li <?php if($nav==='list' && !isset($_GET['me']))echo 'class="active"' ?>><a href="list.php">全部用例</a></li>
           <li <?php if($nav==='create')echo 'class="active"' ?>><a href="/tool/create.php">创建用例</a></li>
-            <li <?php if($nav==='local-test')echo 'class="active"' ?>><a href="/tool/local-test.php">本地调试</a></li>
+            <li <?php if($nav==='local-test')echo 'class="active"' ?>><a target="_blank" href="/tool/local-test.php">本地调试</a></li>
 
-		  <li <?php if($nav==='record')echo 'class="active"' ?>><a href="record/record.html?">录制工具</a></li>
-		  <li <?php if($nav==='help')echo 'class="active"' ?>><a href="http://taobao-sns-fed.github.com/UITester/">帮助</a></li>
+		  <li <?php if($nav==='record')echo 'class="active"' ?>><a target="_blank" href="record/record.html?">录制工具</a></li>
+		  <li <?php if($nav==='help')echo 'class="active"' ?>><a target="_blank" href="http://taobao-sns-fed.github.com/UITester/">帮助</a></li>
+            <li><a target="_blank" href="https://github.com/taobao-sns-fed/UITester/issues">建议</a></li>
 		</ul>
 	  </div><!--/.nav-collapse -->
 	</div>
