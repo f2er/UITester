@@ -176,7 +176,7 @@ try {
 
                                     socket.emit('console:task_finish', {id:data.id, report:report});
                                     isRunning = false;
-                                    if((new Date().getTime()-time)>1000*60*50){
+                                    if((new Date().getTime()-time)>1000*60*5){
                                         time = 0;
                                         //每过十分钟刷新一次当前页面
                                         if (run_win) {
