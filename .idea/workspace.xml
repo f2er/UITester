@@ -80,7 +80,7 @@
       <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="50" selection-start="7672" selection-end="7672" vertical-scroll-proportion="0.46721312">
+            <state line="128" column="100" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.3737705">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -155,8 +155,8 @@
         <option value="$PROJECT_DIR$/tool/index.php" />
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
-        <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
+        <option value="$PROJECT_DIR$/regression/app/console.html" />
       </list>
     </option>
   </component>
@@ -490,7 +490,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="50" selection-start="7672" selection-end="7672" vertical-scroll-proportion="0.46721312">
+        <state line="128" column="100" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.3737705">
           <folding>
             <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

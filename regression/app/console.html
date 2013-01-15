@@ -125,6 +125,8 @@ try {
                         socket.on('disconnect', function () {
                             isConnected = false;
                             console.log("失去链接" + new Date().getTime())
+                            //刷新当前页面
+                            window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                         });
                         socket.on('console:reload', function (data) {
