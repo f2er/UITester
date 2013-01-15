@@ -48,6 +48,7 @@ try {
     var init = false;
     var callback = [];
     var isRunning = false;
+    var time=0;
     if (!window.console) {
         window.console = {
             log:function () {
@@ -70,6 +71,7 @@ try {
 
         socket.on("connect", function () {
             isConnected = true;
+            time = new Date().getTime();
           //  callback = [];
             if (run_timer) {
                 window.clearTimeout(run_timer);
@@ -167,6 +169,14 @@ try {
 
                                     socket.emit('console:task_finish', {id:data.id, report:report});
                                     isRunning = false;
+                                    if((new Date().getTime()-time)>1000*60*10){
+                                        //每过十分钟刷新一次当前页面
+                                        if (run_win) {
+                                            run_win.close();
+                                            run_win = null;
+                                        }
+                                        window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                                    }
 
                                 }
 
@@ -191,6 +201,8 @@ try {
                                     jQuery("#test_number").html(test_number);
                                     socket.emit('console:task_finish', {id:data.id, report:defaultResult});
                                     isRunning = false;
+                                    //刷新当前页面
+                                    window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                                 }, 1000 * 60 * 10)
 
