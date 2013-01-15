@@ -126,7 +126,12 @@ try {
                             isConnected = false;
                             console.log("失去链接" + new Date().getTime())
                             //刷新当前页面
-                            window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                            if (run_win) {
+                                run_win.close();
+                                run_win = null;
+                            }
+
+                          //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                         });
                         socket.on('console:reload', function (data) {
@@ -171,13 +176,14 @@ try {
 
                                     socket.emit('console:task_finish', {id:data.id, report:report});
                                     isRunning = false;
-                                    if((new Date().getTime()-time)>1000*60*10){
+                                    if((new Date().getTime()-time)>1000*60*50){
+                                        time = 0;
                                         //每过十分钟刷新一次当前页面
                                         if (run_win) {
                                             run_win.close();
                                             run_win = null;
                                         }
-                                        window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                                      //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
                                     }
 
                                 }
@@ -204,7 +210,7 @@ try {
                                     socket.emit('console:task_finish', {id:data.id, report:defaultResult});
                                     isRunning = false;
                                     //刷新当前页面
-                                    window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                                  //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                                 }, 1000 * 60 * 10)
 
