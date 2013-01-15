@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="matcher.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="199" column="0" selection-start="6399" selection-end="6399" vertical-scroll-proportion="-0.63793105">
+            <state line="199" column="0" selection-start="6399" selection-end="6399" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1358223963506" expanded="false" signature="4157:4171" placeholder="..." />
               </folding>
@@ -88,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="task-mgr.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="55" selection-start="4990" selection-end="4990" vertical-scroll-proportion="0.0">
+            <state line="250" column="0" selection-start="6639" selection-end="6639" vertical-scroll-proportion="0.8248848">
               <folding />
             </state>
           </provider>
@@ -142,8 +142,8 @@
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
       </list>
     </option>
   </component>
@@ -420,13 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="55" selection-start="4990" selection-end="4990" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="172" column="69" selection-start="5091" selection-end="5091" vertical-scroll-proportion="-8.36">
@@ -450,10 +443,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="199" column="0" selection-start="6399" selection-end="6399" vertical-scroll-proportion="-0.63793105">
+        <state line="199" column="0" selection-start="6399" selection-end="6399" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1358223963506" expanded="false" signature="4157:4171" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="250" column="0" selection-start="6639" selection-end="6639" vertical-scroll-proportion="0.8248848">
+          <folding />
         </state>
       </provider>
     </entry>
