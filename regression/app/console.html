@@ -46,7 +46,7 @@ try {
     var run_win;
     var test_number = 0;
     var init = false;
-    var callback = [];
+    var callback = {};
     var isRunning = false;
     var time=0;
     if (!window.console) {
@@ -126,10 +126,21 @@ try {
                             isConnected = false;
                             console.log("失去链接" + new Date().getTime())
                             //刷新当前页面
-                            if (run_win) {
+                            if(isRunning){
+                                delete callback[isRunning];
+                            }
+
+                            if (run_timer) {
+                                window.clearTimeout(run_timer);
+                                run_timer = null;
+                            }
+                            if (run_win && run_win.close) {
                                 run_win.close();
                                 run_win = null;
+                                time =0;
                             }
+
+
 
                           //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
@@ -155,13 +166,17 @@ try {
                                 //创建一个独立的环境
 
 
-                                if (!run_win || !run_win.location) {
-                                    run_win && run_win.close && run_win.close();
-                                    run_win = window.open("about:blank", "", 'height=600, width=800,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-
+                                if (run_win &&run_win.location&&run_win.location.href) {
+                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                    run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
                                 }
-                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
+                                else{
+                                    run_win && run_win.close && run_win.close();
+                                    run_win = window.open("about:blank", "", 'height=600, width=1024,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                    run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
+                                }
+
                                 callback[id] = function (report) {
                                     jQuery("#info").html(data.id + "任务完成");
                                     console.log(data.id + "任务完成")
@@ -176,9 +191,9 @@ try {
 
                                     socket.emit('console:task_finish', {id:data.id, report:report});
                                     isRunning = false;
-                                    if((new Date().getTime()-time)>1000*60*5){
+                                    if((new Date().getTime()-time)>1000*60*1){
                                         time = 0;
-                                        //每过十分钟刷新一次当前页面
+                                        //每过3分钟关闭一次窗口
                                         if (run_win) {
                                             run_win.close();
                                             run_win = null;
@@ -200,6 +215,7 @@ try {
                                     if (run_win) {
                                         run_win.close();
                                         run_win = null;
+                                        time = 0;
                                     }
                                     var defaultResult = UT.defaultResult;
                                     defaultResult.reports.errors.push({
@@ -256,7 +272,10 @@ try {
 
     jQuery(window).bind("beforeunload", function (e) {
 
-        callback = [];
+         if(isRunning){
+             delete callback[isRunning];
+         }
+
         if (run_timer) {
             window.clearTimeout(run_timer);
             run_timer = null;
@@ -264,18 +283,10 @@ try {
         if (run_win && run_win.close) {
             run_win.close();
             run_win = null;
+            time =0;
         }
 
-        if(isRunning){
-            var defaultResult = UT.defaultResult;
-            defaultResult.reports.errors.push({
-                type:"system error",
-                message:"控制台异常关闭"
-            })
 
-            socket.emit('console:task_finish', {id:isRunning, report:defaultResult});
-            isRunning = false;
-        }
 
 
 
