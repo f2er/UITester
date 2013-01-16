@@ -62,7 +62,7 @@
       <file leaf-file-name="local-test.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tool/local-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="45" selection-start="1918" selection-end="1953" vertical-scroll-proportion="0.3737705">
+            <state line="21" column="249" selection-start="645" selection-end="645" vertical-scroll-proportion="0.46721312">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,7 @@
       <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3259" column="16" selection-start="102026" selection-end="102047" vertical-scroll-proportion="-5.88">
+            <state line="2724" column="25" selection-start="86558" selection-end="86558" vertical-scroll-proportion="-10.44">
               <folding />
             </state>
           </provider>
@@ -134,13 +134,13 @@
         <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
-        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../p/uitest/docs/examples/index.html" />
         <option value="D:/fed/2013/uitest/bofei/detailtobuy.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/regression/app/run.html" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
         <option value="$PROJECT_DIR$/tool/result.php" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/tool/local-test.php" />
       </list>
     </option>
@@ -276,7 +276,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1429" height="860" extended-state="1" />
+    <frame x="0" y="0" width="1429" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -419,13 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3259" column="16" selection-start="102026" selection-end="102047" vertical-scroll-proportion="-5.88">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="0" selection-start="784" selection-end="784" vertical-scroll-proportion="-0.6785714">
@@ -461,9 +454,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2724" column="25" selection-start="86558" selection-end="86558" vertical-scroll-proportion="-10.44">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tool/local-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="45" selection-start="1918" selection-end="1953" vertical-scroll-proportion="0.3737705">
+        <state line="21" column="249" selection-start="645" selection-end="645" vertical-scroll-proportion="0.46721312">
           <folding />
         </state>
       </provider>
