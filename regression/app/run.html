@@ -84,6 +84,7 @@
         }
 
         jQuery(window).bind("beforeunload", function (e) {
+            //任务断开
             if (!isReport) {
                 if (timeout) {
                     clearTimeout(timeout);
