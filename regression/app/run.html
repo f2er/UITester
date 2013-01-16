@@ -10,95 +10,99 @@
 
 
 <script>
-    window.alert = function () {
-    };
-    UT.configs.windowType = "window";
-    var timeout = false;
-    var isloading = false;
-    var isRuning = false;
-    var isReport = false;
-    UT._setForceClose(true);
-    var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
-    if (url.indexOf("?") != -1) {
-        url = url + "&t=" + new Date().getTime();
-    }
-    else {
-        url = url + "?t=" + new Date().getTime();
-    }
-    var id = location.href.match(/id=(.*)$/)[1];
-    var task_complete = function (report, code) {
+    (function () {
 
-        UT.postmsg.send({
-            target:opener,
-            data:{
-                code:"111",
-                id:id,
-                report:report
+
+        window.alert = function () {
+        };
+        UT.configs.windowType = "window";
+        var timeout = false;
+        var isloading = false;
+        var isRuning = false;
+        var isReport = false;
+        UT._setForceClose(true);
+        var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
+        if (url.indexOf("?") != -1) {
+            url = url + "&t=" + new Date().getTime();
+        }
+        else {
+            url = url + "?t=" + new Date().getTime();
+        }
+        var id = $.trim(location.href.match(/id=(.*)$/)[1]);
+        var task_complete = function (report, code) {
+
+            UT.postmsg.send({
+                target:opener,
+                data:{
+                    code:"111",
+                    id:id,
+                    report:report
+                }
+            })
+
+            isReport = true;
+            console.log("complete", report, code)
+        }
+        var test_start = function (url) {
+            isloading = true;
+            isRuning = true;
+            try {
+                jQuery.getScript(url, function () {
+                    isloading = false;
+                    if (timeout) {
+                        window.clearTimeout(timeout);
+                        timeout = null;
+                    }
+                    UT.execute(function (report) {
+                        isRuning = false;
+                        task_complete(report)
+                    })
+                })
+            } catch (e) {
+                var report = UT.defaultResult;
+                report.reports.errors.push({
+                    message:e.message
+                })
+                task_complete(report, 222)
             }
-        })
-        isReport = true;
-        console.log("complete", report, code)
-    }
-    var test_start = function (url) {
-        isloading = true;
-        isRuning = true;
-        try {
-            jQuery.getScript(url, function () {
-                isloading = false;
+
+            timeout = window.setTimeout(function () {
+                if (!isloading)return;
+                isloading = true;
+                isRuning = false;
+
+                var report = UT.defaultResult;
+                report.reports.errors.push({
+                    message:url + "加载失败"
+                })
+                task_complete(report, 222)
+
+
+            }, 1000 * 10);
+
+
+        }
+
+        jQuery(window).bind("beforeunload", function (e) {
+            if (!isReport) {
                 if (timeout) {
-                    window.clearTimeout(timeout);
+                    clearTimeout(timeout);
                     timeout = null;
                 }
-                UT.execute(function (report) {
-                    isRuning = false;
-                    task_complete(report)
+                var report = UT.defaultResult;
+                report.reports.errors.push({
+                    message:url + "父页面异常跳转或关闭"
                 })
-            })
-        } catch (e) {
-            var report = UT.defaultResult;
-            report.reports.errors.push({
-                message:e.message
-            })
-            task_complete(report, 222)
-        }
+                task_complete(report, 222)
+                opener.run_win = null;
+                window.close();
 
-        timeout = window.setTimeout(function () {
-            if (!isloading)return;
-            isloading = true;
-            isRuning = false;
-
-            var report = UT.defaultResult;
-            report.reports.errors.push({
-                message:url + "加载失败"
-            })
-            task_complete(report, 222)
-
-
-        }, 1000 * 10);
-
-
-    }
-
-    jQuery(window).bind("beforeunload", function (e) {
-        if(!isReport){
-            if (timeout) {
-                clearTimeout(timeout);
-                timeout = null;
             }
-            var report = UT.defaultResult;
-            report.reports.errors.push({
-                message:url + "父页面异常跳转或关闭"
-            })
-            task_complete(report, 222)
-            opener.run_win = null;
-            window.close();
-
-        }
 
 
-
-    });
-    test_start(url);
+        });
+        test_start(url);
+    })();
 
 
 </script>
