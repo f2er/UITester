@@ -35,16 +35,16 @@
       <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="-8.214286">
+            <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="50.82143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="399" column="40" selection-start="9661" selection-end="9661" vertical-scroll-proportion="-1.8660715">
+            <state line="399" column="40" selection-start="9661" selection-end="9661" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1358322223198" expanded="false" signature="10224:10262" placeholder="..." />
                 <marker date="1358322223198" expanded="false" signature="10563:10576" placeholder="..." />
@@ -65,7 +65,7 @@
       <file leaf-file-name="data-mod.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="34" selection-start="3206" selection-end="3206" vertical-scroll-proportion="-20.32">
+            <state line="192" column="113" selection-start="4585" selection-end="4585" vertical-scroll-proportion="-60.88">
               <folding />
             </state>
           </provider>
@@ -89,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="taobao.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="taobao.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
+            <state line="205" column="24" selection-start="6565" selection-end="6565" vertical-scroll-proportion="0.40625">
               <folding />
             </state>
           </provider>
@@ -101,9 +101,9 @@
       <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
+            <state line="98" column="26" selection-start="3222" selection-end="3222" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1358321484221" expanded="false" signature="4160:4174" placeholder="..." />
+                <marker date="1358324063805" expanded="false" signature="4361:4375" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -140,13 +140,13 @@
         <option value="$PROJECT_DIR$/tool/common/header.php" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine_1.js" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
-        <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/tool/record/core.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
       </list>
     </option>
   </component>
@@ -281,7 +281,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1429" height="860" extended-state="0" />
+    <frame x="0" y="0" width="1429" height="860" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -396,20 +396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine_1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="651" column="8" selection-start="19994" selection-end="19994" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="34" selection-start="3206" selection-end="3206" vertical-scroll-proportion="-20.32">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="0" selection-start="2473" selection-end="2473" vertical-scroll-proportion="-9.88">
@@ -417,9 +403,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="6" selection-start="876" selection-end="876" vertical-scroll-proportion="23.75">
+        <state line="2569" column="66" selection-start="81459" selection-end="81459" vertical-scroll-proportion="75.44">
           <folding />
         </state>
       </provider>
@@ -431,43 +417,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/data-mod.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
+        <state line="192" column="113" selection-start="4585" selection-end="4585" vertical-scroll-proportion="-60.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine_1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="651" column="8" selection-start="19994" selection-end="19994" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="3" selection-start="3" selection-end="3" vertical-scroll-proportion="0.0">
+        <state line="98" column="26" selection-start="3222" selection-end="3222" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1358321484221" expanded="false" signature="4160:4174" placeholder="..." />
+            <marker date="1358324063805" expanded="false" signature="4361:4375" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
+    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2569" column="66" selection-start="81459" selection-end="81459" vertical-scroll-proportion="75.44">
+        <state line="399" column="40" selection-start="9661" selection-end="9661" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1358322223198" expanded="false" signature="10224:10262" placeholder="..." />
+            <marker date="1358322223198" expanded="false" signature="10563:10576" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="6" selection-start="876" selection-end="876" vertical-scroll-proportion="23.75">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="-8.214286">
+        <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="50.82143">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="40" selection-start="9661" selection-end="9661" vertical-scroll-proportion="-1.8660715">
-          <folding>
-            <marker date="1358322223198" expanded="false" signature="10224:10262" placeholder="..." />
-            <marker date="1358322223198" expanded="false" signature="10563:10576" placeholder="..." />
-          </folding>
+        <state line="205" column="24" selection-start="6565" selection-end="6565" vertical-scroll-proportion="0.40625">
+          <folding />
         </state>
       </provider>
     </entry>
