@@ -38,7 +38,7 @@
 <script>
 try {
 
-   var isNewWindow = location.href.indexOf("newwindow");
+    var isNewWindow = location.href.indexOf("newwindow");
 
     var isConnected = false;
     var http_host = location.host;
@@ -49,7 +49,7 @@ try {
     var init = false;
     var callback = {};
     var isRunning = false;
-    var time=0;
+    var time = 0;
     if (!window.console) {
         window.console = {
             log:function () {
@@ -73,7 +73,7 @@ try {
         socket.on("connect", function () {
             isConnected = true;
             time = new Date().getTime();
-          //  callback = [];
+            //  callback = [];
             if (run_timer) {
                 window.clearTimeout(run_timer);
                 run_timer = null;
@@ -94,7 +94,6 @@ try {
                 jQuery("#info").html("链接建立成功");
                 console.log("链接建立成功")
             }
-
 
 
             jQuery("#info").html("正在打开运行窗口");
@@ -127,7 +126,7 @@ try {
                             isConnected = false;
                             console.log("失去链接" + new Date().getTime())
                             //刷新当前页面
-                            if(isRunning){
+                            if (isRunning) {
                                 delete callback[isRunning];
                             }
 
@@ -138,12 +137,11 @@ try {
                             if (run_win && run_win.close) {
                                 run_win.close();
                                 run_win = null;
-                                time =0;
+                                time = 0;
                             }
 
 
-
-                          //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                            //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                         });
                         socket.on('console:reload', function (data) {
@@ -167,16 +165,10 @@ try {
                                 //创建一个独立的环境
 
 
-                                if (run_win &&run_win.location&&run_win.location.href) {
-                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                    run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
-                                }
-                                else{
-                                    run_win && run_win.close && run_win.close();
-                                    run_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                    run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
-                                }
+                                run_win && run_win.close && run_win.close();
+                                run_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
 
                                 callback[id] = function (report) {
                                     jQuery("#info").html(data.id + "任务完成");
@@ -192,22 +184,10 @@ try {
 
                                     socket.emit('console:task_finish', {id:data.id, report:report});
                                     isRunning = false;
-                                    if(isNewWindow==-1){
-                                        if((new Date().getTime()-time)>1000*60*5){
-                                            time = 0;
-                                            //每过3分钟关闭一次窗口
-                                            if (run_win) {
-                                                run_win.close();
-                                                run_win = null;
-                                            }
-                                            //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
-                                        }
-                                    }
-                                    else{
-                                        if (run_win) {
-                                            run_win.close();
-                                            run_win = null;
-                                        }
+
+                                    if (run_win) {
+                                        run_win.close();
+                                        run_win = null;
                                     }
 
 
@@ -236,7 +216,7 @@ try {
                                     socket.emit('console:task_finish', {id:data.id, report:defaultResult});
                                     isRunning = false;
                                     //刷新当前页面
-                                  //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                                    //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                                 }, 1000 * 60 * 10)
 
@@ -282,9 +262,9 @@ try {
 
     jQuery(window).bind("beforeunload", function (e) {
 
-         if(isRunning){
-             delete callback[isRunning];
-         }
+        if (isRunning) {
+            delete callback[isRunning];
+        }
 
         if (run_timer) {
             window.clearTimeout(run_timer);
@@ -293,11 +273,8 @@ try {
         if (run_win && run_win.close) {
             run_win.close();
             run_win = null;
-            time =0;
+            time = 0;
         }
-
-
-
 
 
     })
