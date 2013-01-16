@@ -124,10 +124,11 @@ try {
                         });
                         socket.on('disconnect', function () {
                             isConnected = false;
+                            jQuery("#info").html("失去链接" + new Date().getTime());
                             console.log("失去链接" + new Date().getTime())
                             //刷新当前页面
                             if (isRunning) {
-                                
+
                                 delete callback[isRunning];
                                 isRunning = false;
                             }
