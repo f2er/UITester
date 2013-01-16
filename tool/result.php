@@ -190,7 +190,8 @@ if ($task_id !== '') {
                 e.preventDefault();
                 jasmine._newEnv = true;
                 var isLoad = false;
-                jQuery.getScript("<?php echo $task_inject_uri  ?>", function () {
+                UT.configs.windowType = "window";
+                jQuery.getScript(jQuery.trim("<?php echo $task_inject_uri ?>"), function () {
                     isLoad = true;
 
                     UT.execute(function (data) {
