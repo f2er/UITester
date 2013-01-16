@@ -173,7 +173,7 @@ try {
                                 }
                                 else{
                                     run_win && run_win.close && run_win.close();
-                                    run_win = window.open("about:blank", "", 'height=600, width=1024,  left=300 ,  top=100,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                                    run_win = window.open("about:blank", "", 'height=10, width=10,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
                                     var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
                                     run_win.location.href = 'http://' + http_host + '/run.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
                                 }
