@@ -32,20 +32,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="0.37704918">
+            <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="-8.214286">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client-mgr.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tool/record/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="60" selection-start="3290" selection-end="3290" vertical-scroll-proportion="12.36">
-              <folding />
+            <state line="399" column="40" selection-start="9661" selection-end="9661" vertical-scroll-proportion="-1.8660715">
+              <folding>
+                <marker date="1358322223198" expanded="false" signature="10224:10262" placeholder="..." />
+                <marker date="1358322223198" expanded="false" signature="10563:10576" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/regression/app/run.html" />
         <option value="$PROJECT_DIR$/tool/record/index.html" />
         <option value="$PROJECT_DIR$/tool/record/record.html" />
         <option value="$PROJECT_DIR$/tool/assets/common.css" />
@@ -144,6 +146,7 @@
         <option value="$PROJECT_DIR$/../p/uitest/tools/build.xml" />
         <option value="$PROJECT_DIR$/../p/uitest/src/matcher.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
+        <option value="$PROJECT_DIR$/tool/record/core.js" />
       </list>
     </option>
   </component>
@@ -355,11 +358,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tool/assets/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="18" selection-start="610" selection-end="610" vertical-scroll-proportion="63.8" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tool/record/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="537" column="16" selection-start="11009" selection-end="11009" vertical-scroll-proportion="-0.8" />
@@ -458,8 +456,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="0.37704918">
+        <state line="193" column="76" selection-start="6909" selection-end="6909" vertical-scroll-proportion="-8.214286">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="399" column="40" selection-start="9661" selection-end="9661" vertical-scroll-proportion="-1.8660715">
+          <folding>
+            <marker date="1358322223198" expanded="false" signature="10224:10262" placeholder="..." />
+            <marker date="1358322223198" expanded="false" signature="10563:10576" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

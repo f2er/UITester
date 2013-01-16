@@ -374,7 +374,7 @@
 
                 var src = 'var win = UT.open("' + iframe.src + '",function(){\r\n' +
                     '    describe("测试页面' + iframe.src + '", function(){\r\n' +
-                    '       it("你的测试用例"， function(){\r\n' +
+                    '       it("你的测试用例", function(){\r\n' +
                     '           \r\n' +
                     '       })\r\n' +
                     '    })\r\n' +
@@ -397,7 +397,7 @@
 
                 var src = 'win.goto("' + iframe.src + '",function(){\r\n' +
                     '    describe("测试页面' + iframe.src + '", function(){\r\n' +
-                    '       it("你的测试用例"， function(){\r\n' +
+                    '       it("你的测试用例", function(){\r\n' +
                     '           \r\n' +
                     '       })\r\n' +
                     '    })\r\n' +
