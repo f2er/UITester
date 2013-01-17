@@ -61,10 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console_v2.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="console_v2.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/console_v2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="208" column="51" selection-start="6564" selection-end="6564" vertical-scroll-proportion="-5.90566">
+            <state line="197" column="35" selection-start="6311" selection-end="6311" vertical-scroll-proportion="4.1797557">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -83,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_v2.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="run_v2.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/run_v2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="14" selection-start="2065" selection-end="2065" vertical-scroll-proportion="1.9947644">
+            <state line="35" column="26" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-5.8846154">
               <folding />
             </state>
           </provider>
@@ -146,8 +146,8 @@
         <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
-        <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
         <option value="$PROJECT_DIR$/regression/app/run_v2.html" />
+        <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
       </list>
     </option>
   </component>
@@ -459,21 +459,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/run_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="26" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console_v2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="51" selection-start="6564" selection-end="6564" vertical-scroll-proportion="-5.90566">
+        <state line="197" column="35" selection-start="6311" selection-end="6311" vertical-scroll-proportion="4.1797557">
           <folding>
             <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/run_v2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="14" selection-start="2065" selection-end="2065" vertical-scroll-proportion="1.9947644">
-          <folding />
         </state>
       </provider>
     </entry>

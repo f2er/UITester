@@ -79,15 +79,15 @@
                     socket.emit('console:register', {
                         'userAgent':window.navigator.userAgent
                     });
-                    shoMsg("链接重新建立成功")
+                    showMsg("链接重新建立成功")
                     return;
                 }
                 else {
-                    shoMsg("链接重新建立成功")
+                    showMsg("链接重新建立成功")
                 }
 
 
-                shoMsg("正在打开运行窗口");
+                showMsg("正在打开运行窗口");
 
 
                 var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
@@ -96,29 +96,29 @@
 
 
                 if (test_run_win) {
-                    shoMsg("打开运行窗口成功");
+                    showMsg("打开运行窗口成功");
 
 
                 }
                 else {
 
-                    shoMsg("打开运行窗口失败");
+                    showMsg("打开运行窗口失败");
                     return;
                 }
 
-                shoMsg("测试脚本注入");
+                showMsg("测试脚本注入");
 
                 UT._msgReady(test_run_win,
                         function () {
                             test_run_win.close();
 
-                            shoMsg("脚本注入成功");
+                            showMsg("脚本注入成功");
                             socket.emit('console:register', {
                                 'userAgent':window.navigator.userAgent
                             });
                             socket.on('disconnect', function () {
                                 isConnected = false;
-                                shoMsg("失去链接" + new Date().getTime());
+                                showMsg("失去链接" + new Date().getTime());
 
                             });
 
@@ -136,7 +136,7 @@
                                     //创建一个独立的环境
                                     if (isRunning)return;
                                     isRunning = data.id;
-                                    shoMsg("任务开始 " + "id:" + data.id + " url:" + data.url);
+                                    showMsg("任务开始 " + "id:" + data.id + " url:" + data.url);
 
 
 
@@ -150,7 +150,7 @@
                                         socket.emit('console:task_finish', {id:data.id, report:report});
                                         isRunning = false;
                                         add();
-                                        shoMsg(data.id + "任务完成");
+                                        showMsg(data.id + "任务完成");
 
 
                                     }
@@ -172,7 +172,7 @@
                                         socket.emit('console:task_finish', {id:data.id, report:defaultResult});
                                         isRunning = false;
                                         add();
-                                        shoMsg(data.id + "任务完成");
+                                        showMsg(data.id + "任务完成");
 
 
                                     }, 1000 * 60 * 10);
@@ -190,12 +190,12 @@
                             });
 
                             init = true;
-                            shoMsg("启动完成，等待任务中...");
+                            showMsg("启动完成，等待任务中...");
 
 
                         },
                         function () {
-                            shoMsg("脚本注入失败");
+                            showMsg("脚本注入失败");
 
                         }
                 );
