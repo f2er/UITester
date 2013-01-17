@@ -166,6 +166,8 @@
                                                 isRunning = false;
                                                 test_number++;
                                                 jQuery("#test_number").html(test_number);
+                                                jQuery("#info").html("任务完成" + "id:" + data.id + " url:" + data.url);
+                                                console.log(data.id + "任务完成");
                                                 socket.emit('console:task_finish', {id:data.id, report:report});
                                             })
                                         })
