@@ -102,7 +102,7 @@
       <file leaf-file-name="client-mgr.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="53" selection-start="6630" selection-end="6630" vertical-scroll-proportion="1.7588326">
+            <state line="206" column="53" selection-start="6630" selection-end="6630" vertical-scroll-proportion="1.8463901">
               <folding />
             </state>
           </provider>
@@ -468,7 +468,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="53" selection-start="6630" selection-end="6630" vertical-scroll-proportion="1.7588326">
+        <state line="206" column="53" selection-start="6630" selection-end="6630" vertical-scroll-proportion="1.8463901">
           <folding />
         </state>
       </provider>
