@@ -36,33 +36,30 @@
 
 
 <script>
-(function () {
-    try {
+    (function () {
+        try {
 
-        var isNewWindow = location.href.indexOf("newwindow");
 
-        var isConnected = false;
-        var http_host = location.host;
-        var run_timer;
-        var socket;
-        var run_win;
-        var test_number = 0;
-        var init = false;
-        var callback = {};
-        var isRunning = false;
-        var time = 0;
-        if (!window.console) {
-            window.console = {
-                log:function () {
-                },
-                info:function () {
-                },
-                debug:function () {
+            var isConnected = false;
+            var http_host = location.host;
+
+            var socket;
+
+            var test_number = 0;
+            var init = false;
+            var isRunning = false;
+            if (!window.console) {
+                window.console = {
+                    log:function () {
+                    },
+                    info:function () {
+                    },
+                    debug:function () {
+                    }
                 }
             }
-        }
 
-        var start = function () {
+
             if (socket) {
                 jQuery("#info").html("链接已经建立");
                 return;
@@ -70,19 +67,9 @@
             jQuery("#info").html("正在建议链接");
             socket = io.connect('http://' + http_host);
 
-
             socket.on("connect", function () {
                 isConnected = true;
-                time = new Date().getTime();
-                //  callback = [];
-                if (run_timer) {
-                    window.clearTimeout(run_timer);
-                    run_timer = null;
-                }
-                if (run_win && run_win.close) {
-                    run_win.close();
-                    run_win = null;
-                }
+
                 if (init) {
                     socket.emit('console:register', {
                         'userAgent':window.navigator.userAgent
@@ -127,25 +114,7 @@
                                 isConnected = false;
                                 jQuery("#info").html("失去链接" + new Date().getTime());
                                 console.log("失去链接" + new Date().getTime())
-                                //刷新当前页面
-                                if (isRunning) {
 
-                                    delete callback[isRunning];
-                                    isRunning = false;
-                                }
-
-                                if (run_timer) {
-                                    window.clearTimeout(run_timer);
-                                    run_timer = null;
-                                }
-                                if (run_win && run_win.close) {
-                                    run_win.close();
-                                    run_win = null;
-                                    time = 0;
-                                }
-
-
-                                //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
 
                             });
                             socket.on('console:reload', function (data) {
@@ -162,8 +131,9 @@
                                 if (isRunning)return;
 
                                 isRunning = data.id;
-                                var tryNum = 0;
-                                var isComplete = false;
+
+                                var timeout;
+
                                 jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.url);
                                 console.log(data.id + "任务开始");
 
@@ -176,7 +146,7 @@
                                     UT.configs.windowType = "window";
 
                                     UT._setForceClose(true);
-                                    var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
+                                    var url = $.trim(data.url);
                                     if (url.indexOf("?") != -1) {
                                         url = url + "&t=" + new Date().getTime();
                                     }
@@ -184,7 +154,8 @@
                                         url = url + "?t=" + new Date().getTime();
                                     }
                                     try {
-                                        jQuery.getScript(data.url, function () {
+                                        var isloading = true;
+                                        jQuery.getScript(url, function () {
                                             isloading = false;
                                             if (timeout) {
                                                 window.clearTimeout(timeout);
@@ -192,7 +163,7 @@
                                             }
                                             UT.execute(function (report) {
                                                 isRuning = false;
-                                                task_complete(report)
+                                                socket.emit('console:task_finish', {id:data.id, report:report});
                                             })
                                         })
                                     } catch (e) {
@@ -200,9 +171,21 @@
                                         report.reports.errors.push({
                                             message:e.message
                                         })
-                                        task_complete(report, 222)
+                                        socket.emit('console:task_finish', {id:data.id, report:report});
                                     }
+                                    timeout = window.setTimeout(function () {
+                                        if (!isloading)return;
+                                        isloading = true;
+                                        isRunning = false;
 
+                                        var report = UT.defaultResult;
+                                        report.reports.errors.push({
+                                            message:url + "加载失败"
+                                        })
+                                        socket.emit('console:task_finish', {id:data.id, report:report});
+
+
+                                    }, 1000 * 10);
 
 
                                 }
@@ -224,50 +207,16 @@
             })
 
 
-        };
-
-        start();
-        //等结果
-        UT.postmsg.bind(function (data) {
+            $("#start").bind("click", function () {
+                window.location.reload();
+            });
 
 
-            if (data.code == "111" && data.id && callback[data.id]) {
-
-                callback[data.id](data.report);
-                delete callback[data.id];
-            }
-
-
-        })
-
-        $("#start").bind("click", function () {
+        } catch (e) {
+            // if (run_win && run_win.close)run_win.close();
             window.location.reload();
-        });
-
-        jQuery(window).bind("beforeunload", function (e) {
-
-            if (isRunning) {
-                delete callback[isRunning];
-            }
-
-            if (run_timer) {
-                window.clearTimeout(run_timer);
-                run_timer = null;
-            }
-            if (run_win && run_win.close) {
-                run_win.close();
-                run_win = null;
-                time = 0;
-            }
-
-
-        })
-
-    } catch (e) {
-        // if (run_win && run_win.close)run_win.close();
-        window.location.reload();
-    }
-})();
+        }
+    })();
 </script>
 
 </body>
