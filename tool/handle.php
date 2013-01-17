@@ -3,6 +3,7 @@ session_start();
 require '../auth/AuthBoot.php';
 $user = $ArkAuth->getAppUser();
 $userName = $user['DisplayName'];
+$wangwang = $user['WangWang'];
 
     // include databse connector
     include_once('conn_db.php');
@@ -54,7 +55,8 @@ $userName = $user['DisplayName'];
 				project,
 				week,
 				start_time,
-				duration
+				duration,
+				wangwang
             ) VALUES (
                 "' . $task_name . '" ,
                 "' . $task_inject_uri . '",
@@ -64,7 +66,8 @@ $userName = $user['DisplayName'];
                 "' . $project . '",
                 "' . $week . '",
                 "' . $start_time . '",
-                "' . $duration . '"
+                "' . $duration . '",
+                "' . $wangwang . '"
             );
         ';
 
