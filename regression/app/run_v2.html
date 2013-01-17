@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UITester run</title>
+    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+</head>
+<body>
+<h3>UITester 运行页面</h3>
+
+
+<script>
+    (function () {
+
+        try {
+            window.alert = function () {
+            };
+            UT.configs.windowType = "window";
+            var timeout = false;
+            var isloading = true;
+            var isComplete = false;
+            var isReport = false;
+            UT._setForceClose(true);
+            var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
+            if (url.indexOf("?") != -1) {
+                url = url + "&t=" + new Date().getTime();
+            }
+            else {
+                url = url + "?t=" + new Date().getTime();
+            }
+            var id = $.trim(location.href.match(/id=(.*)$/)[1]);
+            var doReport = function (report, code) {
+
+                UT.postmsg.send({
+                    target:parent,
+                    data:{
+                        code:"111",
+                        id:id,
+                        report:report
+                    }
+                })
+
+            }
+
+
+            jQuery.getScript(url, function () {
+                isloading = false;
+                if (timeout) {
+                    window.clearTimeout(timeout);
+                    timeout = null;
+                }
+                UT.execute(function (report) {
+                    isComplete = true;
+                    doReport(report)
+                })
+            })
+
+
+            timeout = window.setTimeout(function () {
+                if (!isloading)return;
+                var report = UT.defaultResult;
+                report.reports.errors.push({
+                    message:url + "加载失败"
+                })
+                doReport(report)
+
+            }, 1000 * 10);
+        } catch (e) {
+            var report = UT.defaultResult;
+            report.reports.errors.push({
+                message:e.message
+            })
+            doReport(report)
+        }
+
+    })();
+
+
+</script>
+
+
+</body>
+</html>

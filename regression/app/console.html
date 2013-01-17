@@ -179,7 +179,7 @@ try {
                                     jQuery("#info").html(data.id + "任务完成");
                                     console.log(data.id + "任务完成")
 
-                                    isComplete = true;
+
                                     if (run_timer) {
                                         window.clearTimeout(run_timer);
                                         run_timer = null;
@@ -194,6 +194,7 @@ try {
                                         run_win.close();
                                         run_win = null;
                                     }
+                                    isComplete = true;
 
 
                                 }
@@ -203,7 +204,7 @@ try {
                                     // 三分钟没有完成，
 
                                     if (isComplete) return;
-                                    isComplete = true;
+
                                     delete callback[data.id];
                                     jQuery("#info").html(data.id + "任务超时");
                                     console.log(data.id + "任务完成")
@@ -222,6 +223,7 @@ try {
                                     isRunning = false;
                                     //刷新当前页面
                                     //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
+                                    isComplete = true;
 
                                 }, 1000 * 60 * 10)
 
