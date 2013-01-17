@@ -90,19 +90,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task-mgr.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="8" selection-start="2635" selection-end="2635" vertical-scroll-proportion="0.30191693">
+            <state line="115" column="0" selection-start="2627" selection-end="2627" vertical-scroll-proportion="-7.56">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client-mgr.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="client-mgr.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="14" selection-start="2356" selection-end="2366" vertical-scroll-proportion="0.0">
+            <state line="206" column="53" selection-start="6630" selection-end="6630" vertical-scroll-proportion="1.7588326">
               <folding />
             </state>
           </provider>
@@ -141,11 +141,11 @@
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/../ie_plugin/IE/BHO.cpp" />
         <option value="$PROJECT_DIR$/regression/app/server.js" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$USER_HOME$/Desktop/detailtobuy.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
       </list>
     </option>
   </component>
@@ -280,7 +280,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1429" height="860" extended-state="1" />
+    <frame x="0" y="0" width="1429" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -459,16 +459,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="14" selection-start="2356" selection-end="2366" vertical-scroll-proportion="0.0">
+        <state line="115" column="0" selection-start="2627" selection-end="2627" vertical-scroll-proportion="-7.56">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="8" selection-start="2635" selection-end="2635" vertical-scroll-proportion="0.30191693">
+        <state line="206" column="53" selection-start="6630" selection-end="6630" vertical-scroll-proportion="1.7588326">
           <folding />
         </state>
       </provider>
