@@ -68,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console_v2.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console_v2.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console_v2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="178" column="77" selection-start="6695" selection-end="6695" vertical-scroll-proportion="0.41304347">
+            <state line="178" column="77" selection-start="6695" selection-end="6695" vertical-scroll-proportion="-15.415094">
               <folding>
                 <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="task-mgr.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="230" column="37" selection-start="5774" selection-end="5774" vertical-scroll-proportion="-3.04">
+            <state line="235" column="59" selection-start="6021" selection-end="6021" vertical-scroll-proportion="0.48402557">
               <folding />
             </state>
           </provider>
@@ -141,11 +141,11 @@
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/../ie_plugin/IE/BHO.cpp" />
         <option value="$PROJECT_DIR$/regression/app/server.js" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$USER_HOME$/Desktop/detailtobuy.js" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
         <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
       </list>
     </option>
   </component>
@@ -420,13 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="37" selection-start="5774" selection-end="5774" vertical-scroll-proportion="-3.04">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="196" column="72" selection-start="6155" selection-end="6207" vertical-scroll-proportion="0.0">
@@ -464,12 +457,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console_v2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="77" selection-start="6695" selection-end="6695" vertical-scroll-proportion="0.41304347">
+        <state line="178" column="77" selection-start="6695" selection-end="6695" vertical-scroll-proportion="-15.415094">
           <folding>
             <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#2;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="235" column="59" selection-start="6021" selection-end="6021" vertical-scroll-proportion="0.48402557">
+          <folding />
         </state>
       </provider>
     </entry>
