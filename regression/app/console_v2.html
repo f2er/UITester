@@ -46,6 +46,7 @@
             var socket;
 
             var test_number = 0;
+           var test_timeout_number =0;
             var init = false;
             var isRunning = false;
             if (!window.console) {
@@ -162,7 +163,9 @@
                                                 timeout = null;
                                             }
                                             UT.execute(function (report) {
-                                                isRuning = false;
+                                                isRunning = false;
+                                                test_number++;
+                                                jQuery("#test_number").html(test_number);
                                                 socket.emit('console:task_finish', {id:data.id, report:report});
                                             })
                                         })
