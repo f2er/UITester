@@ -50,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jasmine.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3158" column="53" selection-start="98868" selection-end="98868" vertical-scroll-proportion="0.39477977">
+            <state line="3158" column="53" selection-start="98868" selection-end="98868" vertical-scroll-proportion="-32.48">
               <folding />
             </state>
           </provider>
@@ -99,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="task-mgr.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="25" selection-start="6377" selection-end="6377" vertical-scroll-proportion="-12.16">
+            <state line="254" column="46" selection-start="6594" selection-end="6594" vertical-scroll-proportion="0.7284345">
               <folding />
             </state>
           </provider>
@@ -140,12 +140,12 @@
         <option value="$PROJECT_DIR$/tool/local-test.php" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/data-mod.js" />
         <option value="$PROJECT_DIR$/regression/app/run.html" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/console.html" />
         <option value="$PROJECT_DIR$/../ie_plugin/IE/BHO.cpp" />
         <option value="$PROJECT_DIR$/regression/app/server.js" />
         <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
       </list>
     </option>
   </component>
@@ -406,13 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="25" selection-start="6377" selection-end="6377" vertical-scroll-proportion="-12.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ie_plugin/IE/BHO.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="49" selection-start="2413" selection-end="2413" vertical-scroll-proportion="0.5330261">
@@ -468,7 +461,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3158" column="53" selection-start="98868" selection-end="98868" vertical-scroll-proportion="0.39477977">
+        <state line="3158" column="53" selection-start="98868" selection-end="98868" vertical-scroll-proportion="-32.48">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="254" column="46" selection-start="6594" selection-end="6594" vertical-scroll-proportion="0.7284345">
           <folding />
         </state>
       </provider>
