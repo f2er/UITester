@@ -24,6 +24,16 @@ function handler(req, res) {
             res.end(data);
         })
     }
+    if(req.url.indexOf("run_v2.html")!=-1){
+        fs.readFile(__dirname + '/run_v2.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error run_v2.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        })
+    }
    else  if(req.url.indexOf("run_test.html")!=-1){
         fs.readFile(__dirname + '/run_test.html', function (err, data) {
             if (err) {
@@ -35,6 +45,16 @@ function handler(req, res) {
         })
     }
     else if(req.url.indexOf("console_v2.html")!=-1){
+        fs.readFile(__dirname + '/console_v2.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading console_v2.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        });
+    }
+    else if(req.url.indexOf("console.html")!=-1){
         fs.readFile(__dirname + '/console_v2.html', function (err, data) {
             if (err) {
                 res.writeHead(500);

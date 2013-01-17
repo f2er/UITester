@@ -48,6 +48,7 @@
             var init = false;
             var isRunning = false;
             var run_timer;
+            var callback = {};
             var showMsg = function (msg) {
                 jQuery("#info").html(msg);
                 console.log(msg);
@@ -118,7 +119,12 @@
                             });
                             socket.on('disconnect', function () {
                                 isConnected = false;
+                                if (run_timer) {
+                                    window.clearTimeout(run_timer);
+                                    run_timer = null;
+                                }
                                 showMsg("失去链接" + new Date().getTime());
+
 
                             });
 
@@ -135,12 +141,13 @@
                                 if (data && data.url) {
                                     //创建一个独立的环境
                                     if (isRunning)return;
-                                    isRunning = data.id;
+                                    isRunning = true;
+                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
                                     showMsg("任务开始 " + "id:" + data.id + " url:" + data.url);
 
 
 
-                                    callback[data.id] = function (report) {
+                                    callback[id] = function (report) {
 
                                         if (run_timer) {
                                             window.clearTimeout(run_timer);
@@ -178,7 +185,7 @@
                                     }, 1000 * 60 * 10);
 
                                     $("iframe").remove();
-                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+
                                     var src = 'http://' + http_host + '/run_v2.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
                                     var iframe = $('<iframe src="' + src + '"></iframe>');
                                     $("body").append(iframe);
@@ -217,6 +224,12 @@
             $("#start").bind("click", function () {
                 window.location.reload();
             });
+            jQuery(window).bind("beforeunload", function (e) {
+
+              return "确定要关闭吗？"
+
+
+            })
 
 
         } catch (e) {

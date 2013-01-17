@@ -30,7 +30,7 @@
             }
             var id = $.trim(location.href.match(/id=(.*)$/)[1]);
             var doReport = function (report, code) {
-
+                console.log(report)
                 UT.postmsg.send({
                     target:parent,
                     data:{
