@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UITester Console</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
+</head>
+<body>
+<h3>UITester 运行控制台</h3>
+
+<div class="alert alert-info">
+    <h3>安装：</h3>
+
+    <p> 1.安装UITester浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>
+        <a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>
+    </p>
+
+    <p>2.设置浏览器允许窗口打开</p>
+
+    <p>3.点击开始按钮
+        <button id="start">开始</button>
+    </p>
+
+</div>
+<br>
+<br>
+
+<div class="alert alert-info">
+    <p id="info" style="color: red"></p>
+
+    <p style="color: red" id="browser_info"></p>
+
+    <p style="color: red" id="test_number"></p>
+</div>
+
+
+<script>
+(function () {
+    try {
+
+        var isNewWindow = location.href.indexOf("newwindow");
+
+        var isConnected = false;
+        var http_host = location.host;
+        var run_timer;
+        var socket;
+        var run_win;
+        var test_number = 0;
+        var init = false;
+        var callback = {};
+        var isRunning = false;
+        var time = 0;
+        if (!window.console) {
+            window.console = {
+                log:function () {
+                },
+                info:function () {
+                },
+                debug:function () {
+                }
+            }
+        }
+
+        var start = function () {
+            if (socket) {
+                jQuery("#info").html("链接已经建立");
+                return;
+            }
+            jQuery("#info").html("正在建议链接");
+            socket = io.connect('http://' + http_host);
+
+
+            socket.on("connect", function () {
+                isConnected = true;
+                time = new Date().getTime();
+                //  callback = [];
+                if (run_timer) {
+                    window.clearTimeout(run_timer);
+                    run_timer = null;
+                }
+                if (run_win && run_win.close) {
+                    run_win.close();
+                    run_win = null;
+                }
+                if (init) {
+                    socket.emit('console:register', {
+                        'userAgent':window.navigator.userAgent
+                    });
+                    jQuery("#info").html("链接重新建立成功");
+                    console.log("链接重新建立成功");
+                    return;
+                }
+                else {
+                    jQuery("#info").html("链接建立成功");
+                    console.log("链接建立成功")
+                }
+
+
+                jQuery("#info").html("正在打开运行窗口");
+
+
+                var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
+
+
+                if (test_run_win) {
+
+                    jQuery("#info").html("打开运行窗口成功");
+
+                }
+                else {
+                    jQuery("#info").html("打开运行窗口失败");
+                    return;
+                }
+                jQuery("#info").html("测试脚本注入...");
+
+                UT._msgReady(test_run_win,
+                        function () {
+                            test_run_win.close();
+                            jQuery("#info").html("脚本注入成功");
+                            socket.emit('console:register', {
+                                'userAgent':window.navigator.userAgent
+                            });
+                            socket.on('disconnect', function () {
+                                isConnected = false;
+                                jQuery("#info").html("失去链接" + new Date().getTime());
+                                console.log("失去链接" + new Date().getTime())
+                                //刷新当前页面
+                                if (isRunning) {
+
+                                    delete callback[isRunning];
+                                    isRunning = false;
+                                }
+
+                                if (run_timer) {
+                                    window.clearTimeout(run_timer);
+                                    run_timer = null;
+                                }
+                                if (run_win && run_win.close) {
+                                    run_win.close();
+                                    run_win = null;
+                                    time = 0;
+                                }
+
+
+                                //  window.location.href='http://' + http_host + '?t='+new Date().getTime();
+
+                            });
+                            socket.on('console:reload', function (data) {
+                                window.location.reload();
+
+                            });
+                            socket.on('console:update', function (data) {
+                                jQuery("#browser_info").html("当前浏览器信息: " + JSON.stringify(data));
+
+                            });
+
+
+                            socket.on('console:task_start', function (data) {
+                                if (isRunning)return;
+
+                                isRunning = data.id;
+                                var tryNum = 0;
+                                var isComplete = false;
+                                jQuery("#info").html("任务开始 " + "id:" + data.id + " url:" + data.url);
+                                console.log(data.id + "任务开始");
+
+                                if (data && data.url) {
+                                    //创建一个独立的环境
+                                    jasmine._newEnv = true;
+                                    UT.configs.autoClose = true;
+                                    window.alert = function () {
+                                    };
+                                    UT.configs.windowType = "window";
+
+                                    UT._setForceClose(true);
+                                    var url = $.trim(decodeURIComponent(location.href.match(/url=(.*)&/)[1]));
+                                    if (url.indexOf("?") != -1) {
+                                        url = url + "&t=" + new Date().getTime();
+                                    }
+                                    else {
+                                        url = url + "?t=" + new Date().getTime();
+                                    }
+                                    try {
+                                        jQuery.getScript(data.url, function () {
+                                            isloading = false;
+                                            if (timeout) {
+                                                window.clearTimeout(timeout);
+                                                timeout = null;
+                                            }
+                                            UT.execute(function (report) {
+                                                isRuning = false;
+                                                task_complete(report)
+                                            })
+                                        })
+                                    } catch (e) {
+                                        var report = UT.defaultResult;
+                                        report.reports.errors.push({
+                                            message:e.message
+                                        })
+                                        task_complete(report, 222)
+                                    }
+
+
+
+                                }
+
+
+                            });
+
+                            init = true;
+                            jQuery("#info").html("启动完成，等待任务中...");
+
+
+                        },
+                        function () {
+                            jQuery("#info").html("脚本注入失败");
+                        }
+                );
+
+
+            })
+
+
+        };
+
+        start();
+        //等结果
+        UT.postmsg.bind(function (data) {
+
+
+            if (data.code == "111" && data.id && callback[data.id]) {
+
+                callback[data.id](data.report);
+                delete callback[data.id];
+            }
+
+
+        })
+
+        $("#start").bind("click", function () {
+            window.location.reload();
+        });
+
+        jQuery(window).bind("beforeunload", function (e) {
+
+            if (isRunning) {
+                delete callback[isRunning];
+            }
+
+            if (run_timer) {
+                window.clearTimeout(run_timer);
+                run_timer = null;
+            }
+            if (run_win && run_win.close) {
+                run_win.close();
+                run_win = null;
+                time = 0;
+            }
+
+
+        })
+
+    } catch (e) {
+        // if (run_win && run_win.close)run_win.close();
+        window.location.reload();
+    }
+})();
+</script>
+
+</body>
+</html>

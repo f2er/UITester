@@ -34,6 +34,16 @@ function handler(req, res) {
             res.end(data);
         })
     }
+    else if(req.url.indexOf("console_v2.html")!=-1){
+        fs.readFile(__dirname + '/console_v2.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading console_v2.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        });
+    }
     else{
         fs.readFile(__dirname + '/console.html', function (err, data) {
             if (err) {
