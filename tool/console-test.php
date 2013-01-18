@@ -98,7 +98,8 @@
 
                 jQuery("#run_test").on("click", function () {
                     if (isConnected) {
-                        var src = jQuery("#test_src").val();
+                        var src = jQuery.trim(jQuery("#test_src").val());
+                        jQuery("#myModal .modal-body").html("");
                         jQuery("#myModal .modal-body").append($('<p>开始测试....</p>'));
                         $('#myModal').modal('show');
                         socket.emit("start", {"url":src})
