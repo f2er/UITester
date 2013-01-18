@@ -9,6 +9,7 @@
 //回归服务
 var ClientManager = require('client-mgr'),
     TaskManager = require('task-mgr'),
+    EventManager = require('event-mgr'),
     fs = require("fs");
 
 var socket = require('socket.io');
@@ -84,7 +85,7 @@ TaskManager.init(ClientManager);
 
 //建立浏览器链接服务
 
-var io = socket.listen(3031,{ 'log level':2 });
+var io = socket.listen(3031, { 'log level':2 });
 
 io.set('transports', [
     'websocket'
@@ -101,6 +102,12 @@ io.sockets.on('connection', function (socket) {
             var task = {id:id, task_inject_uri:data.url, socket:socket};
             TaskManager.addRemoteTask(task);
         }
+    })
+    socket.emit('browser', ClientManager.getSummary());
+
+
+    EventManager.on('client:update', function (summary) {
+        socket.emit('browser', summary);
     })
 
 })

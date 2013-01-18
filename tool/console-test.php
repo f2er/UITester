@@ -6,10 +6,15 @@
     }
 
 </style>
-
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>输入地址，后台自动运行测试用例</h1>
+    </div>
+</header>
 <div id="content" class="container" style="width: 920">
 
     <div id ="input_test"  style="text-align: center">
+        <div id="browser_info"></div>
         <input class="input-xxlarge" placeholder="输入测试代码的地址" id="test_src" type="text"><br>
         <button class="btn" type="button" id="run_test">测试</button>
 
@@ -83,6 +88,15 @@
             jQuery.getScript(url, function () {
 
                 var socket = io.connect('http://' + http_host + ":3031");
+                socket.on("browser", function(data){
+                    var html =""
+                    for(var p in data){
+                        html+="<span>"+p+":"+data[p]+"</span>  ";
+
+                    }
+                    $("#browser_info").html(html);
+
+                })
 
                 if (!window.console) {
                     window.console = {
