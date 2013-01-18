@@ -11,10 +11,10 @@ var ClientManager = require('client-mgr'),
     TaskManager = require('task-mgr'),
     fs = require("fs");
 
-var  socket = require('socket.io');
+var socket = require('socket.io');
 
 function handler(req, res) {
-    if(req.url.indexOf("run.html")!=-1){
+    if (req.url.indexOf("run.html") != -1) {
         fs.readFile(__dirname + '/run.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
@@ -24,7 +24,7 @@ function handler(req, res) {
             res.end(data);
         })
     }
-    if(req.url.indexOf("run_v2.html")!=-1){
+    if (req.url.indexOf("run_v2.html") != -1) {
         fs.readFile(__dirname + '/run_v2.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
@@ -34,7 +34,7 @@ function handler(req, res) {
             res.end(data);
         })
     }
-   else  if(req.url.indexOf("run_test.html")!=-1){
+    else if (req.url.indexOf("run_test.html") != -1) {
         fs.readFile(__dirname + '/run_test.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
@@ -44,7 +44,7 @@ function handler(req, res) {
             res.end(data);
         })
     }
-    else if(req.url.indexOf("console_v2.html")!=-1){
+    else if (req.url.indexOf("console_v2.html") != -1) {
         fs.readFile(__dirname + '/console_v2.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
@@ -54,7 +54,7 @@ function handler(req, res) {
             res.end(data);
         });
     }
-    else if(req.url.indexOf("console.html")!=-1){
+    else if (req.url.indexOf("console.html") != -1) {
         fs.readFile(__dirname + '/console_v2.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
@@ -64,7 +64,7 @@ function handler(req, res) {
             res.end(data);
         });
     }
-    else{
+    else {
         fs.readFile(__dirname + '/console.html', function (err, data) {
             if (err) {
                 res.writeHead(500);
@@ -78,14 +78,13 @@ function handler(req, res) {
 }
 
 
-
 ClientManager.init(handler);
 
 TaskManager.init(ClientManager);
 
 //建立浏览器链接服务
 
-var  io = socket.listen(3031);
+var io = socket.listen(3031);
 
 io.set('transports', [
     'websocket'
@@ -96,15 +95,15 @@ io.set('transports', [
 ]);
 io.sockets.on('connection', function (socket) {
 
-    socket.on("run", function(data){
-        if(data.url){
-            var id =  'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            var task = {id:id,url:url,sockect};
+    socket.on("run", function (data) {
+        if (data.url) {
+            var id = 'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+            var task = {id:id, url:url, socket:socket};
+            TaskManager.addTask(task);
         }
     })
 
 })
-
 
 
 //远程运行服务
