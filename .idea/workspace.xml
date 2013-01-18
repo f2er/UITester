@@ -90,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console-test.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="console-test.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tool/console-test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="133" column="24" selection-start="4464" selection-end="4464" vertical-scroll-proportion="1.1284109">
+            <state line="133" column="0" selection-start="4440" selection-end="4440" vertical-scroll-proportion="-25.107143">
               <folding />
             </state>
           </provider>
@@ -108,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client-mgr.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="client-mgr.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="55" selection-start="3015" selection-end="3063" vertical-scroll-proportion="0.0">
+            <state line="128" column="16" selection-start="3110" selection-end="3110" vertical-scroll-proportion="-1.9431643">
               <folding />
             </state>
           </provider>
@@ -142,10 +142,10 @@
         <option value="$PROJECT_DIR$/regression/app/run_v2.html" />
         <option value="D:/fed/2013/uitest/longjun/share-v2-test.js" />
         <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
         <option value="$PROJECT_DIR$/regression/app/server.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
         <option value="$PROJECT_DIR$/tool/console-test.php" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
       </list>
     </option>
   </component>
@@ -447,13 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="55" selection-start="3015" selection-end="3063" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="246" column="17" selection-start="5918" selection-end="5918" vertical-scroll-proportion="-0.76">
@@ -470,7 +463,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tool/console-test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="24" selection-start="4464" selection-end="4464" vertical-scroll-proportion="1.1284109">
+        <state line="133" column="0" selection-start="4440" selection-end="4440" vertical-scroll-proportion="-25.107143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="16" selection-start="3110" selection-end="3110" vertical-scroll-proportion="-1.9431643">
           <folding />
         </state>
       </provider>

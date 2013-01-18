@@ -131,7 +131,7 @@
                     })
                     socket.on("complete", function (data) {
 
-                        
+
                         renderResult("#m-result-report", data.reports)
 
 
