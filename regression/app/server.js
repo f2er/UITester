@@ -11,7 +11,7 @@ var ClientManager = require('client-mgr'),
     TaskManager = require('task-mgr'),
     fs = require("fs");
 
-
+var  socket = require('socket.io');
 
 function handler(req, res) {
     if(req.url.indexOf("run.html")!=-1){
@@ -83,6 +83,27 @@ ClientManager.init(handler);
 
 TaskManager.init(ClientManager);
 
+//建立浏览器链接服务
+
+var  io = socket.listen(3031);
+
+io.set('transports', [
+    'websocket'
+    , 'flashsocket'
+    , 'htmlfile'
+    , 'xhr-polling'
+    , 'jsonp-polling'
+]);
+io.sockets.on('connection', function (socket) {
+
+    socket.on("run", function(data){
+        if(data.url){
+            var id =  'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+            var task = {id:id,url:url,sockect};
+        }
+    })
+
+})
 
 
 
