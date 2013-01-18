@@ -153,9 +153,10 @@
 
 
 
-    <?php include_once('./common/footer.php'); ?>
+
 
 
 
 
 </div>
+<?php include_once('./common/footer.php'); ?>
