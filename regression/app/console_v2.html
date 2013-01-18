@@ -36,211 +36,210 @@
 
 
 <script>
-    (function () {
-        try {
+(function () {
+    try {
 
 
-            var isConnected = false;
-            var http_host = location.host;
-            var socket;
-            var test_number = 0;
-            var test_timeout_number = 0;
-            var init = false;
-            var isRunning = false;
-            var run_timer;
-            var callback = {};
-            var showMsg = function (msg) {
-                jQuery("#info").html(msg);
-                console.log(msg);
-            }
-            var add = function () {
-                test_number++;
-                jQuery("#test_number").html(test_number);
-            }
+        var isConnected = false;
+        var http_host = location.host;
+        var socket;
+        var test_number = 0;
+        var test_timeout_number = 0;
+        var init = false;
+        var isRunning = false;
+        var run_timer;
+        var callback = {};
+        var showMsg = function (msg) {
+            jQuery("#info").html(msg);
+            console.log(msg);
+        }
+        var add = function () {
+            test_number++;
+            jQuery("#test_number").html(test_number);
+        }
 
-            if (!window.console) {
-                window.console = {
-                    log:function () {
-                    },
-                    info:function () {
-                    },
-                    debug:function () {
-                    }
+        if (!window.console) {
+            window.console = {
+                log:function () {
+                },
+                info:function () {
+                },
+                debug:function () {
                 }
             }
+        }
 
 
-            socket = io.connect('http://' + http_host,{
-               "max reconnection attempts":10000,
-                "connect timeout":1000*60*10,
-                transports:['websocket', 'flashsocket', 'htmlfile', 'xhr-multipart', 'xhr-polling', 'jsonp-polling']
-            });
-            showMsg("正在建议链接");
+        socket = io.connect('http://' + http_host, {
+            "max reconnection attempts":10000,
+            "connect timeout":1000 * 60 * 10
 
-            socket.on("connect", function () {
-                isConnected = true;
+        });
+        showMsg("正在建议链接");
 
-                if (init) {
-                    socket.emit('console:register', {
-                        'userAgent':window.navigator.userAgent
-                    });
-                    showMsg("链接重新建立成功")
-                    return;
-                }
-                else {
-                    showMsg("链接重新建立成功")
-                }
+        socket.on("connect", function () {
+            isConnected = true;
 
-
-                showMsg("正在打开运行窗口");
+            if (init) {
+                socket.emit('console:register', {
+                    'userAgent':window.navigator.userAgent
+                });
+                showMsg("链接重新建立成功")
+                return;
+            }
+            else {
+                showMsg("链接重新建立成功")
+            }
 
 
-                var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
-                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
+            showMsg("正在打开运行窗口");
 
 
-                if (test_run_win) {
-                    showMsg("打开运行窗口成功");
+            var test_run_win = window.open("about:blank", "", 'height=10, width=20,  left=0 ,  top=0,location=yes, toolbar=no,resizable=yes, menubar=no, status=no')
+            var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+            test_run_win.location.href = 'http://' + http_host + "/run_test.html?id=" + id;
 
 
-                }
-                else {
-
-                    showMsg("打开运行窗口失败");
-                    return;
-                }
-
-                showMsg("测试脚本注入");
-
-                UT._msgReady(test_run_win,
-                        function () {
-                            test_run_win.close();
-
-                            showMsg("脚本注入成功");
-                            socket.emit('console:register', {
-                                'userAgent':window.navigator.userAgent
-                            });
-                            socket.on('disconnect', function () {
-                                isConnected = false;
-                                if (run_timer) {
-                                    window.clearTimeout(run_timer);
-                                    run_timer = null;
-                                }
-                                showMsg("失去链接" + new Date().getTime());
+            if (test_run_win) {
+                showMsg("打开运行窗口成功");
 
 
-                            });
+            }
+            else {
 
-                            socket.on('console:update', function (data) {
+                showMsg("打开运行窗口失败");
+                return;
+            }
 
-                                jQuery("#browser_info").html("当前浏览器信息: " + JSON.stringify(data));
+            showMsg("测试脚本注入");
 
-                            });
+            UT._msgReady(test_run_win,
+                    function () {
+                        test_run_win.close();
 
-
-                            socket.on('console:task_start', function (data) {
-
-
-                                if (data && data.url) {
-                                    //创建一个独立的环境
-                                    if (isRunning)return;
-                                    isRunning = true;
-                                    var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-                                    showMsg("任务开始 " + "id:" + data.id + " url:" + data.url);
-
-
-
-                                    callback[id] = function (report) {
-
-                                        if (run_timer) {
-                                            window.clearTimeout(run_timer);
-                                            run_timer = null;
-                                        }
-
-                                        socket.emit('console:task_finish', {id:data.id, report:report});
-                                        isRunning = false;
-                                        add();
-                                        showMsg(data.id + "任务完成");
+                        showMsg("脚本注入成功");
+                        socket.emit('console:register', {
+                            'userAgent':window.navigator.userAgent
+                        });
+                        socket.on('disconnect', function () {
+                            isConnected = false;
+                            if (run_timer) {
+                                window.clearTimeout(run_timer);
+                                run_timer = null;
+                            }
+                            showMsg("失去链接" + new Date().getTime());
 
 
+                        });
+
+                        socket.on('console:update', function (data) {
+
+                            jQuery("#browser_info").html("当前浏览器信息: " + JSON.stringify(data));
+
+                        });
+
+
+                        socket.on('console:task_start', function (data) {
+
+
+                            if (data && data.url) {
+                                //创建一个独立的环境
+                                if (isRunning)return;
+                                isRunning = true;
+                                var id = 'jasmine_run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
+                                showMsg("任务开始 " + "id:" + data.id + " url:" + data.url);
+
+
+                                callback[id] = function (report) {
+
+                                    if (run_timer) {
+                                        window.clearTimeout(run_timer);
+                                        run_timer = null;
                                     }
 
-
-                                    run_timer = setTimeout(function () {
-                                        // 三分钟没有完成，
-
-                                        if (!callback[data.id]) return;
-
-                                        delete callback[data.id];
-
-
-                                        var defaultResult = UT.defaultResult;
-                                        defaultResult.reports.errors.push({
-                                            message:"运行超时"
-                                        })
-
-                                        socket.emit('console:task_finish', {id:data.id, report:defaultResult});
-                                        isRunning = false;
-                                        add();
-                                        showMsg(data.id + "任务完成");
-
-
-                                    }, 1000 * 60 * 10);
-
-                                    $("iframe").remove();
-
-                                    var src = 'http://' + http_host + '/run_v2.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
-                                    var iframe = $('<iframe src="' + src + '"></iframe>');
-                                    $("body").append(iframe);
+                                    socket.emit('console:task_finish', {id:data.id, report:report});
+                                    isRunning = false;
+                                    add();
+                                    showMsg(data.id + "任务完成");
 
 
                                 }
 
 
-                            });
+                                run_timer = setTimeout(function () {
+                                    // 三分钟没有完成，
 
-                            init = true;
-                            showMsg("启动完成，等待任务中...");
+                                    if (!callback[data.id]) return;
 
-
-                        },
-                        function () {
-                            showMsg("脚本注入失败");
-
-                        }
-                );
+                                    delete callback[data.id];
 
 
-            });
+                                    var defaultResult = UT.defaultResult;
+                                    defaultResult.reports.errors.push({
+                                        message:"运行超时"
+                                    })
 
-            //等结果
-            UT.postmsg.bind(function (data) {
-                if (data.code == "111" && data.id && callback[data.id]) {
-                    callback[data.id](data.report);
-                    delete callback[data.id];
-                }
-
-
-            })
+                                    socket.emit('console:task_finish', {id:data.id, report:defaultResult});
+                                    isRunning = false;
+                                    add();
+                                    showMsg(data.id + "任务完成");
 
 
-            $("#start").bind("click", function () {
-                window.location.reload();
-            });
-            jQuery(window).bind("beforeunload", function (e) {
+                                }, 1000 * 60 * 10);
 
-              return "确定要关闭吗？"
+                                $("iframe").remove();
 
-
-            })
+                                var src = 'http://' + http_host + '/run_v2.html?url=' + encodeURIComponent(jQuery.trim(data.url)) + "&id=" + id;
+                                var iframe = $('<iframe src="' + src + '"></iframe>');
+                                $("body").append(iframe);
 
 
-        } catch (e) {
-            // if (run_win && run_win.close)run_win.close();
+                            }
+
+
+                        });
+
+                        init = true;
+                        showMsg("启动完成，等待任务中...");
+
+
+                    },
+                    function () {
+                        showMsg("脚本注入失败");
+
+                    }
+            );
+
+
+        });
+
+        //等结果
+        UT.postmsg.bind(function (data) {
+            if (data.code == "111" && data.id && callback[data.id]) {
+                callback[data.id](data.report);
+                delete callback[data.id];
+            }
+
+
+        })
+
+
+        $("#start").bind("click", function () {
             window.location.reload();
-        }
-    })();
+        });
+        jQuery(window).bind("beforeunload", function (e) {
+
+            return "确定要关闭吗？"
+
+
+        })
+
+
+    } catch (e) {
+        // if (run_win && run_win.close)run_win.close();
+        window.location.reload();
+    }
+})();
 </script>
 
 </body>
