@@ -98,7 +98,7 @@ io.sockets.on('connection', function (socket) {
     socket.on("start", function (data) {
         if (data.url) {
             var id = 'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            var task = {id:id, url:url, socket:socket};
+            var task = {id:id, url:data.url, socket:socket};
             TaskManager.addRemoteTask(task);
         }
     })
