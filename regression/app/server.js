@@ -95,11 +95,11 @@ io.set('transports', [
 ]);
 io.sockets.on('connection', function (socket) {
 
-    socket.on("run", function (data) {
+    socket.on("start", function (data) {
         if (data.url) {
             var id = 'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
             var task = {id:id, url:url, socket:socket};
-            TaskManager.addTask(task);
+            TaskManager.addRemoteTask(task);
         }
     })
 

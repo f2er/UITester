@@ -82,7 +82,7 @@
 
             jQuery.getScript(url, function () {
 
-                var socket = io.connect('http://' + http_host + ":3030");
+                var socket = io.connect('http://' + http_host + ":3031");
 
                 if (!window.console) {
                     window.console = {
@@ -99,10 +99,9 @@
                 jQuery("#run_test").on("click", function () {
                     if (isConnected) {
                         var src = jQuery("#test_src").val();
-
-                        jQuery("#myModal .modal-body").html("正在测试....");
+                        jQuery("#myModal .modal-body").append($('<p>开始测试....</p>'));
                         $('#myModal').modal('show');
-                        socket.emit("remote:task_start", {"task_inject_uri":src})
+                        socket.emit("start", {"url":src})
                     }
                     else {
                         alert("未能成功连接")
@@ -116,12 +115,26 @@
                     isConnected = true;
                     var jsonReporter = new jasmine.JsonReporter();
                     $('#myModal').modal({show:false})
-                    socket.on("remote:task_finish", function (data) {
+                    socket.on("start_in_browser", function (data) {
 
-                        $('#myModal').modal('show');
-                        renderResult("#m-result-report", data.task_result)
 
-                        console.log("remote:task_finish", data)
+                        jQuery("#myModal .modal-body").append($('<p>'+data.type+'开始运行</p>'));
+
+
+                    })
+                    socket.on("complete_in_browser", function (data) {
+
+
+                        jQuery("#myModal .modal-body").append($('<p>'+data.type+'运行完成</p>'));
+
+
+                    })
+                    socket.on("complete", function (data) {
+
+                        
+                        renderResult("#m-result-report", data.reports)
+
+
                     })
 
 
