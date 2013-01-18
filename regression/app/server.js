@@ -84,7 +84,7 @@ TaskManager.init(ClientManager);
 
 //建立浏览器链接服务
 
-var io = socket.listen(3031);
+var io = socket.listen(3031,{ 'log level':2 });
 
 io.set('transports', [
     'websocket'
@@ -98,7 +98,7 @@ io.sockets.on('connection', function (socket) {
     socket.on("start", function (data) {
         if (data.url) {
             var id = 'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            var task = {id:id, url:data.url, socket:socket};
+            var task = {id:id, task_inject_uri:data.url, socket:socket};
             TaskManager.addRemoteTask(task);
         }
     })
