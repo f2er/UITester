@@ -71,9 +71,7 @@
 
 
         socket = io.connect('http://' + http_host, {
-            "max reconnection attempts":10000,
-            "connect timeout":1000 * 60 * 10
-
+            "max reconnection attempts":10000
         });
         showMsg("正在建议链接");
 
