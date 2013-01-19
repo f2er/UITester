@@ -19,7 +19,7 @@
 <div id="runlocal">
 
     <div id="input_test" >
-      <div><span>请输入测试代码或地址</span><span style="color: #ccc">（需要先安装浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>，<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>,并设置浏览器允许新开窗口）</span></div>
+      <div><span>请输入测试代码或地址</span><span style="color: #ccc">（需要先安装浏览器插件<a href="http://assets.daily.taobao.net/p/uitest/plugin/chrome/src.rar">chrome</a>，<a href="http://assets.daily.taobao.net/p/uitest/plugin/ie/setup/setup.rar">ie</a>,  <a href="http://assets.daily.taobao.net/p/uitest/plugin/safari/uitest.safariextz">safari</a>。并设置浏览器允许新开窗口）</span></div>
       <div class="text"> <textarea id="test_text"  spellcheck="false">
           //example
           //测试本地调试导航菜单选中

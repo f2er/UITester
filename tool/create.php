@@ -51,7 +51,7 @@
                 每天回归的时间点: <input class="duration" type="text" name="start" value="" size="5" style="width:40px" placeholder="HH:mm">
 
                 回归频率: <select class="duration" name="duration">
-                <option value="30">0.5</option>
+                <!--<option value="30">0.5</option>-->
                 <option value="60">1</option>
                 <option value="120">2</option>
                 <option value="240">4</option>

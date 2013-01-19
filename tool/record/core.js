@@ -838,7 +838,7 @@
                                 var se = toSP(addedNodes[i]);
                                 if (!se)continue;
 
-                                var expect = 'expect("' + selector + '").toHaveChildren("' + se + ','+ $(mutation.target).children(se)+'");\r\n';
+                                var expect = 'expect("' + selector + '").toHaveChildren("' + se + ','+ $(mutation.target).children(se).length+'");\r\n';
                                 records.push({
                                     desc:"<span>"+selector + "</span>子元素变化",
                                     expect:expect
@@ -850,7 +850,7 @@
                             var se = toSP(removedNodes[i]);
                             if (!se)continue;
                             if (se) {
-                                var expect = 'expect("' + selector + '").toHaveChildren("' + se + ','+ $(mutation.target).children(se)+'");\r\n';
+                                var expect = 'expect("' + selector + '").toHaveChildren("' + se + ','+ $(mutation.target).children(se).length+'");\r\n';
                                 records.push({
                                     desc:"<span>"+selector + "</span>子元素变化",
                                     expect:expect
