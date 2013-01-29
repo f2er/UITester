@@ -23,96 +23,93 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="server-uitest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/server-uitest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="167" column="0" selection-start="5569" selection-end="5569" vertical-scroll-proportion="-64.52">
+              <folding>
+                <element signature="e#1760#3025#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="client-mgr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user-agent.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/user-agent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="5" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.3988006">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="414" selection-end="2413" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testacular.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../testa/testacular/static/testacular.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="111" column="5" selection-start="3265" selection-end="3265" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="launcher.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/launcher.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="4" selection-start="1152" selection-end="1152" vertical-scroll-proportion="-14.36">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Base.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/launchers/Base.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="108" column="13" selection-start="2354" selection-end="2354" vertical-scroll-proportion="-70.68">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="task-mgr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="0" selection-start="1887" selection-end="1887" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uitest.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../testa/testacular/static/uitest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="216" column="28" selection-start="7057" selection-end="7057" vertical-scroll-proportion="-0.5849057">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="console_v2.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/regression/app/console_v2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="6" selection-start="560" selection-end="631" vertical-scroll-proportion="-1.1785715">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="77" selection-start="1715" selection-end="1715" vertical-scroll-proportion="-0.6785714">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tool/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="54" selection-start="2427" selection-end="2427" vertical-scroll-proportion="0.57575756">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tool/record/core.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="826" column="0" selection-start="23950" selection-end="23950" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1358579357676" expanded="false" signature="10224:10262" placeholder="..." />
-                <marker date="1358579357676" expanded="false" signature="10563:10576" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="goto.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/goto.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="8" selection-start="241" selection-end="241" vertical-scroll-proportion="-2.7142856">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jasmine.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3179" column="44" selection-start="99646" selection-end="99646" vertical-scroll-proportion="-89.96">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/test2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="-5.428571">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test1.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/test1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="224" selection-end="280" vertical-scroll-proportion="-6.107143">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="matcher.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="184" column="22" selection-start="5871" selection-end="5885" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1358324063805" expanded="false" signature="4361:4375" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addscript.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/safari/uitest.safariextension/addscript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="42" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
+            <state line="5" column="2" selection-start="105" selection-end="254" vertical-scroll-proportion="-1.3571428">
               <folding />
             </state>
           </provider>
@@ -131,22 +128,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="D:/fed/2013/uitest/longjun/share-v2-test.js" />
-        <option value="$PROJECT_DIR$/regression/node_modules/socket.io/node_modules/socket.io-client/lib/transports/xhr.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/lib/init-uitest.js" />
+        <option value="$PROJECT_DIR$/../testacular/lib/config.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/lib/config.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/lib/browser.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/adapter/uitest.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/static/testacular.js" />
         <option value="$PROJECT_DIR$/regression/app/node_modules/client-mgr.js" />
-        <option value="$PROJECT_DIR$/regression/app/node_modules/task-mgr.js" />
-        <option value="$PROJECT_DIR$/tool/console-test.php" />
-        <option value="$PROJECT_DIR$/regression/app/server.js" />
-        <option value="$PROJECT_DIR$/../p/uitest/plugin/safari/uitest.safariextension/addscript.js" />
-        <option value="$PROJECT_DIR$/regression/app/console_v2.html" />
-        <option value="$PROJECT_DIR$/tool/local-test.php" />
-        <option value="$PROJECT_DIR$/tool/record/core.js" />
-        <option value="$PROJECT_DIR$/../p/uitest/docs/examples/goto.html" />
-        <option value="$PROJECT_DIR$/../p/uitest/docs/examples/test1.html" />
-        <option value="$PROJECT_DIR$/../p/uitest/docs/examples/test2.html" />
+        <option value="$PROJECT_DIR$/../p/uitest/docs/examples/taobao-login.html" />
         <option value="$PROJECT_DIR$/../p/uitest/src/jasmine.js" />
-        <option value="$PROJECT_DIR$/tool/index.php" />
-        <option value="$PROJECT_DIR$/tool/create.php" />
+        <option value="$PROJECT_DIR$/../p/uitest/src/taobao.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/bin/testacular.conf.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/lib/web-server.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/lib/launchers/Base.js" />
+        <option value="$PROJECT_DIR$/../testa/testacular/static/uitest.html" />
+        <option value="$PROJECT_DIR$/../testa/testacular/lib/server-uitest.js" />
+        <option value="$PROJECT_DIR$/regression/app/node_modules/user-agent.js" />
       </list>
     </option>
   </component>
@@ -154,7 +151,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1456" />
+    <option name="width" value="1452" />
     <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -234,6 +231,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UITester" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="regression" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node_modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -242,8 +261,14 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testa" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\UITester\regression\app\node_modules" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -255,7 +280,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -290,16 +315,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="1" />
+    <frame x="-8" y="-8" width="1452" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.086800575" sideWeight="0.7661064" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.086800575" sideWeight="0.22408964" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30359712" sideWeight="0.63305324" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19352518" sideWeight="0.35714287" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16386247" sideWeight="0.760745" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30359712" sideWeight="0.62885153" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1260745" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -363,123 +388,122 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/regression/node_modules/socket.io/node_modules/socket.io-client/lib/socket.js">
+    <entry file="file://$PROJECT_DIR$/../p/uitest/src/taobao.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="18" selection-start="2949" selection-end="2949" vertical-scroll-proportion="0.0">
+        <state line="419" column="39" selection-start="11871" selection-end="12664" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/console-test.php">
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/file-list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="63" selection-start="3234" selection-end="3234" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/bin/testacular.conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="38" selection-start="2464" selection-end="2464" vertical-scroll-proportion="0.0">
+        <state line="39" column="12" selection-start="615" selection-end="615" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/static/run_v2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="239" selection-end="2162" vertical-scroll-proportion="-7.464286">
+          <folding>
+            <element signature="tag#script#0;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/adapter/uitest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="910" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/launchers/Base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="13" selection-start="2354" selection-end="2354" vertical-scroll-proportion="-70.68">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="38" selection-start="3159" selection-end="3159" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="6" selection-start="2356" selection-end="2366" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/local-test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="332" selection-start="728" selection-end="728" vertical-scroll-proportion="6.107143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/matcher.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="22" selection-start="5871" selection-end="5885" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1358324063805" expanded="false" signature="4361:4375" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tool/record/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="826" column="0" selection-start="23950" selection-end="23950" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1358579357676" expanded="false" signature="10224:10262" placeholder="..." />
-            <marker date="1358579357676" expanded="false" signature="10563:10576" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/plugin/safari/uitest.safariextension/addscript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="42" selection-start="175" selection-end="175" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/goto.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="241" selection-end="241" vertical-scroll-proportion="-2.7142856">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/src/jasmine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3179" column="44" selection-start="99646" selection-end="99646" vertical-scroll-proportion="-89.96">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/test2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="216" selection-end="216" vertical-scroll-proportion="-5.428571">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../p/uitest/docs/examples/test1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="224" selection-end="280" vertical-scroll-proportion="-6.107143">
+        <state line="16" column="0" selection-start="414" selection-end="2413" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/regression/app/console_v2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="6" selection-start="560" selection-end="631" vertical-scroll-proportion="-1.1785715">
+        <state line="5" column="2" selection-start="105" selection-end="254" vertical-scroll-proportion="-1.3571428">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/index.php">
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/static/uitest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="77" selection-start="1715" selection-end="1715" vertical-scroll-proportion="-0.6785714">
+        <state line="216" column="28" selection-start="7057" selection-end="7057" vertical-scroll-proportion="-0.5849057">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tool/create.php">
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/web-server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="54" selection-start="2427" selection-end="2427" vertical-scroll-proportion="0.57575756">
+        <state line="5" column="0" selection-start="154" selection-end="177" vertical-scroll-proportion="-0.9174455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/task-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="1887" selection-end="1887" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/launcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="4" selection-start="1152" selection-end="1152" vertical-scroll-proportion="-14.36">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/static/testacular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="5" selection-start="3265" selection-end="3265" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../testa/testacular/lib/server-uitest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="0" selection-start="5569" selection-end="5569" vertical-scroll-proportion="-64.52">
+          <folding>
+            <element signature="e#1760#3025#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/client-mgr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/regression/app/node_modules/user-agent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="5" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.3988006">
           <folding />
         </state>
       </provider>

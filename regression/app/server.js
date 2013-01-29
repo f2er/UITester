@@ -87,13 +87,6 @@ TaskManager.init(ClientManager);
 
 var io = socket.listen(3031, { 'log level':2 });
 
-io.set('transports', [
-    'websocket'
-    , 'flashsocket'
-    , 'htmlfile'
-    , 'xhr-polling'
-    , 'jsonp-polling'
-]);
 io.sockets.on('connection', function (socket) {
 
     socket.on("start", function (data) {
@@ -109,6 +102,20 @@ io.sockets.on('connection', function (socket) {
     EventManager.on('client:update', function (summary) {
         socket.emit('browser', summary);
     })
+
+})
+
+var io = socket.listen(3030, { 'log level':2 });
+
+io.sockets.on('connection', function (socket) {
+
+setInterval(function(){
+    socket.emit('browser', ClientManager.getSummary());
+},123)
+
+
+
+
 
 })
 
