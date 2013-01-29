@@ -85,39 +85,7 @@ TaskManager.init(ClientManager);
 
 //建立浏览器链接服务
 
-var io = socket.listen(3031, { 'log level':2 });
 
-io.sockets.on('connection', function (socket) {
-
-    socket.on("start", function (data) {
-        if (data.url) {
-            var id = 'run_id_' + (Math.random() * (1 << 30)).toString(16).replace('.', '');
-            var task = {id:id, task_inject_uri:data.url, socket:socket};
-            TaskManager.addRemoteTask(task);
-        }
-    })
-    socket.emit('browser', ClientManager.getSummary());
-
-
-    EventManager.on('client:update', function (summary) {
-        socket.emit('browser', summary);
-    })
-
-})
-
-var io = socket.listen(3030, { 'log level':2 });
-
-io.sockets.on('connection', function (socket) {
-
-setInterval(function(){
-    socket.emit('browser', ClientManager.getSummary());
-},123)
-
-
-
-
-
-})
 
 
 //远程运行服务
