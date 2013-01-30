@@ -1,6 +1,6 @@
 function FindProxyForURL(url,host)
     {
-      if(shExpMatch(url,"https://*"){
+      if(shExpMatch(url,"https://*")){
           return "DIRECT"
       }
       if (shExpMatch(url,"*_ut_*"))
