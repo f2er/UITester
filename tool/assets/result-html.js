@@ -29,14 +29,14 @@ var renderOne = function (result, el) {
 
     for (var i = 0; i < r.urls.length; i++) {
         var url = r.urls[i];
-        console.log(url)
+
         if (!url)return;
         msg += '<div class="suite">' +
             '<p class="suite-url">' + url.url + '</p>';
 
         if (url.errors) {
             for (var j = 0; j < url.errors.length; j++) {
-
+                var e = r.errors[j];
                 msg +=
                     '<span class="suite-title">js错误：' + e.message + '</span>' +
                         '<div class="error-stack">' + e.stack + '</div>';
