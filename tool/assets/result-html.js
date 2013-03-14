@@ -23,9 +23,12 @@ var renderOne = function (result, el) {
         })
         msg += '</div>';
     }
+
     msg += '<div class="detail">';
+
     for (var i = 0; i < r.urls.length; i++) {
         var url = r.urls[i];
+        console.log(url)
         if (!url)return;
         msg += '<div class="suite">' +
             '<span class="suite-title">' + url.url + '</span>';
@@ -38,7 +41,7 @@ var renderOne = function (result, el) {
                         '<div class="error-stack">' + e.stack + '</div>';
             }
         }
-        for (var j = 0; j < url.suites.length; i++) {
+        for (var j = 0; j < url.suites.length; j++) {
 
             var suite = url.suites[j];
 
@@ -59,7 +62,7 @@ var renderOne = function (result, el) {
                         var item = result.items_[p];
                         msg += '<p>';
                         msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected + ' ' + item.passed_ == true ? item.message : "failed";
-                        msg += '<div class="error-stack">${item.trace.stack}</div>'
+                        if(item.trace&&+item.trace.stack)  msg += '<div class="error-stack">'+item.trace.stack+'</div>'
                         msg += '</p>';
                     }
                 }
@@ -85,7 +88,6 @@ var renderOne = function (result, el) {
 var renderResult = function (result, el) {
 
 
-
     var msg = "";
     for (var b in result) {
         var r = result[b];
@@ -99,4 +101,3 @@ var renderResult = function (result, el) {
 
 
 }
-
