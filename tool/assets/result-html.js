@@ -6,7 +6,7 @@ var renderOne = function (result, el) {
     if (r.failedSpecs != 0 || (r.errors && r.errors.length)) {
         passed = "failed";
     }
-    msg += '<div class="title ' + passed + '"><span>用例总数:' + r.totalSpecs + ' | 失败用例总数:' + r.failedSpecs + ' | 错误数：' + (r.errors && r.errors.length) + '</span></div>';
+    msg += '<div class="title ' + passed + '-alert"><span>用例总数:' + r.totalSpecs + ' | 失败用例总数:' + r.failedSpecs + ' | 错误数：' + (r.errors && r.errors.length) + '</span></div>';
 
 
     if (r.errors && r.errors.length) {
@@ -31,7 +31,7 @@ var renderOne = function (result, el) {
         console.log(url)
         if (!url)return;
         msg += '<div class="suite">' +
-            '<span class="suite-title">' + url.url + '</span>';
+            '<p class="suite-url">' + url.url + '</p>';
 
         if (url.errors) {
             for (var j = 0; j < url.errors.length; j++) {
@@ -61,7 +61,8 @@ var renderOne = function (result, el) {
                     for (var p = 0; p < result.items_.length; p++) {
                         var item = result.items_[p];
                         msg += '<p>';
-                        msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected + ' ' + item.passed_ == true ? item.message : "failed";
+                        msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected ;
+                        msg+=item.passed_ == true ? item.message : "failed";
                         if(item.trace&&+item.trace.stack)  msg += '<div class="error-stack">'+item.trace.stack+'</div>'
                         msg += '</p>';
                     }
