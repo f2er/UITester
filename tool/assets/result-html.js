@@ -53,7 +53,7 @@ var renderOne = function (result, el) {
                 msg += '<a class="spec-title" href="#">' + spec.description + '</a>' +
                     '<div class="detail">';
                 for (var m = 0; m < spec.results_.length; m++)
-                    spec.results_.forEach(function (result) {
+                    
                         var result = spec.results_[m];
                         for (var p = 0; p < result.items_.length; p++) {
                             var item = result.items_[p];
