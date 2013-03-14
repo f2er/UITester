@@ -67,7 +67,7 @@ var renderOne = function (result, el) {
                         var item = result.items_[p];
                         msg += '<p>';
                         msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected;
-                        msg += "  <em>" + (item.passed_ == true ? item.message : "failed") + "</em>";
+                        msg += "  <em>" + (item.passed_ ? item.message : "failed") + "</em>";
                         if (item.trace && +item.trace.stack)  msg += '<div class="error-stack">' + item.trace.stack + '</div>'
                         msg += '</p>';
                     }

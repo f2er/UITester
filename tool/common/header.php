@@ -27,7 +27,7 @@ $userName = $user['DisplayName'];
 <![endif]-->
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<div>系统升级中，回归测试暂时停止。</div>
+
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
 	<div class="container">
