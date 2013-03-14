@@ -128,7 +128,7 @@ if ($task_id !== '') {
             var navHtml = '<ul class="nav nav-tabs" >'
             var bodyHtml = '<div class="tab-content result-report">'
             for (var p in result) {
-                if (result[p].reports.failedSpecs !== 0 || result[p].reports.errors.length !== 0) {
+                if (result[p].failedSpecs !== 0 || result[p].errors.length !== 0) {
                     var passed = "未通过"
                 }
                 else {
