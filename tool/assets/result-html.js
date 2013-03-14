@@ -52,17 +52,17 @@ var renderOne = function (result, el) {
                 msg += '<div class="spec ' + passed + '">';
                 msg += '<a class="spec-title" href="#">' + spec.description + '</a>' +
                     '<div class="detail">';
-                for (var m = 0; m < spec.results_.length; m++)
-                    
-                        var result = spec.results_[m];
-                        for (var p = 0; p < result.items_.length; p++) {
-                            var item = result.items_[p];
-                            msg += '<p>';
-                            msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected + ' ' + item.passed_ == true ? item.message : "failed";
-                            msg += '<div class="error-stack">${item.trace.stack}</div>'
-                            msg += '</p>';
-                        }
-                    })
+                for (var m = 0; m < spec.results_.length; m++) {
+
+                    var result = spec.results_[m];
+                    for (var p = 0; p < result.items_.length; p++) {
+                        var item = result.items_[p];
+                        msg += '<p>';
+                        msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected + ' ' + item.passed_ == true ? item.message : "failed";
+                        msg += '<div class="error-stack">${item.trace.stack}</div>'
+                        msg += '</p>';
+                    }
+                }
                 msg += "</div>"
                 msg += "</div>"
 
