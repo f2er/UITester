@@ -4,7 +4,7 @@ var renderOne = function (result, el) {
     msg += '<div class="browser">' + r.browser + '</div>';
     var passed = "passed";
     if (r.failedSpecs != 0 || (r.errors && r.errors.length)) {
-        passed = "failed";
+        passed = "fail";
     }
     msg += '<div class="title ' + passed + '-alert"><span>用例总数:' + r.totalSpecs + ' | 失败用例总数:' + r.failedSpecs + ' | 错误数：' + (r.errors && r.errors.length) + '</span></div>';
 
@@ -24,7 +24,7 @@ var renderOne = function (result, el) {
         msg += '</div>';
     }
 
-    msg += '<div class="detail">';
+
 
     for (var i = 0; i < r.urls.length; i++) {
         var url = r.urls[i];
@@ -73,7 +73,7 @@ var renderOne = function (result, el) {
             }
         }
 
-        msg += '</div>'
+
         msg += '</div>'
         msg += '</div>'
         msg += '</div>'

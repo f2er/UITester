@@ -15,9 +15,10 @@ $userName = $user['DisplayName'];
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="assets/header.css">
 <link rel="stylesheet" href="assets/common.css" />
+    <link rel="stylesheet" href="assets/render.css" />
 
 
-<link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
+
     <script  src="assets/result-html.js"></script>
 <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
