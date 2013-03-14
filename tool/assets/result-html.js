@@ -38,7 +38,7 @@ var renderOne = function(result ,el){
                         '<div class="error-stack">' + e.stack + '</div>';
             }
         }
-        for (var j = 0; j < urls.suites.length; i++) {
+        for (var j = 0; j < url.suites.length; i++) {
 
             var suite = url.suites.length;
 
