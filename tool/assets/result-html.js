@@ -27,22 +27,27 @@ var renderResult = function (result, el) {
             msg += '</div>';
         }
         msg += '<div class="detail">';
-        r.urls.forEach(function (url) {
+        for (var i = 0; i < r.urls.length; i++) {
+            var url = r.urls[i];
             if (!url)return;
             msg += '<div class="suite">' +
                 '<span class="suite-title">' + url.url + '</span>';
 
             if (url.errors) {
-                url.errors.forEach(function (e) {
+                for (var j = 0; j < url.errors.length; j++) {
+
                     msg +=
                         '<span class="suite-title">js错误：' + e.message + '</span>' +
                             '<div class="error-stack">' + e.stack + '</div>';
-                })
+                }
             }
-            url.suites.forEach(function (suite) {
-                msg += '<span class="suite-title">' + suite.description + '</span>';
+            for (var j = 0; j < urls.suites.length; i++) {
 
-                suite.specs.forEach(function (spec) {
+                var suite = url.suites.length;
+
+                msg += '<span class="suite-title">' + suite.description + '</span>';
+                for (var n = 0; n < suite.specs.length; n++) {
+                    var spec = suite.specs[n];
                     var passed = "passed";
                     if (spec.failed == true) {
                         passed = "failed";
@@ -65,13 +70,15 @@ var renderResult = function (result, el) {
                     msg += "</div>"
                     msg += "</div>"
 
-                })
-            })
+                }
+            }
+
             msg += '</div>'
             msg += '</div>'
             msg += '</div>'
 
-        })
+        }
+
 
     }
     if (el) el.innerHTML = msg;
