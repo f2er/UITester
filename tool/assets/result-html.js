@@ -32,7 +32,7 @@ var renderOne = function (result, el) {
         if (!url)return;
         msg += '<div class="suite">' +
             '<p class="suite-url">' + url.url + '</p>';
-        msg += '<div class="detail">';
+
         if (url.errors) {
             for (var j = 0; j < url.errors.length; j++) {
 
@@ -74,7 +74,7 @@ var renderOne = function (result, el) {
         }
 
 
-        msg += '</div>'
+
         msg += '</div>'
         msg += '</div>'
 

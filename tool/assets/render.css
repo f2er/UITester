@@ -117,6 +117,9 @@ color: #b03911;
 .result-report .suite-title{
     margin-left: 10px;
 }
+.result-report .suite{
+    margin:20px  10px 0 0px;
+}
 .result-report .detail {
 padding: 10px;
 }

@@ -64,19 +64,19 @@
         <p>
 
         <div  style="margin-top: 70px">
-        <a href="http://taobao-sns-fed.github.com/UITester/" target="_blank" class="btn btn-primary btn-large" >学习使用</a>
+        <a href="http://uitest.github.com/" target="_blank" class="btn btn-primary btn-large" >学习使用</a>
 
         </div>
         </p>
         <ul class="masthead-links">
             <li>
-                <a href="http://taobao-sns-fed.github.com/UITester/">Examples</a>
+                <a href="http://uitest.github.com/">Examples</a>
             </li>
             <li>
-                <a href="https://github.com/taobao-sns-fed/UITester/">GitHub</a>
+                <a href="https://github.com/uitest">GitHub</a>
             </li>
             <li>
-                <a href="http://taobao-sns-fed.github.com/UITester/">wiki</a>
+                <a href="hhttps://github.com/uitest/uitest/wiki/API%E6%96%87%E6%A1%A3">wiki</a>
             </li>
 
             <li>
