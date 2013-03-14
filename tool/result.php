@@ -121,7 +121,7 @@ if ($task_id !== '') {
     <script>
 
         var random = 1;
-        var renderResult = function (el, result) {
+        var render= function (el, result) {
             random++;
             var c = $(el);
             var jsonReporter = new jasmine.JsonReporter();
@@ -155,7 +155,7 @@ if ($task_id !== '') {
                     i = 0;
                 }
 
-                jsonReporter.renderHTML(value, jQuery("#" + name));
+                renderResult(value, jQuery("#" + name)[0]);
             });
 
 
@@ -170,7 +170,7 @@ if ($task_id !== '') {
 
         jQuery(document).ready(function () {
             var result = <?php echo $result ?>;
-            renderResult("#result-report", result);
+            render("#result-report", result);
         });
     </script>
 

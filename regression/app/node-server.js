@@ -7,8 +7,7 @@
  *      2. socket.IO (npm install socket.io)
  */
 //回归服务
-var ClientManager = require('client-mgr'),
-NodeClientManager = require('node-client-mgr'),
+var ClientManager = require('node-client-mgr'),
     TaskManager = require('task-mgr'),
     EventManager = require('event-mgr'),
     fs = require("fs");
@@ -81,7 +80,7 @@ function handler(req, res) {
 
 
 ClientManager.init(handler);
-NodeClientManager.init(handler)
+
 TaskManager.init(ClientManager);
 
 //建立浏览器链接服务
