@@ -155,7 +155,7 @@ if ($task_id !== '') {
                     i = 0;
                 }
 
-                renderResult(value, jQuery("#" + name)[0]);
+                renderOne(value, jQuery("#" + name)[0]);
             });
 
 
