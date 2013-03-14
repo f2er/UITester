@@ -83,7 +83,7 @@ var renderOne = function (result, el) {
 }
 
 var renderResult = function (result, el) {
-    var rend
+
 
 
     var msg = "";

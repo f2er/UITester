@@ -18,7 +18,7 @@ $userName = $user['DisplayName'];
 
 
 <link href="http://assets.daily.taobao.net/p/uitest/build/uitest.css" rel="stylesheet">
-    <script charset="utf-8" src="assets/result-html.js"></script>
+    <script  src="assets/result-html.js"></script>
 <script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
