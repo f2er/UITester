@@ -36,7 +36,7 @@ var renderOne = function (result, el) {
 
         if (url.errors) {
             for (var j = 0; j < url.errors.length; j++) {
-                var e = r.errors[j];
+                var e = url.errors[j];
                 msg +=
                     '<span class="suite-title">js错误：' + e.message + '</span>' +
                         '<div class="error-stack">' + e.stack + '</div>';
