@@ -16,9 +16,11 @@ var renderOne = function (result, el) {
             var e = r.errors[i];
 
             msg += '<div class="suite">' +
-                '<span class="suite-title">js错误：' + e.message + '</span>' +
-                '<div class="error-stack">' + e.stack + '</div>' +
-                '</div>';
+                '<span class="suite-title">js错误：' + e.message + '</span>';
+
+
+            if (e.stack)msg += '<div class="error-stack">' + e.stack + '</div>';
+            msg += '</div>';
 
 
         }
@@ -38,8 +40,10 @@ var renderOne = function (result, el) {
             for (var j = 0; j < url.errors.length; j++) {
                 var e = url.errors[j];
                 msg +=
-                    '<span class="suite-title">js错误：' + e.message + '</span>' +
-                        '<div class="error-stack">' + e.stack + '</div>';
+                    '<span class="suite-title">js错误：' + e.message + '</span>'
+                if (e.stack)
+                    msg += '<div class="error-stack">' + e.stack + '</div>';
+
             }
         }
         for (var j = 0; j < url.suites.length; j++) {
