@@ -12,18 +12,19 @@ var renderOne = function (result, el) {
     if (r.errors && r.errors.length) {
         msg += '<div class="detail jserrors">';
 
+        for (var i = 0; i < r.errors.length; i++) {
+            var e = r.errors[i];
 
-        r.errors.forEach(function (e) {
             msg += '<div class="suite">' +
                 '<span class="suite-title">js错误：' + e.message + '</span>' +
                 '<div class="error-stack">' + e.stack + '</div>' +
                 '</div>';
 
 
-        })
+        }
+
         msg += '</div>';
     }
-
 
 
     for (var i = 0; i < r.urls.length; i++) {
@@ -61,9 +62,9 @@ var renderOne = function (result, el) {
                     for (var p = 0; p < result.items_.length; p++) {
                         var item = result.items_[p];
                         msg += '<p>';
-                        msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected ;
-                        msg +="  <em>"+item.passed_ == true ? item.message : "failed"+"</em>";
-                        if(item.trace&&+item.trace.stack)  msg += '<div class="error-stack">'+item.trace.stack+'</div>'
+                        msg += 'expect ' + item.actual + ' ' + item.matcherName + ' ' + item.expected;
+                        msg += "  <em>" + item.passed_ == true ? item.message : "failed" + "</em>";
+                        if (item.trace && +item.trace.stack)  msg += '<div class="error-stack">' + item.trace.stack + '</div>'
                         msg += '</p>';
                     }
                 }
@@ -72,7 +73,6 @@ var renderOne = function (result, el) {
 
             }
         }
-
 
 
         msg += '</div>'
