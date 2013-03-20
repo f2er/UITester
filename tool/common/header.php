@@ -20,7 +20,7 @@ $userName = $user['DisplayName'];
 
 
     <script  src="assets/result-html.js"></script>
-<script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest-back.js"></script>
+<script charset="utf-8" src="http://assets.daily.taobao.net/p/uitest/build/uitest.js"></script>
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
