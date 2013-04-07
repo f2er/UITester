@@ -76,7 +76,7 @@
                 <a href="https://github.com/uitest">GitHub</a>
             </li>
             <li>
-                <a href="hhttps://github.com/uitest/uitest/wiki/API%E6%96%87%E6%A1%A3">wiki</a>
+                <a href="https://github.com/uitest/uitest/wiki/API%E6%96%87%E6%A1%A3">wiki</a>
             </li>
 
             <li>
